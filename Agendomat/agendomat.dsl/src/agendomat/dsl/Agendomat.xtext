@@ -1,0 +1,73 @@
+grammar agendomat.dsl.Agendomat with org.eclipse.xtext.common.Terminals
+
+generate agendomat "http://www.agendomat/1.0"
+
+import "http://agendomat/1.0" as agendomat
+
+Model:
+	events+=Event*
+;
+
+Event:
+	'Event' name=STRING 'from' startDate=DATE 'to' endDate=DATE '{'
+		('Description' description=STRING)?
+		persons+=Person*
+		programItems+=ProgramItem*
+		locations+=Location*
+	'}'
+;
+
+Person:
+	'Person' name=STRING 'roles' '['
+		roles+=(RoleType)
+	']'
+;
+
+RoleType:
+	'Presenter' | 'TechSupport' | 'Animator'
+;
+
+ProgramItem:
+	Session | Break
+;
+
+Session:
+	'Session' name=STRING '{'
+		'Time' startTime=TIME '-' endTime=TIME
+		'Location' location=STRING
+		('Presenter' presenters+=STRING+)?
+		('TechSupport' techSupport+=STRING+)?
+		('Needs' needs+=STRING (',' needs+=STRING)*)?
+		talks+=Talk*
+	'}'
+;
+
+Break:
+	'Break' name=STRING '{'
+		'Time' startTime=TIME '-' endTime=TIME
+		'Location' location=STRING
+		('Animator' animators+=STRING+)?
+	'}'
+;
+
+Talk:
+	'Talk' name=STRING '{'
+		'Time' startTime=TIME '-' endTime=TIME
+		('Presenter' presenters+=STRING+)?
+	'}'
+;
+
+Location:
+	'Location' name=STRING 'type' type=LocationType
+;
+
+LocationType:
+	'Room' | 'BreakArea'
+;
+
+Equipment:
+	'Equipment' name=STRING 'type' type=STRING
+;
+
+terminal DATE: ('0'..'9')('0'..'9')('0'..'9')('0'..'9')'-'('0'..'9')('0'..'9')'-'('0'..'9')('0'..'9');
+terminal TIME: ('0'..'9')('0'..'9')':'('0'..'9')('0'..'9');
