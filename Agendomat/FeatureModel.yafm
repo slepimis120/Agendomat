@@ -3,25 +3,55 @@
   <rootFeature id="featuremodel" name="FeatureModel" lower="1" upper="1">
     <feature id="f_event" name="Event" lower="1" upper="1">
       <feature id="f_eventname" name="EventName" lower="1" upper="1"/>
-      <feature id="f_eventdate" name="EventDate" lower="1" upper="1"/>
-      <feature id="f_description" name="Description" lower="0" upper="1"/>
-      <feature id="f_session" name="Session" lower="1" upper="-1">
-        <feature id="f_sessionname" name="SessionName" lower="1" upper="1"/>
-        <feature id="f_time" name="Time" lower="1" upper="1">
-          <feature id="f_starttime" name="StartTime" lower="1" upper="1"/>
-          <feature id="f_endtime" name="EndTime" lower="1" upper="1"/>
+      <feature id="f_eventstartdate" name="EventStartDate" lower="1" upper="1"/>
+      <feature id="f_eventenddate" name="EventEndDate" lower="1" upper="1"/>
+      <feature id="f_desc" name="Desc" lower="0" upper="1"/>
+      <feature id="f_programitem" name="ProgramItem" lower="1" upper="-1">
+        <feature id="f_session" name="Session" lower="0" upper="-1">
+          <feature id="f_sessionname" name="SessionName" lower="1" upper="1"/>
+          <feature id="f_time" name="Time" lower="1" upper="1">
+            <feature id="f_starttime" name="StartTime" lower="1" upper="1"/>
+            <feature id="f_endtime" name="EndTime" lower="1" upper="1"/>
+          </feature>
+          <feature id="f_location" name="Location" lower="1" upper="1"/>
+          <feature id="f_talk" name="Talk" lower="1" upper="-1">
+            <feature id="f_talkname" name="TalkName" lower="1" upper="1"/>
+            <feature id="f_talktime" name="TalkTime" lower="1" upper="1">
+              <feature id="f_talkstarttime" name="TalkStartTime" lower="1" upper="1"/>
+              <feature id="f_talkendtime" name="TalkEndTime" lower="1" upper="1"/>
+            </feature>
+            <feature id="f_presenter" name="Presenter" lower="1" upper="-1"/>
+          </feature>
+          <feature id="f_techsupport" name="TechSupport" lower="0" upper="-1"/>
+          <feature id="f_equipment" name="Equipment" lower="0" upper="-1">
+            <feature id="f_equipmentname" name="EquipmentName" lower="1" upper="1"/>
+            <feature id="f_equipmenttype" name="EquipmentType" lower="0" upper="1"/>
+          </feature>
         </feature>
-        <feature id="f_location" name="Location" lower="1" upper="1"/>
-        <feature id="f_presenter" name="Presenter" lower="1" upper="-1"/>
-        <feature id="f_techsupport" name="TechSupport" lower="0" upper="-1"/>
-        <feature id="f_equipment" name="Equipment" lower="0" upper="-1">
-          <feature id="f_equipmentname" name="EquipmentName" lower="1" upper="1"/>
-          <feature id="f_equipmenttype" name="EquipmentType" lower="0" upper="1"/>
+        <feature id="f_break" name="Break" lower="0" upper="-1">
+          <feature id="f_breakname" name="BreakName" lower="1" upper="1"/>
+          <feature id="f_breaktime" name="Time" lower="1" upper="1">
+            <feature id="f_breakstarttime" name="StartTime" lower="1" upper="1"/>
+            <feature id="f_breakendtime" name="EndTime" lower="1" upper="1"/>
+          </feature>
+          <feature id="f_breaklocation" name="Location" lower="1" upper="1"/>
+          <feature id="f_animator" name="Animator" lower="0" upper="-1"/>
         </feature>
       </feature>
       <feature id="f_person" name="Person" lower="0" upper="-1">
         <feature id="f_personname" name="PersonName" lower="1" upper="1"/>
-        <feature id="f_role" name="Role" lower="1" upper="1"/>
+        <feature id="f_roles" name="Roles" lower="1" upper="-1">
+          <feature id="f_role_presenter" name="Presenter" lower="0" upper="1"/>
+          <feature id="f_role_techsupport" name="TechSupport" lower="0" upper="1"/>
+          <feature id="f_role_animator" name="Animator" lower="0" upper="1"/>
+        </feature>
+      </feature>
+      <feature id="f_locationdef" name="LocationDefinition" lower="0" upper="-1">
+        <feature id="f_locationname" name="LocationName" lower="1" upper="1"/>
+        <feature id="f_locationtype" name="LocationType" lower="1" upper="1">
+          <feature id="f_locationtype_room" name="Room" lower="0" upper="1"/>
+          <feature id="f_locationtype_breakarea" name="BreakArea" lower="0" upper="1"/>
+        </feature>
       </feature>
     </feature>
   </rootFeature>
