@@ -59,5 +59,8 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute agendomat.ecore#//Equipment/equipmentName"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute agendomat.ecore#//Equipment/equipmentType"/>
     </genClasses>
+    <genClasses ecoreClass="agendomat.ecore#//Model">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference agendomat.ecore#//Model/events"/>
+    </genClasses>
   </genPackages>
 </genmodel:GenModel>

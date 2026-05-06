@@ -33,6 +33,14 @@ Workflow {
 		language = StandardLanguage {
 			name = "agendomat.dsl.Agendomat"
 			fileExtensions = "agendomat"
+			referencedResource = "platform:/resource/agendomat.model/model/agendomat.genmodel"
+			
+			fragment = ecore2xtext.Ecore2XtextValueConverterServiceFragment2 auto-inject {}
+
+			formatter = {
+				generateStub = true
+				generateXtendStub = true
+			}
 
 			serializer = {
 				generateStub = false
