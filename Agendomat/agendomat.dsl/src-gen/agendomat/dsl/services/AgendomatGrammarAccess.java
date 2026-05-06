@@ -6,7 +6,6 @@ package agendomat.dsl.services;
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
 import java.util.List;
-import org.eclipse.xtext.Action;
 import org.eclipse.xtext.Alternatives;
 import org.eclipse.xtext.Assignment;
 import org.eclipse.xtext.CrossReference;
@@ -26,80 +25,141 @@ import org.eclipse.xtext.service.GrammarProvider;
 @Singleton
 public class AgendomatGrammarAccess extends AbstractElementFinder.AbstractGrammarElementFinder {
 	
-	public class ModelElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "agendomat.dsl.Agendomat.Model");
+	public class EventElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "agendomat.dsl.Agendomat.Event");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Action cModelAction_0 = (Action)cGroup.eContents().get(0);
-		private final Keyword cModelKeyword_1 = (Keyword)cGroup.eContents().get(1);
-		private final Keyword cLeftCurlyBracketKeyword_2 = (Keyword)cGroup.eContents().get(2);
-		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
-		private final Keyword cEventsKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
-		private final Keyword cLeftCurlyBracketKeyword_3_1 = (Keyword)cGroup_3.eContents().get(1);
-		private final Assignment cEventsAssignment_3_2 = (Assignment)cGroup_3.eContents().get(2);
-		private final RuleCall cEventsEventParserRuleCall_3_2_0 = (RuleCall)cEventsAssignment_3_2.eContents().get(0);
-		private final Group cGroup_3_3 = (Group)cGroup_3.eContents().get(3);
-		private final Keyword cCommaKeyword_3_3_0 = (Keyword)cGroup_3_3.eContents().get(0);
-		private final Assignment cEventsAssignment_3_3_1 = (Assignment)cGroup_3_3.eContents().get(1);
-		private final RuleCall cEventsEventParserRuleCall_3_3_1_0 = (RuleCall)cEventsAssignment_3_3_1.eContents().get(0);
-		private final Keyword cRightCurlyBracketKeyword_3_4 = (Keyword)cGroup_3.eContents().get(4);
-		private final Keyword cRightCurlyBracketKeyword_4 = (Keyword)cGroup.eContents().get(4);
+		private final Keyword cEventKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cEventNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cEventNameSTRINGTerminalRuleCall_1_0 = (RuleCall)cEventNameAssignment_1.eContents().get(0);
+		private final Alternatives cAlternatives_2 = (Alternatives)cGroup.eContents().get(2);
+		private final Group cGroup_2_0 = (Group)cAlternatives_2.eContents().get(0);
+		private final Keyword cFromKeyword_2_0_0 = (Keyword)cGroup_2_0.eContents().get(0);
+		private final Assignment cEventStartDateAssignment_2_0_1 = (Assignment)cGroup_2_0.eContents().get(1);
+		private final RuleCall cEventStartDateSTRINGTerminalRuleCall_2_0_1_0 = (RuleCall)cEventStartDateAssignment_2_0_1.eContents().get(0);
+		private final Keyword cToKeyword_2_0_2 = (Keyword)cGroup_2_0.eContents().get(2);
+		private final Assignment cEventEndDateAssignment_2_0_3 = (Assignment)cGroup_2_0.eContents().get(3);
+		private final RuleCall cEventEndDateSTRINGTerminalRuleCall_2_0_3_0 = (RuleCall)cEventEndDateAssignment_2_0_3.eContents().get(0);
+		private final Group cGroup_2_1 = (Group)cAlternatives_2.eContents().get(1);
+		private final Keyword cOnKeyword_2_1_0 = (Keyword)cGroup_2_1.eContents().get(0);
+		private final Assignment cEventStartDateAssignment_2_1_1 = (Assignment)cGroup_2_1.eContents().get(1);
+		private final RuleCall cEventStartDateSTRINGTerminalRuleCall_2_1_1_0 = (RuleCall)cEventStartDateAssignment_2_1_1.eContents().get(0);
+		private final Keyword cLeftCurlyBracketKeyword_3 = (Keyword)cGroup.eContents().get(3);
+		private final Group cGroup_4 = (Group)cGroup.eContents().get(4);
+		private final Keyword cDescriptionKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
+		private final Assignment cDescAssignment_4_1 = (Assignment)cGroup_4.eContents().get(1);
+		private final RuleCall cDescSTRINGTerminalRuleCall_4_1_0 = (RuleCall)cDescAssignment_4_1.eContents().get(0);
+		private final Assignment cPersonsAssignment_5 = (Assignment)cGroup.eContents().get(5);
+		private final RuleCall cPersonsPersonParserRuleCall_5_0 = (RuleCall)cPersonsAssignment_5.eContents().get(0);
+		private final Assignment cLocationsAssignment_6 = (Assignment)cGroup.eContents().get(6);
+		private final RuleCall cLocationsLocationParserRuleCall_6_0 = (RuleCall)cLocationsAssignment_6.eContents().get(0);
+		private final Assignment cProgramItemsAssignment_7 = (Assignment)cGroup.eContents().get(7);
+		private final RuleCall cProgramItemsProgramItemParserRuleCall_7_0 = (RuleCall)cProgramItemsAssignment_7.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_8 = (Keyword)cGroup.eContents().get(8);
 		
-		//Model returns Model:
-		//    {Model}
-		//    'Model'
+		//Event returns Event:
+		//    'Event' eventName=STRING
+		//    ('from' eventStartDate=STRING 'to' eventEndDate=STRING
+		//    | 'on' eventStartDate=STRING)
 		//    '{'
-		//        ('events' '{' events+=Event ( "," events+=Event)* '}' )?
+		//        ('Description' desc=STRING)?
+		//        persons+=Person*
+		//        locations+=Location*
+		//        programItems+=ProgramItem*
 		//    '}';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{Model}
-		//'Model'
+		//'Event' eventName=STRING
+		//('from' eventStartDate=STRING 'to' eventEndDate=STRING
+		//| 'on' eventStartDate=STRING)
 		//'{'
-		//    ('events' '{' events+=Event ( "," events+=Event)* '}' )?
+		//    ('Description' desc=STRING)?
+		//    persons+=Person*
+		//    locations+=Location*
+		//    programItems+=ProgramItem*
 		//'}'
 		public Group getGroup() { return cGroup; }
 		
-		//{Model}
-		public Action getModelAction_0() { return cModelAction_0; }
+		//'Event'
+		public Keyword getEventKeyword_0() { return cEventKeyword_0; }
 		
-		//'Model'
-		public Keyword getModelKeyword_1() { return cModelKeyword_1; }
+		//eventName=STRING
+		public Assignment getEventNameAssignment_1() { return cEventNameAssignment_1; }
+		
+		//STRING
+		public RuleCall getEventNameSTRINGTerminalRuleCall_1_0() { return cEventNameSTRINGTerminalRuleCall_1_0; }
+		
+		//('from' eventStartDate=STRING 'to' eventEndDate=STRING
+		//| 'on' eventStartDate=STRING)
+		public Alternatives getAlternatives_2() { return cAlternatives_2; }
+		
+		//'from' eventStartDate=STRING 'to' eventEndDate=STRING
+		public Group getGroup_2_0() { return cGroup_2_0; }
+		
+		//'from'
+		public Keyword getFromKeyword_2_0_0() { return cFromKeyword_2_0_0; }
+		
+		//eventStartDate=STRING
+		public Assignment getEventStartDateAssignment_2_0_1() { return cEventStartDateAssignment_2_0_1; }
+		
+		//STRING
+		public RuleCall getEventStartDateSTRINGTerminalRuleCall_2_0_1_0() { return cEventStartDateSTRINGTerminalRuleCall_2_0_1_0; }
+		
+		//'to'
+		public Keyword getToKeyword_2_0_2() { return cToKeyword_2_0_2; }
+		
+		//eventEndDate=STRING
+		public Assignment getEventEndDateAssignment_2_0_3() { return cEventEndDateAssignment_2_0_3; }
+		
+		//STRING
+		public RuleCall getEventEndDateSTRINGTerminalRuleCall_2_0_3_0() { return cEventEndDateSTRINGTerminalRuleCall_2_0_3_0; }
+		
+		//'on' eventStartDate=STRING
+		public Group getGroup_2_1() { return cGroup_2_1; }
+		
+		//'on'
+		public Keyword getOnKeyword_2_1_0() { return cOnKeyword_2_1_0; }
+		
+		//eventStartDate=STRING
+		public Assignment getEventStartDateAssignment_2_1_1() { return cEventStartDateAssignment_2_1_1; }
+		
+		//STRING
+		public RuleCall getEventStartDateSTRINGTerminalRuleCall_2_1_1_0() { return cEventStartDateSTRINGTerminalRuleCall_2_1_1_0; }
 		
 		//'{'
-		public Keyword getLeftCurlyBracketKeyword_2() { return cLeftCurlyBracketKeyword_2; }
+		public Keyword getLeftCurlyBracketKeyword_3() { return cLeftCurlyBracketKeyword_3; }
 		
-		//('events' '{' events+=Event ( "," events+=Event)* '}' )?
-		public Group getGroup_3() { return cGroup_3; }
+		//('Description' desc=STRING)?
+		public Group getGroup_4() { return cGroup_4; }
 		
-		//'events'
-		public Keyword getEventsKeyword_3_0() { return cEventsKeyword_3_0; }
+		//'Description'
+		public Keyword getDescriptionKeyword_4_0() { return cDescriptionKeyword_4_0; }
 		
-		//'{'
-		public Keyword getLeftCurlyBracketKeyword_3_1() { return cLeftCurlyBracketKeyword_3_1; }
+		//desc=STRING
+		public Assignment getDescAssignment_4_1() { return cDescAssignment_4_1; }
 		
-		//events+=Event
-		public Assignment getEventsAssignment_3_2() { return cEventsAssignment_3_2; }
+		//STRING
+		public RuleCall getDescSTRINGTerminalRuleCall_4_1_0() { return cDescSTRINGTerminalRuleCall_4_1_0; }
 		
-		//Event
-		public RuleCall getEventsEventParserRuleCall_3_2_0() { return cEventsEventParserRuleCall_3_2_0; }
+		//persons+=Person*
+		public Assignment getPersonsAssignment_5() { return cPersonsAssignment_5; }
 		
-		//( "," events+=Event)*
-		public Group getGroup_3_3() { return cGroup_3_3; }
+		//Person
+		public RuleCall getPersonsPersonParserRuleCall_5_0() { return cPersonsPersonParserRuleCall_5_0; }
 		
-		//","
-		public Keyword getCommaKeyword_3_3_0() { return cCommaKeyword_3_3_0; }
+		//locations+=Location*
+		public Assignment getLocationsAssignment_6() { return cLocationsAssignment_6; }
 		
-		//events+=Event
-		public Assignment getEventsAssignment_3_3_1() { return cEventsAssignment_3_3_1; }
+		//Location
+		public RuleCall getLocationsLocationParserRuleCall_6_0() { return cLocationsLocationParserRuleCall_6_0; }
 		
-		//Event
-		public RuleCall getEventsEventParserRuleCall_3_3_1_0() { return cEventsEventParserRuleCall_3_3_1_0; }
+		//programItems+=ProgramItem*
+		public Assignment getProgramItemsAssignment_7() { return cProgramItemsAssignment_7; }
+		
+		//ProgramItem
+		public RuleCall getProgramItemsProgramItemParserRuleCall_7_0() { return cProgramItemsProgramItemParserRuleCall_7_0; }
 		
 		//'}'
-		public Keyword getRightCurlyBracketKeyword_3_4() { return cRightCurlyBracketKeyword_3_4; }
-		
-		//'}'
-		public Keyword getRightCurlyBracketKeyword_4() { return cRightCurlyBracketKeyword_4; }
+		public Keyword getRightCurlyBracketKeyword_8() { return cRightCurlyBracketKeyword_8; }
 	}
 	public class ProgramItemElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "agendomat.dsl.Agendomat.ProgramItem");
@@ -120,218 +180,517 @@ public class AgendomatGrammarAccess extends AbstractElementFinder.AbstractGramma
 		//Break
 		public RuleCall getBreakParserRuleCall_1() { return cBreakParserRuleCall_1; }
 	}
-	public class EventElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "agendomat.dsl.Agendomat.Event");
+	public class PersonElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "agendomat.dsl.Agendomat.Person");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cEventKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Keyword cLeftCurlyBracketKeyword_1 = (Keyword)cGroup.eContents().get(1);
-		private final Keyword cEventNameKeyword_2 = (Keyword)cGroup.eContents().get(2);
-		private final Assignment cEventNameAssignment_3 = (Assignment)cGroup.eContents().get(3);
-		private final RuleCall cEventNameEStringParserRuleCall_3_0 = (RuleCall)cEventNameAssignment_3.eContents().get(0);
-		private final Keyword cEventStartDateKeyword_4 = (Keyword)cGroup.eContents().get(4);
-		private final Assignment cEventStartDateAssignment_5 = (Assignment)cGroup.eContents().get(5);
-		private final RuleCall cEventStartDateEStringParserRuleCall_5_0 = (RuleCall)cEventStartDateAssignment_5.eContents().get(0);
-		private final Keyword cEventEndDateKeyword_6 = (Keyword)cGroup.eContents().get(6);
-		private final Assignment cEventEndDateAssignment_7 = (Assignment)cGroup.eContents().get(7);
-		private final RuleCall cEventEndDateEStringParserRuleCall_7_0 = (RuleCall)cEventEndDateAssignment_7.eContents().get(0);
-		private final Group cGroup_8 = (Group)cGroup.eContents().get(8);
-		private final Keyword cDescKeyword_8_0 = (Keyword)cGroup_8.eContents().get(0);
-		private final Assignment cDescAssignment_8_1 = (Assignment)cGroup_8.eContents().get(1);
-		private final RuleCall cDescEStringParserRuleCall_8_1_0 = (RuleCall)cDescAssignment_8_1.eContents().get(0);
+		private final Keyword cPersonKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cPersonNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cPersonNameSTRINGTerminalRuleCall_1_0 = (RuleCall)cPersonNameAssignment_1.eContents().get(0);
+		private final Keyword cRolesKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Keyword cLeftSquareBracketKeyword_3 = (Keyword)cGroup.eContents().get(3);
+		private final Assignment cRolesAssignment_4 = (Assignment)cGroup.eContents().get(4);
+		private final RuleCall cRolesRoleEnumRuleCall_4_0 = (RuleCall)cRolesAssignment_4.eContents().get(0);
+		private final Group cGroup_5 = (Group)cGroup.eContents().get(5);
+		private final Keyword cCommaKeyword_5_0 = (Keyword)cGroup_5.eContents().get(0);
+		private final Assignment cRolesAssignment_5_1 = (Assignment)cGroup_5.eContents().get(1);
+		private final RuleCall cRolesRoleEnumRuleCall_5_1_0 = (RuleCall)cRolesAssignment_5_1.eContents().get(0);
+		private final Keyword cRightSquareBracketKeyword_6 = (Keyword)cGroup.eContents().get(6);
+		
+		//Person returns Person:
+		//    'Person' personName=STRING 'roles' '[' roles+=Role (',' roles+=Role)* ']';
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'Person' personName=STRING 'roles' '[' roles+=Role (',' roles+=Role)* ']'
+		public Group getGroup() { return cGroup; }
+		
+		//'Person'
+		public Keyword getPersonKeyword_0() { return cPersonKeyword_0; }
+		
+		//personName=STRING
+		public Assignment getPersonNameAssignment_1() { return cPersonNameAssignment_1; }
+		
+		//STRING
+		public RuleCall getPersonNameSTRINGTerminalRuleCall_1_0() { return cPersonNameSTRINGTerminalRuleCall_1_0; }
+		
+		//'roles'
+		public Keyword getRolesKeyword_2() { return cRolesKeyword_2; }
+		
+		//'['
+		public Keyword getLeftSquareBracketKeyword_3() { return cLeftSquareBracketKeyword_3; }
+		
+		//roles+=Role
+		public Assignment getRolesAssignment_4() { return cRolesAssignment_4; }
+		
+		//Role
+		public RuleCall getRolesRoleEnumRuleCall_4_0() { return cRolesRoleEnumRuleCall_4_0; }
+		
+		//(',' roles+=Role)*
+		public Group getGroup_5() { return cGroup_5; }
+		
+		//','
+		public Keyword getCommaKeyword_5_0() { return cCommaKeyword_5_0; }
+		
+		//roles+=Role
+		public Assignment getRolesAssignment_5_1() { return cRolesAssignment_5_1; }
+		
+		//Role
+		public RuleCall getRolesRoleEnumRuleCall_5_1_0() { return cRolesRoleEnumRuleCall_5_1_0; }
+		
+		//']'
+		public Keyword getRightSquareBracketKeyword_6() { return cRightSquareBracketKeyword_6; }
+	}
+	public class LocationElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "agendomat.dsl.Agendomat.Location");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cLocationKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cLocationNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cLocationNameSTRINGTerminalRuleCall_1_0 = (RuleCall)cLocationNameAssignment_1.eContents().get(0);
+		private final Keyword cTypeKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Assignment cLocationTypeAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cLocationTypeLocationTypeEnumRuleCall_3_0 = (RuleCall)cLocationTypeAssignment_3.eContents().get(0);
+		
+		//Location returns Location:
+		//    'Location' locationName=STRING 'type' locationType=LocationType;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'Location' locationName=STRING 'type' locationType=LocationType
+		public Group getGroup() { return cGroup; }
+		
+		//'Location'
+		public Keyword getLocationKeyword_0() { return cLocationKeyword_0; }
+		
+		//locationName=STRING
+		public Assignment getLocationNameAssignment_1() { return cLocationNameAssignment_1; }
+		
+		//STRING
+		public RuleCall getLocationNameSTRINGTerminalRuleCall_1_0() { return cLocationNameSTRINGTerminalRuleCall_1_0; }
+		
+		//'type'
+		public Keyword getTypeKeyword_2() { return cTypeKeyword_2; }
+		
+		//locationType=LocationType
+		public Assignment getLocationTypeAssignment_3() { return cLocationTypeAssignment_3; }
+		
+		//LocationType
+		public RuleCall getLocationTypeLocationTypeEnumRuleCall_3_0() { return cLocationTypeLocationTypeEnumRuleCall_3_0; }
+	}
+	public class SessionElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "agendomat.dsl.Agendomat.Session");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cSessionKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cSessionNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cSessionNameSTRINGTerminalRuleCall_1_0 = (RuleCall)cSessionNameAssignment_1.eContents().get(0);
+		private final Keyword cLeftCurlyBracketKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Keyword cTimeKeyword_3 = (Keyword)cGroup.eContents().get(3);
+		private final Assignment cStartTimeAssignment_4 = (Assignment)cGroup.eContents().get(4);
+		private final RuleCall cStartTimeSTRINGTerminalRuleCall_4_0 = (RuleCall)cStartTimeAssignment_4.eContents().get(0);
+		private final Keyword cHyphenMinusKeyword_5 = (Keyword)cGroup.eContents().get(5);
+		private final Assignment cEndTimeAssignment_6 = (Assignment)cGroup.eContents().get(6);
+		private final RuleCall cEndTimeSTRINGTerminalRuleCall_6_0 = (RuleCall)cEndTimeAssignment_6.eContents().get(0);
+		private final Keyword cLocationKeyword_7 = (Keyword)cGroup.eContents().get(7);
+		private final Assignment cLocationAssignment_8 = (Assignment)cGroup.eContents().get(8);
+		private final CrossReference cLocationLocationCrossReference_8_0 = (CrossReference)cLocationAssignment_8.eContents().get(0);
+		private final RuleCall cLocationLocationSTRINGTerminalRuleCall_8_0_1 = (RuleCall)cLocationLocationCrossReference_8_0.eContents().get(1);
 		private final Group cGroup_9 = (Group)cGroup.eContents().get(9);
-		private final Keyword cPersonsKeyword_9_0 = (Keyword)cGroup_9.eContents().get(0);
-		private final Keyword cLeftCurlyBracketKeyword_9_1 = (Keyword)cGroup_9.eContents().get(1);
-		private final Assignment cPersonsAssignment_9_2 = (Assignment)cGroup_9.eContents().get(2);
-		private final RuleCall cPersonsPersonParserRuleCall_9_2_0 = (RuleCall)cPersonsAssignment_9_2.eContents().get(0);
+		private final Keyword cTechSupportKeyword_9_0 = (Keyword)cGroup_9.eContents().get(0);
+		private final Keyword cLeftParenthesisKeyword_9_1 = (Keyword)cGroup_9.eContents().get(1);
+		private final Assignment cTechSupportAssignment_9_2 = (Assignment)cGroup_9.eContents().get(2);
+		private final CrossReference cTechSupportPersonCrossReference_9_2_0 = (CrossReference)cTechSupportAssignment_9_2.eContents().get(0);
+		private final RuleCall cTechSupportPersonSTRINGTerminalRuleCall_9_2_0_1 = (RuleCall)cTechSupportPersonCrossReference_9_2_0.eContents().get(1);
 		private final Group cGroup_9_3 = (Group)cGroup_9.eContents().get(3);
 		private final Keyword cCommaKeyword_9_3_0 = (Keyword)cGroup_9_3.eContents().get(0);
-		private final Assignment cPersonsAssignment_9_3_1 = (Assignment)cGroup_9_3.eContents().get(1);
-		private final RuleCall cPersonsPersonParserRuleCall_9_3_1_0 = (RuleCall)cPersonsAssignment_9_3_1.eContents().get(0);
-		private final Keyword cRightCurlyBracketKeyword_9_4 = (Keyword)cGroup_9.eContents().get(4);
+		private final Assignment cTechSupportAssignment_9_3_1 = (Assignment)cGroup_9_3.eContents().get(1);
+		private final CrossReference cTechSupportPersonCrossReference_9_3_1_0 = (CrossReference)cTechSupportAssignment_9_3_1.eContents().get(0);
+		private final RuleCall cTechSupportPersonSTRINGTerminalRuleCall_9_3_1_0_1 = (RuleCall)cTechSupportPersonCrossReference_9_3_1_0.eContents().get(1);
+		private final Keyword cRightParenthesisKeyword_9_4 = (Keyword)cGroup_9.eContents().get(4);
 		private final Group cGroup_10 = (Group)cGroup.eContents().get(10);
-		private final Keyword cProgramItemsKeyword_10_0 = (Keyword)cGroup_10.eContents().get(0);
-		private final Keyword cLeftCurlyBracketKeyword_10_1 = (Keyword)cGroup_10.eContents().get(1);
-		private final Assignment cProgramItemsAssignment_10_2 = (Assignment)cGroup_10.eContents().get(2);
-		private final RuleCall cProgramItemsProgramItemParserRuleCall_10_2_0 = (RuleCall)cProgramItemsAssignment_10_2.eContents().get(0);
-		private final Group cGroup_10_3 = (Group)cGroup_10.eContents().get(3);
-		private final Keyword cCommaKeyword_10_3_0 = (Keyword)cGroup_10_3.eContents().get(0);
-		private final Assignment cProgramItemsAssignment_10_3_1 = (Assignment)cGroup_10_3.eContents().get(1);
-		private final RuleCall cProgramItemsProgramItemParserRuleCall_10_3_1_0 = (RuleCall)cProgramItemsAssignment_10_3_1.eContents().get(0);
-		private final Keyword cRightCurlyBracketKeyword_10_4 = (Keyword)cGroup_10.eContents().get(4);
-		private final Group cGroup_11 = (Group)cGroup.eContents().get(11);
-		private final Keyword cLocationsKeyword_11_0 = (Keyword)cGroup_11.eContents().get(0);
-		private final Keyword cLeftCurlyBracketKeyword_11_1 = (Keyword)cGroup_11.eContents().get(1);
-		private final Assignment cLocationsAssignment_11_2 = (Assignment)cGroup_11.eContents().get(2);
-		private final RuleCall cLocationsLocationParserRuleCall_11_2_0 = (RuleCall)cLocationsAssignment_11_2.eContents().get(0);
-		private final Group cGroup_11_3 = (Group)cGroup_11.eContents().get(3);
-		private final Keyword cCommaKeyword_11_3_0 = (Keyword)cGroup_11_3.eContents().get(0);
-		private final Assignment cLocationsAssignment_11_3_1 = (Assignment)cGroup_11_3.eContents().get(1);
-		private final RuleCall cLocationsLocationParserRuleCall_11_3_1_0 = (RuleCall)cLocationsAssignment_11_3_1.eContents().get(0);
-		private final Keyword cRightCurlyBracketKeyword_11_4 = (Keyword)cGroup_11.eContents().get(4);
+		private final Keyword cNeedsKeyword_10_0 = (Keyword)cGroup_10.eContents().get(0);
+		private final Assignment cEquipmentAssignment_10_1 = (Assignment)cGroup_10.eContents().get(1);
+		private final RuleCall cEquipmentEquipmentParserRuleCall_10_1_0 = (RuleCall)cEquipmentAssignment_10_1.eContents().get(0);
+		private final Group cGroup_10_2 = (Group)cGroup_10.eContents().get(2);
+		private final Keyword cCommaKeyword_10_2_0 = (Keyword)cGroup_10_2.eContents().get(0);
+		private final Assignment cEquipmentAssignment_10_2_1 = (Assignment)cGroup_10_2.eContents().get(1);
+		private final RuleCall cEquipmentEquipmentParserRuleCall_10_2_1_0 = (RuleCall)cEquipmentAssignment_10_2_1.eContents().get(0);
+		private final Assignment cTalksAssignment_11 = (Assignment)cGroup.eContents().get(11);
+		private final RuleCall cTalksTalkParserRuleCall_11_0 = (RuleCall)cTalksAssignment_11.eContents().get(0);
 		private final Keyword cRightCurlyBracketKeyword_12 = (Keyword)cGroup.eContents().get(12);
 		
-		//Event returns Event:
-		//    'Event'
-		//    '{'
-		//        'eventName' eventName=EString
-		//        'eventStartDate' eventStartDate=EString
-		//        'eventEndDate' eventEndDate=EString
-		//        ('desc' desc=EString)?
-		//        ('persons' '{' persons+=Person ( "," persons+=Person)* '}' )?
-		//        ('programItems' '{' programItems+=ProgramItem ( "," programItems+=ProgramItem)* '}' )?
-		//        ('locations' '{' locations+=Location ( "," locations+=Location)* '}' )?
+		//Session returns Session:
+		//    'Session' sessionName=STRING '{'
+		//        'Time' startTime=STRING '-' endTime=STRING
+		//        'Location' location=[Location|STRING]
+		//        ('TechSupport' '(' techSupport+=[Person|STRING] (',' techSupport+=[Person|STRING])* ')')?
+		//        ('Needs' equipment+=Equipment (',' equipment+=Equipment)*)?
+		//        talks+=Talk*
 		//    '}';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'Event'
-		//'{'
-		//    'eventName' eventName=EString
-		//    'eventStartDate' eventStartDate=EString
-		//    'eventEndDate' eventEndDate=EString
-		//    ('desc' desc=EString)?
-		//    ('persons' '{' persons+=Person ( "," persons+=Person)* '}' )?
-		//    ('programItems' '{' programItems+=ProgramItem ( "," programItems+=ProgramItem)* '}' )?
-		//    ('locations' '{' locations+=Location ( "," locations+=Location)* '}' )?
+		//'Session' sessionName=STRING '{'
+		//    'Time' startTime=STRING '-' endTime=STRING
+		//    'Location' location=[Location|STRING]
+		//    ('TechSupport' '(' techSupport+=[Person|STRING] (',' techSupport+=[Person|STRING])* ')')?
+		//    ('Needs' equipment+=Equipment (',' equipment+=Equipment)*)?
+		//    talks+=Talk*
 		//'}'
 		public Group getGroup() { return cGroup; }
 		
-		//'Event'
-		public Keyword getEventKeyword_0() { return cEventKeyword_0; }
+		//'Session'
+		public Keyword getSessionKeyword_0() { return cSessionKeyword_0; }
+		
+		//sessionName=STRING
+		public Assignment getSessionNameAssignment_1() { return cSessionNameAssignment_1; }
+		
+		//STRING
+		public RuleCall getSessionNameSTRINGTerminalRuleCall_1_0() { return cSessionNameSTRINGTerminalRuleCall_1_0; }
 		
 		//'{'
-		public Keyword getLeftCurlyBracketKeyword_1() { return cLeftCurlyBracketKeyword_1; }
+		public Keyword getLeftCurlyBracketKeyword_2() { return cLeftCurlyBracketKeyword_2; }
 		
-		//'eventName'
-		public Keyword getEventNameKeyword_2() { return cEventNameKeyword_2; }
+		//'Time'
+		public Keyword getTimeKeyword_3() { return cTimeKeyword_3; }
 		
-		//eventName=EString
-		public Assignment getEventNameAssignment_3() { return cEventNameAssignment_3; }
+		//startTime=STRING
+		public Assignment getStartTimeAssignment_4() { return cStartTimeAssignment_4; }
 		
-		//EString
-		public RuleCall getEventNameEStringParserRuleCall_3_0() { return cEventNameEStringParserRuleCall_3_0; }
+		//STRING
+		public RuleCall getStartTimeSTRINGTerminalRuleCall_4_0() { return cStartTimeSTRINGTerminalRuleCall_4_0; }
 		
-		//'eventStartDate'
-		public Keyword getEventStartDateKeyword_4() { return cEventStartDateKeyword_4; }
+		//'-'
+		public Keyword getHyphenMinusKeyword_5() { return cHyphenMinusKeyword_5; }
 		
-		//eventStartDate=EString
-		public Assignment getEventStartDateAssignment_5() { return cEventStartDateAssignment_5; }
+		//endTime=STRING
+		public Assignment getEndTimeAssignment_6() { return cEndTimeAssignment_6; }
 		
-		//EString
-		public RuleCall getEventStartDateEStringParserRuleCall_5_0() { return cEventStartDateEStringParserRuleCall_5_0; }
+		//STRING
+		public RuleCall getEndTimeSTRINGTerminalRuleCall_6_0() { return cEndTimeSTRINGTerminalRuleCall_6_0; }
 		
-		//'eventEndDate'
-		public Keyword getEventEndDateKeyword_6() { return cEventEndDateKeyword_6; }
+		//'Location'
+		public Keyword getLocationKeyword_7() { return cLocationKeyword_7; }
 		
-		//eventEndDate=EString
-		public Assignment getEventEndDateAssignment_7() { return cEventEndDateAssignment_7; }
+		//location=[Location|STRING]
+		public Assignment getLocationAssignment_8() { return cLocationAssignment_8; }
 		
-		//EString
-		public RuleCall getEventEndDateEStringParserRuleCall_7_0() { return cEventEndDateEStringParserRuleCall_7_0; }
+		//[Location|STRING]
+		public CrossReference getLocationLocationCrossReference_8_0() { return cLocationLocationCrossReference_8_0; }
 		
-		//('desc' desc=EString)?
-		public Group getGroup_8() { return cGroup_8; }
+		//STRING
+		public RuleCall getLocationLocationSTRINGTerminalRuleCall_8_0_1() { return cLocationLocationSTRINGTerminalRuleCall_8_0_1; }
 		
-		//'desc'
-		public Keyword getDescKeyword_8_0() { return cDescKeyword_8_0; }
-		
-		//desc=EString
-		public Assignment getDescAssignment_8_1() { return cDescAssignment_8_1; }
-		
-		//EString
-		public RuleCall getDescEStringParserRuleCall_8_1_0() { return cDescEStringParserRuleCall_8_1_0; }
-		
-		//('persons' '{' persons+=Person ( "," persons+=Person)* '}' )?
+		//('TechSupport' '(' techSupport+=[Person|STRING] (',' techSupport+=[Person|STRING])* ')')?
 		public Group getGroup_9() { return cGroup_9; }
 		
-		//'persons'
-		public Keyword getPersonsKeyword_9_0() { return cPersonsKeyword_9_0; }
+		//'TechSupport'
+		public Keyword getTechSupportKeyword_9_0() { return cTechSupportKeyword_9_0; }
 		
-		//'{'
-		public Keyword getLeftCurlyBracketKeyword_9_1() { return cLeftCurlyBracketKeyword_9_1; }
+		//'('
+		public Keyword getLeftParenthesisKeyword_9_1() { return cLeftParenthesisKeyword_9_1; }
 		
-		//persons+=Person
-		public Assignment getPersonsAssignment_9_2() { return cPersonsAssignment_9_2; }
+		//techSupport+=[Person|STRING]
+		public Assignment getTechSupportAssignment_9_2() { return cTechSupportAssignment_9_2; }
 		
-		//Person
-		public RuleCall getPersonsPersonParserRuleCall_9_2_0() { return cPersonsPersonParserRuleCall_9_2_0; }
+		//[Person|STRING]
+		public CrossReference getTechSupportPersonCrossReference_9_2_0() { return cTechSupportPersonCrossReference_9_2_0; }
 		
-		//( "," persons+=Person)*
+		//STRING
+		public RuleCall getTechSupportPersonSTRINGTerminalRuleCall_9_2_0_1() { return cTechSupportPersonSTRINGTerminalRuleCall_9_2_0_1; }
+		
+		//(',' techSupport+=[Person|STRING])*
 		public Group getGroup_9_3() { return cGroup_9_3; }
 		
-		//","
+		//','
 		public Keyword getCommaKeyword_9_3_0() { return cCommaKeyword_9_3_0; }
 		
-		//persons+=Person
-		public Assignment getPersonsAssignment_9_3_1() { return cPersonsAssignment_9_3_1; }
+		//techSupport+=[Person|STRING]
+		public Assignment getTechSupportAssignment_9_3_1() { return cTechSupportAssignment_9_3_1; }
 		
-		//Person
-		public RuleCall getPersonsPersonParserRuleCall_9_3_1_0() { return cPersonsPersonParserRuleCall_9_3_1_0; }
+		//[Person|STRING]
+		public CrossReference getTechSupportPersonCrossReference_9_3_1_0() { return cTechSupportPersonCrossReference_9_3_1_0; }
 		
-		//'}'
-		public Keyword getRightCurlyBracketKeyword_9_4() { return cRightCurlyBracketKeyword_9_4; }
+		//STRING
+		public RuleCall getTechSupportPersonSTRINGTerminalRuleCall_9_3_1_0_1() { return cTechSupportPersonSTRINGTerminalRuleCall_9_3_1_0_1; }
 		
-		//('programItems' '{' programItems+=ProgramItem ( "," programItems+=ProgramItem)* '}' )?
+		//')'
+		public Keyword getRightParenthesisKeyword_9_4() { return cRightParenthesisKeyword_9_4; }
+		
+		//('Needs' equipment+=Equipment (',' equipment+=Equipment)*)?
 		public Group getGroup_10() { return cGroup_10; }
 		
-		//'programItems'
-		public Keyword getProgramItemsKeyword_10_0() { return cProgramItemsKeyword_10_0; }
+		//'Needs'
+		public Keyword getNeedsKeyword_10_0() { return cNeedsKeyword_10_0; }
 		
-		//'{'
-		public Keyword getLeftCurlyBracketKeyword_10_1() { return cLeftCurlyBracketKeyword_10_1; }
+		//equipment+=Equipment
+		public Assignment getEquipmentAssignment_10_1() { return cEquipmentAssignment_10_1; }
 		
-		//programItems+=ProgramItem
-		public Assignment getProgramItemsAssignment_10_2() { return cProgramItemsAssignment_10_2; }
+		//Equipment
+		public RuleCall getEquipmentEquipmentParserRuleCall_10_1_0() { return cEquipmentEquipmentParserRuleCall_10_1_0; }
 		
-		//ProgramItem
-		public RuleCall getProgramItemsProgramItemParserRuleCall_10_2_0() { return cProgramItemsProgramItemParserRuleCall_10_2_0; }
+		//(',' equipment+=Equipment)*
+		public Group getGroup_10_2() { return cGroup_10_2; }
 		
-		//( "," programItems+=ProgramItem)*
-		public Group getGroup_10_3() { return cGroup_10_3; }
+		//','
+		public Keyword getCommaKeyword_10_2_0() { return cCommaKeyword_10_2_0; }
 		
-		//","
-		public Keyword getCommaKeyword_10_3_0() { return cCommaKeyword_10_3_0; }
+		//equipment+=Equipment
+		public Assignment getEquipmentAssignment_10_2_1() { return cEquipmentAssignment_10_2_1; }
 		
-		//programItems+=ProgramItem
-		public Assignment getProgramItemsAssignment_10_3_1() { return cProgramItemsAssignment_10_3_1; }
+		//Equipment
+		public RuleCall getEquipmentEquipmentParserRuleCall_10_2_1_0() { return cEquipmentEquipmentParserRuleCall_10_2_1_0; }
 		
-		//ProgramItem
-		public RuleCall getProgramItemsProgramItemParserRuleCall_10_3_1_0() { return cProgramItemsProgramItemParserRuleCall_10_3_1_0; }
+		//talks+=Talk*
+		public Assignment getTalksAssignment_11() { return cTalksAssignment_11; }
 		
-		//'}'
-		public Keyword getRightCurlyBracketKeyword_10_4() { return cRightCurlyBracketKeyword_10_4; }
-		
-		//('locations' '{' locations+=Location ( "," locations+=Location)* '}' )?
-		public Group getGroup_11() { return cGroup_11; }
-		
-		//'locations'
-		public Keyword getLocationsKeyword_11_0() { return cLocationsKeyword_11_0; }
-		
-		//'{'
-		public Keyword getLeftCurlyBracketKeyword_11_1() { return cLeftCurlyBracketKeyword_11_1; }
-		
-		//locations+=Location
-		public Assignment getLocationsAssignment_11_2() { return cLocationsAssignment_11_2; }
-		
-		//Location
-		public RuleCall getLocationsLocationParserRuleCall_11_2_0() { return cLocationsLocationParserRuleCall_11_2_0; }
-		
-		//( "," locations+=Location)*
-		public Group getGroup_11_3() { return cGroup_11_3; }
-		
-		//","
-		public Keyword getCommaKeyword_11_3_0() { return cCommaKeyword_11_3_0; }
-		
-		//locations+=Location
-		public Assignment getLocationsAssignment_11_3_1() { return cLocationsAssignment_11_3_1; }
-		
-		//Location
-		public RuleCall getLocationsLocationParserRuleCall_11_3_1_0() { return cLocationsLocationParserRuleCall_11_3_1_0; }
-		
-		//'}'
-		public Keyword getRightCurlyBracketKeyword_11_4() { return cRightCurlyBracketKeyword_11_4; }
+		//Talk
+		public RuleCall getTalksTalkParserRuleCall_11_0() { return cTalksTalkParserRuleCall_11_0; }
 		
 		//'}'
 		public Keyword getRightCurlyBracketKeyword_12() { return cRightCurlyBracketKeyword_12; }
+	}
+	public class BreakElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "agendomat.dsl.Agendomat.Break");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cBreakKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cBreakNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cBreakNameSTRINGTerminalRuleCall_1_0 = (RuleCall)cBreakNameAssignment_1.eContents().get(0);
+		private final Keyword cLeftCurlyBracketKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Keyword cTimeKeyword_3 = (Keyword)cGroup.eContents().get(3);
+		private final Assignment cStartTimeAssignment_4 = (Assignment)cGroup.eContents().get(4);
+		private final RuleCall cStartTimeSTRINGTerminalRuleCall_4_0 = (RuleCall)cStartTimeAssignment_4.eContents().get(0);
+		private final Keyword cHyphenMinusKeyword_5 = (Keyword)cGroup.eContents().get(5);
+		private final Assignment cEndTimeAssignment_6 = (Assignment)cGroup.eContents().get(6);
+		private final RuleCall cEndTimeSTRINGTerminalRuleCall_6_0 = (RuleCall)cEndTimeAssignment_6.eContents().get(0);
+		private final Keyword cLocationKeyword_7 = (Keyword)cGroup.eContents().get(7);
+		private final Assignment cLocationAssignment_8 = (Assignment)cGroup.eContents().get(8);
+		private final CrossReference cLocationLocationCrossReference_8_0 = (CrossReference)cLocationAssignment_8.eContents().get(0);
+		private final RuleCall cLocationLocationSTRINGTerminalRuleCall_8_0_1 = (RuleCall)cLocationLocationCrossReference_8_0.eContents().get(1);
+		private final Group cGroup_9 = (Group)cGroup.eContents().get(9);
+		private final Keyword cAnimatorKeyword_9_0 = (Keyword)cGroup_9.eContents().get(0);
+		private final Keyword cLeftParenthesisKeyword_9_1 = (Keyword)cGroup_9.eContents().get(1);
+		private final Assignment cAnimatorsAssignment_9_2 = (Assignment)cGroup_9.eContents().get(2);
+		private final CrossReference cAnimatorsPersonCrossReference_9_2_0 = (CrossReference)cAnimatorsAssignment_9_2.eContents().get(0);
+		private final RuleCall cAnimatorsPersonSTRINGTerminalRuleCall_9_2_0_1 = (RuleCall)cAnimatorsPersonCrossReference_9_2_0.eContents().get(1);
+		private final Group cGroup_9_3 = (Group)cGroup_9.eContents().get(3);
+		private final Keyword cCommaKeyword_9_3_0 = (Keyword)cGroup_9_3.eContents().get(0);
+		private final Assignment cAnimatorsAssignment_9_3_1 = (Assignment)cGroup_9_3.eContents().get(1);
+		private final CrossReference cAnimatorsPersonCrossReference_9_3_1_0 = (CrossReference)cAnimatorsAssignment_9_3_1.eContents().get(0);
+		private final RuleCall cAnimatorsPersonSTRINGTerminalRuleCall_9_3_1_0_1 = (RuleCall)cAnimatorsPersonCrossReference_9_3_1_0.eContents().get(1);
+		private final Keyword cRightParenthesisKeyword_9_4 = (Keyword)cGroup_9.eContents().get(4);
+		private final Keyword cRightCurlyBracketKeyword_10 = (Keyword)cGroup.eContents().get(10);
+		
+		//Break returns Break:
+		//    'Break' breakName=STRING '{'
+		//        'Time' startTime=STRING '-' endTime=STRING
+		//        'Location' location=[Location|STRING]
+		//        ('Animator' '(' animators+=[Person|STRING] (',' animators+=[Person|STRING])* ')')?
+		//    '}';
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'Break' breakName=STRING '{'
+		//    'Time' startTime=STRING '-' endTime=STRING
+		//    'Location' location=[Location|STRING]
+		//    ('Animator' '(' animators+=[Person|STRING] (',' animators+=[Person|STRING])* ')')?
+		//'}'
+		public Group getGroup() { return cGroup; }
+		
+		//'Break'
+		public Keyword getBreakKeyword_0() { return cBreakKeyword_0; }
+		
+		//breakName=STRING
+		public Assignment getBreakNameAssignment_1() { return cBreakNameAssignment_1; }
+		
+		//STRING
+		public RuleCall getBreakNameSTRINGTerminalRuleCall_1_0() { return cBreakNameSTRINGTerminalRuleCall_1_0; }
+		
+		//'{'
+		public Keyword getLeftCurlyBracketKeyword_2() { return cLeftCurlyBracketKeyword_2; }
+		
+		//'Time'
+		public Keyword getTimeKeyword_3() { return cTimeKeyword_3; }
+		
+		//startTime=STRING
+		public Assignment getStartTimeAssignment_4() { return cStartTimeAssignment_4; }
+		
+		//STRING
+		public RuleCall getStartTimeSTRINGTerminalRuleCall_4_0() { return cStartTimeSTRINGTerminalRuleCall_4_0; }
+		
+		//'-'
+		public Keyword getHyphenMinusKeyword_5() { return cHyphenMinusKeyword_5; }
+		
+		//endTime=STRING
+		public Assignment getEndTimeAssignment_6() { return cEndTimeAssignment_6; }
+		
+		//STRING
+		public RuleCall getEndTimeSTRINGTerminalRuleCall_6_0() { return cEndTimeSTRINGTerminalRuleCall_6_0; }
+		
+		//'Location'
+		public Keyword getLocationKeyword_7() { return cLocationKeyword_7; }
+		
+		//location=[Location|STRING]
+		public Assignment getLocationAssignment_8() { return cLocationAssignment_8; }
+		
+		//[Location|STRING]
+		public CrossReference getLocationLocationCrossReference_8_0() { return cLocationLocationCrossReference_8_0; }
+		
+		//STRING
+		public RuleCall getLocationLocationSTRINGTerminalRuleCall_8_0_1() { return cLocationLocationSTRINGTerminalRuleCall_8_0_1; }
+		
+		//('Animator' '(' animators+=[Person|STRING] (',' animators+=[Person|STRING])* ')')?
+		public Group getGroup_9() { return cGroup_9; }
+		
+		//'Animator'
+		public Keyword getAnimatorKeyword_9_0() { return cAnimatorKeyword_9_0; }
+		
+		//'('
+		public Keyword getLeftParenthesisKeyword_9_1() { return cLeftParenthesisKeyword_9_1; }
+		
+		//animators+=[Person|STRING]
+		public Assignment getAnimatorsAssignment_9_2() { return cAnimatorsAssignment_9_2; }
+		
+		//[Person|STRING]
+		public CrossReference getAnimatorsPersonCrossReference_9_2_0() { return cAnimatorsPersonCrossReference_9_2_0; }
+		
+		//STRING
+		public RuleCall getAnimatorsPersonSTRINGTerminalRuleCall_9_2_0_1() { return cAnimatorsPersonSTRINGTerminalRuleCall_9_2_0_1; }
+		
+		//(',' animators+=[Person|STRING])*
+		public Group getGroup_9_3() { return cGroup_9_3; }
+		
+		//','
+		public Keyword getCommaKeyword_9_3_0() { return cCommaKeyword_9_3_0; }
+		
+		//animators+=[Person|STRING]
+		public Assignment getAnimatorsAssignment_9_3_1() { return cAnimatorsAssignment_9_3_1; }
+		
+		//[Person|STRING]
+		public CrossReference getAnimatorsPersonCrossReference_9_3_1_0() { return cAnimatorsPersonCrossReference_9_3_1_0; }
+		
+		//STRING
+		public RuleCall getAnimatorsPersonSTRINGTerminalRuleCall_9_3_1_0_1() { return cAnimatorsPersonSTRINGTerminalRuleCall_9_3_1_0_1; }
+		
+		//')'
+		public Keyword getRightParenthesisKeyword_9_4() { return cRightParenthesisKeyword_9_4; }
+		
+		//'}'
+		public Keyword getRightCurlyBracketKeyword_10() { return cRightCurlyBracketKeyword_10; }
+	}
+	public class TalkElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "agendomat.dsl.Agendomat.Talk");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cTalkKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cTalkNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cTalkNameSTRINGTerminalRuleCall_1_0 = (RuleCall)cTalkNameAssignment_1.eContents().get(0);
+		private final Keyword cLeftCurlyBracketKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Keyword cTimeKeyword_3 = (Keyword)cGroup.eContents().get(3);
+		private final Assignment cTalkStartTimeAssignment_4 = (Assignment)cGroup.eContents().get(4);
+		private final RuleCall cTalkStartTimeSTRINGTerminalRuleCall_4_0 = (RuleCall)cTalkStartTimeAssignment_4.eContents().get(0);
+		private final Keyword cHyphenMinusKeyword_5 = (Keyword)cGroup.eContents().get(5);
+		private final Assignment cTalkEndTimeAssignment_6 = (Assignment)cGroup.eContents().get(6);
+		private final RuleCall cTalkEndTimeSTRINGTerminalRuleCall_6_0 = (RuleCall)cTalkEndTimeAssignment_6.eContents().get(0);
+		private final Keyword cPresenterKeyword_7 = (Keyword)cGroup.eContents().get(7);
+		private final Keyword cLeftParenthesisKeyword_8 = (Keyword)cGroup.eContents().get(8);
+		private final Assignment cPresentersAssignment_9 = (Assignment)cGroup.eContents().get(9);
+		private final CrossReference cPresentersPersonCrossReference_9_0 = (CrossReference)cPresentersAssignment_9.eContents().get(0);
+		private final RuleCall cPresentersPersonSTRINGTerminalRuleCall_9_0_1 = (RuleCall)cPresentersPersonCrossReference_9_0.eContents().get(1);
+		private final Group cGroup_10 = (Group)cGroup.eContents().get(10);
+		private final Keyword cCommaKeyword_10_0 = (Keyword)cGroup_10.eContents().get(0);
+		private final Assignment cPresentersAssignment_10_1 = (Assignment)cGroup_10.eContents().get(1);
+		private final CrossReference cPresentersPersonCrossReference_10_1_0 = (CrossReference)cPresentersAssignment_10_1.eContents().get(0);
+		private final RuleCall cPresentersPersonSTRINGTerminalRuleCall_10_1_0_1 = (RuleCall)cPresentersPersonCrossReference_10_1_0.eContents().get(1);
+		private final Keyword cRightParenthesisKeyword_11 = (Keyword)cGroup.eContents().get(11);
+		private final Keyword cRightCurlyBracketKeyword_12 = (Keyword)cGroup.eContents().get(12);
+		
+		//Talk returns Talk:
+		//    'Talk' talkName=STRING '{'
+		//        'Time' talkStartTime=STRING '-' talkEndTime=STRING
+		//        'Presenter' '(' presenters+=[Person|STRING] (',' presenters+=[Person|STRING])* ')'
+		//    '}';
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'Talk' talkName=STRING '{'
+		//    'Time' talkStartTime=STRING '-' talkEndTime=STRING
+		//    'Presenter' '(' presenters+=[Person|STRING] (',' presenters+=[Person|STRING])* ')'
+		//'}'
+		public Group getGroup() { return cGroup; }
+		
+		//'Talk'
+		public Keyword getTalkKeyword_0() { return cTalkKeyword_0; }
+		
+		//talkName=STRING
+		public Assignment getTalkNameAssignment_1() { return cTalkNameAssignment_1; }
+		
+		//STRING
+		public RuleCall getTalkNameSTRINGTerminalRuleCall_1_0() { return cTalkNameSTRINGTerminalRuleCall_1_0; }
+		
+		//'{'
+		public Keyword getLeftCurlyBracketKeyword_2() { return cLeftCurlyBracketKeyword_2; }
+		
+		//'Time'
+		public Keyword getTimeKeyword_3() { return cTimeKeyword_3; }
+		
+		//talkStartTime=STRING
+		public Assignment getTalkStartTimeAssignment_4() { return cTalkStartTimeAssignment_4; }
+		
+		//STRING
+		public RuleCall getTalkStartTimeSTRINGTerminalRuleCall_4_0() { return cTalkStartTimeSTRINGTerminalRuleCall_4_0; }
+		
+		//'-'
+		public Keyword getHyphenMinusKeyword_5() { return cHyphenMinusKeyword_5; }
+		
+		//talkEndTime=STRING
+		public Assignment getTalkEndTimeAssignment_6() { return cTalkEndTimeAssignment_6; }
+		
+		//STRING
+		public RuleCall getTalkEndTimeSTRINGTerminalRuleCall_6_0() { return cTalkEndTimeSTRINGTerminalRuleCall_6_0; }
+		
+		//'Presenter'
+		public Keyword getPresenterKeyword_7() { return cPresenterKeyword_7; }
+		
+		//'('
+		public Keyword getLeftParenthesisKeyword_8() { return cLeftParenthesisKeyword_8; }
+		
+		//presenters+=[Person|STRING]
+		public Assignment getPresentersAssignment_9() { return cPresentersAssignment_9; }
+		
+		//[Person|STRING]
+		public CrossReference getPresentersPersonCrossReference_9_0() { return cPresentersPersonCrossReference_9_0; }
+		
+		//STRING
+		public RuleCall getPresentersPersonSTRINGTerminalRuleCall_9_0_1() { return cPresentersPersonSTRINGTerminalRuleCall_9_0_1; }
+		
+		//(',' presenters+=[Person|STRING])*
+		public Group getGroup_10() { return cGroup_10; }
+		
+		//','
+		public Keyword getCommaKeyword_10_0() { return cCommaKeyword_10_0; }
+		
+		//presenters+=[Person|STRING]
+		public Assignment getPresentersAssignment_10_1() { return cPresentersAssignment_10_1; }
+		
+		//[Person|STRING]
+		public CrossReference getPresentersPersonCrossReference_10_1_0() { return cPresentersPersonCrossReference_10_1_0; }
+		
+		//STRING
+		public RuleCall getPresentersPersonSTRINGTerminalRuleCall_10_1_0_1() { return cPresentersPersonSTRINGTerminalRuleCall_10_1_0_1; }
+		
+		//')'
+		public Keyword getRightParenthesisKeyword_11() { return cRightParenthesisKeyword_11; }
+		
+		//'}'
+		public Keyword getRightCurlyBracketKeyword_12() { return cRightCurlyBracketKeyword_12; }
+	}
+	public class EquipmentElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "agendomat.dsl.Agendomat.Equipment");
+		private final Assignment cEquipmentNameAssignment = (Assignment)rule.eContents().get(1);
+		private final RuleCall cEquipmentNameSTRINGTerminalRuleCall_0 = (RuleCall)cEquipmentNameAssignment.eContents().get(0);
+		
+		//Equipment returns Equipment:
+		//    equipmentName=STRING;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//equipmentName=STRING
+		public Assignment getEquipmentNameAssignment() { return cEquipmentNameAssignment; }
+		
+		//STRING
+		public RuleCall getEquipmentNameSTRINGTerminalRuleCall_0() { return cEquipmentNameSTRINGTerminalRuleCall_0; }
 	}
 	public class EStringElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "agendomat.dsl.Agendomat.EString");
@@ -352,672 +711,6 @@ public class AgendomatGrammarAccess extends AbstractElementFinder.AbstractGramma
 		//ID
 		public RuleCall getIDTerminalRuleCall_1() { return cIDTerminalRuleCall_1; }
 	}
-	public class PersonElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "agendomat.dsl.Agendomat.Person");
-		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cPersonKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Keyword cLeftCurlyBracketKeyword_1 = (Keyword)cGroup.eContents().get(1);
-		private final Keyword cPersonNameKeyword_2 = (Keyword)cGroup.eContents().get(2);
-		private final Assignment cPersonNameAssignment_3 = (Assignment)cGroup.eContents().get(3);
-		private final RuleCall cPersonNameEStringParserRuleCall_3_0 = (RuleCall)cPersonNameAssignment_3.eContents().get(0);
-		private final Keyword cRolesKeyword_4 = (Keyword)cGroup.eContents().get(4);
-		private final Keyword cLeftCurlyBracketKeyword_5 = (Keyword)cGroup.eContents().get(5);
-		private final Assignment cRolesAssignment_6 = (Assignment)cGroup.eContents().get(6);
-		private final RuleCall cRolesRoleEnumRuleCall_6_0 = (RuleCall)cRolesAssignment_6.eContents().get(0);
-		private final Group cGroup_7 = (Group)cGroup.eContents().get(7);
-		private final Keyword cCommaKeyword_7_0 = (Keyword)cGroup_7.eContents().get(0);
-		private final Assignment cRolesAssignment_7_1 = (Assignment)cGroup_7.eContents().get(1);
-		private final RuleCall cRolesRoleEnumRuleCall_7_1_0 = (RuleCall)cRolesAssignment_7_1.eContents().get(0);
-		private final Keyword cRightCurlyBracketKeyword_8 = (Keyword)cGroup.eContents().get(8);
-		private final Keyword cRightCurlyBracketKeyword_9 = (Keyword)cGroup.eContents().get(9);
-		
-		//Person returns Person:
-		//    'Person'
-		//    '{'
-		//        'personName' personName=EString
-		//        'roles' '{' roles+=Role ( "," roles+=Role)* '}'
-		//    '}';
-		@Override public ParserRule getRule() { return rule; }
-		
-		//'Person'
-		//'{'
-		//    'personName' personName=EString
-		//    'roles' '{' roles+=Role ( "," roles+=Role)* '}'
-		//'}'
-		public Group getGroup() { return cGroup; }
-		
-		//'Person'
-		public Keyword getPersonKeyword_0() { return cPersonKeyword_0; }
-		
-		//'{'
-		public Keyword getLeftCurlyBracketKeyword_1() { return cLeftCurlyBracketKeyword_1; }
-		
-		//'personName'
-		public Keyword getPersonNameKeyword_2() { return cPersonNameKeyword_2; }
-		
-		//personName=EString
-		public Assignment getPersonNameAssignment_3() { return cPersonNameAssignment_3; }
-		
-		//EString
-		public RuleCall getPersonNameEStringParserRuleCall_3_0() { return cPersonNameEStringParserRuleCall_3_0; }
-		
-		//'roles'
-		public Keyword getRolesKeyword_4() { return cRolesKeyword_4; }
-		
-		//'{'
-		public Keyword getLeftCurlyBracketKeyword_5() { return cLeftCurlyBracketKeyword_5; }
-		
-		//roles+=Role
-		public Assignment getRolesAssignment_6() { return cRolesAssignment_6; }
-		
-		//Role
-		public RuleCall getRolesRoleEnumRuleCall_6_0() { return cRolesRoleEnumRuleCall_6_0; }
-		
-		//( "," roles+=Role)*
-		public Group getGroup_7() { return cGroup_7; }
-		
-		//","
-		public Keyword getCommaKeyword_7_0() { return cCommaKeyword_7_0; }
-		
-		//roles+=Role
-		public Assignment getRolesAssignment_7_1() { return cRolesAssignment_7_1; }
-		
-		//Role
-		public RuleCall getRolesRoleEnumRuleCall_7_1_0() { return cRolesRoleEnumRuleCall_7_1_0; }
-		
-		//'}'
-		public Keyword getRightCurlyBracketKeyword_8() { return cRightCurlyBracketKeyword_8; }
-		
-		//'}'
-		public Keyword getRightCurlyBracketKeyword_9() { return cRightCurlyBracketKeyword_9; }
-	}
-	public class LocationElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "agendomat.dsl.Agendomat.Location");
-		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cLocationKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Keyword cLeftCurlyBracketKeyword_1 = (Keyword)cGroup.eContents().get(1);
-		private final Keyword cLocationNameKeyword_2 = (Keyword)cGroup.eContents().get(2);
-		private final Assignment cLocationNameAssignment_3 = (Assignment)cGroup.eContents().get(3);
-		private final RuleCall cLocationNameEStringParserRuleCall_3_0 = (RuleCall)cLocationNameAssignment_3.eContents().get(0);
-		private final Keyword cLocationTypeKeyword_4 = (Keyword)cGroup.eContents().get(4);
-		private final Assignment cLocationTypeAssignment_5 = (Assignment)cGroup.eContents().get(5);
-		private final RuleCall cLocationTypeLocationTypeEnumRuleCall_5_0 = (RuleCall)cLocationTypeAssignment_5.eContents().get(0);
-		private final Keyword cRightCurlyBracketKeyword_6 = (Keyword)cGroup.eContents().get(6);
-		
-		//Location returns Location:
-		//    'Location'
-		//    '{'
-		//        'locationName' locationName=EString
-		//        'locationType' locationType=LocationType
-		//    '}';
-		@Override public ParserRule getRule() { return rule; }
-		
-		//'Location'
-		//'{'
-		//    'locationName' locationName=EString
-		//    'locationType' locationType=LocationType
-		//'}'
-		public Group getGroup() { return cGroup; }
-		
-		//'Location'
-		public Keyword getLocationKeyword_0() { return cLocationKeyword_0; }
-		
-		//'{'
-		public Keyword getLeftCurlyBracketKeyword_1() { return cLeftCurlyBracketKeyword_1; }
-		
-		//'locationName'
-		public Keyword getLocationNameKeyword_2() { return cLocationNameKeyword_2; }
-		
-		//locationName=EString
-		public Assignment getLocationNameAssignment_3() { return cLocationNameAssignment_3; }
-		
-		//EString
-		public RuleCall getLocationNameEStringParserRuleCall_3_0() { return cLocationNameEStringParserRuleCall_3_0; }
-		
-		//'locationType'
-		public Keyword getLocationTypeKeyword_4() { return cLocationTypeKeyword_4; }
-		
-		//locationType=LocationType
-		public Assignment getLocationTypeAssignment_5() { return cLocationTypeAssignment_5; }
-		
-		//LocationType
-		public RuleCall getLocationTypeLocationTypeEnumRuleCall_5_0() { return cLocationTypeLocationTypeEnumRuleCall_5_0; }
-		
-		//'}'
-		public Keyword getRightCurlyBracketKeyword_6() { return cRightCurlyBracketKeyword_6; }
-	}
-	public class SessionElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "agendomat.dsl.Agendomat.Session");
-		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cSessionKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Keyword cLeftCurlyBracketKeyword_1 = (Keyword)cGroup.eContents().get(1);
-		private final Keyword cSessionNameKeyword_2 = (Keyword)cGroup.eContents().get(2);
-		private final Assignment cSessionNameAssignment_3 = (Assignment)cGroup.eContents().get(3);
-		private final RuleCall cSessionNameEStringParserRuleCall_3_0 = (RuleCall)cSessionNameAssignment_3.eContents().get(0);
-		private final Keyword cStartTimeKeyword_4 = (Keyword)cGroup.eContents().get(4);
-		private final Assignment cStartTimeAssignment_5 = (Assignment)cGroup.eContents().get(5);
-		private final RuleCall cStartTimeEStringParserRuleCall_5_0 = (RuleCall)cStartTimeAssignment_5.eContents().get(0);
-		private final Keyword cEndTimeKeyword_6 = (Keyword)cGroup.eContents().get(6);
-		private final Assignment cEndTimeAssignment_7 = (Assignment)cGroup.eContents().get(7);
-		private final RuleCall cEndTimeEStringParserRuleCall_7_0 = (RuleCall)cEndTimeAssignment_7.eContents().get(0);
-		private final Keyword cLocationKeyword_8 = (Keyword)cGroup.eContents().get(8);
-		private final Assignment cLocationAssignment_9 = (Assignment)cGroup.eContents().get(9);
-		private final CrossReference cLocationLocationCrossReference_9_0 = (CrossReference)cLocationAssignment_9.eContents().get(0);
-		private final RuleCall cLocationLocationEStringParserRuleCall_9_0_1 = (RuleCall)cLocationLocationCrossReference_9_0.eContents().get(1);
-		private final Group cGroup_10 = (Group)cGroup.eContents().get(10);
-		private final Keyword cTechSupportKeyword_10_0 = (Keyword)cGroup_10.eContents().get(0);
-		private final Keyword cLeftParenthesisKeyword_10_1 = (Keyword)cGroup_10.eContents().get(1);
-		private final Assignment cTechSupportAssignment_10_2 = (Assignment)cGroup_10.eContents().get(2);
-		private final CrossReference cTechSupportPersonCrossReference_10_2_0 = (CrossReference)cTechSupportAssignment_10_2.eContents().get(0);
-		private final RuleCall cTechSupportPersonEStringParserRuleCall_10_2_0_1 = (RuleCall)cTechSupportPersonCrossReference_10_2_0.eContents().get(1);
-		private final Group cGroup_10_3 = (Group)cGroup_10.eContents().get(3);
-		private final Keyword cCommaKeyword_10_3_0 = (Keyword)cGroup_10_3.eContents().get(0);
-		private final Assignment cTechSupportAssignment_10_3_1 = (Assignment)cGroup_10_3.eContents().get(1);
-		private final CrossReference cTechSupportPersonCrossReference_10_3_1_0 = (CrossReference)cTechSupportAssignment_10_3_1.eContents().get(0);
-		private final RuleCall cTechSupportPersonEStringParserRuleCall_10_3_1_0_1 = (RuleCall)cTechSupportPersonCrossReference_10_3_1_0.eContents().get(1);
-		private final Keyword cRightParenthesisKeyword_10_4 = (Keyword)cGroup_10.eContents().get(4);
-		private final Group cGroup_11 = (Group)cGroup.eContents().get(11);
-		private final Keyword cTalksKeyword_11_0 = (Keyword)cGroup_11.eContents().get(0);
-		private final Keyword cLeftCurlyBracketKeyword_11_1 = (Keyword)cGroup_11.eContents().get(1);
-		private final Assignment cTalksAssignment_11_2 = (Assignment)cGroup_11.eContents().get(2);
-		private final RuleCall cTalksTalkParserRuleCall_11_2_0 = (RuleCall)cTalksAssignment_11_2.eContents().get(0);
-		private final Group cGroup_11_3 = (Group)cGroup_11.eContents().get(3);
-		private final Keyword cCommaKeyword_11_3_0 = (Keyword)cGroup_11_3.eContents().get(0);
-		private final Assignment cTalksAssignment_11_3_1 = (Assignment)cGroup_11_3.eContents().get(1);
-		private final RuleCall cTalksTalkParserRuleCall_11_3_1_0 = (RuleCall)cTalksAssignment_11_3_1.eContents().get(0);
-		private final Keyword cRightCurlyBracketKeyword_11_4 = (Keyword)cGroup_11.eContents().get(4);
-		private final Group cGroup_12 = (Group)cGroup.eContents().get(12);
-		private final Keyword cEquipmentKeyword_12_0 = (Keyword)cGroup_12.eContents().get(0);
-		private final Keyword cLeftCurlyBracketKeyword_12_1 = (Keyword)cGroup_12.eContents().get(1);
-		private final Assignment cEquipmentAssignment_12_2 = (Assignment)cGroup_12.eContents().get(2);
-		private final RuleCall cEquipmentEquipmentParserRuleCall_12_2_0 = (RuleCall)cEquipmentAssignment_12_2.eContents().get(0);
-		private final Group cGroup_12_3 = (Group)cGroup_12.eContents().get(3);
-		private final Keyword cCommaKeyword_12_3_0 = (Keyword)cGroup_12_3.eContents().get(0);
-		private final Assignment cEquipmentAssignment_12_3_1 = (Assignment)cGroup_12_3.eContents().get(1);
-		private final RuleCall cEquipmentEquipmentParserRuleCall_12_3_1_0 = (RuleCall)cEquipmentAssignment_12_3_1.eContents().get(0);
-		private final Keyword cRightCurlyBracketKeyword_12_4 = (Keyword)cGroup_12.eContents().get(4);
-		private final Keyword cRightCurlyBracketKeyword_13 = (Keyword)cGroup.eContents().get(13);
-		
-		//Session returns Session:
-		//    'Session'
-		//    '{'
-		//        'sessionName' sessionName=EString
-		//        'startTime' startTime=EString
-		//        'endTime' endTime=EString
-		//        'location' location=[Location|EString]
-		//        ('techSupport' '(' techSupport+=[Person|EString] ( "," techSupport+=[Person|EString])* ')' )?
-		//        ('talks' '{' talks+=Talk ( "," talks+=Talk)* '}' )?
-		//        ('equipment' '{' equipment+=Equipment ( "," equipment+=Equipment)* '}' )?
-		//    '}';
-		@Override public ParserRule getRule() { return rule; }
-		
-		//'Session'
-		//'{'
-		//    'sessionName' sessionName=EString
-		//    'startTime' startTime=EString
-		//    'endTime' endTime=EString
-		//    'location' location=[Location|EString]
-		//    ('techSupport' '(' techSupport+=[Person|EString] ( "," techSupport+=[Person|EString])* ')' )?
-		//    ('talks' '{' talks+=Talk ( "," talks+=Talk)* '}' )?
-		//    ('equipment' '{' equipment+=Equipment ( "," equipment+=Equipment)* '}' )?
-		//'}'
-		public Group getGroup() { return cGroup; }
-		
-		//'Session'
-		public Keyword getSessionKeyword_0() { return cSessionKeyword_0; }
-		
-		//'{'
-		public Keyword getLeftCurlyBracketKeyword_1() { return cLeftCurlyBracketKeyword_1; }
-		
-		//'sessionName'
-		public Keyword getSessionNameKeyword_2() { return cSessionNameKeyword_2; }
-		
-		//sessionName=EString
-		public Assignment getSessionNameAssignment_3() { return cSessionNameAssignment_3; }
-		
-		//EString
-		public RuleCall getSessionNameEStringParserRuleCall_3_0() { return cSessionNameEStringParserRuleCall_3_0; }
-		
-		//'startTime'
-		public Keyword getStartTimeKeyword_4() { return cStartTimeKeyword_4; }
-		
-		//startTime=EString
-		public Assignment getStartTimeAssignment_5() { return cStartTimeAssignment_5; }
-		
-		//EString
-		public RuleCall getStartTimeEStringParserRuleCall_5_0() { return cStartTimeEStringParserRuleCall_5_0; }
-		
-		//'endTime'
-		public Keyword getEndTimeKeyword_6() { return cEndTimeKeyword_6; }
-		
-		//endTime=EString
-		public Assignment getEndTimeAssignment_7() { return cEndTimeAssignment_7; }
-		
-		//EString
-		public RuleCall getEndTimeEStringParserRuleCall_7_0() { return cEndTimeEStringParserRuleCall_7_0; }
-		
-		//'location'
-		public Keyword getLocationKeyword_8() { return cLocationKeyword_8; }
-		
-		//location=[Location|EString]
-		public Assignment getLocationAssignment_9() { return cLocationAssignment_9; }
-		
-		//[Location|EString]
-		public CrossReference getLocationLocationCrossReference_9_0() { return cLocationLocationCrossReference_9_0; }
-		
-		//EString
-		public RuleCall getLocationLocationEStringParserRuleCall_9_0_1() { return cLocationLocationEStringParserRuleCall_9_0_1; }
-		
-		//('techSupport' '(' techSupport+=[Person|EString] ( "," techSupport+=[Person|EString])* ')' )?
-		public Group getGroup_10() { return cGroup_10; }
-		
-		//'techSupport'
-		public Keyword getTechSupportKeyword_10_0() { return cTechSupportKeyword_10_0; }
-		
-		//'('
-		public Keyword getLeftParenthesisKeyword_10_1() { return cLeftParenthesisKeyword_10_1; }
-		
-		//techSupport+=[Person|EString]
-		public Assignment getTechSupportAssignment_10_2() { return cTechSupportAssignment_10_2; }
-		
-		//[Person|EString]
-		public CrossReference getTechSupportPersonCrossReference_10_2_0() { return cTechSupportPersonCrossReference_10_2_0; }
-		
-		//EString
-		public RuleCall getTechSupportPersonEStringParserRuleCall_10_2_0_1() { return cTechSupportPersonEStringParserRuleCall_10_2_0_1; }
-		
-		//( "," techSupport+=[Person|EString])*
-		public Group getGroup_10_3() { return cGroup_10_3; }
-		
-		//","
-		public Keyword getCommaKeyword_10_3_0() { return cCommaKeyword_10_3_0; }
-		
-		//techSupport+=[Person|EString]
-		public Assignment getTechSupportAssignment_10_3_1() { return cTechSupportAssignment_10_3_1; }
-		
-		//[Person|EString]
-		public CrossReference getTechSupportPersonCrossReference_10_3_1_0() { return cTechSupportPersonCrossReference_10_3_1_0; }
-		
-		//EString
-		public RuleCall getTechSupportPersonEStringParserRuleCall_10_3_1_0_1() { return cTechSupportPersonEStringParserRuleCall_10_3_1_0_1; }
-		
-		//')'
-		public Keyword getRightParenthesisKeyword_10_4() { return cRightParenthesisKeyword_10_4; }
-		
-		//('talks' '{' talks+=Talk ( "," talks+=Talk)* '}' )?
-		public Group getGroup_11() { return cGroup_11; }
-		
-		//'talks'
-		public Keyword getTalksKeyword_11_0() { return cTalksKeyword_11_0; }
-		
-		//'{'
-		public Keyword getLeftCurlyBracketKeyword_11_1() { return cLeftCurlyBracketKeyword_11_1; }
-		
-		//talks+=Talk
-		public Assignment getTalksAssignment_11_2() { return cTalksAssignment_11_2; }
-		
-		//Talk
-		public RuleCall getTalksTalkParserRuleCall_11_2_0() { return cTalksTalkParserRuleCall_11_2_0; }
-		
-		//( "," talks+=Talk)*
-		public Group getGroup_11_3() { return cGroup_11_3; }
-		
-		//","
-		public Keyword getCommaKeyword_11_3_0() { return cCommaKeyword_11_3_0; }
-		
-		//talks+=Talk
-		public Assignment getTalksAssignment_11_3_1() { return cTalksAssignment_11_3_1; }
-		
-		//Talk
-		public RuleCall getTalksTalkParserRuleCall_11_3_1_0() { return cTalksTalkParserRuleCall_11_3_1_0; }
-		
-		//'}'
-		public Keyword getRightCurlyBracketKeyword_11_4() { return cRightCurlyBracketKeyword_11_4; }
-		
-		//('equipment' '{' equipment+=Equipment ( "," equipment+=Equipment)* '}' )?
-		public Group getGroup_12() { return cGroup_12; }
-		
-		//'equipment'
-		public Keyword getEquipmentKeyword_12_0() { return cEquipmentKeyword_12_0; }
-		
-		//'{'
-		public Keyword getLeftCurlyBracketKeyword_12_1() { return cLeftCurlyBracketKeyword_12_1; }
-		
-		//equipment+=Equipment
-		public Assignment getEquipmentAssignment_12_2() { return cEquipmentAssignment_12_2; }
-		
-		//Equipment
-		public RuleCall getEquipmentEquipmentParserRuleCall_12_2_0() { return cEquipmentEquipmentParserRuleCall_12_2_0; }
-		
-		//( "," equipment+=Equipment)*
-		public Group getGroup_12_3() { return cGroup_12_3; }
-		
-		//","
-		public Keyword getCommaKeyword_12_3_0() { return cCommaKeyword_12_3_0; }
-		
-		//equipment+=Equipment
-		public Assignment getEquipmentAssignment_12_3_1() { return cEquipmentAssignment_12_3_1; }
-		
-		//Equipment
-		public RuleCall getEquipmentEquipmentParserRuleCall_12_3_1_0() { return cEquipmentEquipmentParserRuleCall_12_3_1_0; }
-		
-		//'}'
-		public Keyword getRightCurlyBracketKeyword_12_4() { return cRightCurlyBracketKeyword_12_4; }
-		
-		//'}'
-		public Keyword getRightCurlyBracketKeyword_13() { return cRightCurlyBracketKeyword_13; }
-	}
-	public class BreakElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "agendomat.dsl.Agendomat.Break");
-		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cBreakKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Keyword cLeftCurlyBracketKeyword_1 = (Keyword)cGroup.eContents().get(1);
-		private final Keyword cBreakNameKeyword_2 = (Keyword)cGroup.eContents().get(2);
-		private final Assignment cBreakNameAssignment_3 = (Assignment)cGroup.eContents().get(3);
-		private final RuleCall cBreakNameEStringParserRuleCall_3_0 = (RuleCall)cBreakNameAssignment_3.eContents().get(0);
-		private final Keyword cStartTimeKeyword_4 = (Keyword)cGroup.eContents().get(4);
-		private final Assignment cStartTimeAssignment_5 = (Assignment)cGroup.eContents().get(5);
-		private final RuleCall cStartTimeEStringParserRuleCall_5_0 = (RuleCall)cStartTimeAssignment_5.eContents().get(0);
-		private final Keyword cEndTimeKeyword_6 = (Keyword)cGroup.eContents().get(6);
-		private final Assignment cEndTimeAssignment_7 = (Assignment)cGroup.eContents().get(7);
-		private final RuleCall cEndTimeEStringParserRuleCall_7_0 = (RuleCall)cEndTimeAssignment_7.eContents().get(0);
-		private final Keyword cLocationKeyword_8 = (Keyword)cGroup.eContents().get(8);
-		private final Assignment cLocationAssignment_9 = (Assignment)cGroup.eContents().get(9);
-		private final CrossReference cLocationLocationCrossReference_9_0 = (CrossReference)cLocationAssignment_9.eContents().get(0);
-		private final RuleCall cLocationLocationEStringParserRuleCall_9_0_1 = (RuleCall)cLocationLocationCrossReference_9_0.eContents().get(1);
-		private final Group cGroup_10 = (Group)cGroup.eContents().get(10);
-		private final Keyword cAnimatorsKeyword_10_0 = (Keyword)cGroup_10.eContents().get(0);
-		private final Keyword cLeftParenthesisKeyword_10_1 = (Keyword)cGroup_10.eContents().get(1);
-		private final Assignment cAnimatorsAssignment_10_2 = (Assignment)cGroup_10.eContents().get(2);
-		private final CrossReference cAnimatorsPersonCrossReference_10_2_0 = (CrossReference)cAnimatorsAssignment_10_2.eContents().get(0);
-		private final RuleCall cAnimatorsPersonEStringParserRuleCall_10_2_0_1 = (RuleCall)cAnimatorsPersonCrossReference_10_2_0.eContents().get(1);
-		private final Group cGroup_10_3 = (Group)cGroup_10.eContents().get(3);
-		private final Keyword cCommaKeyword_10_3_0 = (Keyword)cGroup_10_3.eContents().get(0);
-		private final Assignment cAnimatorsAssignment_10_3_1 = (Assignment)cGroup_10_3.eContents().get(1);
-		private final CrossReference cAnimatorsPersonCrossReference_10_3_1_0 = (CrossReference)cAnimatorsAssignment_10_3_1.eContents().get(0);
-		private final RuleCall cAnimatorsPersonEStringParserRuleCall_10_3_1_0_1 = (RuleCall)cAnimatorsPersonCrossReference_10_3_1_0.eContents().get(1);
-		private final Keyword cRightParenthesisKeyword_10_4 = (Keyword)cGroup_10.eContents().get(4);
-		private final Keyword cRightCurlyBracketKeyword_11 = (Keyword)cGroup.eContents().get(11);
-		
-		//Break returns Break:
-		//    'Break'
-		//    '{'
-		//        'breakName' breakName=EString
-		//        'startTime' startTime=EString
-		//        'endTime' endTime=EString
-		//        'location' location=[Location|EString]
-		//        ('animators' '(' animators+=[Person|EString] ( "," animators+=[Person|EString])* ')' )?
-		//    '}';
-		@Override public ParserRule getRule() { return rule; }
-		
-		//'Break'
-		//'{'
-		//    'breakName' breakName=EString
-		//    'startTime' startTime=EString
-		//    'endTime' endTime=EString
-		//    'location' location=[Location|EString]
-		//    ('animators' '(' animators+=[Person|EString] ( "," animators+=[Person|EString])* ')' )?
-		//'}'
-		public Group getGroup() { return cGroup; }
-		
-		//'Break'
-		public Keyword getBreakKeyword_0() { return cBreakKeyword_0; }
-		
-		//'{'
-		public Keyword getLeftCurlyBracketKeyword_1() { return cLeftCurlyBracketKeyword_1; }
-		
-		//'breakName'
-		public Keyword getBreakNameKeyword_2() { return cBreakNameKeyword_2; }
-		
-		//breakName=EString
-		public Assignment getBreakNameAssignment_3() { return cBreakNameAssignment_3; }
-		
-		//EString
-		public RuleCall getBreakNameEStringParserRuleCall_3_0() { return cBreakNameEStringParserRuleCall_3_0; }
-		
-		//'startTime'
-		public Keyword getStartTimeKeyword_4() { return cStartTimeKeyword_4; }
-		
-		//startTime=EString
-		public Assignment getStartTimeAssignment_5() { return cStartTimeAssignment_5; }
-		
-		//EString
-		public RuleCall getStartTimeEStringParserRuleCall_5_0() { return cStartTimeEStringParserRuleCall_5_0; }
-		
-		//'endTime'
-		public Keyword getEndTimeKeyword_6() { return cEndTimeKeyword_6; }
-		
-		//endTime=EString
-		public Assignment getEndTimeAssignment_7() { return cEndTimeAssignment_7; }
-		
-		//EString
-		public RuleCall getEndTimeEStringParserRuleCall_7_0() { return cEndTimeEStringParserRuleCall_7_0; }
-		
-		//'location'
-		public Keyword getLocationKeyword_8() { return cLocationKeyword_8; }
-		
-		//location=[Location|EString]
-		public Assignment getLocationAssignment_9() { return cLocationAssignment_9; }
-		
-		//[Location|EString]
-		public CrossReference getLocationLocationCrossReference_9_0() { return cLocationLocationCrossReference_9_0; }
-		
-		//EString
-		public RuleCall getLocationLocationEStringParserRuleCall_9_0_1() { return cLocationLocationEStringParserRuleCall_9_0_1; }
-		
-		//('animators' '(' animators+=[Person|EString] ( "," animators+=[Person|EString])* ')' )?
-		public Group getGroup_10() { return cGroup_10; }
-		
-		//'animators'
-		public Keyword getAnimatorsKeyword_10_0() { return cAnimatorsKeyword_10_0; }
-		
-		//'('
-		public Keyword getLeftParenthesisKeyword_10_1() { return cLeftParenthesisKeyword_10_1; }
-		
-		//animators+=[Person|EString]
-		public Assignment getAnimatorsAssignment_10_2() { return cAnimatorsAssignment_10_2; }
-		
-		//[Person|EString]
-		public CrossReference getAnimatorsPersonCrossReference_10_2_0() { return cAnimatorsPersonCrossReference_10_2_0; }
-		
-		//EString
-		public RuleCall getAnimatorsPersonEStringParserRuleCall_10_2_0_1() { return cAnimatorsPersonEStringParserRuleCall_10_2_0_1; }
-		
-		//( "," animators+=[Person|EString])*
-		public Group getGroup_10_3() { return cGroup_10_3; }
-		
-		//","
-		public Keyword getCommaKeyword_10_3_0() { return cCommaKeyword_10_3_0; }
-		
-		//animators+=[Person|EString]
-		public Assignment getAnimatorsAssignment_10_3_1() { return cAnimatorsAssignment_10_3_1; }
-		
-		//[Person|EString]
-		public CrossReference getAnimatorsPersonCrossReference_10_3_1_0() { return cAnimatorsPersonCrossReference_10_3_1_0; }
-		
-		//EString
-		public RuleCall getAnimatorsPersonEStringParserRuleCall_10_3_1_0_1() { return cAnimatorsPersonEStringParserRuleCall_10_3_1_0_1; }
-		
-		//')'
-		public Keyword getRightParenthesisKeyword_10_4() { return cRightParenthesisKeyword_10_4; }
-		
-		//'}'
-		public Keyword getRightCurlyBracketKeyword_11() { return cRightCurlyBracketKeyword_11; }
-	}
-	public class TalkElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "agendomat.dsl.Agendomat.Talk");
-		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cTalkKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Keyword cLeftCurlyBracketKeyword_1 = (Keyword)cGroup.eContents().get(1);
-		private final Keyword cTalkNameKeyword_2 = (Keyword)cGroup.eContents().get(2);
-		private final Assignment cTalkNameAssignment_3 = (Assignment)cGroup.eContents().get(3);
-		private final RuleCall cTalkNameEStringParserRuleCall_3_0 = (RuleCall)cTalkNameAssignment_3.eContents().get(0);
-		private final Keyword cTalkStartTimeKeyword_4 = (Keyword)cGroup.eContents().get(4);
-		private final Assignment cTalkStartTimeAssignment_5 = (Assignment)cGroup.eContents().get(5);
-		private final RuleCall cTalkStartTimeEStringParserRuleCall_5_0 = (RuleCall)cTalkStartTimeAssignment_5.eContents().get(0);
-		private final Keyword cTalkEndTimeKeyword_6 = (Keyword)cGroup.eContents().get(6);
-		private final Assignment cTalkEndTimeAssignment_7 = (Assignment)cGroup.eContents().get(7);
-		private final RuleCall cTalkEndTimeEStringParserRuleCall_7_0 = (RuleCall)cTalkEndTimeAssignment_7.eContents().get(0);
-		private final Keyword cPresentersKeyword_8 = (Keyword)cGroup.eContents().get(8);
-		private final Keyword cLeftParenthesisKeyword_9 = (Keyword)cGroup.eContents().get(9);
-		private final Assignment cPresentersAssignment_10 = (Assignment)cGroup.eContents().get(10);
-		private final CrossReference cPresentersPersonCrossReference_10_0 = (CrossReference)cPresentersAssignment_10.eContents().get(0);
-		private final RuleCall cPresentersPersonEStringParserRuleCall_10_0_1 = (RuleCall)cPresentersPersonCrossReference_10_0.eContents().get(1);
-		private final Group cGroup_11 = (Group)cGroup.eContents().get(11);
-		private final Keyword cCommaKeyword_11_0 = (Keyword)cGroup_11.eContents().get(0);
-		private final Assignment cPresentersAssignment_11_1 = (Assignment)cGroup_11.eContents().get(1);
-		private final CrossReference cPresentersPersonCrossReference_11_1_0 = (CrossReference)cPresentersAssignment_11_1.eContents().get(0);
-		private final RuleCall cPresentersPersonEStringParserRuleCall_11_1_0_1 = (RuleCall)cPresentersPersonCrossReference_11_1_0.eContents().get(1);
-		private final Keyword cRightParenthesisKeyword_12 = (Keyword)cGroup.eContents().get(12);
-		private final Keyword cRightCurlyBracketKeyword_13 = (Keyword)cGroup.eContents().get(13);
-		
-		//Talk returns Talk:
-		//    'Talk'
-		//    '{'
-		//        'talkName' talkName=EString
-		//        'talkStartTime' talkStartTime=EString
-		//        'talkEndTime' talkEndTime=EString
-		//        'presenters' '(' presenters+=[Person|EString] ( "," presenters+=[Person|EString])* ')'
-		//    '}';
-		@Override public ParserRule getRule() { return rule; }
-		
-		//'Talk'
-		//'{'
-		//    'talkName' talkName=EString
-		//    'talkStartTime' talkStartTime=EString
-		//    'talkEndTime' talkEndTime=EString
-		//    'presenters' '(' presenters+=[Person|EString] ( "," presenters+=[Person|EString])* ')'
-		//'}'
-		public Group getGroup() { return cGroup; }
-		
-		//'Talk'
-		public Keyword getTalkKeyword_0() { return cTalkKeyword_0; }
-		
-		//'{'
-		public Keyword getLeftCurlyBracketKeyword_1() { return cLeftCurlyBracketKeyword_1; }
-		
-		//'talkName'
-		public Keyword getTalkNameKeyword_2() { return cTalkNameKeyword_2; }
-		
-		//talkName=EString
-		public Assignment getTalkNameAssignment_3() { return cTalkNameAssignment_3; }
-		
-		//EString
-		public RuleCall getTalkNameEStringParserRuleCall_3_0() { return cTalkNameEStringParserRuleCall_3_0; }
-		
-		//'talkStartTime'
-		public Keyword getTalkStartTimeKeyword_4() { return cTalkStartTimeKeyword_4; }
-		
-		//talkStartTime=EString
-		public Assignment getTalkStartTimeAssignment_5() { return cTalkStartTimeAssignment_5; }
-		
-		//EString
-		public RuleCall getTalkStartTimeEStringParserRuleCall_5_0() { return cTalkStartTimeEStringParserRuleCall_5_0; }
-		
-		//'talkEndTime'
-		public Keyword getTalkEndTimeKeyword_6() { return cTalkEndTimeKeyword_6; }
-		
-		//talkEndTime=EString
-		public Assignment getTalkEndTimeAssignment_7() { return cTalkEndTimeAssignment_7; }
-		
-		//EString
-		public RuleCall getTalkEndTimeEStringParserRuleCall_7_0() { return cTalkEndTimeEStringParserRuleCall_7_0; }
-		
-		//'presenters'
-		public Keyword getPresentersKeyword_8() { return cPresentersKeyword_8; }
-		
-		//'('
-		public Keyword getLeftParenthesisKeyword_9() { return cLeftParenthesisKeyword_9; }
-		
-		//presenters+=[Person|EString]
-		public Assignment getPresentersAssignment_10() { return cPresentersAssignment_10; }
-		
-		//[Person|EString]
-		public CrossReference getPresentersPersonCrossReference_10_0() { return cPresentersPersonCrossReference_10_0; }
-		
-		//EString
-		public RuleCall getPresentersPersonEStringParserRuleCall_10_0_1() { return cPresentersPersonEStringParserRuleCall_10_0_1; }
-		
-		//( "," presenters+=[Person|EString])*
-		public Group getGroup_11() { return cGroup_11; }
-		
-		//","
-		public Keyword getCommaKeyword_11_0() { return cCommaKeyword_11_0; }
-		
-		//presenters+=[Person|EString]
-		public Assignment getPresentersAssignment_11_1() { return cPresentersAssignment_11_1; }
-		
-		//[Person|EString]
-		public CrossReference getPresentersPersonCrossReference_11_1_0() { return cPresentersPersonCrossReference_11_1_0; }
-		
-		//EString
-		public RuleCall getPresentersPersonEStringParserRuleCall_11_1_0_1() { return cPresentersPersonEStringParserRuleCall_11_1_0_1; }
-		
-		//')'
-		public Keyword getRightParenthesisKeyword_12() { return cRightParenthesisKeyword_12; }
-		
-		//'}'
-		public Keyword getRightCurlyBracketKeyword_13() { return cRightCurlyBracketKeyword_13; }
-	}
-	public class EquipmentElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "agendomat.dsl.Agendomat.Equipment");
-		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cEquipmentKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Keyword cLeftCurlyBracketKeyword_1 = (Keyword)cGroup.eContents().get(1);
-		private final Keyword cEquipmentNameKeyword_2 = (Keyword)cGroup.eContents().get(2);
-		private final Assignment cEquipmentNameAssignment_3 = (Assignment)cGroup.eContents().get(3);
-		private final RuleCall cEquipmentNameEStringParserRuleCall_3_0 = (RuleCall)cEquipmentNameAssignment_3.eContents().get(0);
-		private final Group cGroup_4 = (Group)cGroup.eContents().get(4);
-		private final Keyword cEquipmentTypeKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
-		private final Assignment cEquipmentTypeAssignment_4_1 = (Assignment)cGroup_4.eContents().get(1);
-		private final RuleCall cEquipmentTypeEStringParserRuleCall_4_1_0 = (RuleCall)cEquipmentTypeAssignment_4_1.eContents().get(0);
-		private final Keyword cRightCurlyBracketKeyword_5 = (Keyword)cGroup.eContents().get(5);
-		
-		//Equipment returns Equipment:
-		//    'Equipment'
-		//    '{'
-		//        'equipmentName' equipmentName=EString
-		//        ('equipmentType' equipmentType=EString)?
-		//    '}';
-		@Override public ParserRule getRule() { return rule; }
-		
-		//'Equipment'
-		//'{'
-		//    'equipmentName' equipmentName=EString
-		//    ('equipmentType' equipmentType=EString)?
-		//'}'
-		public Group getGroup() { return cGroup; }
-		
-		//'Equipment'
-		public Keyword getEquipmentKeyword_0() { return cEquipmentKeyword_0; }
-		
-		//'{'
-		public Keyword getLeftCurlyBracketKeyword_1() { return cLeftCurlyBracketKeyword_1; }
-		
-		//'equipmentName'
-		public Keyword getEquipmentNameKeyword_2() { return cEquipmentNameKeyword_2; }
-		
-		//equipmentName=EString
-		public Assignment getEquipmentNameAssignment_3() { return cEquipmentNameAssignment_3; }
-		
-		//EString
-		public RuleCall getEquipmentNameEStringParserRuleCall_3_0() { return cEquipmentNameEStringParserRuleCall_3_0; }
-		
-		//('equipmentType' equipmentType=EString)?
-		public Group getGroup_4() { return cGroup_4; }
-		
-		//'equipmentType'
-		public Keyword getEquipmentTypeKeyword_4_0() { return cEquipmentTypeKeyword_4_0; }
-		
-		//equipmentType=EString
-		public Assignment getEquipmentTypeAssignment_4_1() { return cEquipmentTypeAssignment_4_1; }
-		
-		//EString
-		public RuleCall getEquipmentTypeEStringParserRuleCall_4_1_0() { return cEquipmentTypeEStringParserRuleCall_4_1_0; }
-		
-		//'}'
-		public Keyword getRightCurlyBracketKeyword_5() { return cRightCurlyBracketKeyword_5; }
-	}
 	
 	public class RoleElements extends AbstractElementFinder.AbstractEnumRuleElementFinder {
 		private final EnumRule rule = (EnumRule) GrammarUtil.findRuleForName(getGrammar(), "agendomat.dsl.Agendomat.Role");
@@ -1030,7 +723,7 @@ public class AgendomatGrammarAccess extends AbstractElementFinder.AbstractGramma
 		private final Keyword cAnimatorAnimatorKeyword_2_0 = (Keyword)cAnimatorEnumLiteralDeclaration_2.eContents().get(0);
 		
 		//enum Role returns Role:
-		//                Presenter = 'Presenter' | TechSupport = 'TechSupport' | Animator = 'Animator';
+		//    Presenter = 'Presenter' | TechSupport = 'TechSupport' | Animator = 'Animator';
 		public EnumRule getRule() { return rule; }
 		
 		//Presenter = 'Presenter' | TechSupport = 'TechSupport' | Animator = 'Animator'
@@ -1063,7 +756,7 @@ public class AgendomatGrammarAccess extends AbstractElementFinder.AbstractGramma
 		private final Keyword cBreakAreaBreakAreaKeyword_1_0 = (Keyword)cBreakAreaEnumLiteralDeclaration_1.eContents().get(0);
 		
 		//enum LocationType returns LocationType:
-		//                Room = 'Room' | BreakArea = 'BreakArea';
+		//    Room = 'Room' | BreakArea = 'BreakArea';
 		public EnumRule getRule() { return rule; }
 		
 		//Room = 'Room' | BreakArea = 'BreakArea'
@@ -1082,17 +775,16 @@ public class AgendomatGrammarAccess extends AbstractElementFinder.AbstractGramma
 		public Keyword getBreakAreaBreakAreaKeyword_1_0() { return cBreakAreaBreakAreaKeyword_1_0; }
 	}
 	
-	private final ModelElements pModel;
-	private final ProgramItemElements pProgramItem;
 	private final EventElements pEvent;
-	private final EStringElements pEString;
+	private final ProgramItemElements pProgramItem;
 	private final PersonElements pPerson;
 	private final LocationElements pLocation;
-	private final RoleElements eRole;
 	private final SessionElements pSession;
 	private final BreakElements pBreak;
 	private final TalkElements pTalk;
 	private final EquipmentElements pEquipment;
+	private final EStringElements pEString;
+	private final RoleElements eRole;
 	private final LocationTypeElements eLocationType;
 	
 	private final Grammar grammar;
@@ -1104,17 +796,16 @@ public class AgendomatGrammarAccess extends AbstractElementFinder.AbstractGramma
 			TerminalsGrammarAccess gaTerminals) {
 		this.grammar = internalFindGrammar(grammarProvider);
 		this.gaTerminals = gaTerminals;
-		this.pModel = new ModelElements();
-		this.pProgramItem = new ProgramItemElements();
 		this.pEvent = new EventElements();
-		this.pEString = new EStringElements();
+		this.pProgramItem = new ProgramItemElements();
 		this.pPerson = new PersonElements();
 		this.pLocation = new LocationElements();
-		this.eRole = new RoleElements();
 		this.pSession = new SessionElements();
 		this.pBreak = new BreakElements();
 		this.pTalk = new TalkElements();
 		this.pEquipment = new EquipmentElements();
+		this.pEString = new EStringElements();
+		this.eRole = new RoleElements();
 		this.eLocationType = new LocationTypeElements();
 	}
 	
@@ -1145,18 +836,22 @@ public class AgendomatGrammarAccess extends AbstractElementFinder.AbstractGramma
 	}
 
 	
-	//Model returns Model:
-	//    {Model}
-	//    'Model'
+	//Event returns Event:
+	//    'Event' eventName=STRING
+	//    ('from' eventStartDate=STRING 'to' eventEndDate=STRING
+	//    | 'on' eventStartDate=STRING)
 	//    '{'
-	//        ('events' '{' events+=Event ( "," events+=Event)* '}' )?
+	//        ('Description' desc=STRING)?
+	//        persons+=Person*
+	//        locations+=Location*
+	//        programItems+=ProgramItem*
 	//    '}';
-	public ModelElements getModelAccess() {
-		return pModel;
+	public EventElements getEventAccess() {
+		return pEvent;
 	}
 	
-	public ParserRule getModelRule() {
-		return getModelAccess().getRule();
+	public ParserRule getEventRule() {
+		return getEventAccess().getRule();
 	}
 	
 	//ProgramItem returns ProgramItem:
@@ -1169,23 +864,77 @@ public class AgendomatGrammarAccess extends AbstractElementFinder.AbstractGramma
 		return getProgramItemAccess().getRule();
 	}
 	
-	//Event returns Event:
-	//    'Event'
-	//    '{'
-	//        'eventName' eventName=EString
-	//        'eventStartDate' eventStartDate=EString
-	//        'eventEndDate' eventEndDate=EString
-	//        ('desc' desc=EString)?
-	//        ('persons' '{' persons+=Person ( "," persons+=Person)* '}' )?
-	//        ('programItems' '{' programItems+=ProgramItem ( "," programItems+=ProgramItem)* '}' )?
-	//        ('locations' '{' locations+=Location ( "," locations+=Location)* '}' )?
-	//    '}';
-	public EventElements getEventAccess() {
-		return pEvent;
+	//Person returns Person:
+	//    'Person' personName=STRING 'roles' '[' roles+=Role (',' roles+=Role)* ']';
+	public PersonElements getPersonAccess() {
+		return pPerson;
 	}
 	
-	public ParserRule getEventRule() {
-		return getEventAccess().getRule();
+	public ParserRule getPersonRule() {
+		return getPersonAccess().getRule();
+	}
+	
+	//Location returns Location:
+	//    'Location' locationName=STRING 'type' locationType=LocationType;
+	public LocationElements getLocationAccess() {
+		return pLocation;
+	}
+	
+	public ParserRule getLocationRule() {
+		return getLocationAccess().getRule();
+	}
+	
+	//Session returns Session:
+	//    'Session' sessionName=STRING '{'
+	//        'Time' startTime=STRING '-' endTime=STRING
+	//        'Location' location=[Location|STRING]
+	//        ('TechSupport' '(' techSupport+=[Person|STRING] (',' techSupport+=[Person|STRING])* ')')?
+	//        ('Needs' equipment+=Equipment (',' equipment+=Equipment)*)?
+	//        talks+=Talk*
+	//    '}';
+	public SessionElements getSessionAccess() {
+		return pSession;
+	}
+	
+	public ParserRule getSessionRule() {
+		return getSessionAccess().getRule();
+	}
+	
+	//Break returns Break:
+	//    'Break' breakName=STRING '{'
+	//        'Time' startTime=STRING '-' endTime=STRING
+	//        'Location' location=[Location|STRING]
+	//        ('Animator' '(' animators+=[Person|STRING] (',' animators+=[Person|STRING])* ')')?
+	//    '}';
+	public BreakElements getBreakAccess() {
+		return pBreak;
+	}
+	
+	public ParserRule getBreakRule() {
+		return getBreakAccess().getRule();
+	}
+	
+	//Talk returns Talk:
+	//    'Talk' talkName=STRING '{'
+	//        'Time' talkStartTime=STRING '-' talkEndTime=STRING
+	//        'Presenter' '(' presenters+=[Person|STRING] (',' presenters+=[Person|STRING])* ')'
+	//    '}';
+	public TalkElements getTalkAccess() {
+		return pTalk;
+	}
+	
+	public ParserRule getTalkRule() {
+		return getTalkAccess().getRule();
+	}
+	
+	//Equipment returns Equipment:
+	//    equipmentName=STRING;
+	public EquipmentElements getEquipmentAccess() {
+		return pEquipment;
+	}
+	
+	public ParserRule getEquipmentRule() {
+		return getEquipmentAccess().getRule();
 	}
 	
 	//EString returns ecore::EString:
@@ -1198,36 +947,8 @@ public class AgendomatGrammarAccess extends AbstractElementFinder.AbstractGramma
 		return getEStringAccess().getRule();
 	}
 	
-	//Person returns Person:
-	//    'Person'
-	//    '{'
-	//        'personName' personName=EString
-	//        'roles' '{' roles+=Role ( "," roles+=Role)* '}'
-	//    '}';
-	public PersonElements getPersonAccess() {
-		return pPerson;
-	}
-	
-	public ParserRule getPersonRule() {
-		return getPersonAccess().getRule();
-	}
-	
-	//Location returns Location:
-	//    'Location'
-	//    '{'
-	//        'locationName' locationName=EString
-	//        'locationType' locationType=LocationType
-	//    '}';
-	public LocationElements getLocationAccess() {
-		return pLocation;
-	}
-	
-	public ParserRule getLocationRule() {
-		return getLocationAccess().getRule();
-	}
-	
 	//enum Role returns Role:
-	//                Presenter = 'Presenter' | TechSupport = 'TechSupport' | Animator = 'Animator';
+	//    Presenter = 'Presenter' | TechSupport = 'TechSupport' | Animator = 'Animator';
 	public RoleElements getRoleAccess() {
 		return eRole;
 	}
@@ -1236,74 +957,8 @@ public class AgendomatGrammarAccess extends AbstractElementFinder.AbstractGramma
 		return getRoleAccess().getRule();
 	}
 	
-	//Session returns Session:
-	//    'Session'
-	//    '{'
-	//        'sessionName' sessionName=EString
-	//        'startTime' startTime=EString
-	//        'endTime' endTime=EString
-	//        'location' location=[Location|EString]
-	//        ('techSupport' '(' techSupport+=[Person|EString] ( "," techSupport+=[Person|EString])* ')' )?
-	//        ('talks' '{' talks+=Talk ( "," talks+=Talk)* '}' )?
-	//        ('equipment' '{' equipment+=Equipment ( "," equipment+=Equipment)* '}' )?
-	//    '}';
-	public SessionElements getSessionAccess() {
-		return pSession;
-	}
-	
-	public ParserRule getSessionRule() {
-		return getSessionAccess().getRule();
-	}
-	
-	//Break returns Break:
-	//    'Break'
-	//    '{'
-	//        'breakName' breakName=EString
-	//        'startTime' startTime=EString
-	//        'endTime' endTime=EString
-	//        'location' location=[Location|EString]
-	//        ('animators' '(' animators+=[Person|EString] ( "," animators+=[Person|EString])* ')' )?
-	//    '}';
-	public BreakElements getBreakAccess() {
-		return pBreak;
-	}
-	
-	public ParserRule getBreakRule() {
-		return getBreakAccess().getRule();
-	}
-	
-	//Talk returns Talk:
-	//    'Talk'
-	//    '{'
-	//        'talkName' talkName=EString
-	//        'talkStartTime' talkStartTime=EString
-	//        'talkEndTime' talkEndTime=EString
-	//        'presenters' '(' presenters+=[Person|EString] ( "," presenters+=[Person|EString])* ')'
-	//    '}';
-	public TalkElements getTalkAccess() {
-		return pTalk;
-	}
-	
-	public ParserRule getTalkRule() {
-		return getTalkAccess().getRule();
-	}
-	
-	//Equipment returns Equipment:
-	//    'Equipment'
-	//    '{'
-	//        'equipmentName' equipmentName=EString
-	//        ('equipmentType' equipmentType=EString)?
-	//    '}';
-	public EquipmentElements getEquipmentAccess() {
-		return pEquipment;
-	}
-	
-	public ParserRule getEquipmentRule() {
-		return getEquipmentAccess().getRule();
-	}
-	
 	//enum LocationType returns LocationType:
-	//                Room = 'Room' | BreakArea = 'BreakArea';
+	//    Room = 'Room' | BreakArea = 'BreakArea';
 	public LocationTypeElements getLocationTypeAccess() {
 		return eLocationType;
 	}

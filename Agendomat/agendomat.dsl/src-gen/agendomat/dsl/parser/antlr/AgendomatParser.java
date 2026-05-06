@@ -27,7 +27,7 @@ public class AgendomatParser extends AbstractAntlrParser {
 
 	@Override 
 	protected String getDefaultRuleName() {
-		return "Model";
+		return "Event";
 	}
 
 	public AgendomatGrammarAccess getGrammarAccess() {

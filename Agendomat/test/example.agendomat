@@ -1,0 +1,16 @@
+Event "Konferencija 2026" from "2026-05-14" to "2026-05-16" {
+    Description "Jednodnevna konferencija."
+    Person "Marko Milojević" roles [Presenter]
+    Person "Tehničar 1" roles [TechSupport]
+    Location "Amfiteatar A" type Room
+    Session "Uvodno predavanje" {
+        Time "09:00" - "10:00"
+        Location "Amfiteatar A"
+        TechSupport ("Tehničar 1")
+        Needs "Projektor", "Laptop"
+    }
+    Break "Coffee Break" {
+        Time "10:00" - "10:15"
+        Location "Amfiteatar A"
+    }
+}

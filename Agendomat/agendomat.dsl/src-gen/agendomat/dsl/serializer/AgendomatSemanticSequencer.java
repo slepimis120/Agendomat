@@ -8,7 +8,6 @@ import agendomat.Break;
 import agendomat.Equipment;
 import agendomat.Event;
 import agendomat.Location;
-import agendomat.Model;
 import agendomat.Person;
 import agendomat.Session;
 import agendomat.Talk;
@@ -51,9 +50,6 @@ public class AgendomatSemanticSequencer extends AbstractDelegatingSemanticSequen
 			case AgendomatPackage.LOCATION:
 				sequence_Location(context, (Location) semanticObject); 
 				return; 
-			case AgendomatPackage.MODEL:
-				sequence_Model(context, (Model) semanticObject); 
-				return; 
 			case AgendomatPackage.PERSON:
 				sequence_Person(context, (Person) semanticObject); 
 				return; 
@@ -75,7 +71,7 @@ public class AgendomatSemanticSequencer extends AbstractDelegatingSemanticSequen
 	 *     Break returns Break
 	 *
 	 * Constraint:
-	 *     (breakName=EString startTime=EString endTime=EString location=[Location|EString] (animators+=[Person|EString] animators+=[Person|EString]*)?)
+	 *     (breakName=STRING startTime=STRING endTime=STRING location=[Location|STRING] (animators+=[Person|STRING] animators+=[Person|STRING]*)?)
 	 * </pre>
 	 */
 	protected void sequence_Break(ISerializationContext context, Break semanticObject) {
@@ -89,11 +85,17 @@ public class AgendomatSemanticSequencer extends AbstractDelegatingSemanticSequen
 	 *     Equipment returns Equipment
 	 *
 	 * Constraint:
-	 *     (equipmentName=EString equipmentType=EString?)
+	 *     equipmentName=STRING
 	 * </pre>
 	 */
 	protected void sequence_Equipment(ISerializationContext context, Equipment semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, AgendomatPackage.Literals.EQUIPMENT__EQUIPMENT_NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, AgendomatPackage.Literals.EQUIPMENT__EQUIPMENT_NAME));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getEquipmentAccess().getEquipmentNameSTRINGTerminalRuleCall_0(), semanticObject.getEquipmentName());
+		feeder.finish();
 	}
 	
 	
@@ -104,13 +106,12 @@ public class AgendomatSemanticSequencer extends AbstractDelegatingSemanticSequen
 	 *
 	 * Constraint:
 	 *     (
-	 *         eventName=EString 
-	 *         eventStartDate=EString 
-	 *         eventEndDate=EString 
-	 *         desc=EString? 
-	 *         (persons+=Person persons+=Person*)? 
-	 *         (programItems+=ProgramItem programItems+=ProgramItem*)? 
-	 *         (locations+=Location locations+=Location*)?
+	 *         eventName=STRING 
+	 *         ((eventStartDate=STRING eventEndDate=STRING) | eventStartDate=STRING) 
+	 *         desc=STRING? 
+	 *         persons+=Person* 
+	 *         locations+=Location* 
+	 *         programItems+=ProgramItem*
 	 *     )
 	 * </pre>
 	 */
@@ -125,7 +126,7 @@ public class AgendomatSemanticSequencer extends AbstractDelegatingSemanticSequen
 	 *     Location returns Location
 	 *
 	 * Constraint:
-	 *     (locationName=EString locationType=LocationType)
+	 *     (locationName=STRING locationType=LocationType)
 	 * </pre>
 	 */
 	protected void sequence_Location(ISerializationContext context, Location semanticObject) {
@@ -136,23 +137,9 @@ public class AgendomatSemanticSequencer extends AbstractDelegatingSemanticSequen
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, AgendomatPackage.Literals.LOCATION__LOCATION_TYPE));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getLocationAccess().getLocationNameEStringParserRuleCall_3_0(), semanticObject.getLocationName());
-		feeder.accept(grammarAccess.getLocationAccess().getLocationTypeLocationTypeEnumRuleCall_5_0(), semanticObject.getLocationType());
+		feeder.accept(grammarAccess.getLocationAccess().getLocationNameSTRINGTerminalRuleCall_1_0(), semanticObject.getLocationName());
+		feeder.accept(grammarAccess.getLocationAccess().getLocationTypeLocationTypeEnumRuleCall_3_0(), semanticObject.getLocationType());
 		feeder.finish();
-	}
-	
-	
-	/**
-	 * <pre>
-	 * Contexts:
-	 *     Model returns Model
-	 *
-	 * Constraint:
-	 *     (events+=Event events+=Event*)?
-	 * </pre>
-	 */
-	protected void sequence_Model(ISerializationContext context, Model semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
@@ -162,7 +149,7 @@ public class AgendomatSemanticSequencer extends AbstractDelegatingSemanticSequen
 	 *     Person returns Person
 	 *
 	 * Constraint:
-	 *     (personName=EString roles+=Role roles+=Role*)
+	 *     (personName=STRING roles+=Role roles+=Role*)
 	 * </pre>
 	 */
 	protected void sequence_Person(ISerializationContext context, Person semanticObject) {
@@ -178,13 +165,13 @@ public class AgendomatSemanticSequencer extends AbstractDelegatingSemanticSequen
 	 *
 	 * Constraint:
 	 *     (
-	 *         sessionName=EString 
-	 *         startTime=EString 
-	 *         endTime=EString 
-	 *         location=[Location|EString] 
-	 *         (techSupport+=[Person|EString] techSupport+=[Person|EString]*)? 
-	 *         (talks+=Talk talks+=Talk*)? 
-	 *         (equipment+=Equipment equipment+=Equipment*)?
+	 *         sessionName=STRING 
+	 *         startTime=STRING 
+	 *         endTime=STRING 
+	 *         location=[Location|STRING] 
+	 *         (techSupport+=[Person|STRING] techSupport+=[Person|STRING]*)? 
+	 *         (equipment+=Equipment equipment+=Equipment*)? 
+	 *         talks+=Talk*
 	 *     )
 	 * </pre>
 	 */
@@ -199,7 +186,7 @@ public class AgendomatSemanticSequencer extends AbstractDelegatingSemanticSequen
 	 *     Talk returns Talk
 	 *
 	 * Constraint:
-	 *     (talkName=EString talkStartTime=EString talkEndTime=EString presenters+=[Person|EString] presenters+=[Person|EString]*)
+	 *     (talkName=STRING talkStartTime=STRING talkEndTime=STRING presenters+=[Person|STRING] presenters+=[Person|STRING]*)
 	 * </pre>
 	 */
 	protected void sequence_Talk(ISerializationContext context, Talk semanticObject) {
