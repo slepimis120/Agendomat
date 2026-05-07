@@ -5,6 +5,7 @@ package agendomat.dsl.formatting2;
 
 import agendomat.Event;
 import agendomat.Location;
+import agendomat.Model;
 import agendomat.Person;
 import agendomat.ProgramItem;
 import agendomat.dsl.services.AgendomatGrammarAccess;
@@ -24,10 +25,11 @@ public class AgendomatFormatter extends AbstractFormatter2 {
   @Extension
   private AgendomatGrammarAccess _agendomatGrammarAccess;
 
-  protected void _format(final /* Model */Object model, @Extension final IFormattableDocument document) {
-    throw new Error("Unresolved compilation problems:"
-      + "\nevents cannot be resolved"
-      + "\nformat cannot be resolved");
+  protected void _format(final Model model, @Extension final IFormattableDocument document) {
+    EList<Event> _events = model.getEvents();
+    for (final Event event : _events) {
+      document.<Event>format(event);
+    }
   }
 
   protected void _format(final Event event, @Extension final IFormattableDocument document) {
@@ -53,14 +55,14 @@ public class AgendomatFormatter extends AbstractFormatter2 {
     } else if (event instanceof Event) {
       _format((Event)event, document);
       return;
+    } else if (event instanceof Model) {
+      _format((Model)event, document);
+      return;
     } else if (event instanceof EObject) {
       _format((EObject)event, document);
       return;
     } else if (event == null) {
       _format((Void)null, document);
-      return;
-    } else if (event != null) {
-      _format(event, document);
       return;
     } else if (event != null) {
       _format(event, document);

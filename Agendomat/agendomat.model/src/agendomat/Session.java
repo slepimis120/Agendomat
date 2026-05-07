@@ -2,6 +2,8 @@
  */
 package agendomat;
 
+import java.util.Map;
+import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.common.util.EList;
 
 /**
@@ -23,7 +25,7 @@ import org.eclipse.emf.common.util.EList;
  * </ul>
  *
  * @see agendomat.AgendomatPackage#getSession()
- * @model
+ * @model annotation="http://www.eclipse.org/emf/2002/Ecore constraints='sessionLocationMustBeRoom'"
  * @generated
  */
 public interface Session extends ProgramItem {
@@ -150,5 +152,21 @@ public interface Session extends ProgramItem {
 	 * @generated
 	 */
 	EList<Equipment> getEquipment();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot body='\n    \t\tendTime &gt; startTime'"
+	 * @generated
+	 */
+	boolean endTimeAfterStartTime(DiagnosticChain diagnostics, Map<Object, Object> context);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot body='\n    \t\tlocation.locationType = LocationType::Room'"
+	 * @generated
+	 */
+	boolean sessionLocationMustBeRoom(DiagnosticChain diagnostics, Map<Object, Object> context);
 
 } // Session

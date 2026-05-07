@@ -64,6 +64,7 @@ public class AgendomatFactoryImpl extends EFactoryImpl implements AgendomatFacto
 			case AgendomatPackage.PERSON: return createPerson();
 			case AgendomatPackage.LOCATION: return createLocation();
 			case AgendomatPackage.EQUIPMENT: return createEquipment();
+			case AgendomatPackage.MODEL: return createModel();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -178,6 +179,17 @@ public class AgendomatFactoryImpl extends EFactoryImpl implements AgendomatFacto
 	public Equipment createEquipment() {
 		EquipmentImpl equipment = new EquipmentImpl();
 		return equipment;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Model createModel() {
+		ModelImpl model = new ModelImpl();
+		return model;
 	}
 
 	/**

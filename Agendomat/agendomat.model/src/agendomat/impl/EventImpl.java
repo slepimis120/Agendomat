@@ -3,16 +3,22 @@
 package agendomat.impl;
 
 import agendomat.AgendomatPackage;
+import agendomat.AgendomatTables;
 import agendomat.Event;
 import agendomat.Location;
 import agendomat.Person;
 import agendomat.ProgramItem;
 
+import java.lang.reflect.InvocationTargetException;
 import java.util.Collection;
 
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
+import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
@@ -23,6 +29,17 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
+import org.eclipse.ocl.pivot.evaluation.Executor;
+import org.eclipse.ocl.pivot.ids.IdResolver;
+import org.eclipse.ocl.pivot.ids.TypeId;
+import org.eclipse.ocl.pivot.library.oclany.OclComparableLessThanEqualOperation;
+import org.eclipse.ocl.pivot.library.string.CGStringGetSeverityOperation;
+import org.eclipse.ocl.pivot.library.string.CGStringLogDiagnosticOperation;
+import org.eclipse.ocl.pivot.utilities.PivotUtil;
+import org.eclipse.ocl.pivot.utilities.ValueUtil;
+import org.eclipse.ocl.pivot.values.IntegerValue;
+import org.eclipse.ocl.pivot.values.OrderedSetValue;
+import org.eclipse.ocl.pivot.values.SetValue.Accumulator;
 
 /**
  * <!-- begin-user-doc -->
@@ -310,6 +327,136 @@ public class EventImpl extends MinimalEObjectImpl.Container implements Event {
 	 * @generated
 	 */
 	@Override
+	public boolean uniquePersonNames(final DiagnosticChain diagnostics, final Map<Object, Object> context) {
+		final String constraintName = "Event::uniquePersonNames";
+		try {
+			/**
+			 *
+			 * inv uniquePersonNames:
+			 *   let severity : Integer[1] = constraintName.getSeverity()
+			 *   in
+			 *     if severity <= 0
+			 *     then true
+			 *     else
+			 *       let result : Boolean[1] = persons->isUnique(personName)
+			 *       in
+			 *         constraintName.logDiagnostic(self, null, diagnostics, context, null, severity, result, 0)
+			 *     endif
+			 */
+			final /*@NonInvalid*/ Executor executor = PivotUtil.getExecutor(this, context);
+			final /*@NonInvalid*/ IdResolver idResolver = executor.getIdResolver();
+			final /*@NonInvalid*/ IntegerValue severity_0 = CGStringGetSeverityOperation.INSTANCE.evaluate(executor, AgendomatPackage.Literals.EVENT___UNIQUE_PERSON_NAMES__DIAGNOSTICCHAIN_MAP);
+			final /*@NonInvalid*/ boolean le = OclComparableLessThanEqualOperation.INSTANCE.evaluate(executor, severity_0, AgendomatTables.INT_0).booleanValue();
+			/*@NonInvalid*/ boolean local_0;
+			if (le) {
+				local_0 = true;
+			}
+			else {
+				final /*@NonInvalid*/ List<Person> persons = this.getPersons();
+				final /*@NonInvalid*/ OrderedSetValue BOXED_persons = idResolver.createOrderedSetOfAll(AgendomatTables.ORD_CLSSid_Person, persons);
+				/*@Thrown*/ Accumulator accumulator = ValueUtil.createSetAccumulatorValue(AgendomatTables.ORD_CLSSid_Person);
+				Iterator<Object> ITERATOR__1 = BOXED_persons.iterator();
+				/*@NonInvalid*/ boolean result;
+				while (true) {
+					if (!ITERATOR__1.hasNext()) {
+						result = true;
+						break;
+					}
+					/*@NonInvalid*/ Person _1 = (Person)ITERATOR__1.next();
+					/**
+					 * personName
+					 */
+					final /*@NonInvalid*/ String personName = _1.getPersonName();
+					//
+					if (accumulator.includes(personName) == ValueUtil.TRUE_VALUE) {
+						result = false;
+						break;			// Abort after second find
+					}
+					else {
+						accumulator.add(personName);
+					}
+				}
+				final /*@NonInvalid*/ boolean logDiagnostic = CGStringLogDiagnosticOperation.INSTANCE.evaluate(executor, TypeId.BOOLEAN, constraintName, this, (Object)null, diagnostics, context, (Object)null, severity_0, result, AgendomatTables.INT_0).booleanValue();
+				local_0 = logDiagnostic;
+			}
+			return local_0;
+		}
+		catch (Throwable e) {
+			return ValueUtil.validationFailedDiagnostic(constraintName, this, diagnostics, context, e);
+		}
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public boolean uniqueLocationNames(final DiagnosticChain diagnostics, final Map<Object, Object> context) {
+		final String constraintName = "Event::uniqueLocationNames";
+		try {
+			/**
+			 *
+			 * inv uniqueLocationNames:
+			 *   let severity : Integer[1] = constraintName.getSeverity()
+			 *   in
+			 *     if severity <= 0
+			 *     then true
+			 *     else
+			 *       let result : Boolean[1] = locations->isUnique(locationName)
+			 *       in
+			 *         constraintName.logDiagnostic(self, null, diagnostics, context, null, severity, result, 0)
+			 *     endif
+			 */
+			final /*@NonInvalid*/ Executor executor = PivotUtil.getExecutor(this, context);
+			final /*@NonInvalid*/ IdResolver idResolver = executor.getIdResolver();
+			final /*@NonInvalid*/ IntegerValue severity_0 = CGStringGetSeverityOperation.INSTANCE.evaluate(executor, AgendomatPackage.Literals.EVENT___UNIQUE_LOCATION_NAMES__DIAGNOSTICCHAIN_MAP);
+			final /*@NonInvalid*/ boolean le = OclComparableLessThanEqualOperation.INSTANCE.evaluate(executor, severity_0, AgendomatTables.INT_0).booleanValue();
+			/*@NonInvalid*/ boolean local_0;
+			if (le) {
+				local_0 = true;
+			}
+			else {
+				final /*@NonInvalid*/ List<Location> locations = this.getLocations();
+				final /*@NonInvalid*/ OrderedSetValue BOXED_locations = idResolver.createOrderedSetOfAll(AgendomatTables.ORD_CLSSid_Location, locations);
+				/*@Thrown*/ Accumulator accumulator = ValueUtil.createSetAccumulatorValue(AgendomatTables.ORD_CLSSid_Location);
+				Iterator<Object> ITERATOR__1 = BOXED_locations.iterator();
+				/*@NonInvalid*/ boolean result;
+				while (true) {
+					if (!ITERATOR__1.hasNext()) {
+						result = true;
+						break;
+					}
+					/*@NonInvalid*/ Location _1 = (Location)ITERATOR__1.next();
+					/**
+					 * locationName
+					 */
+					final /*@NonInvalid*/ String locationName = _1.getLocationName();
+					//
+					if (accumulator.includes(locationName) == ValueUtil.TRUE_VALUE) {
+						result = false;
+						break;			// Abort after second find
+					}
+					else {
+						accumulator.add(locationName);
+					}
+				}
+				final /*@NonInvalid*/ boolean logDiagnostic = CGStringLogDiagnosticOperation.INSTANCE.evaluate(executor, TypeId.BOOLEAN, constraintName, this, (Object)null, diagnostics, context, (Object)null, severity_0, result, AgendomatTables.INT_0).booleanValue();
+				local_0 = logDiagnostic;
+			}
+			return local_0;
+		}
+		catch (Throwable e) {
+			return ValueUtil.validationFailedDiagnostic(constraintName, this, diagnostics, context, e);
+		}
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case AgendomatPackage.EVENT__PERSONS:
@@ -442,6 +589,23 @@ public class EventImpl extends MinimalEObjectImpl.Container implements Event {
 				return locations != null && !locations.isEmpty();
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	@SuppressWarnings("unchecked")
+	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
+		switch (operationID) {
+			case AgendomatPackage.EVENT___UNIQUE_PERSON_NAMES__DIAGNOSTICCHAIN_MAP:
+				return uniquePersonNames((DiagnosticChain)arguments.get(0), (Map<Object, Object>)arguments.get(1));
+			case AgendomatPackage.EVENT___UNIQUE_LOCATION_NAMES__DIAGNOSTICCHAIN_MAP:
+				return uniqueLocationNames((DiagnosticChain)arguments.get(0), (Map<Object, Object>)arguments.get(1));
+		}
+		return super.eInvoke(operationID, arguments);
 	}
 
 	/**

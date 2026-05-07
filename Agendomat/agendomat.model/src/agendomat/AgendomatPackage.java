@@ -5,6 +5,7 @@ package agendomat;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EEnum;
+import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 
@@ -22,6 +23,7 @@ import org.eclipse.emf.ecore.EReference;
  * <!-- end-user-doc -->
  * @see agendomat.AgendomatFactory
  * @model kind="package"
+ *        annotation="http://www.eclipse.org/emf/2002/Ecore"
  * @generated
  */
 public interface AgendomatPackage extends EPackage {
@@ -140,13 +142,31 @@ public interface AgendomatPackage extends EPackage {
 	int EVENT_FEATURE_COUNT = 7;
 
 	/**
+	 * The operation id for the '<em>Unique Person Names</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EVENT___UNIQUE_PERSON_NAMES__DIAGNOSTICCHAIN_MAP = 0;
+
+	/**
+	 * The operation id for the '<em>Unique Location Names</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EVENT___UNIQUE_LOCATION_NAMES__DIAGNOSTICCHAIN_MAP = 1;
+
+	/**
 	 * The number of operations of the '<em>Event</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int EVENT_OPERATION_COUNT = 0;
+	int EVENT_OPERATION_COUNT = 2;
 
 	/**
 	 * The meta object id for the '{@link agendomat.impl.ProgramItemImpl <em>Program Item</em>}' class.
@@ -259,13 +279,31 @@ public interface AgendomatPackage extends EPackage {
 	int SESSION_FEATURE_COUNT = PROGRAM_ITEM_FEATURE_COUNT + 7;
 
 	/**
+	 * The operation id for the '<em>End Time After Start Time</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SESSION___END_TIME_AFTER_START_TIME__DIAGNOSTICCHAIN_MAP = PROGRAM_ITEM_OPERATION_COUNT + 0;
+
+	/**
+	 * The operation id for the '<em>Session Location Must Be Room</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SESSION___SESSION_LOCATION_MUST_BE_ROOM__DIAGNOSTICCHAIN_MAP = PROGRAM_ITEM_OPERATION_COUNT + 1;
+
+	/**
 	 * The number of operations of the '<em>Session</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SESSION_OPERATION_COUNT = PROGRAM_ITEM_OPERATION_COUNT + 0;
+	int SESSION_OPERATION_COUNT = PROGRAM_ITEM_OPERATION_COUNT + 2;
 
 	/**
 	 * The meta object id for the '{@link agendomat.impl.TalkImpl <em>Talk</em>}' class.
@@ -323,13 +361,22 @@ public interface AgendomatPackage extends EPackage {
 	int TALK_FEATURE_COUNT = 4;
 
 	/**
+	 * The operation id for the '<em>End Time After Start Time</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TALK___END_TIME_AFTER_START_TIME__DIAGNOSTICCHAIN_MAP = 0;
+
+	/**
 	 * The number of operations of the '<em>Talk</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TALK_OPERATION_COUNT = 0;
+	int TALK_OPERATION_COUNT = 1;
 
 	/**
 	 * The meta object id for the '{@link agendomat.impl.BreakImpl <em>Break</em>}' class.
@@ -396,13 +443,31 @@ public interface AgendomatPackage extends EPackage {
 	int BREAK_FEATURE_COUNT = PROGRAM_ITEM_FEATURE_COUNT + 5;
 
 	/**
+	 * The operation id for the '<em>End Time After Start Time</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BREAK___END_TIME_AFTER_START_TIME__DIAGNOSTICCHAIN_MAP = PROGRAM_ITEM_OPERATION_COUNT + 0;
+
+	/**
+	 * The operation id for the '<em>Break Location Must Be Break Area</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BREAK___BREAK_LOCATION_MUST_BE_BREAK_AREA__DIAGNOSTICCHAIN_MAP = PROGRAM_ITEM_OPERATION_COUNT + 1;
+
+	/**
 	 * The number of operations of the '<em>Break</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int BREAK_OPERATION_COUNT = PROGRAM_ITEM_OPERATION_COUNT + 0;
+	int BREAK_OPERATION_COUNT = PROGRAM_ITEM_OPERATION_COUNT + 2;
 
 	/**
 	 * The meta object id for the '{@link agendomat.impl.PersonImpl <em>Person</em>}' class.
@@ -543,6 +608,43 @@ public interface AgendomatPackage extends EPackage {
 	int EQUIPMENT_OPERATION_COUNT = 0;
 
 	/**
+	 * The meta object id for the '{@link agendomat.impl.ModelImpl <em>Model</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see agendomat.impl.ModelImpl
+	 * @see agendomat.impl.AgendomatPackageImpl#getModel()
+	 * @generated
+	 */
+	int MODEL = 8;
+
+	/**
+	 * The feature id for the '<em><b>Events</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MODEL__EVENTS = 0;
+
+	/**
+	 * The number of structural features of the '<em>Model</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MODEL_FEATURE_COUNT = 1;
+
+	/**
+	 * The number of operations of the '<em>Model</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MODEL_OPERATION_COUNT = 0;
+
+	/**
 	 * The meta object id for the '{@link agendomat.LocationType <em>Location Type</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -550,7 +652,7 @@ public interface AgendomatPackage extends EPackage {
 	 * @see agendomat.impl.AgendomatPackageImpl#getLocationType()
 	 * @generated
 	 */
-	int LOCATION_TYPE = 8;
+	int LOCATION_TYPE = 9;
 
 	/**
 	 * The meta object id for the '{@link agendomat.Role <em>Role</em>}' enum.
@@ -560,7 +662,7 @@ public interface AgendomatPackage extends EPackage {
 	 * @see agendomat.impl.AgendomatPackageImpl#getRole()
 	 * @generated
 	 */
-	int ROLE = 9;
+	int ROLE = 10;
 
 
 	/**
@@ -649,6 +751,26 @@ public interface AgendomatPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getEvent_Locations();
+
+	/**
+	 * Returns the meta object for the '{@link agendomat.Event#uniquePersonNames(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map) <em>Unique Person Names</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Unique Person Names</em>' operation.
+	 * @see agendomat.Event#uniquePersonNames(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
+	 * @generated
+	 */
+	EOperation getEvent__UniquePersonNames__DiagnosticChain_Map();
+
+	/**
+	 * Returns the meta object for the '{@link agendomat.Event#uniqueLocationNames(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map) <em>Unique Location Names</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Unique Location Names</em>' operation.
+	 * @see agendomat.Event#uniqueLocationNames(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
+	 * @generated
+	 */
+	EOperation getEvent__UniqueLocationNames__DiagnosticChain_Map();
 
 	/**
 	 * Returns the meta object for class '{@link agendomat.ProgramItem <em>Program Item</em>}'.
@@ -748,6 +870,26 @@ public interface AgendomatPackage extends EPackage {
 	EReference getSession_Equipment();
 
 	/**
+	 * Returns the meta object for the '{@link agendomat.Session#endTimeAfterStartTime(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map) <em>End Time After Start Time</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>End Time After Start Time</em>' operation.
+	 * @see agendomat.Session#endTimeAfterStartTime(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
+	 * @generated
+	 */
+	EOperation getSession__EndTimeAfterStartTime__DiagnosticChain_Map();
+
+	/**
+	 * Returns the meta object for the '{@link agendomat.Session#sessionLocationMustBeRoom(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map) <em>Session Location Must Be Room</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Session Location Must Be Room</em>' operation.
+	 * @see agendomat.Session#sessionLocationMustBeRoom(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
+	 * @generated
+	 */
+	EOperation getSession__SessionLocationMustBeRoom__DiagnosticChain_Map();
+
+	/**
 	 * Returns the meta object for class '{@link agendomat.Talk <em>Talk</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -800,6 +942,16 @@ public interface AgendomatPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getTalk_Presenters();
+
+	/**
+	 * Returns the meta object for the '{@link agendomat.Talk#endTimeAfterStartTime(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map) <em>End Time After Start Time</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>End Time After Start Time</em>' operation.
+	 * @see agendomat.Talk#endTimeAfterStartTime(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
+	 * @generated
+	 */
+	EOperation getTalk__EndTimeAfterStartTime__DiagnosticChain_Map();
 
 	/**
 	 * Returns the meta object for class '{@link agendomat.Break <em>Break</em>}'.
@@ -865,6 +1017,26 @@ public interface AgendomatPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getBreak_Animators();
+
+	/**
+	 * Returns the meta object for the '{@link agendomat.Break#endTimeAfterStartTime(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map) <em>End Time After Start Time</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>End Time After Start Time</em>' operation.
+	 * @see agendomat.Break#endTimeAfterStartTime(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
+	 * @generated
+	 */
+	EOperation getBreak__EndTimeAfterStartTime__DiagnosticChain_Map();
+
+	/**
+	 * Returns the meta object for the '{@link agendomat.Break#breakLocationMustBeBreakArea(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map) <em>Break Location Must Be Break Area</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Break Location Must Be Break Area</em>' operation.
+	 * @see agendomat.Break#breakLocationMustBeBreakArea(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
+	 * @generated
+	 */
+	EOperation getBreak__BreakLocationMustBeBreakArea__DiagnosticChain_Map();
 
 	/**
 	 * Returns the meta object for class '{@link agendomat.Person <em>Person</em>}'.
@@ -961,6 +1133,27 @@ public interface AgendomatPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getEquipment_EquipmentType();
+
+	/**
+	 * Returns the meta object for class '{@link agendomat.Model <em>Model</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Model</em>'.
+	 * @see agendomat.Model
+	 * @generated
+	 */
+	EClass getModel();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link agendomat.Model#getEvents <em>Events</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Events</em>'.
+	 * @see agendomat.Model#getEvents()
+	 * @see #getModel()
+	 * @generated
+	 */
+	EReference getModel_Events();
 
 	/**
 	 * Returns the meta object for enum '{@link agendomat.LocationType <em>Location Type</em>}'.
@@ -1072,6 +1265,22 @@ public interface AgendomatPackage extends EPackage {
 		EReference EVENT__LOCATIONS = eINSTANCE.getEvent_Locations();
 
 		/**
+		 * The meta object literal for the '<em><b>Unique Person Names</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation EVENT___UNIQUE_PERSON_NAMES__DIAGNOSTICCHAIN_MAP = eINSTANCE.getEvent__UniquePersonNames__DiagnosticChain_Map();
+
+		/**
+		 * The meta object literal for the '<em><b>Unique Location Names</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation EVENT___UNIQUE_LOCATION_NAMES__DIAGNOSTICCHAIN_MAP = eINSTANCE.getEvent__UniqueLocationNames__DiagnosticChain_Map();
+
+		/**
 		 * The meta object literal for the '{@link agendomat.impl.ProgramItemImpl <em>Program Item</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1148,6 +1357,22 @@ public interface AgendomatPackage extends EPackage {
 		EReference SESSION__EQUIPMENT = eINSTANCE.getSession_Equipment();
 
 		/**
+		 * The meta object literal for the '<em><b>End Time After Start Time</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation SESSION___END_TIME_AFTER_START_TIME__DIAGNOSTICCHAIN_MAP = eINSTANCE.getSession__EndTimeAfterStartTime__DiagnosticChain_Map();
+
+		/**
+		 * The meta object literal for the '<em><b>Session Location Must Be Room</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation SESSION___SESSION_LOCATION_MUST_BE_ROOM__DIAGNOSTICCHAIN_MAP = eINSTANCE.getSession__SessionLocationMustBeRoom__DiagnosticChain_Map();
+
+		/**
 		 * The meta object literal for the '{@link agendomat.impl.TalkImpl <em>Talk</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1188,6 +1413,14 @@ public interface AgendomatPackage extends EPackage {
 		 * @generated
 		 */
 		EReference TALK__PRESENTERS = eINSTANCE.getTalk_Presenters();
+
+		/**
+		 * The meta object literal for the '<em><b>End Time After Start Time</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation TALK___END_TIME_AFTER_START_TIME__DIAGNOSTICCHAIN_MAP = eINSTANCE.getTalk__EndTimeAfterStartTime__DiagnosticChain_Map();
 
 		/**
 		 * The meta object literal for the '{@link agendomat.impl.BreakImpl <em>Break</em>}' class.
@@ -1238,6 +1471,22 @@ public interface AgendomatPackage extends EPackage {
 		 * @generated
 		 */
 		EReference BREAK__ANIMATORS = eINSTANCE.getBreak_Animators();
+
+		/**
+		 * The meta object literal for the '<em><b>End Time After Start Time</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation BREAK___END_TIME_AFTER_START_TIME__DIAGNOSTICCHAIN_MAP = eINSTANCE.getBreak__EndTimeAfterStartTime__DiagnosticChain_Map();
+
+		/**
+		 * The meta object literal for the '<em><b>Break Location Must Be Break Area</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation BREAK___BREAK_LOCATION_MUST_BE_BREAK_AREA__DIAGNOSTICCHAIN_MAP = eINSTANCE.getBreak__BreakLocationMustBeBreakArea__DiagnosticChain_Map();
 
 		/**
 		 * The meta object literal for the '{@link agendomat.impl.PersonImpl <em>Person</em>}' class.
@@ -1316,6 +1565,24 @@ public interface AgendomatPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute EQUIPMENT__EQUIPMENT_TYPE = eINSTANCE.getEquipment_EquipmentType();
+
+		/**
+		 * The meta object literal for the '{@link agendomat.impl.ModelImpl <em>Model</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see agendomat.impl.ModelImpl
+		 * @see agendomat.impl.AgendomatPackageImpl#getModel()
+		 * @generated
+		 */
+		EClass MODEL = eINSTANCE.getModel();
+
+		/**
+		 * The meta object literal for the '<em><b>Events</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference MODEL__EVENTS = eINSTANCE.getModel_Events();
 
 		/**
 		 * The meta object literal for the '{@link agendomat.LocationType <em>Location Type</em>}' enum.

@@ -1,15 +1,85 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <description:Group xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" name="agendomat" version="12.0.0.2017041100">
-  <ownedViewpoints name="MyViewpoint">
-    <ownedRepresentations xsi:type="description_1:DiagramDescription" enablePopupBars="true">
+  <ownedViewpoints name="AgendomatViewpoint" modelFileExtension="agendomat ecore">
+    <ownedRepresentations xsi:type="description_1:DiagramDescription" name="EventDiagram" domainClass="agendomat.Event" enablePopupBars="true">
       <defaultLayer name="Default">
-        <nodeMappings name="FeatureNode" label="FeatureNode" domainClass="EObject">
-          <style xsi:type="style:SquareDescription" labelSize="12" labelExpression="aql:self.toString()" labelPosition="node" resizeKind="NSEW">
+
+        <!-- LOCATION -->
+        <nodeMappings name="LocationNode" label="LocationNode" domainClass="agendomat.Location" semanticCandidatesExpression="aql:self.locations">
+          <style xsi:type="style:EllipseNodeDescription" labelSize="12" labelExpression="aql:self.locationName + '\n[' + self.locationType.toString() + ']'" labelPosition="node" resizeKind="NSEW">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-            <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+            <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_yellow']"/>
           </style>
         </nodeMappings>
+
+        <!-- PERSON -->
+        <nodeMappings name="PersonNode" label="PersonNode" domainClass="agendomat.Person" semanticCandidatesExpression="aql:self.persons">
+          <style xsi:type="style:EllipseNodeDescription" labelSize="12" labelExpression="aql:self.personName + '\n[' + self.roles->collect(r | r.toString())->sep(', ')->toString() + ']'" labelPosition="node" resizeKind="NSEW">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_green']"/>
+          </style>
+        </nodeMappings>
+
+        <!-- SESSION -->
+        <containerMappings name="SessionContainer" label="SessionContainer" domainClass="agendomat.Session" semanticCandidatesExpression="aql:self.programItems->select(p | p.oclIsKindOf(agendomat::Session))">
+          <style xsi:type="style:FlatContainerStyleDescription" labelSize="12" labelExpression="aql:'Session: ' + self.sessionName + '\n' + self.startTime + ' - ' + self.endTime" labelPosition="top" resizeKind="NSEW">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='dark_blue']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+            <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='blue']"/>
+            <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_blue']"/>
+          </style>
+          <!-- TALK unutar Session -->
+          <subNodeMappings name="TalkNode" label="TalkNode" domainClass="agendomat.Talk" semanticCandidatesExpression="aql:self.talks">
+            <style xsi:type="style:SquareDescription" labelSize="11" labelExpression="aql:'Talk: ' + self.talkName + '\n' + self.talkStartTime + ' - ' + self.talkEndTime" labelPosition="node" resizeKind="NSEW">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='dark_blue']"/>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+            </style>
+          </subNodeMappings>
+        </containerMappings>
+
+        <!-- BREAK -->
+        <containerMappings name="BreakContainer" label="BreakContainer" domainClass="agendomat.Break" semanticCandidatesExpression="aql:self.programItems->select(p | p.oclIsKindOf(agendomat::Break))">
+          <style xsi:type="style:FlatContainerStyleDescription" labelSize="12" labelExpression="aql:'Break: ' + self.breakName + '\n' + self.startTime + ' - ' + self.endTime" labelPosition="top" resizeKind="NSEW">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='dark_orange']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+            <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='orange']"/>
+            <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_orange']"/>
+          </style>
+        </containerMappings>
+
+        <!-- EDGE: Session -> Location -->
+        <edgeMappings name="SessionToLocation" label="SessionToLocation" sourceMapping="//@ownedViewpoints[name='AgendomatViewpoint']/@ownedRepresentations[name='EventDiagram']/@defaultLayer/@containerMappings[name='SessionContainer']" targetMapping="//@ownedViewpoints[name='AgendomatViewpoint']/@ownedRepresentations[name='EventDiagram']/@defaultLayer/@nodeMappings[name='LocationNode']" targetFinderExpression="aql:self.location">
+          <style size="1">
+            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='dark_blue']"/>
+            <centerLabelStyle labelSize="9" labelExpression="aql:'location'">
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </centerLabelStyle>
+          </style>
+        </edgeMappings>
+
+        <!-- EDGE: Break -> Location -->
+        <edgeMappings name="BreakToLocation" label="BreakToLocation" sourceMapping="//@ownedViewpoints[name='AgendomatViewpoint']/@ownedRepresentations[name='EventDiagram']/@defaultLayer/@containerMappings[name='BreakContainer']" targetMapping="//@ownedViewpoints[name='AgendomatViewpoint']/@ownedRepresentations[name='EventDiagram']/@defaultLayer/@nodeMappings[name='LocationNode']" targetFinderExpression="aql:self.location">
+          <style size="1">
+            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='dark_orange']"/>
+            <centerLabelStyle labelSize="9" labelExpression="aql:'location'">
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </centerLabelStyle>
+          </style>
+        </edgeMappings>
+
+        <!-- EDGE: Talk -> Person (presenter) -->
+        <edgeMappings name="TalkToPresenter" label="TalkToPresenter" sourceMapping="//@ownedViewpoints[name='AgendomatViewpoint']/@ownedRepresentations[name='EventDiagram']/@defaultLayer/@containerMappings[name='SessionContainer']/@subNodeMappings[name='TalkNode']" targetMapping="//@ownedViewpoints[name='AgendomatViewpoint']/@ownedRepresentations[name='EventDiagram']/@defaultLayer/@nodeMappings[name='PersonNode']" targetFinderExpression="aql:self.presenters">
+          <style size="1">
+            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <centerLabelStyle labelSize="9" labelExpression="aql:'presenter'">
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </centerLabelStyle>
+          </style>
+        </edgeMappings>
+
       </defaultLayer>
     </ownedRepresentations>
     <ownedJavaExtensions qualifiedClassName="agendomat.design.Services"/>

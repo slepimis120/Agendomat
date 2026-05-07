@@ -2,6 +2,8 @@
  */
 package agendomat;
 
+import java.util.Map;
+import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EObject;
@@ -25,7 +27,7 @@ import org.eclipse.emf.ecore.EObject;
  * </ul>
  *
  * @see agendomat.AgendomatPackage#getEvent()
- * @model
+ * @model annotation="http://www.eclipse.org/emf/2002/Ecore constraints='uniqueLocationNames'"
  * @generated
  */
 public interface Event extends EObject {
@@ -152,5 +154,21 @@ public interface Event extends EObject {
 	 * @generated
 	 */
 	EList<Location> getLocations();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot body='\n    \t\tpersons-&gt;isUnique(personName)'"
+	 * @generated
+	 */
+	boolean uniquePersonNames(DiagnosticChain diagnostics, Map<Object, Object> context);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot body='\n    \t\tlocations-&gt;isUnique(locationName)'"
+	 * @generated
+	 */
+	boolean uniqueLocationNames(DiagnosticChain diagnostics, Map<Object, Object> context);
 
 } // Event

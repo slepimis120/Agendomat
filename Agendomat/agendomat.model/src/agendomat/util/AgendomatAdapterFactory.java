@@ -100,6 +100,10 @@ public class AgendomatAdapterFactory extends AdapterFactoryImpl {
 				return createEquipmentAdapter();
 			}
 			@Override
+			public Adapter caseModel(Model object) {
+				return createModelAdapter();
+			}
+			@Override
 			public Adapter defaultCase(EObject object) {
 				return createEObjectAdapter();
 			}
@@ -228,6 +232,20 @@ public class AgendomatAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createEquipmentAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link agendomat.Model <em>Model</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see agendomat.Model
+	 * @generated
+	 */
+	public Adapter createModelAdapter() {
 		return null;
 	}
 

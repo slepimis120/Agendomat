@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="agendomat" nsURI="http://agendomat/1.0" nsPrefix="agendomat">
+  <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
+    <details key="invocationDelegates" value="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot"/>
+    <details key="settingDelegates" value="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot"/>
+    <details key="validationDelegates" value="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot"/>
+  </eAnnotations>
   <eClassifiers xsi:type="ecore:EEnum" name="LocationType">
     <eLiterals name="Room" literal="Room"/>
     <eLiterals name="BreakArea" value="1" literal="BreakArea"/>
@@ -11,6 +16,13 @@
     <eLiterals name="Animator" value="2"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Event">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
+      <details key="constraints" value="uniquePersonNames uniqueLocationNames"/>
+    </eAnnotations>
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
+      <details key="uniquePersonNames" value="&#xA;    &#x9;&#x9;persons->isUnique(personName)"/>
+      <details key="uniqueLocationNames" value="&#xA;    &#x9;&#x9;locations->isUnique(locationName)"/>
+    </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="eventName" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="eventStartDate" lowerBound="1"
@@ -27,6 +39,13 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ProgramItem" abstract="true"/>
   <eClassifiers xsi:type="ecore:EClass" name="Session" eSuperTypes="#//ProgramItem">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
+      <details key="constraints" value="sessionLocationMustBeRoom endTimeAfterStartTime"/>
+    </eAnnotations>
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
+      <details key="sessionLocationMustBeRoom" value="&#xA;    &#x9;&#x9;location.locationType = LocationType::Room"/>
+      <details key="endTimeAfterStartTime" value="&#xA;    &#x9;&#x9;endTime > startTime"/>
+    </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="sessionName" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="startTime" lowerBound="1"
@@ -43,6 +62,12 @@
         eType="#//Equipment" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Talk">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
+      <details key="constraints" value="endTimeAfterStartTime"/>
+    </eAnnotations>
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
+      <details key="endTimeAfterStartTime" value="&#xA;    &#x9;&#x9;talkEndTime > talkStartTime"/>
+    </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="talkName" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="talkStartTime" lowerBound="1"
@@ -53,6 +78,13 @@
         upperBound="-1" eType="#//Person"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Break" eSuperTypes="#//ProgramItem">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
+      <details key="constraints" value="breakLocationMustBeBreakArea endTimeAfterStartTime"/>
+    </eAnnotations>
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
+      <details key="breakLocationMustBeBreakArea" value="&#xA;    &#x9;&#x9;location.locationType = LocationType::BreakArea"/>
+      <details key="endTimeAfterStartTime" value="&#xA;    &#x9;&#x9;endTime > startTime"/>
+    </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="breakName" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="startTime" lowerBound="1"

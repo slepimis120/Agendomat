@@ -9,18 +9,23 @@ import agendomat.Equipment;
 import agendomat.Event;
 import agendomat.Location;
 import agendomat.LocationType;
+import agendomat.Model;
 import agendomat.Person;
 import agendomat.ProgramItem;
 import agendomat.Role;
 import agendomat.Session;
 import agendomat.Talk;
 
+import agendomat.util.AgendomatValidator;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EEnum;
+import org.eclipse.emf.ecore.EGenericType;
+import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 
+import org.eclipse.emf.ecore.EValidator;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 
 /**
@@ -91,6 +96,13 @@ public class AgendomatPackageImpl extends EPackageImpl implements AgendomatPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	private EClass modelEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	private EEnum locationTypeEEnum = null;
 
 	/**
@@ -151,6 +163,16 @@ public class AgendomatPackageImpl extends EPackageImpl implements AgendomatPacka
 
 		// Initialize created meta-data
 		theAgendomatPackage.initializePackageContents();
+
+		// Register package validator
+		EValidator.Registry.INSTANCE.put
+			(theAgendomatPackage,
+			 new EValidator.Descriptor() {
+				 @Override
+				 public EValidator getEValidator() {
+					 return AgendomatValidator.INSTANCE;
+				 }
+			 });
 
 		// Mark meta-data to indicate it can't be changed
 		theAgendomatPackage.freeze();
@@ -238,6 +260,26 @@ public class AgendomatPackageImpl extends EPackageImpl implements AgendomatPacka
 	@Override
 	public EReference getEvent_Locations() {
 		return (EReference)eventEClass.getEStructuralFeatures().get(6);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EOperation getEvent__UniquePersonNames__DiagnosticChain_Map() {
+		return eventEClass.getEOperations().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EOperation getEvent__UniqueLocationNames__DiagnosticChain_Map() {
+		return eventEClass.getEOperations().get(1);
 	}
 
 	/**
@@ -336,6 +378,26 @@ public class AgendomatPackageImpl extends EPackageImpl implements AgendomatPacka
 	 * @generated
 	 */
 	@Override
+	public EOperation getSession__EndTimeAfterStartTime__DiagnosticChain_Map() {
+		return sessionEClass.getEOperations().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EOperation getSession__SessionLocationMustBeRoom__DiagnosticChain_Map() {
+		return sessionEClass.getEOperations().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getTalk() {
 		return talkEClass;
 	}
@@ -378,6 +440,16 @@ public class AgendomatPackageImpl extends EPackageImpl implements AgendomatPacka
 	@Override
 	public EReference getTalk_Presenters() {
 		return (EReference)talkEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EOperation getTalk__EndTimeAfterStartTime__DiagnosticChain_Map() {
+		return talkEClass.getEOperations().get(0);
 	}
 
 	/**
@@ -438,6 +510,26 @@ public class AgendomatPackageImpl extends EPackageImpl implements AgendomatPacka
 	@Override
 	public EReference getBreak_Animators() {
 		return (EReference)breakEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EOperation getBreak__EndTimeAfterStartTime__DiagnosticChain_Map() {
+		return breakEClass.getEOperations().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EOperation getBreak__BreakLocationMustBeBreakArea__DiagnosticChain_Map() {
+		return breakEClass.getEOperations().get(1);
 	}
 
 	/**
@@ -536,6 +628,26 @@ public class AgendomatPackageImpl extends EPackageImpl implements AgendomatPacka
 	 * @generated
 	 */
 	@Override
+	public EClass getModel() {
+		return modelEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getModel_Events() {
+		return (EReference)modelEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EEnum getLocationType() {
 		return locationTypeEEnum;
 	}
@@ -587,6 +699,8 @@ public class AgendomatPackageImpl extends EPackageImpl implements AgendomatPacka
 		createEReference(eventEClass, EVENT__PERSONS);
 		createEReference(eventEClass, EVENT__PROGRAM_ITEMS);
 		createEReference(eventEClass, EVENT__LOCATIONS);
+		createEOperation(eventEClass, EVENT___UNIQUE_PERSON_NAMES__DIAGNOSTICCHAIN_MAP);
+		createEOperation(eventEClass, EVENT___UNIQUE_LOCATION_NAMES__DIAGNOSTICCHAIN_MAP);
 
 		programItemEClass = createEClass(PROGRAM_ITEM);
 
@@ -598,12 +712,15 @@ public class AgendomatPackageImpl extends EPackageImpl implements AgendomatPacka
 		createEReference(sessionEClass, SESSION__TALKS);
 		createEReference(sessionEClass, SESSION__TECH_SUPPORT);
 		createEReference(sessionEClass, SESSION__EQUIPMENT);
+		createEOperation(sessionEClass, SESSION___END_TIME_AFTER_START_TIME__DIAGNOSTICCHAIN_MAP);
+		createEOperation(sessionEClass, SESSION___SESSION_LOCATION_MUST_BE_ROOM__DIAGNOSTICCHAIN_MAP);
 
 		talkEClass = createEClass(TALK);
 		createEAttribute(talkEClass, TALK__TALK_NAME);
 		createEAttribute(talkEClass, TALK__TALK_START_TIME);
 		createEAttribute(talkEClass, TALK__TALK_END_TIME);
 		createEReference(talkEClass, TALK__PRESENTERS);
+		createEOperation(talkEClass, TALK___END_TIME_AFTER_START_TIME__DIAGNOSTICCHAIN_MAP);
 
 		breakEClass = createEClass(BREAK);
 		createEAttribute(breakEClass, BREAK__BREAK_NAME);
@@ -611,6 +728,8 @@ public class AgendomatPackageImpl extends EPackageImpl implements AgendomatPacka
 		createEAttribute(breakEClass, BREAK__END_TIME);
 		createEReference(breakEClass, BREAK__LOCATION);
 		createEReference(breakEClass, BREAK__ANIMATORS);
+		createEOperation(breakEClass, BREAK___END_TIME_AFTER_START_TIME__DIAGNOSTICCHAIN_MAP);
+		createEOperation(breakEClass, BREAK___BREAK_LOCATION_MUST_BE_BREAK_AREA__DIAGNOSTICCHAIN_MAP);
 
 		personEClass = createEClass(PERSON);
 		createEAttribute(personEClass, PERSON__PERSON_NAME);
@@ -623,6 +742,9 @@ public class AgendomatPackageImpl extends EPackageImpl implements AgendomatPacka
 		equipmentEClass = createEClass(EQUIPMENT);
 		createEAttribute(equipmentEClass, EQUIPMENT__EQUIPMENT_NAME);
 		createEAttribute(equipmentEClass, EQUIPMENT__EQUIPMENT_TYPE);
+
+		modelEClass = createEClass(MODEL);
+		createEReference(modelEClass, MODEL__EVENTS);
 
 		// Create enums
 		locationTypeEEnum = createEEnum(LOCATION_TYPE);
@@ -670,6 +792,24 @@ public class AgendomatPackageImpl extends EPackageImpl implements AgendomatPacka
 		initEReference(getEvent_ProgramItems(), this.getProgramItem(), null, "programItems", null, 0, -1, Event.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getEvent_Locations(), this.getLocation(), null, "locations", null, 0, -1, Event.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
+		EOperation op = initEOperation(getEvent__UniquePersonNames__DiagnosticChain_Map(), ecorePackage.getEBoolean(), "uniquePersonNames", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED);
+		EGenericType g1 = createEGenericType(ecorePackage.getEMap());
+		EGenericType g2 = createEGenericType(ecorePackage.getEJavaObject());
+		g1.getETypeArguments().add(g2);
+		g2 = createEGenericType(ecorePackage.getEJavaObject());
+		g1.getETypeArguments().add(g2);
+		addEParameter(op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = initEOperation(getEvent__UniqueLocationNames__DiagnosticChain_Map(), ecorePackage.getEBoolean(), "uniqueLocationNames", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED);
+		g1 = createEGenericType(ecorePackage.getEMap());
+		g2 = createEGenericType(ecorePackage.getEJavaObject());
+		g1.getETypeArguments().add(g2);
+		g2 = createEGenericType(ecorePackage.getEJavaObject());
+		g1.getETypeArguments().add(g2);
+		addEParameter(op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED);
+
 		initEClass(programItemEClass, ProgramItem.class, "ProgramItem", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(sessionEClass, Session.class, "Session", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -681,11 +821,38 @@ public class AgendomatPackageImpl extends EPackageImpl implements AgendomatPacka
 		initEReference(getSession_TechSupport(), this.getPerson(), null, "techSupport", null, 0, -1, Session.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getSession_Equipment(), this.getEquipment(), null, "equipment", null, 0, -1, Session.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
+		op = initEOperation(getSession__EndTimeAfterStartTime__DiagnosticChain_Map(), ecorePackage.getEBoolean(), "endTimeAfterStartTime", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED);
+		g1 = createEGenericType(ecorePackage.getEMap());
+		g2 = createEGenericType(ecorePackage.getEJavaObject());
+		g1.getETypeArguments().add(g2);
+		g2 = createEGenericType(ecorePackage.getEJavaObject());
+		g1.getETypeArguments().add(g2);
+		addEParameter(op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = initEOperation(getSession__SessionLocationMustBeRoom__DiagnosticChain_Map(), ecorePackage.getEBoolean(), "sessionLocationMustBeRoom", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED);
+		g1 = createEGenericType(ecorePackage.getEMap());
+		g2 = createEGenericType(ecorePackage.getEJavaObject());
+		g1.getETypeArguments().add(g2);
+		g2 = createEGenericType(ecorePackage.getEJavaObject());
+		g1.getETypeArguments().add(g2);
+		addEParameter(op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED);
+
 		initEClass(talkEClass, Talk.class, "Talk", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getTalk_TalkName(), ecorePackage.getEString(), "talkName", null, 1, 1, Talk.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getTalk_TalkStartTime(), ecorePackage.getEString(), "talkStartTime", null, 1, 1, Talk.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getTalk_TalkEndTime(), ecorePackage.getEString(), "talkEndTime", null, 1, 1, Talk.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getTalk_Presenters(), this.getPerson(), null, "presenters", null, 1, -1, Talk.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		op = initEOperation(getTalk__EndTimeAfterStartTime__DiagnosticChain_Map(), ecorePackage.getEBoolean(), "endTimeAfterStartTime", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED);
+		g1 = createEGenericType(ecorePackage.getEMap());
+		g2 = createEGenericType(ecorePackage.getEJavaObject());
+		g1.getETypeArguments().add(g2);
+		g2 = createEGenericType(ecorePackage.getEJavaObject());
+		g1.getETypeArguments().add(g2);
+		addEParameter(op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(breakEClass, Break.class, "Break", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getBreak_BreakName(), ecorePackage.getEString(), "breakName", null, 1, 1, Break.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -693,6 +860,24 @@ public class AgendomatPackageImpl extends EPackageImpl implements AgendomatPacka
 		initEAttribute(getBreak_EndTime(), ecorePackage.getEString(), "endTime", null, 1, 1, Break.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getBreak_Location(), this.getLocation(), null, "location", null, 1, 1, Break.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getBreak_Animators(), this.getPerson(), null, "animators", null, 0, -1, Break.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		op = initEOperation(getBreak__EndTimeAfterStartTime__DiagnosticChain_Map(), ecorePackage.getEBoolean(), "endTimeAfterStartTime", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED);
+		g1 = createEGenericType(ecorePackage.getEMap());
+		g2 = createEGenericType(ecorePackage.getEJavaObject());
+		g1.getETypeArguments().add(g2);
+		g2 = createEGenericType(ecorePackage.getEJavaObject());
+		g1.getETypeArguments().add(g2);
+		addEParameter(op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = initEOperation(getBreak__BreakLocationMustBeBreakArea__DiagnosticChain_Map(), ecorePackage.getEBoolean(), "breakLocationMustBeBreakArea", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED);
+		g1 = createEGenericType(ecorePackage.getEMap());
+		g2 = createEGenericType(ecorePackage.getEJavaObject());
+		g1.getETypeArguments().add(g2);
+		g2 = createEGenericType(ecorePackage.getEJavaObject());
+		g1.getETypeArguments().add(g2);
+		addEParameter(op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(personEClass, Person.class, "Person", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getPerson_PersonName(), ecorePackage.getEString(), "personName", null, 1, 1, Person.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -706,6 +891,9 @@ public class AgendomatPackageImpl extends EPackageImpl implements AgendomatPacka
 		initEAttribute(getEquipment_EquipmentName(), ecorePackage.getEString(), "equipmentName", null, 1, 1, Equipment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getEquipment_EquipmentType(), ecorePackage.getEString(), "equipmentType", null, 0, 1, Equipment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
+		initEClass(modelEClass, Model.class, "Model", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getModel_Events(), this.getEvent(), null, "events", null, 0, -1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
 		// Initialize enums and add enum literals
 		initEEnum(locationTypeEEnum, LocationType.class, "LocationType");
 		addEEnumLiteral(locationTypeEEnum, LocationType.ROOM);
@@ -718,6 +906,103 @@ public class AgendomatPackageImpl extends EPackageImpl implements AgendomatPacka
 
 		// Create resource
 		createResource(eNS_URI);
+
+		// Create annotations
+		// http://www.eclipse.org/emf/2002/Ecore
+		createEcoreAnnotations();
+		// http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot
+		createPivotAnnotations();
+	}
+
+	/**
+	 * Initializes the annotations for <b>http://www.eclipse.org/emf/2002/Ecore</b>.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void createEcoreAnnotations() {
+		String source = "http://www.eclipse.org/emf/2002/Ecore";
+		addAnnotation
+		  (this,
+		   source,
+		   new String[] {
+		   });
+		addAnnotation
+		  (eventEClass,
+		   source,
+		   new String[] {
+			   "constraints", "uniqueLocationNames"
+		   });
+		addAnnotation
+		  (sessionEClass,
+		   source,
+		   new String[] {
+			   "constraints", "sessionLocationMustBeRoom"
+		   });
+		addAnnotation
+		  (talkEClass,
+		   source,
+		   new String[] {
+			   "constraints", "endTimeAfterStartTime"
+		   });
+		addAnnotation
+		  (breakEClass,
+		   source,
+		   new String[] {
+			   "constraints", "breakLocationMustBeBreakArea"
+		   });
+	}
+
+	/**
+	 * Initializes the annotations for <b>http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot</b>.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void createPivotAnnotations() {
+		String source = "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot";
+		addAnnotation
+		  (getEvent__UniquePersonNames__DiagnosticChain_Map(),
+		   source,
+		   new String[] {
+			   "body", "\n    \t\tpersons->isUnique(personName)"
+		   });
+		addAnnotation
+		  (getEvent__UniqueLocationNames__DiagnosticChain_Map(),
+		   source,
+		   new String[] {
+			   "body", "\n    \t\tlocations->isUnique(locationName)"
+		   });
+		addAnnotation
+		  (getSession__EndTimeAfterStartTime__DiagnosticChain_Map(),
+		   source,
+		   new String[] {
+			   "body", "\n    \t\tendTime > startTime"
+		   });
+		addAnnotation
+		  (getSession__SessionLocationMustBeRoom__DiagnosticChain_Map(),
+		   source,
+		   new String[] {
+			   "body", "\n    \t\tlocation.locationType = LocationType::Room"
+		   });
+		addAnnotation
+		  (getTalk__EndTimeAfterStartTime__DiagnosticChain_Map(),
+		   source,
+		   new String[] {
+			   "body", "\n    \t\ttalkEndTime > talkStartTime"
+		   });
+		addAnnotation
+		  (getBreak__EndTimeAfterStartTime__DiagnosticChain_Map(),
+		   source,
+		   new String[] {
+			   "body", "\n    \t\tendTime > startTime"
+		   });
+		addAnnotation
+		  (getBreak__BreakLocationMustBeBreakArea__DiagnosticChain_Map(),
+		   source,
+		   new String[] {
+			   "body", "\n    \t\tlocation.locationType = LocationType::BreakArea"
+		   });
 	}
 
 } //AgendomatPackageImpl

@@ -2,6 +2,8 @@
  */
 package agendomat;
 
+import java.util.Map;
+import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.common.util.EList;
 
 /**
@@ -21,7 +23,7 @@ import org.eclipse.emf.common.util.EList;
  * </ul>
  *
  * @see agendomat.AgendomatPackage#getBreak()
- * @model
+ * @model annotation="http://www.eclipse.org/emf/2002/Ecore constraints='breakLocationMustBeBreakArea'"
  * @generated
  */
 public interface Break extends ProgramItem {
@@ -124,5 +126,21 @@ public interface Break extends ProgramItem {
 	 * @generated
 	 */
 	EList<Person> getAnimators();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot body='\n    \t\tendTime &gt; startTime'"
+	 * @generated
+	 */
+	boolean endTimeAfterStartTime(DiagnosticChain diagnostics, Map<Object, Object> context);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot body='\n    \t\tlocation.locationType = LocationType::BreakArea'"
+	 * @generated
+	 */
+	boolean breakLocationMustBeBreakArea(DiagnosticChain diagnostics, Map<Object, Object> context);
 
 } // Break
