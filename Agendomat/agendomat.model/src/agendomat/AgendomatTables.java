@@ -63,29 +63,35 @@ public class AgendomatTables extends AbstractTables
 	 *	Constants used by auto-generated code.
 	 */
 	public static final /*@NonInvalid*/ NsURIPackageId PACKid_http_c_s_s_agendomat_s_1_0 = IdManager.getNsURIPackageId("http://agendomat/1.0", null, AgendomatPackage.eINSTANCE);
+	public static final /*@NonInvalid*/ ClassId CLSSid_Agenda = AgendomatTables.PACKid_http_c_s_s_agendomat_s_1_0.getClassId("Agenda", 0);
 	public static final /*@NonInvalid*/ ClassId CLSSid_Break = AgendomatTables.PACKid_http_c_s_s_agendomat_s_1_0.getClassId("Break", 0);
-	public static final /*@NonInvalid*/ ClassId CLSSid_Equipment = AgendomatTables.PACKid_http_c_s_s_agendomat_s_1_0.getClassId("Equipment", 0);
 	public static final /*@NonInvalid*/ ClassId CLSSid_Event = AgendomatTables.PACKid_http_c_s_s_agendomat_s_1_0.getClassId("Event", 0);
 	public static final /*@NonInvalid*/ ClassId CLSSid_Location = AgendomatTables.PACKid_http_c_s_s_agendomat_s_1_0.getClassId("Location", 0);
-	public static final /*@NonInvalid*/ ClassId CLSSid_Model = AgendomatTables.PACKid_http_c_s_s_agendomat_s_1_0.getClassId("Model", 0);
+	public static final /*@NonInvalid*/ ClassId CLSSid_PermanentEquipment = AgendomatTables.PACKid_http_c_s_s_agendomat_s_1_0.getClassId("PermanentEquipment", 0);
 	public static final /*@NonInvalid*/ ClassId CLSSid_Person = AgendomatTables.PACKid_http_c_s_s_agendomat_s_1_0.getClassId("Person", 0);
 	public static final /*@NonInvalid*/ ClassId CLSSid_ProgramItem = AgendomatTables.PACKid_http_c_s_s_agendomat_s_1_0.getClassId("ProgramItem", 0);
 	public static final /*@NonInvalid*/ ClassId CLSSid_Session = AgendomatTables.PACKid_http_c_s_s_agendomat_s_1_0.getClassId("Session", 0);
 	public static final /*@NonInvalid*/ ClassId CLSSid_Talk = AgendomatTables.PACKid_http_c_s_s_agendomat_s_1_0.getClassId("Talk", 0);
+	public static final /*@NonInvalid*/ ClassId CLSSid_TemporaryEquipment = AgendomatTables.PACKid_http_c_s_s_agendomat_s_1_0.getClassId("TemporaryEquipment", 0);
 	public static final /*@NonInvalid*/ EnumerationId ENUMid_LocationType = AgendomatTables.PACKid_http_c_s_s_agendomat_s_1_0.getEnumerationId("LocationType");
 	public static final /*@NonInvalid*/ EnumerationId ENUMid_Role = AgendomatTables.PACKid_http_c_s_s_agendomat_s_1_0.getEnumerationId("Role");
 	public static final /*@NonInvalid*/ IntegerValue INT_0 = ValueUtil.integerValueOf("0");
 	public static final /*@NonInvalid*/ CollectionTypeId BAG_CLSSid_Break = TypeId.BAG.getSpecializedId(AgendomatTables.CLSSid_Break);
+	public static final /*@NonInvalid*/ CollectionTypeId BAG_CLSSid_ProgramItem = TypeId.BAG.getSpecializedId(AgendomatTables.CLSSid_ProgramItem);
 	public static final /*@NonInvalid*/ CollectionTypeId BAG_CLSSid_Session = TypeId.BAG.getSpecializedId(AgendomatTables.CLSSid_Session);
 	public static final /*@NonInvalid*/ CollectionTypeId BAG_CLSSid_Talk = TypeId.BAG.getSpecializedId(AgendomatTables.CLSSid_Talk);
+	public static final /*@NonInvalid*/ EnumerationLiteralId ELITid_Animator = AgendomatTables.ENUMid_Role.getEnumerationLiteralId("Animator");
 	public static final /*@NonInvalid*/ EnumerationLiteralId ELITid_BreakArea = AgendomatTables.ENUMid_LocationType.getEnumerationLiteralId("BreakArea");
+	public static final /*@NonInvalid*/ EnumerationLiteralId ELITid_Presenter = AgendomatTables.ENUMid_Role.getEnumerationLiteralId("Presenter");
 	public static final /*@NonInvalid*/ EnumerationLiteralId ELITid_Room = AgendomatTables.ENUMid_LocationType.getEnumerationLiteralId("Room");
-	public static final /*@NonInvalid*/ CollectionTypeId ORD_CLSSid_Equipment = TypeId.ORDERED_SET.getSpecializedId(AgendomatTables.CLSSid_Equipment);
+	public static final /*@NonInvalid*/ EnumerationLiteralId ELITid_TechSupport = AgendomatTables.ENUMid_Role.getEnumerationLiteralId("TechSupport");
 	public static final /*@NonInvalid*/ CollectionTypeId ORD_CLSSid_Event = TypeId.ORDERED_SET.getSpecializedId(AgendomatTables.CLSSid_Event);
 	public static final /*@NonInvalid*/ CollectionTypeId ORD_CLSSid_Location = TypeId.ORDERED_SET.getSpecializedId(AgendomatTables.CLSSid_Location);
+	public static final /*@NonInvalid*/ CollectionTypeId ORD_CLSSid_PermanentEquipment = TypeId.ORDERED_SET.getSpecializedId(AgendomatTables.CLSSid_PermanentEquipment);
 	public static final /*@NonInvalid*/ CollectionTypeId ORD_CLSSid_Person = TypeId.ORDERED_SET.getSpecializedId(AgendomatTables.CLSSid_Person);
 	public static final /*@NonInvalid*/ CollectionTypeId ORD_CLSSid_ProgramItem = TypeId.ORDERED_SET.getSpecializedId(AgendomatTables.CLSSid_ProgramItem);
 	public static final /*@NonInvalid*/ CollectionTypeId ORD_CLSSid_Talk = TypeId.ORDERED_SET.getSpecializedId(AgendomatTables.CLSSid_Talk);
+	public static final /*@NonInvalid*/ CollectionTypeId ORD_CLSSid_TemporaryEquipment = TypeId.ORDERED_SET.getSpecializedId(AgendomatTables.CLSSid_TemporaryEquipment);
 	public static final /*@NonInvalid*/ CollectionTypeId ORD_ENUMid_Role = TypeId.ORDERED_SET.getSpecializedId(AgendomatTables.ENUMid_Role);
 
 	/**
@@ -116,30 +122,34 @@ public class AgendomatTables extends AbstractTables
 			TypeParameters.init();
 		}
 
+		public static final EcoreExecutorType _Agenda = new EcoreExecutorType(AgendomatPackage.Literals.AGENDA, PACKAGE, 0);
 		public static final EcoreExecutorType _Break = new EcoreExecutorType(AgendomatPackage.Literals.BREAK, PACKAGE, 0);
-		public static final EcoreExecutorType _Equipment = new EcoreExecutorType(AgendomatPackage.Literals.EQUIPMENT, PACKAGE, 0);
+		public static final EcoreExecutorType _Equipment = new EcoreExecutorType(AgendomatPackage.Literals.EQUIPMENT, PACKAGE, 0 | ExecutorType.ABSTRACT);
 		public static final EcoreExecutorType _Event = new EcoreExecutorType(AgendomatPackage.Literals.EVENT, PACKAGE, 0);
 		public static final EcoreExecutorType _Location = new EcoreExecutorType(AgendomatPackage.Literals.LOCATION, PACKAGE, 0);
 		public static final EcoreExecutorEnumeration _LocationType = new EcoreExecutorEnumeration(AgendomatPackage.Literals.LOCATION_TYPE, PACKAGE, 0);
-		public static final EcoreExecutorType _Model = new EcoreExecutorType(AgendomatPackage.Literals.MODEL, PACKAGE, 0);
+		public static final EcoreExecutorType _PermanentEquipment = new EcoreExecutorType(AgendomatPackage.Literals.PERMANENT_EQUIPMENT, PACKAGE, 0);
 		public static final EcoreExecutorType _Person = new EcoreExecutorType(AgendomatPackage.Literals.PERSON, PACKAGE, 0);
 		public static final EcoreExecutorType _ProgramItem = new EcoreExecutorType(AgendomatPackage.Literals.PROGRAM_ITEM, PACKAGE, 0 | ExecutorType.ABSTRACT);
 		public static final EcoreExecutorEnumeration _Role = new EcoreExecutorEnumeration(AgendomatPackage.Literals.ROLE, PACKAGE, 0);
 		public static final EcoreExecutorType _Session = new EcoreExecutorType(AgendomatPackage.Literals.SESSION, PACKAGE, 0);
 		public static final EcoreExecutorType _Talk = new EcoreExecutorType(AgendomatPackage.Literals.TALK, PACKAGE, 0);
+		public static final EcoreExecutorType _TemporaryEquipment = new EcoreExecutorType(AgendomatPackage.Literals.TEMPORARY_EQUIPMENT, PACKAGE, 0);
 
 		private static final EcoreExecutorType /*@NonNull*/ [] types = {
+			_Agenda,
 			_Break,
 			_Equipment,
 			_Event,
 			_Location,
 			_LocationType,
-			_Model,
+			_PermanentEquipment,
 			_Person,
 			_ProgramItem,
 			_Role,
 			_Session,
-			_Talk
+			_Talk,
+			_TemporaryEquipment
 		};
 
 		/*
@@ -165,6 +175,10 @@ public class AgendomatTables extends AbstractTables
 			Types.init();
 		}
 
+		private static final ExecutorFragment _Agenda__Agenda = new ExecutorFragment(Types._Agenda, AgendomatTables.Types._Agenda);
+		private static final ExecutorFragment _Agenda__OclAny = new ExecutorFragment(Types._Agenda, OCLstdlibTables.Types._OclAny);
+		private static final ExecutorFragment _Agenda__OclElement = new ExecutorFragment(Types._Agenda, OCLstdlibTables.Types._OclElement);
+
 		private static final ExecutorFragment _Break__Break = new ExecutorFragment(Types._Break, AgendomatTables.Types._Break);
 		private static final ExecutorFragment _Break__OclAny = new ExecutorFragment(Types._Break, OCLstdlibTables.Types._OclAny);
 		private static final ExecutorFragment _Break__OclElement = new ExecutorFragment(Types._Break, OCLstdlibTables.Types._OclElement);
@@ -188,9 +202,10 @@ public class AgendomatTables extends AbstractTables
 		private static final ExecutorFragment _LocationType__OclEnumeration = new ExecutorFragment(Types._LocationType, OCLstdlibTables.Types._OclEnumeration);
 		private static final ExecutorFragment _LocationType__OclType = new ExecutorFragment(Types._LocationType, OCLstdlibTables.Types._OclType);
 
-		private static final ExecutorFragment _Model__Model = new ExecutorFragment(Types._Model, AgendomatTables.Types._Model);
-		private static final ExecutorFragment _Model__OclAny = new ExecutorFragment(Types._Model, OCLstdlibTables.Types._OclAny);
-		private static final ExecutorFragment _Model__OclElement = new ExecutorFragment(Types._Model, OCLstdlibTables.Types._OclElement);
+		private static final ExecutorFragment _PermanentEquipment__Equipment = new ExecutorFragment(Types._PermanentEquipment, AgendomatTables.Types._Equipment);
+		private static final ExecutorFragment _PermanentEquipment__OclAny = new ExecutorFragment(Types._PermanentEquipment, OCLstdlibTables.Types._OclAny);
+		private static final ExecutorFragment _PermanentEquipment__OclElement = new ExecutorFragment(Types._PermanentEquipment, OCLstdlibTables.Types._OclElement);
+		private static final ExecutorFragment _PermanentEquipment__PermanentEquipment = new ExecutorFragment(Types._PermanentEquipment, AgendomatTables.Types._PermanentEquipment);
 
 		private static final ExecutorFragment _Person__OclAny = new ExecutorFragment(Types._Person, OCLstdlibTables.Types._OclAny);
 		private static final ExecutorFragment _Person__OclElement = new ExecutorFragment(Types._Person, OCLstdlibTables.Types._OclElement);
@@ -214,6 +229,11 @@ public class AgendomatTables extends AbstractTables
 		private static final ExecutorFragment _Talk__OclAny = new ExecutorFragment(Types._Talk, OCLstdlibTables.Types._OclAny);
 		private static final ExecutorFragment _Talk__OclElement = new ExecutorFragment(Types._Talk, OCLstdlibTables.Types._OclElement);
 		private static final ExecutorFragment _Talk__Talk = new ExecutorFragment(Types._Talk, AgendomatTables.Types._Talk);
+
+		private static final ExecutorFragment _TemporaryEquipment__Equipment = new ExecutorFragment(Types._TemporaryEquipment, AgendomatTables.Types._Equipment);
+		private static final ExecutorFragment _TemporaryEquipment__OclAny = new ExecutorFragment(Types._TemporaryEquipment, OCLstdlibTables.Types._OclAny);
+		private static final ExecutorFragment _TemporaryEquipment__OclElement = new ExecutorFragment(Types._TemporaryEquipment, OCLstdlibTables.Types._OclElement);
+		private static final ExecutorFragment _TemporaryEquipment__TemporaryEquipment = new ExecutorFragment(Types._TemporaryEquipment, AgendomatTables.Types._TemporaryEquipment);
 
 		static {
 			Init.initEnd();
@@ -285,55 +305,61 @@ public class AgendomatTables extends AbstractTables
 			Operations.init();
 		}
 
+		public static final ExecutorProperty _Agenda__agendaEndDate = new EcoreExecutorProperty(AgendomatPackage.Literals.AGENDA__AGENDA_END_DATE, Types._Agenda, 0);
+		public static final ExecutorProperty _Agenda__agendaName = new EcoreExecutorProperty(AgendomatPackage.Literals.AGENDA__AGENDA_NAME, Types._Agenda, 1);
+		public static final ExecutorProperty _Agenda__agendaStartDate = new EcoreExecutorProperty(AgendomatPackage.Literals.AGENDA__AGENDA_START_DATE, Types._Agenda, 2);
+		public static final ExecutorProperty _Agenda__desc = new EcoreExecutorProperty(AgendomatPackage.Literals.AGENDA__DESC, Types._Agenda, 3);
+		public static final ExecutorProperty _Agenda__events = new EcoreExecutorProperty(AgendomatPackage.Literals.AGENDA__EVENTS, Types._Agenda, 4);
+
 		public static final ExecutorProperty _Break__animators = new EcoreExecutorProperty(AgendomatPackage.Literals.BREAK__ANIMATORS, Types._Break, 0);
 		public static final ExecutorProperty _Break__breakName = new EcoreExecutorProperty(AgendomatPackage.Literals.BREAK__BREAK_NAME, Types._Break, 1);
-		public static final ExecutorProperty _Break__endTime = new EcoreExecutorProperty(AgendomatPackage.Literals.BREAK__END_TIME, Types._Break, 2);
-		public static final ExecutorProperty _Break__location = new EcoreExecutorProperty(AgendomatPackage.Literals.BREAK__LOCATION, Types._Break, 3);
-		public static final ExecutorProperty _Break__startTime = new EcoreExecutorProperty(AgendomatPackage.Literals.BREAK__START_TIME, Types._Break, 4);
 
 		public static final ExecutorProperty _Equipment__equipmentName = new EcoreExecutorProperty(AgendomatPackage.Literals.EQUIPMENT__EQUIPMENT_NAME, Types._Equipment, 0);
 		public static final ExecutorProperty _Equipment__equipmentType = new EcoreExecutorProperty(AgendomatPackage.Literals.EQUIPMENT__EQUIPMENT_TYPE, Types._Equipment, 1);
-		public static final ExecutorProperty _Equipment__Session__equipment = new ExecutorPropertyWithImplementation("Session", Types._Equipment, 2, new EcoreLibraryOppositeProperty(AgendomatPackage.Literals.SESSION__EQUIPMENT));
 
 		public static final ExecutorProperty _Event__desc = new EcoreExecutorProperty(AgendomatPackage.Literals.EVENT__DESC, Types._Event, 0);
 		public static final ExecutorProperty _Event__eventEndDate = new EcoreExecutorProperty(AgendomatPackage.Literals.EVENT__EVENT_END_DATE, Types._Event, 1);
 		public static final ExecutorProperty _Event__eventName = new EcoreExecutorProperty(AgendomatPackage.Literals.EVENT__EVENT_NAME, Types._Event, 2);
 		public static final ExecutorProperty _Event__eventStartDate = new EcoreExecutorProperty(AgendomatPackage.Literals.EVENT__EVENT_START_DATE, Types._Event, 3);
 		public static final ExecutorProperty _Event__locations = new EcoreExecutorProperty(AgendomatPackage.Literals.EVENT__LOCATIONS, Types._Event, 4);
-		public static final ExecutorProperty _Event__persons = new EcoreExecutorProperty(AgendomatPackage.Literals.EVENT__PERSONS, Types._Event, 5);
-		public static final ExecutorProperty _Event__programItems = new EcoreExecutorProperty(AgendomatPackage.Literals.EVENT__PROGRAM_ITEMS, Types._Event, 6);
-		public static final ExecutorProperty _Event__Model__events = new ExecutorPropertyWithImplementation("Model", Types._Event, 7, new EcoreLibraryOppositeProperty(AgendomatPackage.Literals.MODEL__EVENTS));
+		public static final ExecutorProperty _Event__permanentEquipment = new EcoreExecutorProperty(AgendomatPackage.Literals.EVENT__PERMANENT_EQUIPMENT, Types._Event, 5);
+		public static final ExecutorProperty _Event__persons = new EcoreExecutorProperty(AgendomatPackage.Literals.EVENT__PERSONS, Types._Event, 6);
+		public static final ExecutorProperty _Event__programItems = new EcoreExecutorProperty(AgendomatPackage.Literals.EVENT__PROGRAM_ITEMS, Types._Event, 7);
+		public static final ExecutorProperty _Event__Agenda__events = new ExecutorPropertyWithImplementation("Agenda", Types._Event, 8, new EcoreLibraryOppositeProperty(AgendomatPackage.Literals.AGENDA__EVENTS));
 
 		public static final ExecutorProperty _Location__locationName = new EcoreExecutorProperty(AgendomatPackage.Literals.LOCATION__LOCATION_NAME, Types._Location, 0);
 		public static final ExecutorProperty _Location__locationType = new EcoreExecutorProperty(AgendomatPackage.Literals.LOCATION__LOCATION_TYPE, Types._Location, 1);
-		public static final ExecutorProperty _Location__Break__location = new ExecutorPropertyWithImplementation("Break", Types._Location, 2, new EcoreLibraryOppositeProperty(AgendomatPackage.Literals.BREAK__LOCATION));
-		public static final ExecutorProperty _Location__Event__locations = new ExecutorPropertyWithImplementation("Event", Types._Location, 3, new EcoreLibraryOppositeProperty(AgendomatPackage.Literals.EVENT__LOCATIONS));
-		public static final ExecutorProperty _Location__Session__location = new ExecutorPropertyWithImplementation("Session", Types._Location, 4, new EcoreLibraryOppositeProperty(AgendomatPackage.Literals.SESSION__LOCATION));
+		public static final ExecutorProperty _Location__Event__locations = new ExecutorPropertyWithImplementation("Event", Types._Location, 2, new EcoreLibraryOppositeProperty(AgendomatPackage.Literals.EVENT__LOCATIONS));
+		public static final ExecutorProperty _Location__ProgramItem__location = new ExecutorPropertyWithImplementation("ProgramItem", Types._Location, 3, new EcoreLibraryOppositeProperty(AgendomatPackage.Literals.PROGRAM_ITEM__LOCATION));
 
-		public static final ExecutorProperty _Model__events = new EcoreExecutorProperty(AgendomatPackage.Literals.MODEL__EVENTS, Types._Model, 0);
+		public static final ExecutorProperty _PermanentEquipment__Event__permanentEquipment = new ExecutorPropertyWithImplementation("Event", Types._PermanentEquipment, 0, new EcoreLibraryOppositeProperty(AgendomatPackage.Literals.EVENT__PERMANENT_EQUIPMENT));
 
-		public static final ExecutorProperty _Person__personName = new EcoreExecutorProperty(AgendomatPackage.Literals.PERSON__PERSON_NAME, Types._Person, 0);
-		public static final ExecutorProperty _Person__roles = new EcoreExecutorProperty(AgendomatPackage.Literals.PERSON__ROLES, Types._Person, 1);
-		public static final ExecutorProperty _Person__Break__animators = new ExecutorPropertyWithImplementation("Break", Types._Person, 2, new EcoreLibraryOppositeProperty(AgendomatPackage.Literals.BREAK__ANIMATORS));
-		public static final ExecutorProperty _Person__Event__persons = new ExecutorPropertyWithImplementation("Event", Types._Person, 3, new EcoreLibraryOppositeProperty(AgendomatPackage.Literals.EVENT__PERSONS));
-		public static final ExecutorProperty _Person__Session__techSupport = new ExecutorPropertyWithImplementation("Session", Types._Person, 4, new EcoreLibraryOppositeProperty(AgendomatPackage.Literals.SESSION__TECH_SUPPORT));
-		public static final ExecutorProperty _Person__Talk__presenters = new ExecutorPropertyWithImplementation("Talk", Types._Person, 5, new EcoreLibraryOppositeProperty(AgendomatPackage.Literals.TALK__PRESENTERS));
+		public static final ExecutorProperty _Person__email = new EcoreExecutorProperty(AgendomatPackage.Literals.PERSON__EMAIL, Types._Person, 0);
+		public static final ExecutorProperty _Person__organization = new EcoreExecutorProperty(AgendomatPackage.Literals.PERSON__ORGANIZATION, Types._Person, 1);
+		public static final ExecutorProperty _Person__personName = new EcoreExecutorProperty(AgendomatPackage.Literals.PERSON__PERSON_NAME, Types._Person, 2);
+		public static final ExecutorProperty _Person__roles = new EcoreExecutorProperty(AgendomatPackage.Literals.PERSON__ROLES, Types._Person, 3);
+		public static final ExecutorProperty _Person__Break__animators = new ExecutorPropertyWithImplementation("Break", Types._Person, 4, new EcoreLibraryOppositeProperty(AgendomatPackage.Literals.BREAK__ANIMATORS));
+		public static final ExecutorProperty _Person__Event__persons = new ExecutorPropertyWithImplementation("Event", Types._Person, 5, new EcoreLibraryOppositeProperty(AgendomatPackage.Literals.EVENT__PERSONS));
+		public static final ExecutorProperty _Person__Session__techSupport = new ExecutorPropertyWithImplementation("Session", Types._Person, 6, new EcoreLibraryOppositeProperty(AgendomatPackage.Literals.SESSION__TECH_SUPPORT));
+		public static final ExecutorProperty _Person__Talk__presenters = new ExecutorPropertyWithImplementation("Talk", Types._Person, 7, new EcoreLibraryOppositeProperty(AgendomatPackage.Literals.TALK__PRESENTERS));
 
-		public static final ExecutorProperty _ProgramItem__Event__programItems = new ExecutorPropertyWithImplementation("Event", Types._ProgramItem, 0, new EcoreLibraryOppositeProperty(AgendomatPackage.Literals.EVENT__PROGRAM_ITEMS));
+		public static final ExecutorProperty _ProgramItem__endTime = new EcoreExecutorProperty(AgendomatPackage.Literals.PROGRAM_ITEM__END_TIME, Types._ProgramItem, 0);
+		public static final ExecutorProperty _ProgramItem__location = new EcoreExecutorProperty(AgendomatPackage.Literals.PROGRAM_ITEM__LOCATION, Types._ProgramItem, 1);
+		public static final ExecutorProperty _ProgramItem__startTime = new EcoreExecutorProperty(AgendomatPackage.Literals.PROGRAM_ITEM__START_TIME, Types._ProgramItem, 2);
+		public static final ExecutorProperty _ProgramItem__Event__programItems = new ExecutorPropertyWithImplementation("Event", Types._ProgramItem, 3, new EcoreLibraryOppositeProperty(AgendomatPackage.Literals.EVENT__PROGRAM_ITEMS));
 
-		public static final ExecutorProperty _Session__endTime = new EcoreExecutorProperty(AgendomatPackage.Literals.SESSION__END_TIME, Types._Session, 0);
-		public static final ExecutorProperty _Session__equipment = new EcoreExecutorProperty(AgendomatPackage.Literals.SESSION__EQUIPMENT, Types._Session, 1);
-		public static final ExecutorProperty _Session__location = new EcoreExecutorProperty(AgendomatPackage.Literals.SESSION__LOCATION, Types._Session, 2);
-		public static final ExecutorProperty _Session__sessionName = new EcoreExecutorProperty(AgendomatPackage.Literals.SESSION__SESSION_NAME, Types._Session, 3);
-		public static final ExecutorProperty _Session__startTime = new EcoreExecutorProperty(AgendomatPackage.Literals.SESSION__START_TIME, Types._Session, 4);
-		public static final ExecutorProperty _Session__talks = new EcoreExecutorProperty(AgendomatPackage.Literals.SESSION__TALKS, Types._Session, 5);
-		public static final ExecutorProperty _Session__techSupport = new EcoreExecutorProperty(AgendomatPackage.Literals.SESSION__TECH_SUPPORT, Types._Session, 6);
+		public static final ExecutorProperty _Session__equipment = new EcoreExecutorProperty(AgendomatPackage.Literals.SESSION__EQUIPMENT, Types._Session, 0);
+		public static final ExecutorProperty _Session__sessionName = new EcoreExecutorProperty(AgendomatPackage.Literals.SESSION__SESSION_NAME, Types._Session, 1);
+		public static final ExecutorProperty _Session__talks = new EcoreExecutorProperty(AgendomatPackage.Literals.SESSION__TALKS, Types._Session, 2);
+		public static final ExecutorProperty _Session__techSupport = new EcoreExecutorProperty(AgendomatPackage.Literals.SESSION__TECH_SUPPORT, Types._Session, 3);
 
 		public static final ExecutorProperty _Talk__presenters = new EcoreExecutorProperty(AgendomatPackage.Literals.TALK__PRESENTERS, Types._Talk, 0);
 		public static final ExecutorProperty _Talk__talkEndTime = new EcoreExecutorProperty(AgendomatPackage.Literals.TALK__TALK_END_TIME, Types._Talk, 1);
 		public static final ExecutorProperty _Talk__talkName = new EcoreExecutorProperty(AgendomatPackage.Literals.TALK__TALK_NAME, Types._Talk, 2);
 		public static final ExecutorProperty _Talk__talkStartTime = new EcoreExecutorProperty(AgendomatPackage.Literals.TALK__TALK_START_TIME, Types._Talk, 3);
 		public static final ExecutorProperty _Talk__Session__talks = new ExecutorPropertyWithImplementation("Session", Types._Talk, 4, new EcoreLibraryOppositeProperty(AgendomatPackage.Literals.SESSION__TALKS));
+
+		public static final ExecutorProperty _TemporaryEquipment__Session__equipment = new ExecutorPropertyWithImplementation("Session", Types._TemporaryEquipment, 0, new EcoreLibraryOppositeProperty(AgendomatPackage.Literals.SESSION__EQUIPMENT));
 		static {
 			Init.initEnd();
 		}
@@ -352,6 +378,14 @@ public class AgendomatTables extends AbstractTables
 			Init.initStart();
 			Properties.init();
 		}
+
+		private static final ExecutorFragment /*@NonNull*/ [] _Agenda =
+			{
+				Fragments._Agenda__OclAny /* 0 */,
+				Fragments._Agenda__OclElement /* 1 */,
+				Fragments._Agenda__Agenda /* 2 */
+			};
+		private static final int /*@NonNull*/ [] __Agenda = { 1,1,1 };
 
 		private static final ExecutorFragment /*@NonNull*/ [] _Break =
 			{
@@ -396,13 +430,14 @@ public class AgendomatTables extends AbstractTables
 			};
 		private static final int /*@NonNull*/ [] __LocationType = { 1,1,1,1,1 };
 
-		private static final ExecutorFragment /*@NonNull*/ [] _Model =
+		private static final ExecutorFragment /*@NonNull*/ [] _PermanentEquipment =
 			{
-				Fragments._Model__OclAny /* 0 */,
-				Fragments._Model__OclElement /* 1 */,
-				Fragments._Model__Model /* 2 */
+				Fragments._PermanentEquipment__OclAny /* 0 */,
+				Fragments._PermanentEquipment__OclElement /* 1 */,
+				Fragments._PermanentEquipment__Equipment /* 2 */,
+				Fragments._PermanentEquipment__PermanentEquipment /* 3 */
 			};
-		private static final int /*@NonNull*/ [] __Model = { 1,1,1 };
+		private static final int /*@NonNull*/ [] __PermanentEquipment = { 1,1,1,1 };
 
 		private static final ExecutorFragment /*@NonNull*/ [] _Person =
 			{
@@ -447,21 +482,32 @@ public class AgendomatTables extends AbstractTables
 			};
 		private static final int /*@NonNull*/ [] __Talk = { 1,1,1 };
 
+		private static final ExecutorFragment /*@NonNull*/ [] _TemporaryEquipment =
+			{
+				Fragments._TemporaryEquipment__OclAny /* 0 */,
+				Fragments._TemporaryEquipment__OclElement /* 1 */,
+				Fragments._TemporaryEquipment__Equipment /* 2 */,
+				Fragments._TemporaryEquipment__TemporaryEquipment /* 3 */
+			};
+		private static final int /*@NonNull*/ [] __TemporaryEquipment = { 1,1,1,1 };
+
 		/**
 		 *	Install the fragment descriptors in the class descriptors.
 		 */
 		static {
+			Types._Agenda.initFragments(_Agenda, __Agenda);
 			Types._Break.initFragments(_Break, __Break);
 			Types._Equipment.initFragments(_Equipment, __Equipment);
 			Types._Event.initFragments(_Event, __Event);
 			Types._Location.initFragments(_Location, __Location);
 			Types._LocationType.initFragments(_LocationType, __LocationType);
-			Types._Model.initFragments(_Model, __Model);
+			Types._PermanentEquipment.initFragments(_PermanentEquipment, __PermanentEquipment);
 			Types._Person.initFragments(_Person, __Person);
 			Types._ProgramItem.initFragments(_ProgramItem, __ProgramItem);
 			Types._Role.initFragments(_Role, __Role);
 			Types._Session.initFragments(_Session, __Session);
 			Types._Talk.initFragments(_Talk, __Talk);
+			Types._TemporaryEquipment.initFragments(_TemporaryEquipment, __TemporaryEquipment);
 
 			Init.initEnd();
 		}
@@ -480,6 +526,34 @@ public class AgendomatTables extends AbstractTables
 			Init.initStart();
 			TypeFragments.init();
 		}
+
+		private static final ExecutorOperation /*@NonNull*/ [] _Agenda__Agenda = {};
+		private static final ExecutorOperation /*@NonNull*/ [] _Agenda__OclAny = {
+			OCLstdlibTables.Operations._OclAny___lt__gt_ /* _'<>'(OclSelf[?]) */,
+			OCLstdlibTables.Operations._OclAny___eq_ /* _'='(OclSelf[?]) */,
+			OCLstdlibTables.Operations._OclAny__oclAsSet /* oclAsSet() */,
+			OCLstdlibTables.Operations._OclAny__oclAsType /* oclAsType(TT)(TT[1]) */,
+			OCLstdlibTables.Operations._OclAny__oclIsInState /* oclIsInState(OclState[?]) */,
+			OCLstdlibTables.Operations._OclAny__oclIsInvalid /* oclIsInvalid() */,
+			OCLstdlibTables.Operations._OclAny__oclIsKindOf /* oclIsKindOf(OclType[1]) */,
+			OCLstdlibTables.Operations._OclAny__oclIsNew /* oclIsNew() */,
+			OCLstdlibTables.Operations._OclAny__oclIsTypeOf /* oclIsTypeOf(OclType[1]) */,
+			OCLstdlibTables.Operations._OclAny__oclIsUndefined /* oclIsUndefined() */,
+			OCLstdlibTables.Operations._OclAny__0_oclLog /* oclLog() */,
+			OCLstdlibTables.Operations._OclAny__1_oclLog /* oclLog(String[1]) */,
+			OCLstdlibTables.Operations._OclAny__oclType /* oclType() */,
+			OCLstdlibTables.Operations._OclAny__oclTypes /* oclTypes() */,
+			OCLstdlibTables.Operations._OclAny__toString /* toString() */
+		};
+		private static final ExecutorOperation /*@NonNull*/ [] _Agenda__OclElement = {
+			OCLstdlibTables.Operations._OclElement__allInstances /* allInstances() */,
+			OCLstdlibTables.Operations._OclElement__oclAsModelType /* oclAsModelType(TT)(TT[1]) */,
+			OCLstdlibTables.Operations._OclElement__oclContainer /* oclContainer() */,
+			OCLstdlibTables.Operations._OclElement__oclContents /* oclContents() */,
+			OCLstdlibTables.Operations._OclElement__oclIsModelKindOf /* oclIsModelKindOf(OclType[1]) */,
+			OCLstdlibTables.Operations._OclElement__oclModelType /* oclModelType() */,
+			OCLstdlibTables.Operations._OclElement__oclModelTypes /* oclModelTypes() */
+		};
 
 		private static final ExecutorOperation /*@NonNull*/ [] _Break__Break = {};
 		private static final ExecutorOperation /*@NonNull*/ [] _Break__OclAny = {
@@ -628,8 +702,9 @@ public class AgendomatTables extends AbstractTables
 			OCLstdlibTables.Operations._OclType__conformsTo /* conformsTo(OclType[?]) */
 		};
 
-		private static final ExecutorOperation /*@NonNull*/ [] _Model__Model = {};
-		private static final ExecutorOperation /*@NonNull*/ [] _Model__OclAny = {
+		private static final ExecutorOperation /*@NonNull*/ [] _PermanentEquipment__PermanentEquipment = {};
+		private static final ExecutorOperation /*@NonNull*/ [] _PermanentEquipment__Equipment = {};
+		private static final ExecutorOperation /*@NonNull*/ [] _PermanentEquipment__OclAny = {
 			OCLstdlibTables.Operations._OclAny___lt__gt_ /* _'<>'(OclSelf[?]) */,
 			OCLstdlibTables.Operations._OclAny___eq_ /* _'='(OclSelf[?]) */,
 			OCLstdlibTables.Operations._OclAny__oclAsSet /* oclAsSet() */,
@@ -646,7 +721,7 @@ public class AgendomatTables extends AbstractTables
 			OCLstdlibTables.Operations._OclAny__oclTypes /* oclTypes() */,
 			OCLstdlibTables.Operations._OclAny__toString /* toString() */
 		};
-		private static final ExecutorOperation /*@NonNull*/ [] _Model__OclElement = {
+		private static final ExecutorOperation /*@NonNull*/ [] _PermanentEquipment__OclElement = {
 			OCLstdlibTables.Operations._OclElement__allInstances /* allInstances() */,
 			OCLstdlibTables.Operations._OclElement__oclAsModelType /* oclAsModelType(TT)(TT[1]) */,
 			OCLstdlibTables.Operations._OclElement__oclContainer /* oclContainer() */,
@@ -803,10 +878,43 @@ public class AgendomatTables extends AbstractTables
 			OCLstdlibTables.Operations._OclElement__oclModelTypes /* oclModelTypes() */
 		};
 
+		private static final ExecutorOperation /*@NonNull*/ [] _TemporaryEquipment__TemporaryEquipment = {};
+		private static final ExecutorOperation /*@NonNull*/ [] _TemporaryEquipment__Equipment = {};
+		private static final ExecutorOperation /*@NonNull*/ [] _TemporaryEquipment__OclAny = {
+			OCLstdlibTables.Operations._OclAny___lt__gt_ /* _'<>'(OclSelf[?]) */,
+			OCLstdlibTables.Operations._OclAny___eq_ /* _'='(OclSelf[?]) */,
+			OCLstdlibTables.Operations._OclAny__oclAsSet /* oclAsSet() */,
+			OCLstdlibTables.Operations._OclAny__oclAsType /* oclAsType(TT)(TT[1]) */,
+			OCLstdlibTables.Operations._OclAny__oclIsInState /* oclIsInState(OclState[?]) */,
+			OCLstdlibTables.Operations._OclAny__oclIsInvalid /* oclIsInvalid() */,
+			OCLstdlibTables.Operations._OclAny__oclIsKindOf /* oclIsKindOf(OclType[1]) */,
+			OCLstdlibTables.Operations._OclAny__oclIsNew /* oclIsNew() */,
+			OCLstdlibTables.Operations._OclAny__oclIsTypeOf /* oclIsTypeOf(OclType[1]) */,
+			OCLstdlibTables.Operations._OclAny__oclIsUndefined /* oclIsUndefined() */,
+			OCLstdlibTables.Operations._OclAny__0_oclLog /* oclLog() */,
+			OCLstdlibTables.Operations._OclAny__1_oclLog /* oclLog(String[1]) */,
+			OCLstdlibTables.Operations._OclAny__oclType /* oclType() */,
+			OCLstdlibTables.Operations._OclAny__oclTypes /* oclTypes() */,
+			OCLstdlibTables.Operations._OclAny__toString /* toString() */
+		};
+		private static final ExecutorOperation /*@NonNull*/ [] _TemporaryEquipment__OclElement = {
+			OCLstdlibTables.Operations._OclElement__allInstances /* allInstances() */,
+			OCLstdlibTables.Operations._OclElement__oclAsModelType /* oclAsModelType(TT)(TT[1]) */,
+			OCLstdlibTables.Operations._OclElement__oclContainer /* oclContainer() */,
+			OCLstdlibTables.Operations._OclElement__oclContents /* oclContents() */,
+			OCLstdlibTables.Operations._OclElement__oclIsModelKindOf /* oclIsModelKindOf(OclType[1]) */,
+			OCLstdlibTables.Operations._OclElement__oclModelType /* oclModelType() */,
+			OCLstdlibTables.Operations._OclElement__oclModelTypes /* oclModelTypes() */
+		};
+
 		/*
 		 *	Install the operation descriptors in the fragment descriptors.
 		 */
 		static {
+			Fragments._Agenda__Agenda.initOperations(_Agenda__Agenda);
+			Fragments._Agenda__OclAny.initOperations(_Agenda__OclAny);
+			Fragments._Agenda__OclElement.initOperations(_Agenda__OclElement);
+
 			Fragments._Break__Break.initOperations(_Break__Break);
 			Fragments._Break__OclAny.initOperations(_Break__OclAny);
 			Fragments._Break__OclElement.initOperations(_Break__OclElement);
@@ -830,9 +938,10 @@ public class AgendomatTables extends AbstractTables
 			Fragments._LocationType__OclEnumeration.initOperations(_LocationType__OclEnumeration);
 			Fragments._LocationType__OclType.initOperations(_LocationType__OclType);
 
-			Fragments._Model__Model.initOperations(_Model__Model);
-			Fragments._Model__OclAny.initOperations(_Model__OclAny);
-			Fragments._Model__OclElement.initOperations(_Model__OclElement);
+			Fragments._PermanentEquipment__Equipment.initOperations(_PermanentEquipment__Equipment);
+			Fragments._PermanentEquipment__OclAny.initOperations(_PermanentEquipment__OclAny);
+			Fragments._PermanentEquipment__OclElement.initOperations(_PermanentEquipment__OclElement);
+			Fragments._PermanentEquipment__PermanentEquipment.initOperations(_PermanentEquipment__PermanentEquipment);
 
 			Fragments._Person__OclAny.initOperations(_Person__OclAny);
 			Fragments._Person__OclElement.initOperations(_Person__OclElement);
@@ -857,6 +966,11 @@ public class AgendomatTables extends AbstractTables
 			Fragments._Talk__OclElement.initOperations(_Talk__OclElement);
 			Fragments._Talk__Talk.initOperations(_Talk__Talk);
 
+			Fragments._TemporaryEquipment__Equipment.initOperations(_TemporaryEquipment__Equipment);
+			Fragments._TemporaryEquipment__OclAny.initOperations(_TemporaryEquipment__OclAny);
+			Fragments._TemporaryEquipment__OclElement.initOperations(_TemporaryEquipment__OclElement);
+			Fragments._TemporaryEquipment__TemporaryEquipment.initOperations(_TemporaryEquipment__TemporaryEquipment);
+
 			Init.initEnd();
 		}
 
@@ -875,14 +989,24 @@ public class AgendomatTables extends AbstractTables
 			FragmentOperations.init();
 		}
 
+		private static final ExecutorProperty /*@NonNull*/ [] _Agenda = {
+			AgendomatTables.Properties._Agenda__agendaEndDate,
+			AgendomatTables.Properties._Agenda__agendaName,
+			AgendomatTables.Properties._Agenda__agendaStartDate,
+			AgendomatTables.Properties._Agenda__desc,
+			AgendomatTables.Properties._Agenda__events,
+			OCLstdlibTables.Properties._OclElement__oclContainer,
+			OCLstdlibTables.Properties._OclElement__oclContents
+		};
+
 		private static final ExecutorProperty /*@NonNull*/ [] _Break = {
 			AgendomatTables.Properties._Break__animators,
 			AgendomatTables.Properties._Break__breakName,
-			AgendomatTables.Properties._Break__endTime,
-			AgendomatTables.Properties._Break__location,
+			AgendomatTables.Properties._ProgramItem__endTime,
+			AgendomatTables.Properties._ProgramItem__location,
 			OCLstdlibTables.Properties._OclElement__oclContainer,
 			OCLstdlibTables.Properties._OclElement__oclContents,
-			AgendomatTables.Properties._Break__startTime
+			AgendomatTables.Properties._ProgramItem__startTime
 		};
 
 		private static final ExecutorProperty /*@NonNull*/ [] _Equipment = {
@@ -900,6 +1024,7 @@ public class AgendomatTables extends AbstractTables
 			AgendomatTables.Properties._Event__locations,
 			OCLstdlibTables.Properties._OclElement__oclContainer,
 			OCLstdlibTables.Properties._OclElement__oclContents,
+			AgendomatTables.Properties._Event__permanentEquipment,
 			AgendomatTables.Properties._Event__persons,
 			AgendomatTables.Properties._Event__programItems
 		};
@@ -916,22 +1041,28 @@ public class AgendomatTables extends AbstractTables
 			OCLstdlibTables.Properties._OclElement__oclContents
 		};
 
-		private static final ExecutorProperty /*@NonNull*/ [] _Model = {
-			AgendomatTables.Properties._Model__events,
+		private static final ExecutorProperty /*@NonNull*/ [] _PermanentEquipment = {
+			AgendomatTables.Properties._Equipment__equipmentName,
+			AgendomatTables.Properties._Equipment__equipmentType,
 			OCLstdlibTables.Properties._OclElement__oclContainer,
 			OCLstdlibTables.Properties._OclElement__oclContents
 		};
 
 		private static final ExecutorProperty /*@NonNull*/ [] _Person = {
+			AgendomatTables.Properties._Person__email,
 			OCLstdlibTables.Properties._OclElement__oclContainer,
 			OCLstdlibTables.Properties._OclElement__oclContents,
+			AgendomatTables.Properties._Person__organization,
 			AgendomatTables.Properties._Person__personName,
 			AgendomatTables.Properties._Person__roles
 		};
 
 		private static final ExecutorProperty /*@NonNull*/ [] _ProgramItem = {
+			AgendomatTables.Properties._ProgramItem__endTime,
+			AgendomatTables.Properties._ProgramItem__location,
 			OCLstdlibTables.Properties._OclElement__oclContainer,
-			OCLstdlibTables.Properties._OclElement__oclContents
+			OCLstdlibTables.Properties._OclElement__oclContents,
+			AgendomatTables.Properties._ProgramItem__startTime
 		};
 
 		private static final ExecutorProperty /*@NonNull*/ [] _Role = {
@@ -940,13 +1071,13 @@ public class AgendomatTables extends AbstractTables
 		};
 
 		private static final ExecutorProperty /*@NonNull*/ [] _Session = {
-			AgendomatTables.Properties._Session__endTime,
+			AgendomatTables.Properties._ProgramItem__endTime,
 			AgendomatTables.Properties._Session__equipment,
-			AgendomatTables.Properties._Session__location,
+			AgendomatTables.Properties._ProgramItem__location,
 			OCLstdlibTables.Properties._OclElement__oclContainer,
 			OCLstdlibTables.Properties._OclElement__oclContents,
 			AgendomatTables.Properties._Session__sessionName,
-			AgendomatTables.Properties._Session__startTime,
+			AgendomatTables.Properties._ProgramItem__startTime,
 			AgendomatTables.Properties._Session__talks,
 			AgendomatTables.Properties._Session__techSupport
 		};
@@ -960,21 +1091,30 @@ public class AgendomatTables extends AbstractTables
 			AgendomatTables.Properties._Talk__talkStartTime
 		};
 
+		private static final ExecutorProperty /*@NonNull*/ [] _TemporaryEquipment = {
+			AgendomatTables.Properties._Equipment__equipmentName,
+			AgendomatTables.Properties._Equipment__equipmentType,
+			OCLstdlibTables.Properties._OclElement__oclContainer,
+			OCLstdlibTables.Properties._OclElement__oclContents
+		};
+
 		/**
 		 *	Install the property descriptors in the fragment descriptors.
 		 */
 		static {
+			Fragments._Agenda__Agenda.initProperties(_Agenda);
 			Fragments._Break__Break.initProperties(_Break);
 			Fragments._Equipment__Equipment.initProperties(_Equipment);
 			Fragments._Event__Event.initProperties(_Event);
 			Fragments._Location__Location.initProperties(_Location);
 			Fragments._LocationType__LocationType.initProperties(_LocationType);
-			Fragments._Model__Model.initProperties(_Model);
+			Fragments._PermanentEquipment__PermanentEquipment.initProperties(_PermanentEquipment);
 			Fragments._Person__Person.initProperties(_Person);
 			Fragments._ProgramItem__ProgramItem.initProperties(_ProgramItem);
 			Fragments._Role__Role.initProperties(_Role);
 			Fragments._Session__Session.initProperties(_Session);
 			Fragments._Talk__Talk.initProperties(_Talk);
+			Fragments._TemporaryEquipment__TemporaryEquipment.initProperties(_TemporaryEquipment);
 
 			Init.initEnd();
 		}

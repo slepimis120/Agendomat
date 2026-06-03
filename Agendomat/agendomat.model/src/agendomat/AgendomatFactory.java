@@ -76,22 +76,31 @@ public interface AgendomatFactory extends EFactory {
 	Location createLocation();
 
 	/**
-	 * Returns a new object of class '<em>Equipment</em>'.
+	 * Returns a new object of class '<em>Permanent Equipment</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Equipment</em>'.
+	 * @return a new object of class '<em>Permanent Equipment</em>'.
 	 * @generated
 	 */
-	Equipment createEquipment();
+	PermanentEquipment createPermanentEquipment();
 
 	/**
-	 * Returns a new object of class '<em>Model</em>'.
+	 * Returns a new object of class '<em>Temporary Equipment</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Model</em>'.
+	 * @return a new object of class '<em>Temporary Equipment</em>'.
 	 * @generated
 	 */
-	Model createModel();
+	TemporaryEquipment createTemporaryEquipment();
+
+	/**
+	 * Returns a new object of class '<em>Agenda</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Agenda</em>'.
+	 * @generated
+	 */
+	Agenda createAgenda();
 
 	/**
 	 * Returns the package supported by this factory.

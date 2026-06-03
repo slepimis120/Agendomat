@@ -23,13 +23,15 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference agendomat.ecore#//Event/persons"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference agendomat.ecore#//Event/programItems"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference agendomat.ecore#//Event/locations"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference agendomat.ecore#//Event/permanentEquipment"/>
     </genClasses>
-    <genClasses image="false" ecoreClass="agendomat.ecore#//ProgramItem"/>
+    <genClasses image="false" ecoreClass="agendomat.ecore#//ProgramItem">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute agendomat.ecore#//ProgramItem/startTime"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute agendomat.ecore#//ProgramItem/endTime"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference agendomat.ecore#//ProgramItem/location"/>
+    </genClasses>
     <genClasses ecoreClass="agendomat.ecore#//Session">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute agendomat.ecore#//Session/sessionName"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute agendomat.ecore#//Session/startTime"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute agendomat.ecore#//Session/endTime"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference agendomat.ecore#//Session/location"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference agendomat.ecore#//Session/talks"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference agendomat.ecore#//Session/techSupport"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference agendomat.ecore#//Session/equipment"/>
@@ -42,13 +44,12 @@
     </genClasses>
     <genClasses ecoreClass="agendomat.ecore#//Break">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute agendomat.ecore#//Break/breakName"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute agendomat.ecore#//Break/startTime"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute agendomat.ecore#//Break/endTime"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference agendomat.ecore#//Break/location"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference agendomat.ecore#//Break/animators"/>
     </genClasses>
     <genClasses ecoreClass="agendomat.ecore#//Person">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute agendomat.ecore#//Person/personName"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute agendomat.ecore#//Person/email"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute agendomat.ecore#//Person/organization"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute agendomat.ecore#//Person/roles"/>
     </genClasses>
     <genClasses ecoreClass="agendomat.ecore#//Location">
@@ -59,8 +60,14 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute agendomat.ecore#//Equipment/equipmentName"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute agendomat.ecore#//Equipment/equipmentType"/>
     </genClasses>
-    <genClasses ecoreClass="agendomat.ecore#//Model">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference agendomat.ecore#//Model/events"/>
+    <genClasses ecoreClass="agendomat.ecore#//PermanentEquipment"/>
+    <genClasses ecoreClass="agendomat.ecore#//TemporaryEquipment"/>
+    <genClasses ecoreClass="agendomat.ecore#//Agenda">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute agendomat.ecore#//Agenda/agendaName"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute agendomat.ecore#//Agenda/agendaStartDate"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute agendomat.ecore#//Agenda/agendaEndDate"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute agendomat.ecore#//Agenda/desc"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference agendomat.ecore#//Agenda/events"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

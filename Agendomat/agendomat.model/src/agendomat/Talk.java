@@ -3,6 +3,7 @@
 package agendomat;
 
 import java.util.Map;
+
 import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.common.util.EList;
 
@@ -24,7 +25,7 @@ import org.eclipse.emf.ecore.EObject;
  * </ul>
  *
  * @see agendomat.AgendomatPackage#getTalk()
- * @model annotation="http://www.eclipse.org/emf/2002/Ecore constraints='endTimeAfterStartTime'"
+ * @model annotation="http://www.eclipse.org/emf/2002/Ecore constraints='presentersMustBePresenter'"
  * @generated
  */
 public interface Talk extends EObject {
@@ -113,5 +114,13 @@ public interface Talk extends EObject {
 	 * @generated
 	 */
 	boolean endTimeAfterStartTime(DiagnosticChain diagnostics, Map<Object, Object> context);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot body='\n    \t\tpresenters-&gt;forAll(p | p.roles-&gt;includes(Role::Presenter))'"
+	 * @generated
+	 */
+	boolean presentersMustBePresenter(DiagnosticChain diagnostics, Map<Object, Object> context);
 
 } // Talk

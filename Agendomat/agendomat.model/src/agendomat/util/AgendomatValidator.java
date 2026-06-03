@@ -40,20 +40,20 @@ public class AgendomatValidator extends EObjectValidator {
 	public static final String DIAGNOSTIC_SOURCE = "agendomat";
 
 	/**
-	 * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'Unique Person Names' of 'Event'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public static final int EVENT__UNIQUE_PERSON_NAMES = 1;
-
-	/**
 	 * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'Unique Location Names' of 'Event'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static final int EVENT__UNIQUE_LOCATION_NAMES = 2;
+	public static final int EVENT__UNIQUE_LOCATION_NAMES = 1;
+
+	/**
+	 * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'Session Location Must Be Room' of 'Session'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static final int SESSION__SESSION_LOCATION_MUST_BE_ROOM = 2;
 
 	/**
 	 * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'End Time After Start Time' of 'Session'.
@@ -64,12 +64,12 @@ public class AgendomatValidator extends EObjectValidator {
 	public static final int SESSION__END_TIME_AFTER_START_TIME = 3;
 
 	/**
-	 * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'Session Location Must Be Room' of 'Session'.
+	 * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'Tech Support Must Have Role' of 'Session'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static final int SESSION__SESSION_LOCATION_MUST_BE_ROOM = 4;
+	public static final int SESSION__TECH_SUPPORT_MUST_HAVE_ROLE = 4;
 
 	/**
 	 * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'End Time After Start Time' of 'Talk'.
@@ -80,12 +80,20 @@ public class AgendomatValidator extends EObjectValidator {
 	public static final int TALK__END_TIME_AFTER_START_TIME = 5;
 
 	/**
-	 * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'End Time After Start Time' of 'Break'.
+	 * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'Presenters Must Be Presenter' of 'Talk'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static final int BREAK__END_TIME_AFTER_START_TIME = 6;
+	public static final int TALK__PRESENTERS_MUST_BE_PRESENTER = 6;
+
+	/**
+	 * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'Animators Must Have Role' of 'Break'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static final int BREAK__ANIMATORS_MUST_HAVE_ROLE = 7;
 
 	/**
 	 * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'Break Location Must Be Break Area' of 'Break'.
@@ -93,7 +101,15 @@ public class AgendomatValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static final int BREAK__BREAK_LOCATION_MUST_BE_BREAK_AREA = 7;
+	public static final int BREAK__BREAK_LOCATION_MUST_BE_BREAK_AREA = 8;
+
+	/**
+	 * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'End Time After Start Time' of 'Break'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static final int BREAK__END_TIME_AFTER_START_TIME = 9;
 
 	/**
 	 * A constant with a fixed name that can be used as the base value for additional hand written constants.
@@ -101,7 +117,7 @@ public class AgendomatValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private static final int GENERATED_DIAGNOSTIC_CODE_COUNT = 7;
+	private static final int GENERATED_DIAGNOSTIC_CODE_COUNT = 9;
 
 	/**
 	 * A constant with a fixed name that can be used as the base value for additional hand written constants in a derived class.
@@ -157,8 +173,12 @@ public class AgendomatValidator extends EObjectValidator {
 				return validateLocation((Location)value, diagnostics, context);
 			case AgendomatPackage.EQUIPMENT:
 				return validateEquipment((Equipment)value, diagnostics, context);
-			case AgendomatPackage.MODEL:
-				return validateModel((Model)value, diagnostics, context);
+			case AgendomatPackage.PERMANENT_EQUIPMENT:
+				return validatePermanentEquipment((PermanentEquipment)value, diagnostics, context);
+			case AgendomatPackage.TEMPORARY_EQUIPMENT:
+				return validateTemporaryEquipment((TemporaryEquipment)value, diagnostics, context);
+			case AgendomatPackage.AGENDA:
+				return validateAgenda((Agenda)value, diagnostics, context);
 			case AgendomatPackage.LOCATION_TYPE:
 				return validateLocationType((LocationType)value, diagnostics, context);
 			case AgendomatPackage.ROLE:
@@ -184,7 +204,6 @@ public class AgendomatValidator extends EObjectValidator {
 		if (result || diagnostics != null) result &= validate_EveryKeyUnique(event, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(event, diagnostics, context);
 		if (result || diagnostics != null) result &= validateEvent_uniqueLocationNames(event, diagnostics, context);
-		if (result || diagnostics != null) result &= validateEvent_uniquePersonNames(event, diagnostics, context);
 		return result;
 	}
 
@@ -196,16 +215,6 @@ public class AgendomatValidator extends EObjectValidator {
 	 */
 	public boolean validateEvent_uniqueLocationNames(Event event, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return event.uniqueLocationNames(diagnostics, context);
-	}
-
-	/**
-	 * Validates the uniquePersonNames constraint of '<em>Event</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean validateEvent_uniquePersonNames(Event event, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return event.uniquePersonNames(diagnostics, context);
 	}
 
 	/**
@@ -232,9 +241,20 @@ public class AgendomatValidator extends EObjectValidator {
 		if (result || diagnostics != null) result &= validate_UniqueID(session, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryKeyUnique(session, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(session, diagnostics, context);
+		if (result || diagnostics != null) result &= validateSession_techSupportMustHaveRole(session, diagnostics, context);
 		if (result || diagnostics != null) result &= validateSession_sessionLocationMustBeRoom(session, diagnostics, context);
 		if (result || diagnostics != null) result &= validateSession_endTimeAfterStartTime(session, diagnostics, context);
 		return result;
+	}
+
+	/**
+	 * Validates the techSupportMustHaveRole constraint of '<em>Session</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateSession_techSupportMustHaveRole(Session session, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return session.techSupportMustHaveRole(diagnostics, context);
 	}
 
 	/**
@@ -272,8 +292,19 @@ public class AgendomatValidator extends EObjectValidator {
 		if (result || diagnostics != null) result &= validate_UniqueID(talk, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryKeyUnique(talk, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(talk, diagnostics, context);
+		if (result || diagnostics != null) result &= validateTalk_presentersMustBePresenter(talk, diagnostics, context);
 		if (result || diagnostics != null) result &= validateTalk_endTimeAfterStartTime(talk, diagnostics, context);
 		return result;
+	}
+
+	/**
+	 * Validates the presentersMustBePresenter constraint of '<em>Talk</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateTalk_presentersMustBePresenter(Talk talk, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return talk.presentersMustBePresenter(diagnostics, context);
 	}
 
 	/**
@@ -301,19 +332,10 @@ public class AgendomatValidator extends EObjectValidator {
 		if (result || diagnostics != null) result &= validate_UniqueID(break_, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryKeyUnique(break_, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(break_, diagnostics, context);
-		if (result || diagnostics != null) result &= validateBreak_breakLocationMustBeBreakArea(break_, diagnostics, context);
 		if (result || diagnostics != null) result &= validateBreak_endTimeAfterStartTime(break_, diagnostics, context);
+		if (result || diagnostics != null) result &= validateBreak_animatorsMustHaveRole(break_, diagnostics, context);
+		if (result || diagnostics != null) result &= validateBreak_breakLocationMustBeBreakArea(break_, diagnostics, context);
 		return result;
-	}
-
-	/**
-	 * Validates the breakLocationMustBeBreakArea constraint of '<em>Break</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean validateBreak_breakLocationMustBeBreakArea(Break break_, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return break_.breakLocationMustBeBreakArea(diagnostics, context);
 	}
 
 	/**
@@ -324,6 +346,26 @@ public class AgendomatValidator extends EObjectValidator {
 	 */
 	public boolean validateBreak_endTimeAfterStartTime(Break break_, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return break_.endTimeAfterStartTime(diagnostics, context);
+	}
+
+	/**
+	 * Validates the animatorsMustHaveRole constraint of '<em>Break</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateBreak_animatorsMustHaveRole(Break break_, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return break_.animatorsMustHaveRole(diagnostics, context);
+	}
+
+	/**
+	 * Validates the breakLocationMustBeBreakArea constraint of '<em>Break</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateBreak_breakLocationMustBeBreakArea(Break break_, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return break_.breakLocationMustBeBreakArea(diagnostics, context);
 	}
 
 	/**
@@ -358,8 +400,26 @@ public class AgendomatValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean validateModel(Model model, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return validate_EveryDefaultConstraint(model, diagnostics, context);
+	public boolean validatePermanentEquipment(PermanentEquipment permanentEquipment, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(permanentEquipment, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateTemporaryEquipment(TemporaryEquipment temporaryEquipment, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(temporaryEquipment, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateAgenda(Agenda agenda, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(agenda, diagnostics, context);
 	}
 
 	/**

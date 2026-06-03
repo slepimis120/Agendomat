@@ -3,6 +3,7 @@
 package agendomat;
 
 import java.util.Map;
+
 import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.common.util.EList;
 
@@ -24,6 +25,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link agendomat.Event#getPersons <em>Persons</em>}</li>
  *   <li>{@link agendomat.Event#getProgramItems <em>Program Items</em>}</li>
  *   <li>{@link agendomat.Event#getLocations <em>Locations</em>}</li>
+ *   <li>{@link agendomat.Event#getPermanentEquipment <em>Permanent Equipment</em>}</li>
  * </ul>
  *
  * @see agendomat.AgendomatPackage#getEvent()
@@ -156,12 +158,16 @@ public interface Event extends EObject {
 	EList<Location> getLocations();
 
 	/**
+	 * Returns the value of the '<em><b>Permanent Equipment</b></em>' containment reference list.
+	 * The list contents are of type {@link agendomat.PermanentEquipment}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot body='\n    \t\tpersons-&gt;isUnique(personName)'"
+	 * @return the value of the '<em>Permanent Equipment</em>' containment reference list.
+	 * @see agendomat.AgendomatPackage#getEvent_PermanentEquipment()
+	 * @model containment="true"
 	 * @generated
 	 */
-	boolean uniquePersonNames(DiagnosticChain diagnostics, Map<Object, Object> context);
+	EList<PermanentEquipment> getPermanentEquipment();
 
 	/**
 	 * <!-- begin-user-doc -->

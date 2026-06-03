@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<agendomat:Agenda xmi:version="2.0"
+  xmlns:xmi="http://www.omg.org/XMI"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns:agendomat="http://agendomat/1.0"
+  agendaName="Tech Conference Agenda 2026">
+
+  <events eventName="Konferencija 2026" eventStartDate="2026-05-14" eventEndDate="2026-05-16"
+    desc="Godišnja tehnička konferencija sa radionicama i predavanjima.">
+
+    <persons personName="Marko Milojević" roles="Presenter" email="marko@example.com" organization="FTN"/>
+    <persons personName="Jelena Jelić" roles="Presenter" email="jelena@example.com" organization="UNS"/>
+    <persons personName="Ana Petrović" roles="Presenter" email="ana@example.com" organization="ETF"/>
+    <persons personName="Tehničar 1" roles="TechSupport" email="tech1@example.com" organization="AV Tim"/>
+    <persons personName="Tehničar 2" roles="TechSupport" email="tech2@example.com" organization="AV Tim"/>
+    <persons personName="Animator 1" roles="Animator" email="anim1@example.com" organization="Organizacija"/>
+
+    <locations locationName="Amfiteatar A" locationType="Room"/>
+    <locations locationName="Sala B" locationType="Room"/>
+    <locations locationName="Sala C" locationType="Room"/>
+    <locations locationName="Hol 1" locationType="BreakArea"/>
+    <locations locationName="Terasa" locationType="BreakArea"/>
+
+    <programItems xsi:type="agendomat:Session" sessionName="Uvodno predavanje"
+      startTime="09:00" endTime="10:30"
+      location="//@events.0/@locations.0"
+      techSupport="//@events.0/@persons.3">
+      <talks talkName="Uvod u domensko modelovanje"
+        talkStartTime="09:00" talkEndTime="09:45"
+        presenters="//@events.0/@persons.0"/>
+      <talks talkName="Primena DSL-ova u industriji"
+        talkStartTime="09:45" talkEndTime="10:30"
+        presenters="//@events.0/@persons.1"/>
+      <equipment equipmentName="Projektor" equipmentType="AV"/>
+      <equipment equipmentName="Laptop" equipmentType="Computing"/>
+      <equipment equipmentName="Mikrofon" equipmentType="Audio"/>
+    </programItems>
+
+    <programItems xsi:type="agendomat:Break" breakName="Coffee Break"
+      startTime="10:30" endTime="11:00"
+      location="//@events.0/@locations.3"
+      animators="//@events.0/@persons.5"/>
+
+    <programItems xsi:type="agendomat:Session" sessionName="Napredne tehnike modelovanja"
+      startTime="11:00" endTime="12:30"
+      location="//@events.0/@locations.1"
+      techSupport="//@events.0/@persons.4">
+      <talks talkName="OCL i ograničenja modela"
+        talkStartTime="11:00" talkEndTime="11:45"
+        presenters="//@events.0/@persons.2"/>
+      <talks talkName="Xtext gramatike u praksi"
+        talkStartTime="11:45" talkEndTime="12:30"
+        presenters="//@events.0/@persons.0 //@events.0/@persons.1"/>
+      <equipment equipmentName="Laptop" equipmentType="Computing"/>
+      <equipment equipmentName="Kliktač" equipmentType="Presentation"/>
+    </programItems>
+
+    <programItems xsi:type="agendomat:Break" breakName="Pauza za ručak"
+      startTime="12:30" endTime="13:30"
+      location="//@events.0/@locations.4"
+      animators="//@events.0/@persons.5"/>
+
+    <programItems xsi:type="agendomat:Session" sessionName="Radionica: Sirius dijagrami"
+      startTime="13:30" endTime="15:00"
+      location="//@events.0/@locations.2"
+      techSupport="//@events.0/@persons.3">
+      <talks talkName="Kreiranje grafičke sintakse"
+        talkStartTime="13:30" talkEndTime="14:15"
+        presenters="//@events.0/@persons.1"/>
+      <talks talkName="Napredni Sirius koncepti"
+        talkStartTime="14:15" talkEndTime="15:00"
+        presenters="//@events.0/@persons.2"/>
+      <equipment equipmentName="Projektor" equipmentType="AV"/>
+      <equipment equipmentName="Mikrofon" equipmentType="Audio"/>
+      <equipment equipmentName="Zvučnici" equipmentType="Audio"/>
+    </programItems>
+
+    <programItems xsi:type="agendomat:Break" breakName="Završna pauza"
+      startTime="15:00" endTime="15:15"
+      location="//@events.0/@locations.3"
+      animators="//@events.0/@persons.5"/>
+
+  </events>
+
+  <events eventName="Workshop 2026" eventStartDate="2026-05-17" eventEndDate="2026-05-17"
+    desc="Jednodnevni praktični workshop za studente.">
+
+    <persons personName="Prof. Vještica" roles="Presenter" email="vjestica@ftn.rs" organization="FTN"/>
+    <persons personName="Prof. Čeliković" roles="Presenter" email="celikovic@ftn.rs" organization="FTN"/>
+    <persons personName="Asistent 1" roles="TechSupport" email="asistent1@ftn.rs" organization="FTN"/>
+    <persons personName="Koordinator" roles="Animator" email="koord@ftn.rs" organization="FTN"/>
+
+    <locations locationName="Lab 1" locationType="Room"/>
+    <locations locationName="Lab 2" locationType="Room"/>
+    <locations locationName="Hodnik" locationType="BreakArea"/>
+
+    <programItems xsi:type="agendomat:Session" sessionName="EMF osnove"
+      startTime="09:00" endTime="10:30"
+      location="//@events.1/@locations.0"
+      techSupport="//@events.1/@persons.2">
+      <talks talkName="Ecore metamodelovanje"
+        talkStartTime="09:00" talkEndTime="10:30"
+        presenters="//@events.1/@persons.0"/>
+      <equipment equipmentName="Projektor" equipmentType="AV"/>
+    </programItems>
+
+    <programItems xsi:type="agendomat:Break" breakName="Kratka pauza"
+      startTime="10:30" endTime="10:45"
+      location="//@events.1/@locations.2"
+      animators="//@events.1/@persons.3"/>
+
+    <programItems xsi:type="agendomat:Session" sessionName="Xtext i Sirius"
+      startTime="10:45" endTime="12:15"
+      location="//@events.1/@locations.1"
+      techSupport="//@events.1/@persons.2">
+      <talks talkName="DSL razvoj korak po korak"
+        talkStartTime="10:45" talkEndTime="12:15"
+        presenters="//@events.1/@persons.1"/>
+      <equipment equipmentName="Laptop" equipmentType="Computing"/>
+      <equipment equipmentName="Projektor" equipmentType="AV"/>
+    </programItems>
+
+  </events>
+
+</agendomat:Agenda>

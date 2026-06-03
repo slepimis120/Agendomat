@@ -116,9 +116,23 @@ public class AgendomatSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case AgendomatPackage.MODEL: {
-				Model model = (Model)theEObject;
-				T result = caseModel(model);
+			case AgendomatPackage.PERMANENT_EQUIPMENT: {
+				PermanentEquipment permanentEquipment = (PermanentEquipment)theEObject;
+				T result = casePermanentEquipment(permanentEquipment);
+				if (result == null) result = caseEquipment(permanentEquipment);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case AgendomatPackage.TEMPORARY_EQUIPMENT: {
+				TemporaryEquipment temporaryEquipment = (TemporaryEquipment)theEObject;
+				T result = caseTemporaryEquipment(temporaryEquipment);
+				if (result == null) result = caseEquipment(temporaryEquipment);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case AgendomatPackage.AGENDA: {
+				Agenda agenda = (Agenda)theEObject;
+				T result = caseAgenda(agenda);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -247,17 +261,47 @@ public class AgendomatSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Model</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Permanent Equipment</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Model</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Permanent Equipment</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseModel(Model object) {
+	public T casePermanentEquipment(PermanentEquipment object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Temporary Equipment</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Temporary Equipment</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseTemporaryEquipment(TemporaryEquipment object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Agenda</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Agenda</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseAgenda(Agenda object) {
 		return null;
 	}
 

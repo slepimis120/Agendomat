@@ -100,8 +100,16 @@ public class AgendomatAdapterFactory extends AdapterFactoryImpl {
 				return createEquipmentAdapter();
 			}
 			@Override
-			public Adapter caseModel(Model object) {
-				return createModelAdapter();
+			public Adapter casePermanentEquipment(PermanentEquipment object) {
+				return createPermanentEquipmentAdapter();
+			}
+			@Override
+			public Adapter caseTemporaryEquipment(TemporaryEquipment object) {
+				return createTemporaryEquipmentAdapter();
+			}
+			@Override
+			public Adapter caseAgenda(Agenda object) {
+				return createAgendaAdapter();
 			}
 			@Override
 			public Adapter defaultCase(EObject object) {
@@ -236,16 +244,44 @@ public class AgendomatAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link agendomat.Model <em>Model</em>}'.
+	 * Creates a new adapter for an object of class '{@link agendomat.PermanentEquipment <em>Permanent Equipment</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see agendomat.Model
+	 * @see agendomat.PermanentEquipment
 	 * @generated
 	 */
-	public Adapter createModelAdapter() {
+	public Adapter createPermanentEquipmentAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link agendomat.TemporaryEquipment <em>Temporary Equipment</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see agendomat.TemporaryEquipment
+	 * @generated
+	 */
+	public Adapter createTemporaryEquipmentAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link agendomat.Agenda <em>Agenda</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see agendomat.Agenda
+	 * @generated
+	 */
+	public Adapter createAgendaAdapter() {
 		return null;
 	}
 

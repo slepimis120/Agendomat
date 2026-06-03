@@ -63,8 +63,9 @@ public class AgendomatFactoryImpl extends EFactoryImpl implements AgendomatFacto
 			case AgendomatPackage.BREAK: return createBreak();
 			case AgendomatPackage.PERSON: return createPerson();
 			case AgendomatPackage.LOCATION: return createLocation();
-			case AgendomatPackage.EQUIPMENT: return createEquipment();
-			case AgendomatPackage.MODEL: return createModel();
+			case AgendomatPackage.PERMANENT_EQUIPMENT: return createPermanentEquipment();
+			case AgendomatPackage.TEMPORARY_EQUIPMENT: return createTemporaryEquipment();
+			case AgendomatPackage.AGENDA: return createAgenda();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -176,9 +177,9 @@ public class AgendomatFactoryImpl extends EFactoryImpl implements AgendomatFacto
 	 * @generated
 	 */
 	@Override
-	public Equipment createEquipment() {
-		EquipmentImpl equipment = new EquipmentImpl();
-		return equipment;
+	public PermanentEquipment createPermanentEquipment() {
+		PermanentEquipmentImpl permanentEquipment = new PermanentEquipmentImpl();
+		return permanentEquipment;
 	}
 
 	/**
@@ -187,9 +188,20 @@ public class AgendomatFactoryImpl extends EFactoryImpl implements AgendomatFacto
 	 * @generated
 	 */
 	@Override
-	public Model createModel() {
-		ModelImpl model = new ModelImpl();
-		return model;
+	public TemporaryEquipment createTemporaryEquipment() {
+		TemporaryEquipmentImpl temporaryEquipment = new TemporaryEquipmentImpl();
+		return temporaryEquipment;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Agenda createAgenda() {
+		AgendaImpl agenda = new AgendaImpl();
+		return agenda;
 	}
 
 	/**

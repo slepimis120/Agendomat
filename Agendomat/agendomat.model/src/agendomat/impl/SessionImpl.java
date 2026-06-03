@@ -4,17 +4,21 @@ package agendomat.impl;
 
 import agendomat.AgendomatPackage;
 import agendomat.AgendomatTables;
-import agendomat.Equipment;
 import agendomat.Location;
 import agendomat.LocationType;
 import agendomat.Person;
+import agendomat.Role;
 import agendomat.Session;
 import agendomat.Talk;
+import agendomat.TemporaryEquipment;
 
 import java.lang.reflect.InvocationTargetException;
-import java.util.Collection;
 
+import java.util.Collection;
+import java.util.Iterator;
+import java.util.List;
 import java.util.Map;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -29,17 +33,30 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
+
 import org.eclipse.ocl.pivot.evaluation.Executor;
+
 import org.eclipse.ocl.pivot.ids.EnumerationLiteralId;
+import org.eclipse.ocl.pivot.ids.IdResolver;
 import org.eclipse.ocl.pivot.ids.TypeId;
+
+import org.eclipse.ocl.pivot.library.collection.CollectionIncludesOperation;
+
 import org.eclipse.ocl.pivot.library.oclany.OclComparableLessThanEqualOperation;
+
 import org.eclipse.ocl.pivot.library.string.CGStringGetSeverityOperation;
 import org.eclipse.ocl.pivot.library.string.CGStringLogDiagnosticOperation;
 import org.eclipse.ocl.pivot.library.string.StringGreaterThanOperation;
+
+import org.eclipse.ocl.pivot.messages.PivotMessages;
+
 import org.eclipse.ocl.pivot.utilities.ClassUtil;
 import org.eclipse.ocl.pivot.utilities.PivotUtil;
 import org.eclipse.ocl.pivot.utilities.ValueUtil;
+
 import org.eclipse.ocl.pivot.values.IntegerValue;
+import org.eclipse.ocl.pivot.values.InvalidValueException;
+import org.eclipse.ocl.pivot.values.OrderedSetValue;
 
 /**
  * <!-- begin-user-doc -->
@@ -50,9 +67,6 @@ import org.eclipse.ocl.pivot.values.IntegerValue;
  * </p>
  * <ul>
  *   <li>{@link agendomat.impl.SessionImpl#getSessionName <em>Session Name</em>}</li>
- *   <li>{@link agendomat.impl.SessionImpl#getStartTime <em>Start Time</em>}</li>
- *   <li>{@link agendomat.impl.SessionImpl#getEndTime <em>End Time</em>}</li>
- *   <li>{@link agendomat.impl.SessionImpl#getLocation <em>Location</em>}</li>
  *   <li>{@link agendomat.impl.SessionImpl#getTalks <em>Talks</em>}</li>
  *   <li>{@link agendomat.impl.SessionImpl#getTechSupport <em>Tech Support</em>}</li>
  *   <li>{@link agendomat.impl.SessionImpl#getEquipment <em>Equipment</em>}</li>
@@ -82,56 +96,6 @@ public class SessionImpl extends ProgramItemImpl implements Session {
 	protected String sessionName = SESSION_NAME_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getStartTime() <em>Start Time</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getStartTime()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String START_TIME_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getStartTime() <em>Start Time</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getStartTime()
-	 * @generated
-	 * @ordered
-	 */
-	protected String startTime = START_TIME_EDEFAULT;
-
-	/**
-	 * The default value of the '{@link #getEndTime() <em>End Time</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getEndTime()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String END_TIME_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getEndTime() <em>End Time</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getEndTime()
-	 * @generated
-	 * @ordered
-	 */
-	protected String endTime = END_TIME_EDEFAULT;
-
-	/**
-	 * The cached value of the '{@link #getLocation() <em>Location</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getLocation()
-	 * @generated
-	 * @ordered
-	 */
-	protected Location location;
-
-	/**
 	 * The cached value of the '{@link #getTalks() <em>Talks</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -159,7 +123,7 @@ public class SessionImpl extends ProgramItemImpl implements Session {
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Equipment> equipment;
+	protected EList<TemporaryEquipment> equipment;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -209,92 +173,6 @@ public class SessionImpl extends ProgramItemImpl implements Session {
 	 * @generated
 	 */
 	@Override
-	public String getStartTime() {
-		return startTime;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void setStartTime(String newStartTime) {
-		String oldStartTime = startTime;
-		startTime = newStartTime;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, AgendomatPackage.SESSION__START_TIME, oldStartTime, startTime));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public String getEndTime() {
-		return endTime;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void setEndTime(String newEndTime) {
-		String oldEndTime = endTime;
-		endTime = newEndTime;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, AgendomatPackage.SESSION__END_TIME, oldEndTime, endTime));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Location getLocation() {
-		if (location != null && location.eIsProxy()) {
-			InternalEObject oldLocation = (InternalEObject)location;
-			location = (Location)eResolveProxy(oldLocation);
-			if (location != oldLocation) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, AgendomatPackage.SESSION__LOCATION, oldLocation, location));
-			}
-		}
-		return location;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Location basicGetLocation() {
-		return location;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void setLocation(Location newLocation) {
-		Location oldLocation = location;
-		location = newLocation;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, AgendomatPackage.SESSION__LOCATION, oldLocation, location));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public EList<Talk> getTalks() {
 		if (talks == null) {
 			talks = new EObjectContainmentEList<Talk>(Talk.class, this, AgendomatPackage.SESSION__TALKS);
@@ -321,54 +199,11 @@ public class SessionImpl extends ProgramItemImpl implements Session {
 	 * @generated
 	 */
 	@Override
-	public EList<Equipment> getEquipment() {
+	public EList<TemporaryEquipment> getEquipment() {
 		if (equipment == null) {
-			equipment = new EObjectContainmentEList<Equipment>(Equipment.class, this, AgendomatPackage.SESSION__EQUIPMENT);
+			equipment = new EObjectContainmentEList<TemporaryEquipment>(TemporaryEquipment.class, this, AgendomatPackage.SESSION__EQUIPMENT);
 		}
 		return equipment;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public boolean endTimeAfterStartTime(final DiagnosticChain diagnostics, final Map<Object, Object> context) {
-		final String constraintName = "Session::endTimeAfterStartTime";
-		try {
-			/**
-			 *
-			 * inv endTimeAfterStartTime:
-			 *   let severity : Integer[1] = constraintName.getSeverity()
-			 *   in
-			 *     if severity <= 0
-			 *     then true
-			 *     else
-			 *       let result : Boolean[1] = endTime > startTime
-			 *       in
-			 *         constraintName.logDiagnostic(self, null, diagnostics, context, null, severity, result, 0)
-			 *     endif
-			 */
-			final /*@NonInvalid*/ Executor executor = PivotUtil.getExecutor(this, context);
-			final /*@NonInvalid*/ IntegerValue severity_0 = CGStringGetSeverityOperation.INSTANCE.evaluate(executor, AgendomatPackage.Literals.SESSION___END_TIME_AFTER_START_TIME__DIAGNOSTICCHAIN_MAP);
-			final /*@NonInvalid*/ boolean le = OclComparableLessThanEqualOperation.INSTANCE.evaluate(executor, severity_0, AgendomatTables.INT_0).booleanValue();
-			/*@NonInvalid*/ boolean local_0;
-			if (le) {
-				local_0 = true;
-			}
-			else {
-				final /*@NonInvalid*/ String endTime = this.getEndTime();
-				final /*@NonInvalid*/ String startTime = this.getStartTime();
-				final /*@NonInvalid*/ boolean result = StringGreaterThanOperation.INSTANCE.evaluate(endTime, startTime).booleanValue();
-				final /*@NonInvalid*/ boolean logDiagnostic = CGStringLogDiagnosticOperation.INSTANCE.evaluate(executor, TypeId.BOOLEAN, constraintName, this, (Object)null, diagnostics, context, (Object)null, severity_0, result, AgendomatTables.INT_0).booleanValue();
-				local_0 = logDiagnostic;
-			}
-			return local_0;
-		}
-		catch (Throwable e) {
-			return ValueUtil.validationFailedDiagnostic(constraintName, this, diagnostics, context, e);
-		}
 	}
 
 	/**
@@ -421,6 +256,126 @@ public class SessionImpl extends ProgramItemImpl implements Session {
 	 * @generated
 	 */
 	@Override
+	public boolean endTimeAfterStartTime(final DiagnosticChain diagnostics, final Map<Object, Object> context) {
+		final String constraintName = "Session::endTimeAfterStartTime";
+		try {
+			/**
+			 *
+			 * inv endTimeAfterStartTime:
+			 *   let severity : Integer[1] = constraintName.getSeverity()
+			 *   in
+			 *     if severity <= 0
+			 *     then true
+			 *     else
+			 *       let result : Boolean[1] = endTime > startTime
+			 *       in
+			 *         constraintName.logDiagnostic(self, null, diagnostics, context, null, severity, result, 0)
+			 *     endif
+			 */
+			final /*@NonInvalid*/ Executor executor = PivotUtil.getExecutor(this, context);
+			final /*@NonInvalid*/ IntegerValue severity_0 = CGStringGetSeverityOperation.INSTANCE.evaluate(executor, AgendomatPackage.Literals.SESSION___END_TIME_AFTER_START_TIME__DIAGNOSTICCHAIN_MAP);
+			final /*@NonInvalid*/ boolean le = OclComparableLessThanEqualOperation.INSTANCE.evaluate(executor, severity_0, AgendomatTables.INT_0).booleanValue();
+			/*@NonInvalid*/ boolean local_0;
+			if (le) {
+				local_0 = true;
+			}
+			else {
+				final /*@NonInvalid*/ String endTime = this.getEndTime();
+				final /*@NonInvalid*/ String startTime = this.getStartTime();
+				final /*@NonInvalid*/ boolean result = StringGreaterThanOperation.INSTANCE.evaluate(endTime, startTime).booleanValue();
+				final /*@NonInvalid*/ boolean logDiagnostic = CGStringLogDiagnosticOperation.INSTANCE.evaluate(executor, TypeId.BOOLEAN, constraintName, this, (Object)null, diagnostics, context, (Object)null, severity_0, result, AgendomatTables.INT_0).booleanValue();
+				local_0 = logDiagnostic;
+			}
+			return local_0;
+		}
+		catch (Throwable e) {
+			return ValueUtil.validationFailedDiagnostic(constraintName, this, diagnostics, context, e);
+		}
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public boolean techSupportMustHaveRole(final DiagnosticChain diagnostics, final Map<Object, Object> context) {
+		final String constraintName = "Session::techSupportMustHaveRole";
+		try {
+			/**
+			 *
+			 * inv techSupportMustHaveRole:
+			 *   let severity : Integer[1] = constraintName.getSeverity()
+			 *   in
+			 *     if severity <= 0
+			 *     then true
+			 *     else
+			 *       let
+			 *         result : Boolean[?] = techSupport->forAll(p |
+			 *           p.roles->includes(Role::TechSupport))
+			 *       in
+			 *         constraintName.logDiagnostic(self, null, diagnostics, context, null, severity, result, 0)
+			 *     endif
+			 */
+			final /*@NonInvalid*/ Executor executor = PivotUtil.getExecutor(this, context);
+			final /*@NonInvalid*/ IdResolver idResolver = executor.getIdResolver();
+			final /*@NonInvalid*/ IntegerValue severity_0 = CGStringGetSeverityOperation.INSTANCE.evaluate(executor, AgendomatPackage.Literals.SESSION___TECH_SUPPORT_MUST_HAVE_ROLE__DIAGNOSTICCHAIN_MAP);
+			final /*@NonInvalid*/ boolean le = OclComparableLessThanEqualOperation.INSTANCE.evaluate(executor, severity_0, AgendomatTables.INT_0).booleanValue();
+			/*@NonInvalid*/ boolean local_0;
+			if (le) {
+				local_0 = true;
+			}
+			else {
+				final /*@NonInvalid*/ List<Person> techSupport = this.getTechSupport();
+				final /*@NonInvalid*/ OrderedSetValue BOXED_techSupport = idResolver.createOrderedSetOfAll(AgendomatTables.ORD_CLSSid_Person, techSupport);
+				/*@Thrown*/ Object accumulator = ValueUtil.TRUE_VALUE;
+				Iterator<Object> ITERATOR_p = BOXED_techSupport.iterator();
+				/*@NonInvalid*/ Boolean result;
+				while (true) {
+					if (!ITERATOR_p.hasNext()) {
+						if (accumulator == ValueUtil.TRUE_VALUE) {
+							result = ValueUtil.TRUE_VALUE;
+						}
+						else {
+							throw (InvalidValueException)accumulator;
+						}
+						break;
+					}
+					/*@NonInvalid*/ Person p = (Person)ITERATOR_p.next();
+					/**
+					 * p.roles->includes(Role::TechSupport)
+					 */
+					final /*@NonInvalid*/ List<Role> roles = p.getRoles();
+					final /*@NonInvalid*/ OrderedSetValue BOXED_roles = idResolver.createOrderedSetOfAll(AgendomatTables.ORD_ENUMid_Role, roles);
+					final /*@NonInvalid*/ boolean includes = CollectionIncludesOperation.INSTANCE.evaluate(BOXED_roles, AgendomatTables.ELITid_TechSupport).booleanValue();
+					//
+					if (!includes) {					// Normal unsuccessful body evaluation result
+						result = ValueUtil.FALSE_VALUE;
+						break;														// Stop immediately
+					}
+					else if (includes) {				// Normal successful body evaluation result
+						;															// Carry on
+					}
+					else {															// Impossible badly typed result
+						accumulator = new InvalidValueException(PivotMessages.NonBooleanBody, "forAll");
+					}
+				}
+				final /*@NonInvalid*/ boolean logDiagnostic = CGStringLogDiagnosticOperation.INSTANCE.evaluate(executor, TypeId.BOOLEAN, constraintName, this, (Object)null, diagnostics, context, (Object)null, severity_0, result, AgendomatTables.INT_0).booleanValue();
+				local_0 = logDiagnostic;
+			}
+			return local_0;
+		}
+		catch (Throwable e) {
+			return ValueUtil.validationFailedDiagnostic(constraintName, this, diagnostics, context, e);
+		}
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case AgendomatPackage.SESSION__TALKS:
@@ -441,13 +396,6 @@ public class SessionImpl extends ProgramItemImpl implements Session {
 		switch (featureID) {
 			case AgendomatPackage.SESSION__SESSION_NAME:
 				return getSessionName();
-			case AgendomatPackage.SESSION__START_TIME:
-				return getStartTime();
-			case AgendomatPackage.SESSION__END_TIME:
-				return getEndTime();
-			case AgendomatPackage.SESSION__LOCATION:
-				if (resolve) return getLocation();
-				return basicGetLocation();
 			case AgendomatPackage.SESSION__TALKS:
 				return getTalks();
 			case AgendomatPackage.SESSION__TECH_SUPPORT:
@@ -470,15 +418,6 @@ public class SessionImpl extends ProgramItemImpl implements Session {
 			case AgendomatPackage.SESSION__SESSION_NAME:
 				setSessionName((String)newValue);
 				return;
-			case AgendomatPackage.SESSION__START_TIME:
-				setStartTime((String)newValue);
-				return;
-			case AgendomatPackage.SESSION__END_TIME:
-				setEndTime((String)newValue);
-				return;
-			case AgendomatPackage.SESSION__LOCATION:
-				setLocation((Location)newValue);
-				return;
 			case AgendomatPackage.SESSION__TALKS:
 				getTalks().clear();
 				getTalks().addAll((Collection<? extends Talk>)newValue);
@@ -489,7 +428,7 @@ public class SessionImpl extends ProgramItemImpl implements Session {
 				return;
 			case AgendomatPackage.SESSION__EQUIPMENT:
 				getEquipment().clear();
-				getEquipment().addAll((Collection<? extends Equipment>)newValue);
+				getEquipment().addAll((Collection<? extends TemporaryEquipment>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -505,15 +444,6 @@ public class SessionImpl extends ProgramItemImpl implements Session {
 		switch (featureID) {
 			case AgendomatPackage.SESSION__SESSION_NAME:
 				setSessionName(SESSION_NAME_EDEFAULT);
-				return;
-			case AgendomatPackage.SESSION__START_TIME:
-				setStartTime(START_TIME_EDEFAULT);
-				return;
-			case AgendomatPackage.SESSION__END_TIME:
-				setEndTime(END_TIME_EDEFAULT);
-				return;
-			case AgendomatPackage.SESSION__LOCATION:
-				setLocation((Location)null);
 				return;
 			case AgendomatPackage.SESSION__TALKS:
 				getTalks().clear();
@@ -538,12 +468,6 @@ public class SessionImpl extends ProgramItemImpl implements Session {
 		switch (featureID) {
 			case AgendomatPackage.SESSION__SESSION_NAME:
 				return SESSION_NAME_EDEFAULT == null ? sessionName != null : !SESSION_NAME_EDEFAULT.equals(sessionName);
-			case AgendomatPackage.SESSION__START_TIME:
-				return START_TIME_EDEFAULT == null ? startTime != null : !START_TIME_EDEFAULT.equals(startTime);
-			case AgendomatPackage.SESSION__END_TIME:
-				return END_TIME_EDEFAULT == null ? endTime != null : !END_TIME_EDEFAULT.equals(endTime);
-			case AgendomatPackage.SESSION__LOCATION:
-				return location != null;
 			case AgendomatPackage.SESSION__TALKS:
 				return talks != null && !talks.isEmpty();
 			case AgendomatPackage.SESSION__TECH_SUPPORT:
@@ -563,10 +487,12 @@ public class SessionImpl extends ProgramItemImpl implements Session {
 	@SuppressWarnings("unchecked")
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
-			case AgendomatPackage.SESSION___END_TIME_AFTER_START_TIME__DIAGNOSTICCHAIN_MAP:
-				return endTimeAfterStartTime((DiagnosticChain)arguments.get(0), (Map<Object, Object>)arguments.get(1));
 			case AgendomatPackage.SESSION___SESSION_LOCATION_MUST_BE_ROOM__DIAGNOSTICCHAIN_MAP:
 				return sessionLocationMustBeRoom((DiagnosticChain)arguments.get(0), (Map<Object, Object>)arguments.get(1));
+			case AgendomatPackage.SESSION___END_TIME_AFTER_START_TIME__DIAGNOSTICCHAIN_MAP:
+				return endTimeAfterStartTime((DiagnosticChain)arguments.get(0), (Map<Object, Object>)arguments.get(1));
+			case AgendomatPackage.SESSION___TECH_SUPPORT_MUST_HAVE_ROLE__DIAGNOSTICCHAIN_MAP:
+				return techSupportMustHaveRole((DiagnosticChain)arguments.get(0), (Map<Object, Object>)arguments.get(1));
 		}
 		return super.eInvoke(operationID, arguments);
 	}
@@ -583,10 +509,6 @@ public class SessionImpl extends ProgramItemImpl implements Session {
 		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (sessionName: ");
 		result.append(sessionName);
-		result.append(", startTime: ");
-		result.append(startTime);
-		result.append(", endTime: ");
-		result.append(endTime);
 		result.append(')');
 		return result.toString();
 	}

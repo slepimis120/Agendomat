@@ -26,7 +26,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  *
  * @generated
  */
-public class EquipmentImpl extends MinimalEObjectImpl.Container implements Equipment {
+public abstract class EquipmentImpl extends MinimalEObjectImpl.Container implements Equipment {
 	/**
 	 * The default value of the '{@link #getEquipmentName() <em>Equipment Name</em>}' attribute.
 	 * <!-- begin-user-doc -->

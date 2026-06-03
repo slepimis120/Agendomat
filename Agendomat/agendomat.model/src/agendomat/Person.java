@@ -16,6 +16,8 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  * <ul>
  *   <li>{@link agendomat.Person#getPersonName <em>Person Name</em>}</li>
+ *   <li>{@link agendomat.Person#getEmail <em>Email</em>}</li>
+ *   <li>{@link agendomat.Person#getOrganization <em>Organization</em>}</li>
  *   <li>{@link agendomat.Person#getRoles <em>Roles</em>}</li>
  * </ul>
  *
@@ -45,6 +47,50 @@ public interface Person extends EObject {
 	 * @generated
 	 */
 	void setPersonName(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Email</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Email</em>' attribute.
+	 * @see #setEmail(String)
+	 * @see agendomat.AgendomatPackage#getPerson_Email()
+	 * @model
+	 * @generated
+	 */
+	String getEmail();
+
+	/**
+	 * Sets the value of the '{@link agendomat.Person#getEmail <em>Email</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Email</em>' attribute.
+	 * @see #getEmail()
+	 * @generated
+	 */
+	void setEmail(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Organization</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Organization</em>' attribute.
+	 * @see #setOrganization(String)
+	 * @see agendomat.AgendomatPackage#getPerson_Organization()
+	 * @model
+	 * @generated
+	 */
+	String getOrganization();
+
+	/**
+	 * Sets the value of the '{@link agendomat.Person#getOrganization <em>Organization</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Organization</em>' attribute.
+	 * @see #getOrganization()
+	 * @generated
+	 */
+	void setOrganization(String value);
 
 	/**
 	 * Returns the value of the '<em><b>Roles</b></em>' attribute list.

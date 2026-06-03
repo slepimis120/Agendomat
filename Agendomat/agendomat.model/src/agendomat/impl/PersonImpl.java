@@ -28,6 +28,8 @@ import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
  * </p>
  * <ul>
  *   <li>{@link agendomat.impl.PersonImpl#getPersonName <em>Person Name</em>}</li>
+ *   <li>{@link agendomat.impl.PersonImpl#getEmail <em>Email</em>}</li>
+ *   <li>{@link agendomat.impl.PersonImpl#getOrganization <em>Organization</em>}</li>
  *   <li>{@link agendomat.impl.PersonImpl#getRoles <em>Roles</em>}</li>
  * </ul>
  *
@@ -53,6 +55,46 @@ public class PersonImpl extends MinimalEObjectImpl.Container implements Person {
 	 * @ordered
 	 */
 	protected String personName = PERSON_NAME_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getEmail() <em>Email</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getEmail()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String EMAIL_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getEmail() <em>Email</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getEmail()
+	 * @generated
+	 * @ordered
+	 */
+	protected String email = EMAIL_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getOrganization() <em>Organization</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getOrganization()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String ORGANIZATION_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getOrganization() <em>Organization</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getOrganization()
+	 * @generated
+	 * @ordered
+	 */
+	protected String organization = ORGANIZATION_EDEFAULT;
 
 	/**
 	 * The cached value of the '{@link #getRoles() <em>Roles</em>}' attribute list.
@@ -112,6 +154,52 @@ public class PersonImpl extends MinimalEObjectImpl.Container implements Person {
 	 * @generated
 	 */
 	@Override
+	public String getEmail() {
+		return email;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setEmail(String newEmail) {
+		String oldEmail = email;
+		email = newEmail;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, AgendomatPackage.PERSON__EMAIL, oldEmail, email));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String getOrganization() {
+		return organization;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setOrganization(String newOrganization) {
+		String oldOrganization = organization;
+		organization = newOrganization;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, AgendomatPackage.PERSON__ORGANIZATION, oldOrganization, organization));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EList<Role> getRoles() {
 		if (roles == null) {
 			roles = new EDataTypeUniqueEList<Role>(Role.class, this, AgendomatPackage.PERSON__ROLES);
@@ -129,6 +217,10 @@ public class PersonImpl extends MinimalEObjectImpl.Container implements Person {
 		switch (featureID) {
 			case AgendomatPackage.PERSON__PERSON_NAME:
 				return getPersonName();
+			case AgendomatPackage.PERSON__EMAIL:
+				return getEmail();
+			case AgendomatPackage.PERSON__ORGANIZATION:
+				return getOrganization();
 			case AgendomatPackage.PERSON__ROLES:
 				return getRoles();
 		}
@@ -146,6 +238,12 @@ public class PersonImpl extends MinimalEObjectImpl.Container implements Person {
 		switch (featureID) {
 			case AgendomatPackage.PERSON__PERSON_NAME:
 				setPersonName((String)newValue);
+				return;
+			case AgendomatPackage.PERSON__EMAIL:
+				setEmail((String)newValue);
+				return;
+			case AgendomatPackage.PERSON__ORGANIZATION:
+				setOrganization((String)newValue);
 				return;
 			case AgendomatPackage.PERSON__ROLES:
 				getRoles().clear();
@@ -166,6 +264,12 @@ public class PersonImpl extends MinimalEObjectImpl.Container implements Person {
 			case AgendomatPackage.PERSON__PERSON_NAME:
 				setPersonName(PERSON_NAME_EDEFAULT);
 				return;
+			case AgendomatPackage.PERSON__EMAIL:
+				setEmail(EMAIL_EDEFAULT);
+				return;
+			case AgendomatPackage.PERSON__ORGANIZATION:
+				setOrganization(ORGANIZATION_EDEFAULT);
+				return;
 			case AgendomatPackage.PERSON__ROLES:
 				getRoles().clear();
 				return;
@@ -183,6 +287,10 @@ public class PersonImpl extends MinimalEObjectImpl.Container implements Person {
 		switch (featureID) {
 			case AgendomatPackage.PERSON__PERSON_NAME:
 				return PERSON_NAME_EDEFAULT == null ? personName != null : !PERSON_NAME_EDEFAULT.equals(personName);
+			case AgendomatPackage.PERSON__EMAIL:
+				return EMAIL_EDEFAULT == null ? email != null : !EMAIL_EDEFAULT.equals(email);
+			case AgendomatPackage.PERSON__ORGANIZATION:
+				return ORGANIZATION_EDEFAULT == null ? organization != null : !ORGANIZATION_EDEFAULT.equals(organization);
 			case AgendomatPackage.PERSON__ROLES:
 				return roles != null && !roles.isEmpty();
 		}
@@ -201,6 +309,10 @@ public class PersonImpl extends MinimalEObjectImpl.Container implements Person {
 		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (personName: ");
 		result.append(personName);
+		result.append(", email: ");
+		result.append(email);
+		result.append(", organization: ");
+		result.append(organization);
 		result.append(", roles: ");
 		result.append(roles);
 		result.append(')');

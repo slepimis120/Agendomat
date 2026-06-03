@@ -6,15 +6,17 @@ import agendomat.AgendomatPackage;
 import agendomat.AgendomatTables;
 import agendomat.Event;
 import agendomat.Location;
+import agendomat.PermanentEquipment;
 import agendomat.Person;
 import agendomat.ProgramItem;
 
 import java.lang.reflect.InvocationTargetException;
-import java.util.Collection;
 
+import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -29,16 +31,23 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
+
 import org.eclipse.ocl.pivot.evaluation.Executor;
+
 import org.eclipse.ocl.pivot.ids.IdResolver;
 import org.eclipse.ocl.pivot.ids.TypeId;
+
 import org.eclipse.ocl.pivot.library.oclany.OclComparableLessThanEqualOperation;
+
 import org.eclipse.ocl.pivot.library.string.CGStringGetSeverityOperation;
 import org.eclipse.ocl.pivot.library.string.CGStringLogDiagnosticOperation;
+
 import org.eclipse.ocl.pivot.utilities.PivotUtil;
 import org.eclipse.ocl.pivot.utilities.ValueUtil;
+
 import org.eclipse.ocl.pivot.values.IntegerValue;
 import org.eclipse.ocl.pivot.values.OrderedSetValue;
+
 import org.eclipse.ocl.pivot.values.SetValue.Accumulator;
 
 /**
@@ -56,6 +65,7 @@ import org.eclipse.ocl.pivot.values.SetValue.Accumulator;
  *   <li>{@link agendomat.impl.EventImpl#getPersons <em>Persons</em>}</li>
  *   <li>{@link agendomat.impl.EventImpl#getProgramItems <em>Program Items</em>}</li>
  *   <li>{@link agendomat.impl.EventImpl#getLocations <em>Locations</em>}</li>
+ *   <li>{@link agendomat.impl.EventImpl#getPermanentEquipment <em>Permanent Equipment</em>}</li>
  * </ul>
  *
  * @generated
@@ -170,6 +180,16 @@ public class EventImpl extends MinimalEObjectImpl.Container implements Event {
 	 * @ordered
 	 */
 	protected EList<Location> locations;
+
+	/**
+	 * The cached value of the '{@link #getPermanentEquipment() <em>Permanent Equipment</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getPermanentEquipment()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<PermanentEquipment> permanentEquipment;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -327,63 +347,11 @@ public class EventImpl extends MinimalEObjectImpl.Container implements Event {
 	 * @generated
 	 */
 	@Override
-	public boolean uniquePersonNames(final DiagnosticChain diagnostics, final Map<Object, Object> context) {
-		final String constraintName = "Event::uniquePersonNames";
-		try {
-			/**
-			 *
-			 * inv uniquePersonNames:
-			 *   let severity : Integer[1] = constraintName.getSeverity()
-			 *   in
-			 *     if severity <= 0
-			 *     then true
-			 *     else
-			 *       let result : Boolean[1] = persons->isUnique(personName)
-			 *       in
-			 *         constraintName.logDiagnostic(self, null, diagnostics, context, null, severity, result, 0)
-			 *     endif
-			 */
-			final /*@NonInvalid*/ Executor executor = PivotUtil.getExecutor(this, context);
-			final /*@NonInvalid*/ IdResolver idResolver = executor.getIdResolver();
-			final /*@NonInvalid*/ IntegerValue severity_0 = CGStringGetSeverityOperation.INSTANCE.evaluate(executor, AgendomatPackage.Literals.EVENT___UNIQUE_PERSON_NAMES__DIAGNOSTICCHAIN_MAP);
-			final /*@NonInvalid*/ boolean le = OclComparableLessThanEqualOperation.INSTANCE.evaluate(executor, severity_0, AgendomatTables.INT_0).booleanValue();
-			/*@NonInvalid*/ boolean local_0;
-			if (le) {
-				local_0 = true;
-			}
-			else {
-				final /*@NonInvalid*/ List<Person> persons = this.getPersons();
-				final /*@NonInvalid*/ OrderedSetValue BOXED_persons = idResolver.createOrderedSetOfAll(AgendomatTables.ORD_CLSSid_Person, persons);
-				/*@Thrown*/ Accumulator accumulator = ValueUtil.createSetAccumulatorValue(AgendomatTables.ORD_CLSSid_Person);
-				Iterator<Object> ITERATOR__1 = BOXED_persons.iterator();
-				/*@NonInvalid*/ boolean result;
-				while (true) {
-					if (!ITERATOR__1.hasNext()) {
-						result = true;
-						break;
-					}
-					/*@NonInvalid*/ Person _1 = (Person)ITERATOR__1.next();
-					/**
-					 * personName
-					 */
-					final /*@NonInvalid*/ String personName = _1.getPersonName();
-					//
-					if (accumulator.includes(personName) == ValueUtil.TRUE_VALUE) {
-						result = false;
-						break;			// Abort after second find
-					}
-					else {
-						accumulator.add(personName);
-					}
-				}
-				final /*@NonInvalid*/ boolean logDiagnostic = CGStringLogDiagnosticOperation.INSTANCE.evaluate(executor, TypeId.BOOLEAN, constraintName, this, (Object)null, diagnostics, context, (Object)null, severity_0, result, AgendomatTables.INT_0).booleanValue();
-				local_0 = logDiagnostic;
-			}
-			return local_0;
+	public EList<PermanentEquipment> getPermanentEquipment() {
+		if (permanentEquipment == null) {
+			permanentEquipment = new EObjectContainmentEList<PermanentEquipment>(PermanentEquipment.class, this, AgendomatPackage.EVENT__PERMANENT_EQUIPMENT);
 		}
-		catch (Throwable e) {
-			return ValueUtil.validationFailedDiagnostic(constraintName, this, diagnostics, context, e);
-		}
+		return permanentEquipment;
 	}
 
 	/**
@@ -465,6 +433,8 @@ public class EventImpl extends MinimalEObjectImpl.Container implements Event {
 				return ((InternalEList<?>)getProgramItems()).basicRemove(otherEnd, msgs);
 			case AgendomatPackage.EVENT__LOCATIONS:
 				return ((InternalEList<?>)getLocations()).basicRemove(otherEnd, msgs);
+			case AgendomatPackage.EVENT__PERMANENT_EQUIPMENT:
+				return ((InternalEList<?>)getPermanentEquipment()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -491,6 +461,8 @@ public class EventImpl extends MinimalEObjectImpl.Container implements Event {
 				return getProgramItems();
 			case AgendomatPackage.EVENT__LOCATIONS:
 				return getLocations();
+			case AgendomatPackage.EVENT__PERMANENT_EQUIPMENT:
+				return getPermanentEquipment();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -528,6 +500,10 @@ public class EventImpl extends MinimalEObjectImpl.Container implements Event {
 				getLocations().clear();
 				getLocations().addAll((Collection<? extends Location>)newValue);
 				return;
+			case AgendomatPackage.EVENT__PERMANENT_EQUIPMENT:
+				getPermanentEquipment().clear();
+				getPermanentEquipment().addAll((Collection<? extends PermanentEquipment>)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -561,6 +537,9 @@ public class EventImpl extends MinimalEObjectImpl.Container implements Event {
 			case AgendomatPackage.EVENT__LOCATIONS:
 				getLocations().clear();
 				return;
+			case AgendomatPackage.EVENT__PERMANENT_EQUIPMENT:
+				getPermanentEquipment().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -587,6 +566,8 @@ public class EventImpl extends MinimalEObjectImpl.Container implements Event {
 				return programItems != null && !programItems.isEmpty();
 			case AgendomatPackage.EVENT__LOCATIONS:
 				return locations != null && !locations.isEmpty();
+			case AgendomatPackage.EVENT__PERMANENT_EQUIPMENT:
+				return permanentEquipment != null && !permanentEquipment.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
@@ -600,8 +581,6 @@ public class EventImpl extends MinimalEObjectImpl.Container implements Event {
 	@SuppressWarnings("unchecked")
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
-			case AgendomatPackage.EVENT___UNIQUE_PERSON_NAMES__DIAGNOSTICCHAIN_MAP:
-				return uniquePersonNames((DiagnosticChain)arguments.get(0), (Map<Object, Object>)arguments.get(1));
 			case AgendomatPackage.EVENT___UNIQUE_LOCATION_NAMES__DIAGNOSTICCHAIN_MAP:
 				return uniqueLocationNames((DiagnosticChain)arguments.get(0), (Map<Object, Object>)arguments.get(1));
 		}

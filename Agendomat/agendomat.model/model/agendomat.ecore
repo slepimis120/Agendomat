@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="agendomat" nsURI="http://agendomat/1.0" nsPrefix="agendomat">
   <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
     <details key="invocationDelegates" value="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot"/>
@@ -35,37 +35,42 @@
         eType="#//ProgramItem" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="locations" upperBound="-1"
         eType="#//Location" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="permanentEquipment" upperBound="-1"
+        eType="#//PermanentEquipment" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ProgramItem" abstract="true"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Session" eSuperTypes="#//ProgramItem">
-    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
-      <details key="constraints" value="sessionLocationMustBeRoom endTimeAfterStartTime"/>
-    </eAnnotations>
-    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
-      <details key="sessionLocationMustBeRoom" value="&#xA;    &#x9;&#x9;location.locationType = LocationType::Room"/>
-      <details key="endTimeAfterStartTime" value="&#xA;    &#x9;&#x9;endTime > startTime"/>
-    </eAnnotations>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="sessionName" lowerBound="1"
-        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ProgramItem" abstract="true">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="startTime" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="endTime" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="location" lowerBound="1"
         eType="#//Location"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Session" eSuperTypes="#//ProgramItem">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
+      <details key="constraints" value="sessionLocationMustBeRoom endTimeAfterStartTime techSupportMustHaveRole"/>
+    </eAnnotations>
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
+      <details key="sessionLocationMustBeRoom" value="&#xA;    &#x9;&#x9;location.locationType = LocationType::Room"/>
+      <details key="endTimeAfterStartTime" value="&#xA;    &#x9;&#x9;endTime > startTime"/>
+      <details key="techSupportMustHaveRole" value="&#xA;    &#x9;&#x9;techSupport->forAll(p | p.roles->includes(Role::TechSupport))"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="sessionName" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="talks" upperBound="-1"
         eType="#//Talk" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="techSupport" upperBound="-1"
         eType="#//Person"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="equipment" upperBound="-1"
-        eType="#//Equipment" containment="true"/>
+        eType="#//TemporaryEquipment" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Talk">
     <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
-      <details key="constraints" value="endTimeAfterStartTime"/>
+      <details key="constraints" value="endTimeAfterStartTime presentersMustBePresenter"/>
     </eAnnotations>
     <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
       <details key="endTimeAfterStartTime" value="&#xA;    &#x9;&#x9;talkEndTime > talkStartTime"/>
+      <details key="presentersMustBePresenter" value="&#xA;    &#x9;&#x9;presenters->forAll(p | p.roles->includes(Role::Presenter))"/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="talkName" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -78,26 +83,23 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Break" eSuperTypes="#//ProgramItem">
     <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
-      <details key="constraints" value="breakLocationMustBeBreakArea endTimeAfterStartTime"/>
+      <details key="constraints" value="breakLocationMustBeBreakArea endTimeAfterStartTime animatorsMustHaveRole"/>
     </eAnnotations>
     <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
       <details key="breakLocationMustBeBreakArea" value="&#xA;    &#x9;&#x9;location.locationType = LocationType::BreakArea"/>
       <details key="endTimeAfterStartTime" value="&#xA;    &#x9;&#x9;endTime > startTime"/>
+      <details key="animatorsMustHaveRole" value="&#xA;    &#x9;&#x9;animators->forAll(p | p.roles->includes(Role::Animator))"/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="breakName" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="startTime" lowerBound="1"
-        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="endTime" lowerBound="1"
-        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="location" lowerBound="1"
-        eType="#//Location"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="animators" upperBound="-1"
         eType="#//Person"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Person">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="personName" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="email" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="organization" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="roles" lowerBound="1" upperBound="-1"
         eType="#//Role"/>
   </eClassifiers>
@@ -107,12 +109,19 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="locationType" lowerBound="1"
         eType="#//LocationType"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Equipment">
+  <eClassifiers xsi:type="ecore:EClass" name="Equipment" abstract="true">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="equipmentName" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="equipmentType" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Model">
+  <eClassifiers xsi:type="ecore:EClass" name="PermanentEquipment" eSuperTypes="#//Equipment"/>
+  <eClassifiers xsi:type="ecore:EClass" name="TemporaryEquipment" eSuperTypes="#//Equipment"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Agenda">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="agendaName" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="agendaStartDate" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="agendaEndDate" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="desc" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="events" upperBound="-1"
         eType="#//Event" containment="true"/>
   </eClassifiers>

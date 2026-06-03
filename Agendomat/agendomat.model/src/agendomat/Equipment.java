@@ -18,7 +18,7 @@ import org.eclipse.emf.ecore.EObject;
  * </ul>
  *
  * @see agendomat.AgendomatPackage#getEquipment()
- * @model
+ * @model abstract="true"
  * @generated
  */
 public interface Equipment extends EObject {
