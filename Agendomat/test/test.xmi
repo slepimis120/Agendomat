@@ -1,125 +1,82 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<agendomat:Agenda xmi:version="2.0"
-  xmlns:xmi="http://www.omg.org/XMI"
-  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xmlns:agendomat="http://agendomat/1.0"
-  agendaName="Tech Conference Agenda 2026">
-
-  <events eventName="Konferencija 2026" eventStartDate="2026-05-14" eventEndDate="2026-05-16"
-    desc="Godišnja tehnička konferencija sa radionicama i predavanjima.">
-
-    <persons personName="Marko Milojević" roles="Presenter" email="marko@example.com" organization="FTN"/>
-    <persons personName="Jelena Jelić" roles="Presenter" email="jelena@example.com" organization="UNS"/>
-    <persons personName="Ana Petrović" roles="Presenter" email="ana@example.com" organization="ETF"/>
-    <persons personName="Tehničar 1" roles="TechSupport" email="tech1@example.com" organization="AV Tim"/>
-    <persons personName="Tehničar 2" roles="TechSupport" email="tech2@example.com" organization="AV Tim"/>
-    <persons personName="Animator 1" roles="Animator" email="anim1@example.com" organization="Organizacija"/>
-
-    <locations locationName="Amfiteatar A" locationType="Room"/>
-    <locations locationName="Sala B" locationType="Room"/>
-    <locations locationName="Sala C" locationType="Room"/>
-    <locations locationName="Hol 1" locationType="BreakArea"/>
-    <locations locationName="Terasa" locationType="BreakArea"/>
-
-    <programItems xsi:type="agendomat:Session" sessionName="Uvodno predavanje"
-      startTime="09:00" endTime="10:30"
-      location="//@events.0/@locations.0"
-      techSupport="//@events.0/@persons.3">
-      <talks talkName="Uvod u domensko modelovanje"
-        talkStartTime="09:00" talkEndTime="09:45"
-        presenters="//@events.0/@persons.0"/>
-      <talks talkName="Primena DSL-ova u industriji"
-        talkStartTime="09:45" talkEndTime="10:30"
-        presenters="//@events.0/@persons.1"/>
+<agendomat:Agenda xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:agendomat="http://agendomat/1.0" agendaName="Tech Conference Agenda 2026">
+  <events eventName="Konferencija 2026" eventStartDate="2026-05-14" eventEndDate="2026-05-16" desc="Godišnja tehnička konferencija sa radionicama i predavanjima.">
+    <persons personName="Marko Milojević" email="marko@example.com" organization="FTN">
+      <roles>Presenter</roles>
+    </persons>
+    <persons personName="Jelena Jelić" email="jelena@example.com" organization="UNS">
+      <roles>Presenter</roles>
+    </persons>
+    <persons personName="Ana Petrović" email="ana@example.com" organization="ETF">
+      <roles>Presenter</roles>
+    </persons>
+    <persons personName="Tehničar 1" email="tech1@example.com" organization="AV Tim">
+      <roles>TechSupport</roles>
+    </persons>
+    <persons personName="Tehničar 2" email="tech2@example.com" organization="AV Tim">
+      <roles>TechSupport</roles>
+    </persons>
+    <persons personName="Animator 1" email="anim1@example.com" organization="Organizacija">
+      <roles>Animator</roles>
+    </persons>
+    <persons personName="New Person"/>
+    <programItems xsi:type="agendomat:Session" startTime="09:00" endTime="10:30" location="//@events.0/@locations.0" sessionName="Uvodno predavanje" techSupport="//@events.0/@persons.3">
+      <talks talkName="Uvod u domensko modelovanje" talkStartTime="09:00" talkEndTime="09:45" presenters="//@events.0/@persons.0"/>
+      <talks talkName="Primena DSL-ova u industriji" talkStartTime="09:45" talkEndTime="10:30" presenters="//@events.0/@persons.1"/>
+      <talks talkName="New Talk" talkStartTime="09:00" talkEndTime="09:45"/>
       <equipment equipmentName="Projektor" equipmentType="AV"/>
       <equipment equipmentName="Laptop" equipmentType="Computing"/>
       <equipment equipmentName="Mikrofon" equipmentType="Audio"/>
     </programItems>
-
-    <programItems xsi:type="agendomat:Break" breakName="Coffee Break"
-      startTime="10:30" endTime="11:00"
-      location="//@events.0/@locations.3"
-      animators="//@events.0/@persons.5"/>
-
-    <programItems xsi:type="agendomat:Session" sessionName="Napredne tehnike modelovanja"
-      startTime="11:00" endTime="12:30"
-      location="//@events.0/@locations.1"
-      techSupport="//@events.0/@persons.4">
-      <talks talkName="OCL i ograničenja modela"
-        talkStartTime="11:00" talkEndTime="11:45"
-        presenters="//@events.0/@persons.2"/>
-      <talks talkName="Xtext gramatike u praksi"
-        talkStartTime="11:45" talkEndTime="12:30"
-        presenters="//@events.0/@persons.0 //@events.0/@persons.1"/>
+    <programItems xsi:type="agendomat:Break" startTime="10:30" endTime="11:00" location="//@events.0/@locations.3" breakName="Coffee Break" animators="//@events.0/@persons.5"/>
+    <programItems xsi:type="agendomat:Session" startTime="11:00" endTime="12:30" location="//@events.0/@locations.1" sessionName="Napredne tehnike modelovanja" techSupport="//@events.0/@persons.4">
+      <talks talkName="OCL i ograničenja modela" talkStartTime="11:00" talkEndTime="11:45" presenters="//@events.0/@persons.2"/>
+      <talks talkName="Xtext gramatike u praksi" talkStartTime="11:45" talkEndTime="12:30" presenters="//@events.0/@persons.0 //@events.0/@persons.1"/>
       <equipment equipmentName="Laptop" equipmentType="Computing"/>
       <equipment equipmentName="Kliktač" equipmentType="Presentation"/>
     </programItems>
-
-    <programItems xsi:type="agendomat:Break" breakName="Pauza za ručak"
-      startTime="12:30" endTime="13:30"
-      location="//@events.0/@locations.4"
-      animators="//@events.0/@persons.5"/>
-
-    <programItems xsi:type="agendomat:Session" sessionName="Radionica: Sirius dijagrami"
-      startTime="13:30" endTime="15:00"
-      location="//@events.0/@locations.2"
-      techSupport="//@events.0/@persons.3">
-      <talks talkName="Kreiranje grafičke sintakse"
-        talkStartTime="13:30" talkEndTime="14:15"
-        presenters="//@events.0/@persons.1"/>
-      <talks talkName="Napredni Sirius koncepti"
-        talkStartTime="14:15" talkEndTime="15:00"
-        presenters="//@events.0/@persons.2"/>
+    <programItems xsi:type="agendomat:Break" startTime="12:30" endTime="13:30" location="//@events.0/@locations.4" breakName="Pauza za ručak" animators="//@events.0/@persons.5"/>
+    <programItems xsi:type="agendomat:Session" startTime="13:30" endTime="15:00" location="//@events.0/@locations.2" sessionName="Session: Radionica: Sirius dijagrami&#xD;&#xA;13:30 - 15:01" techSupport="//@events.0/@persons.3">
+      <talks talkName="Kreiranje grafičke sintakse" talkStartTime="13:30" talkEndTime="14:15" presenters="//@events.0/@persons.1"/>
+      <talks talkName="Napredni Sirius koncepti" talkStartTime="14:15" talkEndTime="15:00" presenters="//@events.0/@persons.2"/>
+      <talks talkName="New Talk" talkStartTime="09:00" talkEndTime="09:45"/>
       <equipment equipmentName="Projektor" equipmentType="AV"/>
       <equipment equipmentName="Mikrofon" equipmentType="Audio"/>
       <equipment equipmentName="Zvučnici" equipmentType="Audio"/>
     </programItems>
-
-    <programItems xsi:type="agendomat:Break" breakName="Završna pauza"
-      startTime="15:00" endTime="15:15"
-      location="//@events.0/@locations.3"
-      animators="//@events.0/@persons.5"/>
-
+    <programItems xsi:type="agendomat:Break" startTime="15:00" endTime="15:15" location="//@events.0/@locations.3" breakName="Break: Završna pauza&#xD;&#xA;15:00 - 15:16" animators="//@events.0/@persons.5"/>
+    <locations locationName="Amfiteatar A"/>
+    <locations locationName="Sala B"/>
+    <locations locationName="Sala C"/>
+    <locations locationName="Hol 1" locationType="BreakArea"/>
+    <locations locationName="Terasa" locationType="BreakArea"/>
+    <locations locationName="New Location"/>
   </events>
-
-  <events eventName="Workshop 2026" eventStartDate="2026-05-17" eventEndDate="2026-05-17"
-    desc="Jednodnevni praktični workshop za studente.">
-
-    <persons personName="Prof. Vještica" roles="Presenter" email="vjestica@ftn.rs" organization="FTN"/>
-    <persons personName="Prof. Čeliković" roles="Presenter" email="celikovic@ftn.rs" organization="FTN"/>
-    <persons personName="Asistent 1" roles="TechSupport" email="asistent1@ftn.rs" organization="FTN"/>
-    <persons personName="Koordinator" roles="Animator" email="koord@ftn.rs" organization="FTN"/>
-
-    <locations locationName="Lab 1" locationType="Room"/>
-    <locations locationName="Lab 2" locationType="Room"/>
-    <locations locationName="Hodnik" locationType="BreakArea"/>
-
-    <programItems xsi:type="agendomat:Session" sessionName="EMF osnove"
-      startTime="09:00" endTime="10:30"
-      location="//@events.1/@locations.0"
-      techSupport="//@events.1/@persons.2">
-      <talks talkName="Ecore metamodelovanje"
-        talkStartTime="09:00" talkEndTime="10:30"
-        presenters="//@events.1/@persons.0"/>
+  <events eventName="Workshop 2026" eventStartDate="2026-05-17" eventEndDate="2026-05-17" desc="Jednodnevni praktični workshop za studente.">
+    <persons personName="Prof. Vještica" email="vjestica@ftn.rs" organization="FTN">
+      <roles>Presenter</roles>
+    </persons>
+    <persons personName="Prof. Čeliković" email="celikovic@ftn.rs" organization="FTN">
+      <roles>Presenter</roles>
+    </persons>
+    <persons personName="Asistent 1" email="asistent1@ftn.rs" organization="FTN">
+      <roles>TechSupport</roles>
+    </persons>
+    <persons personName="Koordinator" email="koord@ftn.rs" organization="FTN">
+      <roles>Animator</roles>
+    </persons>
+    <programItems xsi:type="agendomat:Session" startTime="09:00" endTime="10:30" location="//@events.1/@locations.0" sessionName="EMF osnove" techSupport="//@events.1/@persons.2">
+      <talks talkName="Ecore metamodelovanje" talkStartTime="09:00" talkEndTime="10:30" presenters="//@events.1/@persons.0"/>
       <equipment equipmentName="Projektor" equipmentType="AV"/>
     </programItems>
-
-    <programItems xsi:type="agendomat:Break" breakName="Kratka pauza"
-      startTime="10:30" endTime="10:45"
-      location="//@events.1/@locations.2"
-      animators="//@events.1/@persons.3"/>
-
-    <programItems xsi:type="agendomat:Session" sessionName="Xtext i Sirius"
-      startTime="10:45" endTime="12:15"
-      location="//@events.1/@locations.1"
-      techSupport="//@events.1/@persons.2">
-      <talks talkName="DSL razvoj korak po korak"
-        talkStartTime="10:45" talkEndTime="12:15"
-        presenters="//@events.1/@persons.1"/>
+    <programItems xsi:type="agendomat:Break" startTime="10:30" endTime="10:45" location="//@events.1/@locations.2" breakName="Kratka pauza" animators="//@events.1/@persons.3"/>
+    <programItems xsi:type="agendomat:Session" startTime="10:45" endTime="12:15" location="//@events.1/@locations.1" sessionName="Xtext i Sirius" techSupport="//@events.1/@persons.2">
+      <talks talkName="DSL razvoj korak po korak" talkStartTime="10:45" talkEndTime="12:15" presenters="//@events.1/@persons.1"/>
       <equipment equipmentName="Laptop" equipmentType="Computing"/>
       <equipment equipmentName="Projektor" equipmentType="AV"/>
     </programItems>
-
+    <locations locationName="Lab 1"/>
+    <locations locationName="Lab 2"/>
+    <locations locationName="Hodnik" locationType="BreakArea"/>
   </events>
-
 </agendomat:Agenda>

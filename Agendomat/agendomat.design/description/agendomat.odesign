@@ -1,235 +1,187 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<description:Group xmi:version="2.0"
-  xmlns:xmi="http://www.omg.org/XMI"
-  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xmlns:description="http://www.eclipse.org/sirius/description/1.1.0"
-  xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0"
-  xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0"
-  xmlns:tool="http://www.eclipse.org/sirius/description/tool/1.1.0"
-  name="agendomat" version="12.0.0.2017041100">
-
+<description:Group xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xmlns:tool="http://www.eclipse.org/sirius/diagram/description/tool/1.1.0" xmlns:tool_1="http://www.eclipse.org/sirius/description/tool/1.1.0" name="agendomat" version="12.0.0.2017041100">
   <ownedViewpoints name="AgendomatViewpoint" modelFileExtension="agendomat xmi">
-
-	<ownedRepresentations xsi:type="description_1:DiagramDescription"
-	  name="EventDiagram"
-	  domainClass="agendomat.Agenda"
-	  enablePopupBars="true"
-	  defaultLayer="//@ownedViewpoints[name='AgendomatViewpoint']/@ownedRepresentations[name='EventDiagram']/@defaultLayer">
-
+    <ownedRepresentations xsi:type="description_1:DiagramDescription" name="EventDiagram" domainClass="agendomat.Agenda" enablePopupBars="true">
       <defaultLayer name="Default">
-
-        <containerMappings name="EventContainer"
-          domainClass="agendomat.Event"
-          semanticCandidatesExpression="aql:self.events">
-          <style xsi:type="style:FlatContainerStyleDescription"
-            labelSize="13"
-            labelExpression="aql:'Event: ' + self.eventName + '\n' + self.eventStartDate + ' - ' + self.eventEndDate"
-            labelPosition="top" resizeKind="NSEW">
-            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='dark_blue']"/>
-            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
-            <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='dark_blue']"/>
-            <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_blue']"/>
+        <edgeMappings name="SessionToLocation" deletionDescription="//@ownedViewpoints[name='AgendomatViewpoint']/@ownedRepresentations[name='EventDiagram']/@defaultLayer/@toolSections.0/@ownedTools[name='Delete%20Element']" sourceMapping="//@ownedViewpoints[name='AgendomatViewpoint']/@ownedRepresentations[name='EventDiagram']/@defaultLayer/@containerMappings[name='EventContainer']/@subContainerMappings[name='SessionContainer']" targetMapping="//@ownedViewpoints[name='AgendomatViewpoint']/@ownedRepresentations[name='EventDiagram']/@defaultLayer/@containerMappings[name='EventContainer']/@subNodeMappings[name='LocationNode']" targetFinderExpression="aql:self.location">
+          <style size="1">
+            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='dark_blue']"/>
+            <centerLabelStyle labelSize="9" labelExpression="aql:'location'">
+              <labelColor href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </centerLabelStyle>
           </style>
-
-          <!-- LOCATION -->
-          <subNodeMappings name="LocationNode"
-            domainClass="agendomat.Location"
-            semanticCandidatesExpression="aql:self.locations">
-            <style xsi:type="style:EllipseNodeDescription"
-              labelSize="11"
-              labelExpression="aql:self.locationName + '\n[' + self.locationType.toString() + ']'"
-              labelPosition="node" resizeKind="NSEW">
+        </edgeMappings>
+        <edgeMappings name="BreakToLocation" deletionDescription="//@ownedViewpoints[name='AgendomatViewpoint']/@ownedRepresentations[name='EventDiagram']/@defaultLayer/@toolSections.0/@ownedTools[name='Delete%20Element']" sourceMapping="//@ownedViewpoints[name='AgendomatViewpoint']/@ownedRepresentations[name='EventDiagram']/@defaultLayer/@containerMappings[name='EventContainer']/@subContainerMappings[name='BreakContainer']" targetMapping="//@ownedViewpoints[name='AgendomatViewpoint']/@ownedRepresentations[name='EventDiagram']/@defaultLayer/@containerMappings[name='EventContainer']/@subNodeMappings[name='LocationNode']" targetFinderExpression="aql:self.location">
+          <style size="1">
+            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='dark_orange']"/>
+            <centerLabelStyle labelSize="9" labelExpression="aql:'location'">
+              <labelColor href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </centerLabelStyle>
+          </style>
+        </edgeMappings>
+        <edgeMappings name="TalkToPresenter" deletionDescription="//@ownedViewpoints[name='AgendomatViewpoint']/@ownedRepresentations[name='EventDiagram']/@defaultLayer/@toolSections.0/@ownedTools[name='Delete%20Element']" sourceMapping="//@ownedViewpoints[name='AgendomatViewpoint']/@ownedRepresentations[name='EventDiagram']/@defaultLayer/@containerMappings[name='EventContainer']/@subContainerMappings[name='SessionContainer']/@subNodeMappings[name='TalkNode']" targetMapping="//@ownedViewpoints[name='AgendomatViewpoint']/@ownedRepresentations[name='EventDiagram']/@defaultLayer/@containerMappings[name='EventContainer']/@subNodeMappings[name='PersonNode']" targetFinderExpression="aql:self.presenters">
+          <style size="1">
+            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <centerLabelStyle labelSize="9" labelExpression="aql:'presenter'">
+              <labelColor href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </centerLabelStyle>
+          </style>
+        </edgeMappings>
+        <containerMappings name="EventContainer" deletionDescription="//@ownedViewpoints[name='AgendomatViewpoint']/@ownedRepresentations[name='EventDiagram']/@defaultLayer/@toolSections.0/@ownedTools[name='Delete%20Element']" labelDirectEdit="//@ownedViewpoints[name='AgendomatViewpoint']/@ownedRepresentations[name='EventDiagram']/@defaultLayer/@toolSections.0/@ownedTools[name='Rename%20Event']" semanticCandidatesExpression="aql:self.events" domainClass="agendomat.Event">
+          <subNodeMappings name="LocationNode" deletionDescription="//@ownedViewpoints[name='AgendomatViewpoint']/@ownedRepresentations[name='EventDiagram']/@defaultLayer/@toolSections.0/@ownedTools[name='Delete%20Element']" labelDirectEdit="//@ownedViewpoints[name='AgendomatViewpoint']/@ownedRepresentations[name='EventDiagram']/@defaultLayer/@toolSections.0/@ownedTools[name='Rename%20Location']" semanticCandidatesExpression="aql:self.locations" domainClass="agendomat.Location">
+            <style xsi:type="style:EllipseNodeDescription" labelSize="11" labelExpression="aql:self.locationName + '\n[' + self.locationType.toString() + ']'" labelPosition="node" resizeKind="NSEW">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_yellow']"/>
             </style>
           </subNodeMappings>
-
-          <!-- PERSON -->
-          <subNodeMappings name="PersonNode"
-            domainClass="agendomat.Person"
-            semanticCandidatesExpression="aql:self.persons">
-            <style xsi:type="style:EllipseNodeDescription"
-              labelSize="11"
-              labelExpression="aql:self.personName + '\n[' + self.roles->collect(r | r.toString())->sep(', ')->toString() + ']'"
-              labelPosition="node" resizeKind="NSEW">
+          <subNodeMappings name="PersonNode" deletionDescription="//@ownedViewpoints[name='AgendomatViewpoint']/@ownedRepresentations[name='EventDiagram']/@defaultLayer/@toolSections.0/@ownedTools[name='Delete%20Element']" labelDirectEdit="//@ownedViewpoints[name='AgendomatViewpoint']/@ownedRepresentations[name='EventDiagram']/@defaultLayer/@toolSections.0/@ownedTools[name='Rename%20Person']" semanticCandidatesExpression="aql:self.persons" domainClass="agendomat.Person">
+            <style xsi:type="style:EllipseNodeDescription" labelSize="11" labelExpression="aql:self.personName + '\n[' + self.roles->collect(r | r.toString())->sep(', ')->toString() + ']'" labelPosition="node" resizeKind="NSEW">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_green']"/>
             </style>
           </subNodeMappings>
-
-          <!-- SESSION -->
-          <subContainerMappings name="SessionContainer"
-            domainClass="agendomat.Session"
-            semanticCandidatesExpression="aql:self.programItems->select(p | p.eClass().name = 'Session')"
-            childrenPresentation="FreeForm">
-            <style xsi:type="style:FlatContainerStyleDescription"
-              labelSize="11"
-              labelExpression="aql:'Session: ' + self.sessionName + '\n' + self.startTime + ' - ' + self.endTime"
-              labelPosition="top" resizeKind="NSEW">
-              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='dark_blue']"/>
-              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
-              <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='blue']"/>
-              <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_blue']"/>
-            </style>
-            <subNodeMappings name="TalkNode"
-              domainClass="agendomat.Talk"
-              semanticCandidatesExpression="aql:self.talks">
-              <style xsi:type="style:SquareDescription"
-                labelSize="10"
-                labelExpression="aql:'Talk: ' + self.talkName + '\n' + self.talkStartTime + ' - ' + self.talkEndTime"
-                labelPosition="node" resizeKind="NSEW">
+          <subContainerMappings name="SessionContainer" deletionDescription="//@ownedViewpoints[name='AgendomatViewpoint']/@ownedRepresentations[name='EventDiagram']/@defaultLayer/@toolSections.0/@ownedTools[name='Delete%20Element']" labelDirectEdit="//@ownedViewpoints[name='AgendomatViewpoint']/@ownedRepresentations[name='EventDiagram']/@defaultLayer/@toolSections.0/@ownedTools[name='Rename%20Session']" semanticCandidatesExpression="aql:self.programItems->select(p | p.eClass().name = 'Session')" domainClass="agendomat.Session">
+            <subNodeMappings name="TalkNode" deletionDescription="//@ownedViewpoints[name='AgendomatViewpoint']/@ownedRepresentations[name='EventDiagram']/@defaultLayer/@toolSections.0/@ownedTools[name='Delete%20Element']" labelDirectEdit="//@ownedViewpoints[name='AgendomatViewpoint']/@ownedRepresentations[name='EventDiagram']/@defaultLayer/@toolSections.0/@ownedTools[name='Rename%20Talk']" semanticCandidatesExpression="aql:self.talks" domainClass="agendomat.Talk">
+              <style xsi:type="style:SquareDescription" labelSize="10" labelExpression="aql:'Talk: ' + self.talkName + '\n' + self.talkStartTime + ' - ' + self.talkEndTime" labelPosition="node" resizeKind="NSEW">
                 <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='dark_blue']"/>
                 <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
                 <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
               </style>
             </subNodeMappings>
+            <style xsi:type="style:FlatContainerStyleDescription" labelSize="11" labelExpression="aql:'Session: ' + self.sessionName + '\n' + self.startTime + ' - ' + self.endTime" labelPosition="top" resizeKind="NSEW">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='dark_blue']"/>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+              <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='blue']"/>
+              <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_blue']"/>
+            </style>
           </subContainerMappings>
-
-          <!-- BREAK -->
-          <subContainerMappings name="BreakContainer"
-            domainClass="agendomat.Break"
-			semanticCandidatesExpression="aql:self.programItems->select(p | p.eClass().name = 'Break')"
-            childrenPresentation="FreeForm">
-            <style xsi:type="style:FlatContainerStyleDescription"
-              labelSize="11"
-              labelExpression="aql:'Break: ' + self.breakName + '\n' + self.startTime + ' - ' + self.endTime"
-              labelPosition="top" resizeKind="NSEW">
+          <subContainerMappings name="BreakContainer" deletionDescription="//@ownedViewpoints[name='AgendomatViewpoint']/@ownedRepresentations[name='EventDiagram']/@defaultLayer/@toolSections.0/@ownedTools[name='Delete%20Element']" labelDirectEdit="//@ownedViewpoints[name='AgendomatViewpoint']/@ownedRepresentations[name='EventDiagram']/@defaultLayer/@toolSections.0/@ownedTools[name='Rename%20Break']" semanticCandidatesExpression="aql:self.programItems->select(p | p.eClass().name = 'Break')" domainClass="agendomat.Break">
+            <style xsi:type="style:FlatContainerStyleDescription" labelSize="11" labelExpression="aql:'Break: ' + self.breakName + '\n' + self.startTime + ' - ' + self.endTime" labelPosition="top" resizeKind="NSEW">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='dark_orange']"/>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
               <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='orange']"/>
               <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_orange']"/>
             </style>
           </subContainerMappings>
-
+          <style xsi:type="style:FlatContainerStyleDescription" labelSize="13" labelExpression="aql:'Event: ' + self.eventName + '\n' + self.eventStartDate + ' - ' + self.eventEndDate" labelPosition="top" resizeKind="NSEW">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='dark_blue']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+            <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='dark_blue']"/>
+            <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_blue']"/>
+          </style>
         </containerMappings>
-
-        <!-- EDGE: Session -> Location -->
-        <edgeMappings name="SessionToLocation"
-          sourceMapping="//@ownedViewpoints[name='AgendomatViewpoint']/@ownedRepresentations[name='EventDiagram']/@defaultLayer/@containerMappings[name='EventContainer']/@subContainerMappings[name='SessionContainer']"
-          targetMapping="//@ownedViewpoints[name='AgendomatViewpoint']/@ownedRepresentations[name='EventDiagram']/@defaultLayer/@containerMappings[name='EventContainer']/@subNodeMappings[name='LocationNode']"
-          targetFinderExpression="aql:self.location">
-          <style size="1">
-            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='dark_blue']"/>
-            <centerLabelStyle labelSize="9" labelExpression="aql:'location'">
-              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-            </centerLabelStyle>
-          </style>
-        </edgeMappings>
-
-        <!-- EDGE: Break -> Location -->
-        <edgeMappings name="BreakToLocation"
-          sourceMapping="//@ownedViewpoints[name='AgendomatViewpoint']/@ownedRepresentations[name='EventDiagram']/@defaultLayer/@containerMappings[name='EventContainer']/@subContainerMappings[name='BreakContainer']"
-          targetMapping="//@ownedViewpoints[name='AgendomatViewpoint']/@ownedRepresentations[name='EventDiagram']/@defaultLayer/@containerMappings[name='EventContainer']/@subNodeMappings[name='LocationNode']"
-          targetFinderExpression="aql:self.location">
-          <style size="1">
-            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='dark_orange']"/>
-            <centerLabelStyle labelSize="9" labelExpression="aql:'location'">
-              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-            </centerLabelStyle>
-          </style>
-        </edgeMappings>
-
-        <!-- EDGE: Talk -> Person -->
-        <edgeMappings name="TalkToPresenter"
-          sourceMapping="//@ownedViewpoints[name='AgendomatViewpoint']/@ownedRepresentations[name='EventDiagram']/@defaultLayer/@containerMappings[name='EventContainer']/@subContainerMappings[name='SessionContainer']/@subNodeMappings[name='TalkNode']"
-          targetMapping="//@ownedViewpoints[name='AgendomatViewpoint']/@ownedRepresentations[name='EventDiagram']/@defaultLayer/@containerMappings[name='EventContainer']/@subNodeMappings[name='PersonNode']"
-          targetFinderExpression="aql:self.presenters">
-          <style size="1">
-            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-            <centerLabelStyle labelSize="9" labelExpression="aql:'presenter'">
-              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-            </centerLabelStyle>
-          </style>
-        </edgeMappings>
-
+        <toolSections name="Agendomat Tools">
+          <ownedTools xsi:type="tool:ContainerCreationDescription" name="Create Event" label="Event" containerMappings="//@ownedViewpoints[name='AgendomatViewpoint']/@ownedRepresentations[name='EventDiagram']/@defaultLayer/@containerMappings[name='EventContainer']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:CreateInstance" typeName="agendomat.Event" referenceName="events">
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="eventName" valueExpression="aql:'New Event'"/>
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="eventStartDate" valueExpression="aql:'2026-01-01'"/>
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="eventEndDate" valueExpression="aql:'2026-01-01'"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:ContainerCreationDescription" name="Create Session" label="Session" precondition="aql:container.eClass().name = 'Event'" containerMappings="//@ownedViewpoints[name='AgendomatViewpoint']/@ownedRepresentations[name='EventDiagram']/@defaultLayer/@containerMappings[name='EventContainer']/@subContainerMappings[name='SessionContainer']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:CreateInstance" typeName="agendomat.Session" referenceName="programItems">
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="sessionName" valueExpression="aql:'New Session'"/>
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="startTime" valueExpression="aql:'09:00'"/>
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="endTime" valueExpression="aql:'10:00'"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:ContainerCreationDescription" name="Create Break" label="Break" precondition="aql:container.eClass().name = 'Event'" containerMappings="//@ownedViewpoints[name='AgendomatViewpoint']/@ownedRepresentations[name='EventDiagram']/@defaultLayer/@containerMappings[name='EventContainer']/@subContainerMappings[name='BreakContainer']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:CreateInstance" typeName="agendomat.Break" referenceName="programItems">
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="breakName" valueExpression="aql:'New Break'"/>
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="startTime" valueExpression="aql:'10:00'"/>
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="endTime" valueExpression="aql:'10:30'"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="Create Person" label="Person" precondition="aql:container.eClass().name = 'Event'" nodeMappings="//@ownedViewpoints[name='AgendomatViewpoint']/@ownedRepresentations[name='EventDiagram']/@defaultLayer/@containerMappings[name='EventContainer']/@subNodeMappings[name='PersonNode']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:CreateInstance" typeName="agendomat.Person" referenceName="persons">
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="personName" valueExpression="aql:'New Person'"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="Create Location" label="Location" precondition="aql:container.eClass().name = 'Event'" nodeMappings="//@ownedViewpoints[name='AgendomatViewpoint']/@ownedRepresentations[name='EventDiagram']/@defaultLayer/@containerMappings[name='EventContainer']/@subNodeMappings[name='LocationNode']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:CreateInstance" typeName="agendomat.Location" referenceName="locations">
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="locationName" valueExpression="aql:'New Location'"/>
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="locationType" valueExpression="0"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="Create Talk" label="Talk" precondition="aql:container.eClass().name = 'Session'" nodeMappings="//@ownedViewpoints[name='AgendomatViewpoint']/@ownedRepresentations[name='EventDiagram']/@defaultLayer/@containerMappings[name='EventContainer']/@subContainerMappings[name='SessionContainer']/@subNodeMappings[name='TalkNode']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:CreateInstance" typeName="agendomat.Talk" referenceName="talks">
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="talkName" valueExpression="aql:'New Talk'"/>
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="talkStartTime" valueExpression="aql:'09:00'"/>
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="talkEndTime" valueExpression="aql:'09:45'"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:DirectEditLabel" name="Rename Event" label="Rename Event">
+            <mask mask="{0}" value="{0}"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:SetValue" featureName="eventName" valueExpression="aql:arg0"/>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:DirectEditLabel" name="Rename Session" label="Rename Session">
+            <mask mask="{0}" value="{0}"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:SetValue" featureName="sessionName" valueExpression="aql:arg0"/>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:DirectEditLabel" name="Rename Break" label="Rename Break">
+            <mask mask="{0}" value="{0}"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:SetValue" featureName="breakName" valueExpression="aql:arg0"/>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:DirectEditLabel" name="Rename Person" label="Rename Person">
+            <mask mask="{0}" value="{0}"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:SetValue" featureName="personName" valueExpression="aql:arg0"/>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:DirectEditLabel" name="Rename Location" label="Rename Location">
+            <mask mask="{0}" value="{0}"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:SetValue" featureName="locationName" valueExpression="aql:arg0"/>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:DirectEditLabel" name="Rename Talk" label="Rename Talk">
+            <mask mask="{0}" value="{0}"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:SetValue" featureName="talkName" valueExpression="aql:arg0"/>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:DeleteElementDescription" name="Delete Element">
+            <element name="element"/>
+            <elementView name="elementView"/>
+            <containerView name="containerView"/>
+              <initialOperation>
+			    <firstModelOperations xsi:type="tool_1:RemoveElement"/>
+			  </initialOperation>
+          </ownedTools>
+        </toolSections>
       </defaultLayer>
-      
-      	<toolSections xsi:type="description_1:ToolSection" name="Agendomat Tools">
-
-          <!-- Kreiraj Event -->
-          <ownedTools xsi:type="description_1:ContainerCreationDescription" name="Create Event" label="Event"
-  			mappings="//@ownedViewpoints[name='AgendomatViewpoint']/@ownedRepresentations[name='EventDiagram']/@defaultLayer/@containerMappings[name='EventContainer']">
-            <variable name="container"/>
-            <viewVariable name="containerView"/>
-            <initialOperation>
-              <firstModelOperations xsi:type="tool:CreateInstance" typeName="agendomat.Event" referenceName="events">
-                <subModelOperations xsi:type="tool:SetValue" featureName="eventName" valueExpression="aql:'New Event'"/>
-                <subModelOperations xsi:type="tool:SetValue" featureName="eventStartDate" valueExpression="aql:'2026-01-01'"/>
-                <subModelOperations xsi:type="tool:SetValue" featureName="eventEndDate" valueExpression="aql:'2026-01-01'"/>
-              </firstModelOperations>
-            </initialOperation>
-          </ownedTools>
-
-          <!-- Kreiraj Session -->
-          <ownedTools xsi:type="description_1:ContainerCreationDescription" name="Create Session" label="Session"
-          	mappings="//@ownedViewpoints[name='AgendomatViewpoint']/@ownedRepresentations[name='EventDiagram']/@defaultLayer/@containerMappings[name='EventContainer']/@subContainerMappings[name='SessionContainer']">
-            <variable name="container"/>
-            <viewVariable name="containerView"/>
-            <initialOperation>
-              <firstModelOperations xsi:type="tool:CreateInstance" typeName="agendomat.Session" referenceName="programItems">
-                <subModelOperations xsi:type="tool:SetValue" featureName="sessionName" valueExpression="aql:'New Session'"/>
-                <subModelOperations xsi:type="tool:SetValue" featureName="startTime" valueExpression="aql:'09:00'"/>
-                <subModelOperations xsi:type="tool:SetValue" featureName="endTime" valueExpression="aql:'10:00'"/>
-              </firstModelOperations>
-            </initialOperation>
-          </ownedTools>
-
-          <!-- Kreiraj Break -->
-          <ownedTools xsi:type="description_1:ContainerCreationDescription" name="Create Break" label="Break"
-          	mappings="//@ownedViewpoints[name='AgendomatViewpoint']/@ownedRepresentations[name='EventDiagram']/@defaultLayer/@containerMappings[name='EventContainer']/@subContainerMappings[name='BreakContainer']">
-            <variable name="container"/>
-            <viewVariable name="containerView"/>
-            <initialOperation>
-              <firstModelOperations xsi:type="tool:CreateInstance" typeName="agendomat.Break" referenceName="programItems">
-                <subModelOperations xsi:type="tool:SetValue" featureName="breakName" valueExpression="aql:'New Break'"/>
-                <subModelOperations xsi:type="tool:SetValue" featureName="startTime" valueExpression="aql:'10:00'"/>
-                <subModelOperations xsi:type="tool:SetValue" featureName="endTime" valueExpression="aql:'10:30'"/>
-              </firstModelOperations>
-            </initialOperation>
-          </ownedTools>
-
-          <!-- Kreiraj Person -->
-          <ownedTools xsi:type="description_1:NodeCreationDescription" name="Create Person" label="Person"
-          	mappings="//@ownedViewpoints[name='AgendomatViewpoint']/@ownedRepresentations[name='EventDiagram']/@defaultLayer/@containerMappings[name='EventContainer']/@subNodeMappings[name='PersonNode']">
-            <variable name="container"/>
-            <viewVariable name="containerView"/>
-            <initialOperation>
-              <firstModelOperations xsi:type="tool:CreateInstance" typeName="agendomat.Person" referenceName="persons">
-                <subModelOperations xsi:type="tool:SetValue" featureName="personName" valueExpression="aql:'New Person'"/>
-              </firstModelOperations>
-            </initialOperation>
-          </ownedTools>
-
-          <!-- Kreiraj Location -->
-          <ownedTools xsi:type="description_1:NodeCreationDescription" name="Create Location" label="Location"
-          	mappings="//@ownedViewpoints[name='AgendomatViewpoint']/@ownedRepresentations[name='EventDiagram']/@defaultLayer/@containerMappings[name='EventContainer']/@subNodeMappings[name='LocationNode']">
-            <variable name="container"/>
-            <viewVariable name="containerView"/>
-            <initialOperation>
-              <firstModelOperations xsi:type="tool:CreateInstance" typeName="agendomat.Location" referenceName="locations">
-                <subModelOperations xsi:type="tool:SetValue" featureName="locationName" valueExpression="aql:'New Location'"/>
-                <subModelOperations xsi:type="tool:SetValue" featureName="locationType" valueExpression="aql:agendomat::LocationType::Room"/>
-              </firstModelOperations>
-            </initialOperation>
-          </ownedTools>
-
-          <!-- Kreiraj Talk -->
-          <ownedTools xsi:type="description_1:NodeCreationDescription" name="Create Talk" label="Talk"
-          	mappings="//@ownedViewpoints[name='AgendomatViewpoint']/@ownedRepresentations[name='EventDiagram']/@defaultLayer/@containerMappings[name='EventContainer']/@subContainerMappings[name='SessionContainer']/@subNodeMappings[name='TalkNode']">
-            <variable name="container"/>
-            <viewVariable name="containerView"/>
-            <initialOperation>
-              <firstModelOperations xsi:type="tool:CreateInstance" typeName="agendomat.Talk" referenceName="talks">
-                <subModelOperations xsi:type="tool:SetValue" featureName="talkName" valueExpression="aql:'New Talk'"/>
-                <subModelOperations xsi:type="tool:SetValue" featureName="talkStartTime" valueExpression="aql:'09:00'"/>
-                <subModelOperations xsi:type="tool:SetValue" featureName="talkEndTime" valueExpression="aql:'09:45'"/>
-              </firstModelOperations>
-            </initialOperation>
-          </ownedTools>
-      </toolSections>
     </ownedRepresentations>
-
   </ownedViewpoints>
 </description:Group>
