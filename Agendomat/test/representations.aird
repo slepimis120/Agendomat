@@ -1,18 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:agendomat="http://agendomat/1.0" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:diagram="http://www.eclipse.org/sirius/diagram/1.1.0" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.3/notation" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xmlns:viewpoint="http://www.eclipse.org/sirius/1.1.0" xsi:schemaLocation="http://www.eclipse.org/sirius/description/1.1.0 http://www.eclipse.org/sirius/1.1.0#//description http://www.eclipse.org/sirius/diagram/description/1.1.0 http://www.eclipse.org/sirius/diagram/1.1.0#//description http://www.eclipse.org/sirius/diagram/description/style/1.1.0 http://www.eclipse.org/sirius/diagram/1.1.0#//description/style">
-  <viewpoint:DAnalysis uid="_69_zwF9uEfGQl5GqiA8auQ" selectedViews="_0St2cF-NEfGxXK-VoRMYlA _sF5pwGAAEfGl6YuijhL5fQ" version="15.4.1.202403191723">
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:agendomat_1.0="http://agendomat/1.0" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:diagram="http://www.eclipse.org/sirius/diagram/1.1.0" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.3/notation" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xmlns:viewpoint="http://www.eclipse.org/sirius/1.1.0" xsi:schemaLocation="http://www.eclipse.org/sirius/description/1.1.0 http://www.eclipse.org/sirius/1.1.0#//description http://www.eclipse.org/sirius/diagram/description/1.1.0 http://www.eclipse.org/sirius/diagram/1.1.0#//description http://www.eclipse.org/sirius/diagram/description/style/1.1.0 http://www.eclipse.org/sirius/diagram/1.1.0#//description/style">
+  <viewpoint:DAnalysis uid="_69_zwF9uEfGQl5GqiA8auQ" selectedViews="_0St2cF-NEfGxXK-VoRMYlA _sF5pwGAAEfGl6YuijhL5fQ _MwLXAGsXEfGssr1XXip6pA" version="15.4.1.202403191723">
     <semanticResources>test.xmi</semanticResources>
     <semanticResources>platform:/resource/agendomat.model/model/agendomat.genmodel</semanticResources>
     <semanticResources>platform:/resource/agendomat.model/model/agendomat.ecore</semanticResources>
+    <semanticResources>platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign</semanticResources>
+    <semanticResources>environment:/viewpoint</semanticResources>
     <ownedViews xmi:type="viewpoint:DView" uid="_0St2cF-NEfGxXK-VoRMYlA">
       <viewpoint xmi:type="description:Viewpoint" href="platform:/resource/agendomat.design/description/agendomat.odesign#//@ownedViewpoints[name='AgendomatViewpoint']"/>
     </ownedViews>
     <ownedViews xmi:type="viewpoint:DView" uid="_sF5pwGAAEfGl6YuijhL5fQ">
       <viewpoint xmi:type="description:Viewpoint" href="platform:/resource/Agendomat/agendomat.design/description/agendomat.odesign#//@ownedViewpoints[name='AgendomatViewpoint']"/>
-      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_60S0AWAEEfGUe9jZQFsDDA" name="new EventDiagram" repPath="#_60Q-0GAEEfGUe9jZQFsDDA" changeId="1780575623419">
+      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_60S0AWAEEfGUe9jZQFsDDA" name="new EventDiagram" repPath="#_60Q-0GAEEfGUe9jZQFsDDA" changeId="1781782325503">
         <description xmi:type="description_1:DiagramDescription" href="platform:/resource/Agendomat/agendomat.design/description/agendomat.odesign#//@ownedViewpoints[name='AgendomatViewpoint']/@ownedRepresentations[name='EventDiagram']"/>
-        <target xmi:type="agendomat:Agenda" href="test.xmi#/"/>
+        <target xmi:type="agendomat_1.0:Agenda" href="test.xmi#/"/>
       </ownedRepresentationDescriptors>
+    </ownedViews>
+    <ownedViews xmi:type="viewpoint:DView" uid="_MwLXAGsXEfGssr1XXip6pA">
+      <viewpoint xmi:type="description:Viewpoint" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']"/>
     </ownedViews>
   </viewpoint:DAnalysis>
   <diagram:DSemanticDiagram uid="_60Q-0GAEEfGUe9jZQFsDDA">
@@ -283,17 +288,6 @@
               </children>
               <styles xmi:type="notation:ShapeStyle" xmi:id="_61rUE2AEEfGUe9jZQFsDDA" fontName="Segoe UI" fontHeight="11"/>
               <layoutConstraint xmi:type="notation:Bounds" xmi:id="_61rUFGAEEfGUe9jZQFsDDA" x="451" y="30" width="30" height="30"/>
-            </children>
-            <children xmi:type="notation:Node" xmi:id="_7bsyQGAEEfGUe9jZQFsDDA" type="3007" element="_7bjBQGAEEfGUe9jZQFsDDA">
-              <children xmi:type="notation:Node" xmi:id="_7btZUGAEEfGUe9jZQFsDDA" type="5003">
-                <layoutConstraint xmi:type="notation:Location" xmi:id="_7btZUWAEEfGUe9jZQFsDDA" y="5"/>
-              </children>
-              <children xmi:type="notation:Node" xmi:id="_7buAYGAEEfGUe9jZQFsDDA" type="3016" element="_7bjoUGAEEfGUe9jZQFsDDA">
-                <styles xmi:type="notation:ShapeStyle" xmi:id="_7buAYWAEEfGUe9jZQFsDDA" fontName="Segoe UI"/>
-                <layoutConstraint xmi:type="notation:Bounds" xmi:id="_7buAYmAEEfGUe9jZQFsDDA"/>
-              </children>
-              <styles xmi:type="notation:ShapeStyle" xmi:id="_7bsyQWAEEfGUe9jZQFsDDA" fontName="Segoe UI" fontHeight="11"/>
-              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_7bsyQmAEEfGUe9jZQFsDDA" x="241" y="115" width="156" height="51"/>
             </children>
             <children xmi:type="notation:Node" xmi:id="_7vJSsGAEEfGUe9jZQFsDDA" type="3007" element="_7vDMEGAEEfGUe9jZQFsDDA">
               <children xmi:type="notation:Node" xmi:id="_7vJ5wGAEEfGUe9jZQFsDDA" type="5003">
@@ -742,462 +736,454 @@
       <data xmi:type="diagram:ComputedStyleDescriptionRegistry" uid="_6087UWAEEfGUe9jZQFsDDA"/>
     </ownedAnnotationEntries>
     <ownedDiagramElements xmi:type="diagram:DNodeContainer" uid="_60clAGAEEfGUe9jZQFsDDA" name="Event: Konferencija 2026&#xA;2026-05-14 - 2026-05-16">
-      <target xmi:type="agendomat:Event" href="test.xmi#//@events.0"/>
-      <semanticElements xmi:type="agendomat:Event" href="test.xmi#//@events.0"/>
       <ownedStyle xmi:type="diagram:FlatContainerStyle" uid="_60dMEGAEEfGUe9jZQFsDDA" labelSize="13" labelColor="255,255,255" borderColor="39,76,114" backgroundColor="39,76,114" foregroundColor="194,239,255">
         <description xmi:type="style:FlatContainerStyleDescription" href="platform:/resource/Agendomat/agendomat.design/description/agendomat.odesign#//@ownedViewpoints[name='AgendomatViewpoint']/@ownedRepresentations[name='EventDiagram']/@defaultLayer/@containerMappings[name='EventContainer']/@style"/>
       </ownedStyle>
       <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/resource/Agendomat/agendomat.design/description/agendomat.odesign#//@ownedViewpoints[name='AgendomatViewpoint']/@ownedRepresentations[name='EventDiagram']/@defaultLayer/@containerMappings[name='EventContainer']"/>
       <ownedDiagramElements xmi:type="diagram:DNodeContainer" uid="_60fBQGAEEfGUe9jZQFsDDA" name="Session: Uvodno predavanje&#xA;09:00 - 10:30" outgoingEdges="_60zxYGAEEfGUe9jZQFsDDA">
-        <target xmi:type="agendomat:Session" href="test.xmi#//@events.0/@programItems.0"/>
-        <semanticElements xmi:type="agendomat:Session" href="test.xmi#//@events.0/@programItems.0"/>
         <ownedStyle xmi:type="diagram:FlatContainerStyle" uid="_60foUGAEEfGUe9jZQFsDDA" labelSize="11" labelColor="255,255,255" borderColor="39,76,114" backgroundColor="114,159,207" foregroundColor="194,239,255">
           <description xmi:type="style:FlatContainerStyleDescription" href="platform:/resource/Agendomat/agendomat.design/description/agendomat.odesign#//@ownedViewpoints[name='AgendomatViewpoint']/@ownedRepresentations[name='EventDiagram']/@defaultLayer/@containerMappings[name='EventContainer']/@subContainerMappings[name='SessionContainer']/@style"/>
         </ownedStyle>
         <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/resource/Agendomat/agendomat.design/description/agendomat.odesign#//@ownedViewpoints[name='AgendomatViewpoint']/@ownedRepresentations[name='EventDiagram']/@defaultLayer/@containerMappings[name='EventContainer']/@subContainerMappings[name='SessionContainer']"/>
         <ownedDiagramElements xmi:type="diagram:DNode" uid="_60hdgmAEEfGUe9jZQFsDDA" name="Talk: Uvod u domensko modelovanje&#xA;09:00 - 09:45" outgoingEdges="_6054AGAEEfGUe9jZQFsDDA" width="3" height="3" resizeKind="NSEW">
-          <target xmi:type="agendomat:Talk" href="test.xmi#//@events.0/@programItems.0/@talks.0"/>
-          <semanticElements xmi:type="agendomat:Talk" href="test.xmi#//@events.0/@programItems.0/@talks.0"/>
           <ownedStyle xmi:type="diagram:Square" uid="_60iEkGAEEfGUe9jZQFsDDA" labelSize="10" borderColor="39,76,114" labelPosition="node" color="255,255,255">
             <description xmi:type="style:SquareDescription" href="platform:/resource/Agendomat/agendomat.design/description/agendomat.odesign#//@ownedViewpoints[name='AgendomatViewpoint']/@ownedRepresentations[name='EventDiagram']/@defaultLayer/@containerMappings[name='EventContainer']/@subContainerMappings[name='SessionContainer']/@subNodeMappings[name='TalkNode']/@style"/>
           </ownedStyle>
           <actualMapping xmi:type="description_1:NodeMapping" href="platform:/resource/Agendomat/agendomat.design/description/agendomat.odesign#//@ownedViewpoints[name='AgendomatViewpoint']/@ownedRepresentations[name='EventDiagram']/@defaultLayer/@containerMappings[name='EventContainer']/@subContainerMappings[name='SessionContainer']/@subNodeMappings[name='TalkNode']"/>
+          <target xmi:type="agendomat_1.0:Talk" href="test.xmi#//@events.0/@programItems.0/@talks.0"/>
+          <semanticElements xmi:type="agendomat_1.0:Talk" href="test.xmi#//@events.0/@programItems.0/@talks.0"/>
         </ownedDiagramElements>
         <ownedDiagramElements xmi:type="diagram:DNode" uid="_60iroGAEEfGUe9jZQFsDDA" name="Talk: Primena DSL-ova u industriji&#xA;09:45 - 10:30" outgoingEdges="_607GIGAEEfGUe9jZQFsDDA" width="3" height="3" resizeKind="NSEW">
-          <target xmi:type="agendomat:Talk" href="test.xmi#//@events.0/@programItems.0/@talks.1"/>
-          <semanticElements xmi:type="agendomat:Talk" href="test.xmi#//@events.0/@programItems.0/@talks.1"/>
           <ownedStyle xmi:type="diagram:Square" uid="_60iroWAEEfGUe9jZQFsDDA" labelSize="10" borderColor="39,76,114" labelPosition="node" color="255,255,255">
             <description xmi:type="style:SquareDescription" href="platform:/resource/Agendomat/agendomat.design/description/agendomat.odesign#//@ownedViewpoints[name='AgendomatViewpoint']/@ownedRepresentations[name='EventDiagram']/@defaultLayer/@containerMappings[name='EventContainer']/@subContainerMappings[name='SessionContainer']/@subNodeMappings[name='TalkNode']/@style"/>
           </ownedStyle>
           <actualMapping xmi:type="description_1:NodeMapping" href="platform:/resource/Agendomat/agendomat.design/description/agendomat.odesign#//@ownedViewpoints[name='AgendomatViewpoint']/@ownedRepresentations[name='EventDiagram']/@defaultLayer/@containerMappings[name='EventContainer']/@subContainerMappings[name='SessionContainer']/@subNodeMappings[name='TalkNode']"/>
+          <target xmi:type="agendomat_1.0:Talk" href="test.xmi#//@events.0/@programItems.0/@talks.1"/>
+          <semanticElements xmi:type="agendomat_1.0:Talk" href="test.xmi#//@events.0/@programItems.0/@talks.1"/>
         </ownedDiagramElements>
         <ownedDiagramElements xmi:type="diagram:DNode" uid="_-WgWgGAEEfGUe9jZQFsDDA" name="Talk: New Talk&#xA;09:00 - 09:45" width="3" height="3" resizeKind="NSEW">
-          <target xmi:type="agendomat:Talk" href="test.xmi#//@events.0/@programItems.0/@talks.2"/>
-          <semanticElements xmi:type="agendomat:Talk" href="test.xmi#//@events.0/@programItems.0/@talks.2"/>
           <ownedStyle xmi:type="diagram:Square" uid="_-Wg9kGAEEfGUe9jZQFsDDA" labelSize="10" borderColor="39,76,114" labelPosition="node" color="255,255,255">
             <description xmi:type="style:SquareDescription" href="platform:/resource/Agendomat/agendomat.design/description/agendomat.odesign#//@ownedViewpoints[name='AgendomatViewpoint']/@ownedRepresentations[name='EventDiagram']/@defaultLayer/@containerMappings[name='EventContainer']/@subContainerMappings[name='SessionContainer']/@subNodeMappings[name='TalkNode']/@style"/>
           </ownedStyle>
           <actualMapping xmi:type="description_1:NodeMapping" href="platform:/resource/Agendomat/agendomat.design/description/agendomat.odesign#//@ownedViewpoints[name='AgendomatViewpoint']/@ownedRepresentations[name='EventDiagram']/@defaultLayer/@containerMappings[name='EventContainer']/@subContainerMappings[name='SessionContainer']/@subNodeMappings[name='TalkNode']"/>
+          <target xmi:type="agendomat_1.0:Talk" href="test.xmi#//@events.0/@programItems.0/@talks.2"/>
+          <semanticElements xmi:type="agendomat_1.0:Talk" href="test.xmi#//@events.0/@programItems.0/@talks.2"/>
         </ownedDiagramElements>
+        <target xmi:type="agendomat_1.0:Session" href="test.xmi#//@events.0/@programItems.0"/>
+        <semanticElements xmi:type="agendomat_1.0:Session" href="test.xmi#//@events.0/@programItems.0"/>
       </ownedDiagramElements>
       <ownedDiagramElements xmi:type="diagram:DNodeContainer" uid="_60gPYWAEEfGUe9jZQFsDDA" name="Session: Napredne tehnike modelovanja&#xA;11:00 - 12:30" outgoingEdges="_600YcmAEEfGUe9jZQFsDDA">
-        <target xmi:type="agendomat:Session" href="test.xmi#//@events.0/@programItems.2"/>
-        <semanticElements xmi:type="agendomat:Session" href="test.xmi#//@events.0/@programItems.2"/>
         <ownedStyle xmi:type="diagram:FlatContainerStyle" uid="_60g2cGAEEfGUe9jZQFsDDA" labelSize="11" labelColor="255,255,255" borderColor="39,76,114" backgroundColor="114,159,207" foregroundColor="194,239,255">
           <description xmi:type="style:FlatContainerStyleDescription" href="platform:/resource/Agendomat/agendomat.design/description/agendomat.odesign#//@ownedViewpoints[name='AgendomatViewpoint']/@ownedRepresentations[name='EventDiagram']/@defaultLayer/@containerMappings[name='EventContainer']/@subContainerMappings[name='SessionContainer']/@style"/>
         </ownedStyle>
         <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/resource/Agendomat/agendomat.design/description/agendomat.odesign#//@ownedViewpoints[name='AgendomatViewpoint']/@ownedRepresentations[name='EventDiagram']/@defaultLayer/@containerMappings[name='EventContainer']/@subContainerMappings[name='SessionContainer']"/>
         <ownedDiagramElements xmi:type="diagram:DNode" uid="_60iro2AEEfGUe9jZQFsDDA" name="Talk: OCL i ograničenja modela&#xA;11:00 - 11:45" outgoingEdges="_607GI2AEEfGUe9jZQFsDDA" width="3" height="3" resizeKind="NSEW">
-          <target xmi:type="agendomat:Talk" href="test.xmi#//@events.0/@programItems.2/@talks.0"/>
-          <semanticElements xmi:type="agendomat:Talk" href="test.xmi#//@events.0/@programItems.2/@talks.0"/>
           <ownedStyle xmi:type="diagram:Square" uid="_60jSsGAEEfGUe9jZQFsDDA" labelSize="10" borderColor="39,76,114" labelPosition="node" color="255,255,255">
             <description xmi:type="style:SquareDescription" href="platform:/resource/Agendomat/agendomat.design/description/agendomat.odesign#//@ownedViewpoints[name='AgendomatViewpoint']/@ownedRepresentations[name='EventDiagram']/@defaultLayer/@containerMappings[name='EventContainer']/@subContainerMappings[name='SessionContainer']/@subNodeMappings[name='TalkNode']/@style"/>
           </ownedStyle>
           <actualMapping xmi:type="description_1:NodeMapping" href="platform:/resource/Agendomat/agendomat.design/description/agendomat.odesign#//@ownedViewpoints[name='AgendomatViewpoint']/@ownedRepresentations[name='EventDiagram']/@defaultLayer/@containerMappings[name='EventContainer']/@subContainerMappings[name='SessionContainer']/@subNodeMappings[name='TalkNode']"/>
+          <target xmi:type="agendomat_1.0:Talk" href="test.xmi#//@events.0/@programItems.2/@talks.0"/>
+          <semanticElements xmi:type="agendomat_1.0:Talk" href="test.xmi#//@events.0/@programItems.2/@talks.0"/>
         </ownedDiagramElements>
         <ownedDiagramElements xmi:type="diagram:DNode" uid="_60jSsmAEEfGUe9jZQFsDDA" name="Talk: Xtext gramatike u praksi&#xA;11:45 - 12:30" outgoingEdges="_607GJmAEEfGUe9jZQFsDDA _607tMGAEEfGUe9jZQFsDDA" width="3" height="3" resizeKind="NSEW">
-          <target xmi:type="agendomat:Talk" href="test.xmi#//@events.0/@programItems.2/@talks.1"/>
-          <semanticElements xmi:type="agendomat:Talk" href="test.xmi#//@events.0/@programItems.2/@talks.1"/>
           <ownedStyle xmi:type="diagram:Square" uid="_60jSs2AEEfGUe9jZQFsDDA" labelSize="10" borderColor="39,76,114" labelPosition="node" color="255,255,255">
             <description xmi:type="style:SquareDescription" href="platform:/resource/Agendomat/agendomat.design/description/agendomat.odesign#//@ownedViewpoints[name='AgendomatViewpoint']/@ownedRepresentations[name='EventDiagram']/@defaultLayer/@containerMappings[name='EventContainer']/@subContainerMappings[name='SessionContainer']/@subNodeMappings[name='TalkNode']/@style"/>
           </ownedStyle>
           <actualMapping xmi:type="description_1:NodeMapping" href="platform:/resource/Agendomat/agendomat.design/description/agendomat.odesign#//@ownedViewpoints[name='AgendomatViewpoint']/@ownedRepresentations[name='EventDiagram']/@defaultLayer/@containerMappings[name='EventContainer']/@subContainerMappings[name='SessionContainer']/@subNodeMappings[name='TalkNode']"/>
+          <target xmi:type="agendomat_1.0:Talk" href="test.xmi#//@events.0/@programItems.2/@talks.1"/>
+          <semanticElements xmi:type="agendomat_1.0:Talk" href="test.xmi#//@events.0/@programItems.2/@talks.1"/>
         </ownedDiagramElements>
+        <target xmi:type="agendomat_1.0:Session" href="test.xmi#//@events.0/@programItems.2"/>
+        <semanticElements xmi:type="agendomat_1.0:Session" href="test.xmi#//@events.0/@programItems.2"/>
       </ownedDiagramElements>
       <ownedDiagramElements xmi:type="diagram:DNodeContainer" uid="_60g2cmAEEfGUe9jZQFsDDA" name="Session: Session: Radionica: Sirius dijagrami&#xD;&#xA;13:30 - 15:01&#xA;13:30 - 15:00" outgoingEdges="_600_gWAEEfGUe9jZQFsDDA">
-        <target xmi:type="agendomat:Session" href="test.xmi#//@events.0/@programItems.4"/>
-        <semanticElements xmi:type="agendomat:Session" href="test.xmi#//@events.0/@programItems.4"/>
         <ownedStyle xmi:type="diagram:FlatContainerStyle" uid="_60hdgGAEEfGUe9jZQFsDDA" labelSize="11" labelColor="255,255,255" borderColor="39,76,114" backgroundColor="114,159,207" foregroundColor="194,239,255">
           <description xmi:type="style:FlatContainerStyleDescription" href="platform:/resource/Agendomat/agendomat.design/description/agendomat.odesign#//@ownedViewpoints[name='AgendomatViewpoint']/@ownedRepresentations[name='EventDiagram']/@defaultLayer/@containerMappings[name='EventContainer']/@subContainerMappings[name='SessionContainer']/@style"/>
         </ownedStyle>
         <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/resource/Agendomat/agendomat.design/description/agendomat.odesign#//@ownedViewpoints[name='AgendomatViewpoint']/@ownedRepresentations[name='EventDiagram']/@defaultLayer/@containerMappings[name='EventContainer']/@subContainerMappings[name='SessionContainer']"/>
         <ownedDiagramElements xmi:type="diagram:DNode" uid="_60jStWAEEfGUe9jZQFsDDA" name="Talk: Kreiranje grafičke sintakse&#xA;13:30 - 14:15" outgoingEdges="_607tM2AEEfGUe9jZQFsDDA" width="3" height="3" resizeKind="NSEW">
-          <target xmi:type="agendomat:Talk" href="test.xmi#//@events.0/@programItems.4/@talks.0"/>
-          <semanticElements xmi:type="agendomat:Talk" href="test.xmi#//@events.0/@programItems.4/@talks.0"/>
           <ownedStyle xmi:type="diagram:Square" uid="_60jStmAEEfGUe9jZQFsDDA" labelSize="10" borderColor="39,76,114" labelPosition="node" color="255,255,255">
             <description xmi:type="style:SquareDescription" href="platform:/resource/Agendomat/agendomat.design/description/agendomat.odesign#//@ownedViewpoints[name='AgendomatViewpoint']/@ownedRepresentations[name='EventDiagram']/@defaultLayer/@containerMappings[name='EventContainer']/@subContainerMappings[name='SessionContainer']/@subNodeMappings[name='TalkNode']/@style"/>
           </ownedStyle>
           <actualMapping xmi:type="description_1:NodeMapping" href="platform:/resource/Agendomat/agendomat.design/description/agendomat.odesign#//@ownedViewpoints[name='AgendomatViewpoint']/@ownedRepresentations[name='EventDiagram']/@defaultLayer/@containerMappings[name='EventContainer']/@subContainerMappings[name='SessionContainer']/@subNodeMappings[name='TalkNode']"/>
+          <target xmi:type="agendomat_1.0:Talk" href="test.xmi#//@events.0/@programItems.4/@talks.0"/>
+          <semanticElements xmi:type="agendomat_1.0:Talk" href="test.xmi#//@events.0/@programItems.4/@talks.0"/>
         </ownedDiagramElements>
         <ownedDiagramElements xmi:type="diagram:DNode" uid="_60j5wWAEEfGUe9jZQFsDDA" name="Talk: Napredni Sirius koncepti&#xA;14:15 - 15:00" outgoingEdges="_607tNmAEEfGUe9jZQFsDDA" width="3" height="3" resizeKind="NSEW">
-          <target xmi:type="agendomat:Talk" href="test.xmi#//@events.0/@programItems.4/@talks.1"/>
-          <semanticElements xmi:type="agendomat:Talk" href="test.xmi#//@events.0/@programItems.4/@talks.1"/>
           <ownedStyle xmi:type="diagram:Square" uid="_60j5wmAEEfGUe9jZQFsDDA" labelSize="10" borderColor="39,76,114" labelPosition="node" color="255,255,255">
             <description xmi:type="style:SquareDescription" href="platform:/resource/Agendomat/agendomat.design/description/agendomat.odesign#//@ownedViewpoints[name='AgendomatViewpoint']/@ownedRepresentations[name='EventDiagram']/@defaultLayer/@containerMappings[name='EventContainer']/@subContainerMappings[name='SessionContainer']/@subNodeMappings[name='TalkNode']/@style"/>
           </ownedStyle>
           <actualMapping xmi:type="description_1:NodeMapping" href="platform:/resource/Agendomat/agendomat.design/description/agendomat.odesign#//@ownedViewpoints[name='AgendomatViewpoint']/@ownedRepresentations[name='EventDiagram']/@defaultLayer/@containerMappings[name='EventContainer']/@subContainerMappings[name='SessionContainer']/@subNodeMappings[name='TalkNode']"/>
+          <target xmi:type="agendomat_1.0:Talk" href="test.xmi#//@events.0/@programItems.4/@talks.1"/>
+          <semanticElements xmi:type="agendomat_1.0:Talk" href="test.xmi#//@events.0/@programItems.4/@talks.1"/>
         </ownedDiagramElements>
         <ownedDiagramElements xmi:type="diagram:DNode" uid="_rIoLYGAPEfG3SMMlkWRSDQ" name="Talk: New Talk&#xA;09:00 - 09:45" width="3" height="3" resizeKind="NSEW">
-          <target xmi:type="agendomat:Talk" href="test.xmi#//@events.0/@programItems.4/@talks.2"/>
-          <semanticElements xmi:type="agendomat:Talk" href="test.xmi#//@events.0/@programItems.4/@talks.2"/>
           <ownedStyle xmi:type="diagram:Square" uid="_rIoLYWAPEfG3SMMlkWRSDQ" labelSize="10" borderColor="39,76,114" labelPosition="node" color="255,255,255">
             <description xmi:type="style:SquareDescription" href="platform:/resource/Agendomat/agendomat.design/description/agendomat.odesign#//@ownedViewpoints[name='AgendomatViewpoint']/@ownedRepresentations[name='EventDiagram']/@defaultLayer/@containerMappings[name='EventContainer']/@subContainerMappings[name='SessionContainer']/@subNodeMappings[name='TalkNode']/@style"/>
           </ownedStyle>
           <actualMapping xmi:type="description_1:NodeMapping" href="platform:/resource/Agendomat/agendomat.design/description/agendomat.odesign#//@ownedViewpoints[name='AgendomatViewpoint']/@ownedRepresentations[name='EventDiagram']/@defaultLayer/@containerMappings[name='EventContainer']/@subContainerMappings[name='SessionContainer']/@subNodeMappings[name='TalkNode']"/>
+          <target xmi:type="agendomat_1.0:Talk" href="test.xmi#//@events.0/@programItems.4/@talks.2"/>
+          <semanticElements xmi:type="agendomat_1.0:Talk" href="test.xmi#//@events.0/@programItems.4/@talks.2"/>
         </ownedDiagramElements>
+        <target xmi:type="agendomat_1.0:Session" href="test.xmi#//@events.0/@programItems.4"/>
+        <semanticElements xmi:type="agendomat_1.0:Session" href="test.xmi#//@events.0/@programItems.4"/>
       </ownedDiagramElements>
       <ownedDiagramElements xmi:type="diagram:DNodeContainer" uid="_60kg0GAEEfGUe9jZQFsDDA" name="Break: Coffee Break&#xA;10:30 - 11:00" outgoingEdges="_602NoGAEEfGUe9jZQFsDDA">
-        <target xmi:type="agendomat:Break" href="test.xmi#//@events.0/@programItems.1"/>
-        <semanticElements xmi:type="agendomat:Break" href="test.xmi#//@events.0/@programItems.1"/>
         <ownedStyle xmi:type="diagram:FlatContainerStyle" uid="_60kg0WAEEfGUe9jZQFsDDA" labelSize="11" labelColor="255,255,255" borderColor="224,133,3" backgroundColor="252,175,62" foregroundColor="253,206,137">
           <description xmi:type="style:FlatContainerStyleDescription" href="platform:/resource/Agendomat/agendomat.design/description/agendomat.odesign#//@ownedViewpoints[name='AgendomatViewpoint']/@ownedRepresentations[name='EventDiagram']/@defaultLayer/@containerMappings[name='EventContainer']/@subContainerMappings[name='BreakContainer']/@style"/>
         </ownedStyle>
         <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/resource/Agendomat/agendomat.design/description/agendomat.odesign#//@ownedViewpoints[name='AgendomatViewpoint']/@ownedRepresentations[name='EventDiagram']/@defaultLayer/@containerMappings[name='EventContainer']/@subContainerMappings[name='BreakContainer']"/>
+        <target xmi:type="agendomat_1.0:Break" href="test.xmi#//@events.0/@programItems.1"/>
+        <semanticElements xmi:type="agendomat_1.0:Break" href="test.xmi#//@events.0/@programItems.1"/>
       </ownedDiagramElements>
       <ownedDiagramElements xmi:type="diagram:DNodeContainer" uid="_60kg02AEEfGUe9jZQFsDDA" name="Break: Pauza za ručak&#xA;12:30 - 13:30" outgoingEdges="_6020sWAEEfGUe9jZQFsDDA">
-        <target xmi:type="agendomat:Break" href="test.xmi#//@events.0/@programItems.3"/>
-        <semanticElements xmi:type="agendomat:Break" href="test.xmi#//@events.0/@programItems.3"/>
         <ownedStyle xmi:type="diagram:FlatContainerStyle" uid="_60lH4GAEEfGUe9jZQFsDDA" labelSize="11" labelColor="255,255,255" borderColor="224,133,3" backgroundColor="252,175,62" foregroundColor="253,206,137">
           <description xmi:type="style:FlatContainerStyleDescription" href="platform:/resource/Agendomat/agendomat.design/description/agendomat.odesign#//@ownedViewpoints[name='AgendomatViewpoint']/@ownedRepresentations[name='EventDiagram']/@defaultLayer/@containerMappings[name='EventContainer']/@subContainerMappings[name='BreakContainer']/@style"/>
         </ownedStyle>
         <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/resource/Agendomat/agendomat.design/description/agendomat.odesign#//@ownedViewpoints[name='AgendomatViewpoint']/@ownedRepresentations[name='EventDiagram']/@defaultLayer/@containerMappings[name='EventContainer']/@subContainerMappings[name='BreakContainer']"/>
+        <target xmi:type="agendomat_1.0:Break" href="test.xmi#//@events.0/@programItems.3"/>
+        <semanticElements xmi:type="agendomat_1.0:Break" href="test.xmi#//@events.0/@programItems.3"/>
       </ownedDiagramElements>
       <ownedDiagramElements xmi:type="diagram:DNodeContainer" uid="_60lH4mAEEfGUe9jZQFsDDA" name="Break: Break: Završna pauza&#xD;&#xA;15:00 - 15:16&#xA;15:00 - 15:15" outgoingEdges="_6020tGAEEfGUe9jZQFsDDA">
-        <target xmi:type="agendomat:Break" href="test.xmi#//@events.0/@programItems.5"/>
-        <semanticElements xmi:type="agendomat:Break" href="test.xmi#//@events.0/@programItems.5"/>
         <ownedStyle xmi:type="diagram:FlatContainerStyle" uid="_60lH42AEEfGUe9jZQFsDDA" labelSize="11" labelColor="255,255,255" borderColor="224,133,3" backgroundColor="252,175,62" foregroundColor="253,206,137">
           <description xmi:type="style:FlatContainerStyleDescription" href="platform:/resource/Agendomat/agendomat.design/description/agendomat.odesign#//@ownedViewpoints[name='AgendomatViewpoint']/@ownedRepresentations[name='EventDiagram']/@defaultLayer/@containerMappings[name='EventContainer']/@subContainerMappings[name='BreakContainer']/@style"/>
         </ownedStyle>
         <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/resource/Agendomat/agendomat.design/description/agendomat.odesign#//@ownedViewpoints[name='AgendomatViewpoint']/@ownedRepresentations[name='EventDiagram']/@defaultLayer/@containerMappings[name='EventContainer']/@subContainerMappings[name='BreakContainer']"/>
+        <target xmi:type="agendomat_1.0:Break" href="test.xmi#//@events.0/@programItems.5"/>
+        <semanticElements xmi:type="agendomat_1.0:Break" href="test.xmi#//@events.0/@programItems.5"/>
       </ownedDiagramElements>
       <ownedDiagramElements xmi:type="diagram:DNode" uid="_60lu8GAEEfGUe9jZQFsDDA" name="Amfiteatar A&#xA;[Room]" incomingEdges="_60zxYGAEEfGUe9jZQFsDDA" width="3" height="3" resizeKind="NSEW">
-        <target xmi:type="agendomat:Location" href="test.xmi#//@events.0/@locations.0"/>
-        <semanticElements xmi:type="agendomat:Location" href="test.xmi#//@events.0/@locations.0"/>
         <ownedStyle xmi:type="diagram:Ellipse" uid="_60lu8WAEEfGUe9jZQFsDDA" labelSize="11" labelPosition="node" color="255,245,181">
           <description xmi:type="style:EllipseNodeDescription" href="platform:/resource/Agendomat/agendomat.design/description/agendomat.odesign#//@ownedViewpoints[name='AgendomatViewpoint']/@ownedRepresentations[name='EventDiagram']/@defaultLayer/@containerMappings[name='EventContainer']/@subNodeMappings[name='LocationNode']/@style"/>
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/resource/Agendomat/agendomat.design/description/agendomat.odesign#//@ownedViewpoints[name='AgendomatViewpoint']/@ownedRepresentations[name='EventDiagram']/@defaultLayer/@containerMappings[name='EventContainer']/@subNodeMappings[name='LocationNode']"/>
+        <target xmi:type="agendomat_1.0:Location" href="test.xmi#//@events.0/@locations.0"/>
+        <semanticElements xmi:type="agendomat_1.0:Location" href="test.xmi#//@events.0/@locations.0"/>
       </ownedDiagramElements>
       <ownedDiagramElements xmi:type="diagram:DNode" uid="_60mWAGAEEfGUe9jZQFsDDA" name="Sala B&#xA;[Room]" incomingEdges="_600YcmAEEfGUe9jZQFsDDA" width="3" height="3" resizeKind="NSEW">
-        <target xmi:type="agendomat:Location" href="test.xmi#//@events.0/@locations.1"/>
-        <semanticElements xmi:type="agendomat:Location" href="test.xmi#//@events.0/@locations.1"/>
         <ownedStyle xmi:type="diagram:Ellipse" uid="_60mWAWAEEfGUe9jZQFsDDA" labelSize="11" labelPosition="node" color="255,245,181">
           <description xmi:type="style:EllipseNodeDescription" href="platform:/resource/Agendomat/agendomat.design/description/agendomat.odesign#//@ownedViewpoints[name='AgendomatViewpoint']/@ownedRepresentations[name='EventDiagram']/@defaultLayer/@containerMappings[name='EventContainer']/@subNodeMappings[name='LocationNode']/@style"/>
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/resource/Agendomat/agendomat.design/description/agendomat.odesign#//@ownedViewpoints[name='AgendomatViewpoint']/@ownedRepresentations[name='EventDiagram']/@defaultLayer/@containerMappings[name='EventContainer']/@subNodeMappings[name='LocationNode']"/>
+        <target xmi:type="agendomat_1.0:Location" href="test.xmi#//@events.0/@locations.1"/>
+        <semanticElements xmi:type="agendomat_1.0:Location" href="test.xmi#//@events.0/@locations.1"/>
       </ownedDiagramElements>
       <ownedDiagramElements xmi:type="diagram:DNode" uid="_60mWA2AEEfGUe9jZQFsDDA" name="Sala C&#xA;[Room]" incomingEdges="_600_gWAEEfGUe9jZQFsDDA" width="3" height="3" resizeKind="NSEW">
-        <target xmi:type="agendomat:Location" href="test.xmi#//@events.0/@locations.2"/>
-        <semanticElements xmi:type="agendomat:Location" href="test.xmi#//@events.0/@locations.2"/>
         <ownedStyle xmi:type="diagram:Ellipse" uid="_60mWBGAEEfGUe9jZQFsDDA" labelSize="11" labelPosition="node" color="255,245,181">
           <description xmi:type="style:EllipseNodeDescription" href="platform:/resource/Agendomat/agendomat.design/description/agendomat.odesign#//@ownedViewpoints[name='AgendomatViewpoint']/@ownedRepresentations[name='EventDiagram']/@defaultLayer/@containerMappings[name='EventContainer']/@subNodeMappings[name='LocationNode']/@style"/>
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/resource/Agendomat/agendomat.design/description/agendomat.odesign#//@ownedViewpoints[name='AgendomatViewpoint']/@ownedRepresentations[name='EventDiagram']/@defaultLayer/@containerMappings[name='EventContainer']/@subNodeMappings[name='LocationNode']"/>
+        <target xmi:type="agendomat_1.0:Location" href="test.xmi#//@events.0/@locations.2"/>
+        <semanticElements xmi:type="agendomat_1.0:Location" href="test.xmi#//@events.0/@locations.2"/>
       </ownedDiagramElements>
       <ownedDiagramElements xmi:type="diagram:DNode" uid="_60mWBmAEEfGUe9jZQFsDDA" name="Hol 1&#xA;[BreakArea]" incomingEdges="_602NoGAEEfGUe9jZQFsDDA _6020tGAEEfGUe9jZQFsDDA" width="3" height="3" resizeKind="NSEW">
-        <target xmi:type="agendomat:Location" href="test.xmi#//@events.0/@locations.3"/>
-        <semanticElements xmi:type="agendomat:Location" href="test.xmi#//@events.0/@locations.3"/>
         <ownedStyle xmi:type="diagram:Ellipse" uid="_60m9EGAEEfGUe9jZQFsDDA" labelSize="11" labelPosition="node" color="255,245,181">
           <description xmi:type="style:EllipseNodeDescription" href="platform:/resource/Agendomat/agendomat.design/description/agendomat.odesign#//@ownedViewpoints[name='AgendomatViewpoint']/@ownedRepresentations[name='EventDiagram']/@defaultLayer/@containerMappings[name='EventContainer']/@subNodeMappings[name='LocationNode']/@style"/>
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/resource/Agendomat/agendomat.design/description/agendomat.odesign#//@ownedViewpoints[name='AgendomatViewpoint']/@ownedRepresentations[name='EventDiagram']/@defaultLayer/@containerMappings[name='EventContainer']/@subNodeMappings[name='LocationNode']"/>
+        <target xmi:type="agendomat_1.0:Location" href="test.xmi#//@events.0/@locations.3"/>
+        <semanticElements xmi:type="agendomat_1.0:Location" href="test.xmi#//@events.0/@locations.3"/>
       </ownedDiagramElements>
       <ownedDiagramElements xmi:type="diagram:DNode" uid="_60m9EmAEEfGUe9jZQFsDDA" name="Terasa&#xA;[BreakArea]" incomingEdges="_6020sWAEEfGUe9jZQFsDDA" width="3" height="3" resizeKind="NSEW">
-        <target xmi:type="agendomat:Location" href="test.xmi#//@events.0/@locations.4"/>
-        <semanticElements xmi:type="agendomat:Location" href="test.xmi#//@events.0/@locations.4"/>
         <ownedStyle xmi:type="diagram:Ellipse" uid="_60m9E2AEEfGUe9jZQFsDDA" labelSize="11" labelPosition="node" color="255,245,181">
           <description xmi:type="style:EllipseNodeDescription" href="platform:/resource/Agendomat/agendomat.design/description/agendomat.odesign#//@ownedViewpoints[name='AgendomatViewpoint']/@ownedRepresentations[name='EventDiagram']/@defaultLayer/@containerMappings[name='EventContainer']/@subNodeMappings[name='LocationNode']/@style"/>
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/resource/Agendomat/agendomat.design/description/agendomat.odesign#//@ownedViewpoints[name='AgendomatViewpoint']/@ownedRepresentations[name='EventDiagram']/@defaultLayer/@containerMappings[name='EventContainer']/@subNodeMappings[name='LocationNode']"/>
+        <target xmi:type="agendomat_1.0:Location" href="test.xmi#//@events.0/@locations.4"/>
+        <semanticElements xmi:type="agendomat_1.0:Location" href="test.xmi#//@events.0/@locations.4"/>
       </ownedDiagramElements>
       <ownedDiagramElements xmi:type="diagram:DNode" uid="_7vDMEGAEEfGUe9jZQFsDDA" name="New Location&#xA;[Room]" width="3" height="3" resizeKind="NSEW">
-        <target xmi:type="agendomat:Location" href="test.xmi#//@events.0/@locations.5"/>
-        <semanticElements xmi:type="agendomat:Location" href="test.xmi#//@events.0/@locations.5"/>
         <ownedStyle xmi:type="diagram:Ellipse" uid="_7vDMEWAEEfGUe9jZQFsDDA" labelSize="11" labelPosition="node" color="255,245,181">
           <description xmi:type="style:EllipseNodeDescription" href="platform:/resource/Agendomat/agendomat.design/description/agendomat.odesign#//@ownedViewpoints[name='AgendomatViewpoint']/@ownedRepresentations[name='EventDiagram']/@defaultLayer/@containerMappings[name='EventContainer']/@subNodeMappings[name='LocationNode']/@style"/>
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/resource/Agendomat/agendomat.design/description/agendomat.odesign#//@ownedViewpoints[name='AgendomatViewpoint']/@ownedRepresentations[name='EventDiagram']/@defaultLayer/@containerMappings[name='EventContainer']/@subNodeMappings[name='LocationNode']"/>
+        <target xmi:type="agendomat_1.0:Location" href="test.xmi#//@events.0/@locations.5"/>
+        <semanticElements xmi:type="agendomat_1.0:Location" href="test.xmi#//@events.0/@locations.5"/>
       </ownedDiagramElements>
       <ownedDiagramElements xmi:type="diagram:DNode" uid="_60nkIGAEEfGUe9jZQFsDDA" name="Marko Milojević&#xA;[Presenter]" incomingEdges="_6054AGAEEfGUe9jZQFsDDA _607GJmAEEfGUe9jZQFsDDA" width="3" height="3" resizeKind="NSEW">
-        <target xmi:type="agendomat:Person" href="test.xmi#//@events.0/@persons.0"/>
-        <semanticElements xmi:type="agendomat:Person" href="test.xmi#//@events.0/@persons.0"/>
         <ownedStyle xmi:type="diagram:Ellipse" uid="_60nkIWAEEfGUe9jZQFsDDA" labelSize="11" labelPosition="node" color="204,242,166">
           <description xmi:type="style:EllipseNodeDescription" href="platform:/resource/Agendomat/agendomat.design/description/agendomat.odesign#//@ownedViewpoints[name='AgendomatViewpoint']/@ownedRepresentations[name='EventDiagram']/@defaultLayer/@containerMappings[name='EventContainer']/@subNodeMappings[name='PersonNode']/@style"/>
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/resource/Agendomat/agendomat.design/description/agendomat.odesign#//@ownedViewpoints[name='AgendomatViewpoint']/@ownedRepresentations[name='EventDiagram']/@defaultLayer/@containerMappings[name='EventContainer']/@subNodeMappings[name='PersonNode']"/>
+        <target xmi:type="agendomat_1.0:Person" href="test.xmi#//@events.0/@persons.0"/>
+        <semanticElements xmi:type="agendomat_1.0:Person" href="test.xmi#//@events.0/@persons.0"/>
       </ownedDiagramElements>
       <ownedDiagramElements xmi:type="diagram:DNode" uid="_60oLMGAEEfGUe9jZQFsDDA" name="Jelena Jelić&#xA;[Presenter]" incomingEdges="_607GIGAEEfGUe9jZQFsDDA _607tMGAEEfGUe9jZQFsDDA _607tM2AEEfGUe9jZQFsDDA" width="3" height="3" resizeKind="NSEW">
-        <target xmi:type="agendomat:Person" href="test.xmi#//@events.0/@persons.1"/>
-        <semanticElements xmi:type="agendomat:Person" href="test.xmi#//@events.0/@persons.1"/>
         <ownedStyle xmi:type="diagram:Ellipse" uid="_60oLMWAEEfGUe9jZQFsDDA" labelSize="11" labelPosition="node" color="204,242,166">
           <description xmi:type="style:EllipseNodeDescription" href="platform:/resource/Agendomat/agendomat.design/description/agendomat.odesign#//@ownedViewpoints[name='AgendomatViewpoint']/@ownedRepresentations[name='EventDiagram']/@defaultLayer/@containerMappings[name='EventContainer']/@subNodeMappings[name='PersonNode']/@style"/>
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/resource/Agendomat/agendomat.design/description/agendomat.odesign#//@ownedViewpoints[name='AgendomatViewpoint']/@ownedRepresentations[name='EventDiagram']/@defaultLayer/@containerMappings[name='EventContainer']/@subNodeMappings[name='PersonNode']"/>
+        <target xmi:type="agendomat_1.0:Person" href="test.xmi#//@events.0/@persons.1"/>
+        <semanticElements xmi:type="agendomat_1.0:Person" href="test.xmi#//@events.0/@persons.1"/>
       </ownedDiagramElements>
       <ownedDiagramElements xmi:type="diagram:DNode" uid="_60oLM2AEEfGUe9jZQFsDDA" name="Ana Petrović&#xA;[Presenter]" incomingEdges="_607GI2AEEfGUe9jZQFsDDA _607tNmAEEfGUe9jZQFsDDA" width="3" height="3" resizeKind="NSEW">
-        <target xmi:type="agendomat:Person" href="test.xmi#//@events.0/@persons.2"/>
-        <semanticElements xmi:type="agendomat:Person" href="test.xmi#//@events.0/@persons.2"/>
         <ownedStyle xmi:type="diagram:Ellipse" uid="_60oLNGAEEfGUe9jZQFsDDA" labelSize="11" labelPosition="node" color="204,242,166">
           <description xmi:type="style:EllipseNodeDescription" href="platform:/resource/Agendomat/agendomat.design/description/agendomat.odesign#//@ownedViewpoints[name='AgendomatViewpoint']/@ownedRepresentations[name='EventDiagram']/@defaultLayer/@containerMappings[name='EventContainer']/@subNodeMappings[name='PersonNode']/@style"/>
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/resource/Agendomat/agendomat.design/description/agendomat.odesign#//@ownedViewpoints[name='AgendomatViewpoint']/@ownedRepresentations[name='EventDiagram']/@defaultLayer/@containerMappings[name='EventContainer']/@subNodeMappings[name='PersonNode']"/>
+        <target xmi:type="agendomat_1.0:Person" href="test.xmi#//@events.0/@persons.2"/>
+        <semanticElements xmi:type="agendomat_1.0:Person" href="test.xmi#//@events.0/@persons.2"/>
       </ownedDiagramElements>
       <ownedDiagramElements xmi:type="diagram:DNode" uid="_60oyQGAEEfGUe9jZQFsDDA" name="Tehničar 1&#xA;[TechSupport]" width="3" height="3" resizeKind="NSEW">
-        <target xmi:type="agendomat:Person" href="test.xmi#//@events.0/@persons.3"/>
-        <semanticElements xmi:type="agendomat:Person" href="test.xmi#//@events.0/@persons.3"/>
         <ownedStyle xmi:type="diagram:Ellipse" uid="_60oyQWAEEfGUe9jZQFsDDA" labelSize="11" labelPosition="node" color="204,242,166">
           <description xmi:type="style:EllipseNodeDescription" href="platform:/resource/Agendomat/agendomat.design/description/agendomat.odesign#//@ownedViewpoints[name='AgendomatViewpoint']/@ownedRepresentations[name='EventDiagram']/@defaultLayer/@containerMappings[name='EventContainer']/@subNodeMappings[name='PersonNode']/@style"/>
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/resource/Agendomat/agendomat.design/description/agendomat.odesign#//@ownedViewpoints[name='AgendomatViewpoint']/@ownedRepresentations[name='EventDiagram']/@defaultLayer/@containerMappings[name='EventContainer']/@subNodeMappings[name='PersonNode']"/>
+        <target xmi:type="agendomat_1.0:Person" href="test.xmi#//@events.0/@persons.3"/>
+        <semanticElements xmi:type="agendomat_1.0:Person" href="test.xmi#//@events.0/@persons.3"/>
       </ownedDiagramElements>
       <ownedDiagramElements xmi:type="diagram:DNode" uid="_60pZUWAEEfGUe9jZQFsDDA" name="Tehničar 2&#xA;[TechSupport]" width="3" height="3" resizeKind="NSEW">
-        <target xmi:type="agendomat:Person" href="test.xmi#//@events.0/@persons.4"/>
-        <semanticElements xmi:type="agendomat:Person" href="test.xmi#//@events.0/@persons.4"/>
         <ownedStyle xmi:type="diagram:Ellipse" uid="_60qAYGAEEfGUe9jZQFsDDA" labelSize="11" labelPosition="node" color="204,242,166">
           <description xmi:type="style:EllipseNodeDescription" href="platform:/resource/Agendomat/agendomat.design/description/agendomat.odesign#//@ownedViewpoints[name='AgendomatViewpoint']/@ownedRepresentations[name='EventDiagram']/@defaultLayer/@containerMappings[name='EventContainer']/@subNodeMappings[name='PersonNode']/@style"/>
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/resource/Agendomat/agendomat.design/description/agendomat.odesign#//@ownedViewpoints[name='AgendomatViewpoint']/@ownedRepresentations[name='EventDiagram']/@defaultLayer/@containerMappings[name='EventContainer']/@subNodeMappings[name='PersonNode']"/>
+        <target xmi:type="agendomat_1.0:Person" href="test.xmi#//@events.0/@persons.4"/>
+        <semanticElements xmi:type="agendomat_1.0:Person" href="test.xmi#//@events.0/@persons.4"/>
       </ownedDiagramElements>
       <ownedDiagramElements xmi:type="diagram:DNode" uid="_60qncGAEEfGUe9jZQFsDDA" name="Animator 1&#xA;[Animator]" width="3" height="3" resizeKind="NSEW">
-        <target xmi:type="agendomat:Person" href="test.xmi#//@events.0/@persons.5"/>
-        <semanticElements xmi:type="agendomat:Person" href="test.xmi#//@events.0/@persons.5"/>
         <ownedStyle xmi:type="diagram:Ellipse" uid="_60qncWAEEfGUe9jZQFsDDA" labelSize="11" labelPosition="node" color="204,242,166">
           <description xmi:type="style:EllipseNodeDescription" href="platform:/resource/Agendomat/agendomat.design/description/agendomat.odesign#//@ownedViewpoints[name='AgendomatViewpoint']/@ownedRepresentations[name='EventDiagram']/@defaultLayer/@containerMappings[name='EventContainer']/@subNodeMappings[name='PersonNode']/@style"/>
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/resource/Agendomat/agendomat.design/description/agendomat.odesign#//@ownedViewpoints[name='AgendomatViewpoint']/@ownedRepresentations[name='EventDiagram']/@defaultLayer/@containerMappings[name='EventContainer']/@subNodeMappings[name='PersonNode']"/>
+        <target xmi:type="agendomat_1.0:Person" href="test.xmi#//@events.0/@persons.5"/>
+        <semanticElements xmi:type="agendomat_1.0:Person" href="test.xmi#//@events.0/@persons.5"/>
       </ownedDiagramElements>
-      <ownedDiagramElements xmi:type="diagram:DNode" uid="_7bjBQGAEEfGUe9jZQFsDDA" name="New Person&#xA;[]" width="3" height="3" resizeKind="NSEW">
-        <target xmi:type="agendomat:Person" href="test.xmi#//@events.0/@persons.6"/>
-        <semanticElements xmi:type="agendomat:Person" href="test.xmi#//@events.0/@persons.6"/>
-        <ownedStyle xmi:type="diagram:Ellipse" uid="_7bjoUGAEEfGUe9jZQFsDDA" labelSize="11" labelPosition="node" color="204,242,166">
-          <description xmi:type="style:EllipseNodeDescription" href="platform:/resource/Agendomat/agendomat.design/description/agendomat.odesign#//@ownedViewpoints[name='AgendomatViewpoint']/@ownedRepresentations[name='EventDiagram']/@defaultLayer/@containerMappings[name='EventContainer']/@subNodeMappings[name='PersonNode']/@style"/>
-        </ownedStyle>
-        <actualMapping xmi:type="description_1:NodeMapping" href="platform:/resource/Agendomat/agendomat.design/description/agendomat.odesign#//@ownedViewpoints[name='AgendomatViewpoint']/@ownedRepresentations[name='EventDiagram']/@defaultLayer/@containerMappings[name='EventContainer']/@subNodeMappings[name='PersonNode']"/>
-      </ownedDiagramElements>
+      <target xmi:type="agendomat_1.0:Event" href="test.xmi#//@events.0"/>
+      <semanticElements xmi:type="agendomat_1.0:Event" href="test.xmi#//@events.0"/>
     </ownedDiagramElements>
     <ownedDiagramElements xmi:type="diagram:DNodeContainer" uid="_60dzIWAEEfGUe9jZQFsDDA" name="Event: Workshop 2026&#xA;2026-05-17 - 2026-05-17">
-      <target xmi:type="agendomat:Event" href="test.xmi#//@events.1"/>
-      <semanticElements xmi:type="agendomat:Event" href="test.xmi#//@events.1"/>
       <ownedStyle xmi:type="diagram:FlatContainerStyle" uid="_60eaMGAEEfGUe9jZQFsDDA" labelSize="13" labelColor="255,255,255" borderColor="39,76,114" backgroundColor="39,76,114" foregroundColor="194,239,255">
         <description xmi:type="style:FlatContainerStyleDescription" href="platform:/resource/Agendomat/agendomat.design/description/agendomat.odesign#//@ownedViewpoints[name='AgendomatViewpoint']/@ownedRepresentations[name='EventDiagram']/@defaultLayer/@containerMappings[name='EventContainer']/@style"/>
       </ownedStyle>
       <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/resource/Agendomat/agendomat.design/description/agendomat.odesign#//@ownedViewpoints[name='AgendomatViewpoint']/@ownedRepresentations[name='EventDiagram']/@defaultLayer/@containerMappings[name='EventContainer']"/>
       <ownedDiagramElements xmi:type="diagram:DNodeContainer" uid="_60rOgGAEEfGUe9jZQFsDDA" name="Session: EMF osnove&#xA;09:00 - 10:30" outgoingEdges="_600_hGAEEfGUe9jZQFsDDA">
-        <target xmi:type="agendomat:Session" href="test.xmi#//@events.1/@programItems.0"/>
-        <semanticElements xmi:type="agendomat:Session" href="test.xmi#//@events.1/@programItems.0"/>
         <ownedStyle xmi:type="diagram:FlatContainerStyle" uid="_60rOgWAEEfGUe9jZQFsDDA" labelSize="11" labelColor="255,255,255" borderColor="39,76,114" backgroundColor="114,159,207" foregroundColor="194,239,255">
           <description xmi:type="style:FlatContainerStyleDescription" href="platform:/resource/Agendomat/agendomat.design/description/agendomat.odesign#//@ownedViewpoints[name='AgendomatViewpoint']/@ownedRepresentations[name='EventDiagram']/@defaultLayer/@containerMappings[name='EventContainer']/@subContainerMappings[name='SessionContainer']/@style"/>
         </ownedStyle>
         <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/resource/Agendomat/agendomat.design/description/agendomat.odesign#//@ownedViewpoints[name='AgendomatViewpoint']/@ownedRepresentations[name='EventDiagram']/@defaultLayer/@containerMappings[name='EventContainer']/@subContainerMappings[name='SessionContainer']"/>
         <ownedDiagramElements xmi:type="diagram:DNode" uid="_60r1lGAEEfGUe9jZQFsDDA" name="Talk: Ecore metamodelovanje&#xA;09:00 - 10:30" outgoingEdges="_608UQGAEEfGUe9jZQFsDDA" width="3" height="3" resizeKind="NSEW">
-          <target xmi:type="agendomat:Talk" href="test.xmi#//@events.1/@programItems.0/@talks.0"/>
-          <semanticElements xmi:type="agendomat:Talk" href="test.xmi#//@events.1/@programItems.0/@talks.0"/>
           <ownedStyle xmi:type="diagram:Square" uid="_60r1lWAEEfGUe9jZQFsDDA" labelSize="10" borderColor="39,76,114" labelPosition="node" color="255,255,255">
             <description xmi:type="style:SquareDescription" href="platform:/resource/Agendomat/agendomat.design/description/agendomat.odesign#//@ownedViewpoints[name='AgendomatViewpoint']/@ownedRepresentations[name='EventDiagram']/@defaultLayer/@containerMappings[name='EventContainer']/@subContainerMappings[name='SessionContainer']/@subNodeMappings[name='TalkNode']/@style"/>
           </ownedStyle>
           <actualMapping xmi:type="description_1:NodeMapping" href="platform:/resource/Agendomat/agendomat.design/description/agendomat.odesign#//@ownedViewpoints[name='AgendomatViewpoint']/@ownedRepresentations[name='EventDiagram']/@defaultLayer/@containerMappings[name='EventContainer']/@subContainerMappings[name='SessionContainer']/@subNodeMappings[name='TalkNode']"/>
+          <target xmi:type="agendomat_1.0:Talk" href="test.xmi#//@events.1/@programItems.0/@talks.0"/>
+          <semanticElements xmi:type="agendomat_1.0:Talk" href="test.xmi#//@events.1/@programItems.0/@talks.0"/>
         </ownedDiagramElements>
+        <target xmi:type="agendomat_1.0:Session" href="test.xmi#//@events.1/@programItems.0"/>
+        <semanticElements xmi:type="agendomat_1.0:Session" href="test.xmi#//@events.1/@programItems.0"/>
       </ownedDiagramElements>
       <ownedDiagramElements xmi:type="diagram:DNodeContainer" uid="_60r1kWAEEfGUe9jZQFsDDA" name="Session: Xtext i Sirius&#xA;10:45 - 12:15" outgoingEdges="_601mkGAEEfGUe9jZQFsDDA">
-        <target xmi:type="agendomat:Session" href="test.xmi#//@events.1/@programItems.2"/>
-        <semanticElements xmi:type="agendomat:Session" href="test.xmi#//@events.1/@programItems.2"/>
         <ownedStyle xmi:type="diagram:FlatContainerStyle" uid="_60r1kmAEEfGUe9jZQFsDDA" labelSize="11" labelColor="255,255,255" borderColor="39,76,114" backgroundColor="114,159,207" foregroundColor="194,239,255">
           <description xmi:type="style:FlatContainerStyleDescription" href="platform:/resource/Agendomat/agendomat.design/description/agendomat.odesign#//@ownedViewpoints[name='AgendomatViewpoint']/@ownedRepresentations[name='EventDiagram']/@defaultLayer/@containerMappings[name='EventContainer']/@subContainerMappings[name='SessionContainer']/@style"/>
         </ownedStyle>
         <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/resource/Agendomat/agendomat.design/description/agendomat.odesign#//@ownedViewpoints[name='AgendomatViewpoint']/@ownedRepresentations[name='EventDiagram']/@defaultLayer/@containerMappings[name='EventContainer']/@subContainerMappings[name='SessionContainer']"/>
         <ownedDiagramElements xmi:type="diagram:DNode" uid="_60tDsWAEEfGUe9jZQFsDDA" name="Talk: DSL razvoj korak po korak&#xA;10:45 - 12:15" outgoingEdges="_608UQ2AEEfGUe9jZQFsDDA" width="3" height="3" resizeKind="NSEW">
-          <target xmi:type="agendomat:Talk" href="test.xmi#//@events.1/@programItems.2/@talks.0"/>
-          <semanticElements xmi:type="agendomat:Talk" href="test.xmi#//@events.1/@programItems.2/@talks.0"/>
           <ownedStyle xmi:type="diagram:Square" uid="_60tDsmAEEfGUe9jZQFsDDA" labelSize="10" borderColor="39,76,114" labelPosition="node" color="255,255,255">
             <description xmi:type="style:SquareDescription" href="platform:/resource/Agendomat/agendomat.design/description/agendomat.odesign#//@ownedViewpoints[name='AgendomatViewpoint']/@ownedRepresentations[name='EventDiagram']/@defaultLayer/@containerMappings[name='EventContainer']/@subContainerMappings[name='SessionContainer']/@subNodeMappings[name='TalkNode']/@style"/>
           </ownedStyle>
           <actualMapping xmi:type="description_1:NodeMapping" href="platform:/resource/Agendomat/agendomat.design/description/agendomat.odesign#//@ownedViewpoints[name='AgendomatViewpoint']/@ownedRepresentations[name='EventDiagram']/@defaultLayer/@containerMappings[name='EventContainer']/@subContainerMappings[name='SessionContainer']/@subNodeMappings[name='TalkNode']"/>
+          <target xmi:type="agendomat_1.0:Talk" href="test.xmi#//@events.1/@programItems.2/@talks.0"/>
+          <semanticElements xmi:type="agendomat_1.0:Talk" href="test.xmi#//@events.1/@programItems.2/@talks.0"/>
         </ownedDiagramElements>
+        <target xmi:type="agendomat_1.0:Session" href="test.xmi#//@events.1/@programItems.2"/>
+        <semanticElements xmi:type="agendomat_1.0:Session" href="test.xmi#//@events.1/@programItems.2"/>
       </ownedDiagramElements>
       <ownedDiagramElements xmi:type="diagram:DNodeContainer" uid="_60tqwWAEEfGUe9jZQFsDDA" name="Break: Kratka pauza&#xA;10:30 - 10:45" outgoingEdges="_604C0GAEEfGUe9jZQFsDDA">
-        <target xmi:type="agendomat:Break" href="test.xmi#//@events.1/@programItems.1"/>
-        <semanticElements xmi:type="agendomat:Break" href="test.xmi#//@events.1/@programItems.1"/>
         <ownedStyle xmi:type="diagram:FlatContainerStyle" uid="_60tqwmAEEfGUe9jZQFsDDA" labelSize="11" labelColor="255,255,255" borderColor="224,133,3" backgroundColor="252,175,62" foregroundColor="253,206,137">
           <description xmi:type="style:FlatContainerStyleDescription" href="platform:/resource/Agendomat/agendomat.design/description/agendomat.odesign#//@ownedViewpoints[name='AgendomatViewpoint']/@ownedRepresentations[name='EventDiagram']/@defaultLayer/@containerMappings[name='EventContainer']/@subContainerMappings[name='BreakContainer']/@style"/>
         </ownedStyle>
         <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/resource/Agendomat/agendomat.design/description/agendomat.odesign#//@ownedViewpoints[name='AgendomatViewpoint']/@ownedRepresentations[name='EventDiagram']/@defaultLayer/@containerMappings[name='EventContainer']/@subContainerMappings[name='BreakContainer']"/>
+        <target xmi:type="agendomat_1.0:Break" href="test.xmi#//@events.1/@programItems.1"/>
+        <semanticElements xmi:type="agendomat_1.0:Break" href="test.xmi#//@events.1/@programItems.1"/>
       </ownedDiagramElements>
       <ownedDiagramElements xmi:type="diagram:DNode" uid="_60uR0WAEEfGUe9jZQFsDDA" name="Lab 1&#xA;[Room]" incomingEdges="_600_hGAEEfGUe9jZQFsDDA" width="3" height="3" resizeKind="NSEW">
-        <target xmi:type="agendomat:Location" href="test.xmi#//@events.1/@locations.0"/>
-        <semanticElements xmi:type="agendomat:Location" href="test.xmi#//@events.1/@locations.0"/>
         <ownedStyle xmi:type="diagram:Ellipse" uid="_60uR0mAEEfGUe9jZQFsDDA" labelSize="11" labelPosition="node" color="255,245,181">
           <description xmi:type="style:EllipseNodeDescription" href="platform:/resource/Agendomat/agendomat.design/description/agendomat.odesign#//@ownedViewpoints[name='AgendomatViewpoint']/@ownedRepresentations[name='EventDiagram']/@defaultLayer/@containerMappings[name='EventContainer']/@subNodeMappings[name='LocationNode']/@style"/>
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/resource/Agendomat/agendomat.design/description/agendomat.odesign#//@ownedViewpoints[name='AgendomatViewpoint']/@ownedRepresentations[name='EventDiagram']/@defaultLayer/@containerMappings[name='EventContainer']/@subNodeMappings[name='LocationNode']"/>
+        <target xmi:type="agendomat_1.0:Location" href="test.xmi#//@events.1/@locations.0"/>
+        <semanticElements xmi:type="agendomat_1.0:Location" href="test.xmi#//@events.1/@locations.0"/>
       </ownedDiagramElements>
       <ownedDiagramElements xmi:type="diagram:DNode" uid="_60u44WAEEfGUe9jZQFsDDA" name="Lab 2&#xA;[Room]" incomingEdges="_601mkGAEEfGUe9jZQFsDDA" width="3" height="3" resizeKind="NSEW">
-        <target xmi:type="agendomat:Location" href="test.xmi#//@events.1/@locations.1"/>
-        <semanticElements xmi:type="agendomat:Location" href="test.xmi#//@events.1/@locations.1"/>
         <ownedStyle xmi:type="diagram:Ellipse" uid="_60u44mAEEfGUe9jZQFsDDA" labelSize="11" labelPosition="node" color="255,245,181">
           <description xmi:type="style:EllipseNodeDescription" href="platform:/resource/Agendomat/agendomat.design/description/agendomat.odesign#//@ownedViewpoints[name='AgendomatViewpoint']/@ownedRepresentations[name='EventDiagram']/@defaultLayer/@containerMappings[name='EventContainer']/@subNodeMappings[name='LocationNode']/@style"/>
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/resource/Agendomat/agendomat.design/description/agendomat.odesign#//@ownedViewpoints[name='AgendomatViewpoint']/@ownedRepresentations[name='EventDiagram']/@defaultLayer/@containerMappings[name='EventContainer']/@subNodeMappings[name='LocationNode']"/>
+        <target xmi:type="agendomat_1.0:Location" href="test.xmi#//@events.1/@locations.1"/>
+        <semanticElements xmi:type="agendomat_1.0:Location" href="test.xmi#//@events.1/@locations.1"/>
       </ownedDiagramElements>
       <ownedDiagramElements xmi:type="diagram:DNode" uid="_60vf8GAEEfGUe9jZQFsDDA" name="Hodnik&#xA;[BreakArea]" incomingEdges="_604C0GAEEfGUe9jZQFsDDA" width="3" height="3" resizeKind="NSEW">
-        <target xmi:type="agendomat:Location" href="test.xmi#//@events.1/@locations.2"/>
-        <semanticElements xmi:type="agendomat:Location" href="test.xmi#//@events.1/@locations.2"/>
         <ownedStyle xmi:type="diagram:Ellipse" uid="_60vf8WAEEfGUe9jZQFsDDA" labelSize="11" labelPosition="node" color="255,245,181">
           <description xmi:type="style:EllipseNodeDescription" href="platform:/resource/Agendomat/agendomat.design/description/agendomat.odesign#//@ownedViewpoints[name='AgendomatViewpoint']/@ownedRepresentations[name='EventDiagram']/@defaultLayer/@containerMappings[name='EventContainer']/@subNodeMappings[name='LocationNode']/@style"/>
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/resource/Agendomat/agendomat.design/description/agendomat.odesign#//@ownedViewpoints[name='AgendomatViewpoint']/@ownedRepresentations[name='EventDiagram']/@defaultLayer/@containerMappings[name='EventContainer']/@subNodeMappings[name='LocationNode']"/>
+        <target xmi:type="agendomat_1.0:Location" href="test.xmi#//@events.1/@locations.2"/>
+        <semanticElements xmi:type="agendomat_1.0:Location" href="test.xmi#//@events.1/@locations.2"/>
       </ownedDiagramElements>
       <ownedDiagramElements xmi:type="diagram:DNode" uid="_60wHAWAEEfGUe9jZQFsDDA" name="Prof. Vještica&#xA;[Presenter]" incomingEdges="_608UQGAEEfGUe9jZQFsDDA" width="3" height="3" resizeKind="NSEW">
-        <target xmi:type="agendomat:Person" href="test.xmi#//@events.1/@persons.0"/>
-        <semanticElements xmi:type="agendomat:Person" href="test.xmi#//@events.1/@persons.0"/>
         <ownedStyle xmi:type="diagram:Ellipse" uid="_60wuEGAEEfGUe9jZQFsDDA" labelSize="11" labelPosition="node" color="204,242,166">
           <description xmi:type="style:EllipseNodeDescription" href="platform:/resource/Agendomat/agendomat.design/description/agendomat.odesign#//@ownedViewpoints[name='AgendomatViewpoint']/@ownedRepresentations[name='EventDiagram']/@defaultLayer/@containerMappings[name='EventContainer']/@subNodeMappings[name='PersonNode']/@style"/>
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/resource/Agendomat/agendomat.design/description/agendomat.odesign#//@ownedViewpoints[name='AgendomatViewpoint']/@ownedRepresentations[name='EventDiagram']/@defaultLayer/@containerMappings[name='EventContainer']/@subNodeMappings[name='PersonNode']"/>
+        <target xmi:type="agendomat_1.0:Person" href="test.xmi#//@events.1/@persons.0"/>
+        <semanticElements xmi:type="agendomat_1.0:Person" href="test.xmi#//@events.1/@persons.0"/>
       </ownedDiagramElements>
       <ownedDiagramElements xmi:type="diagram:DNode" uid="_60xVIGAEEfGUe9jZQFsDDA" name="Prof. Čeliković&#xA;[Presenter]" incomingEdges="_608UQ2AEEfGUe9jZQFsDDA" width="3" height="3" resizeKind="NSEW">
-        <target xmi:type="agendomat:Person" href="test.xmi#//@events.1/@persons.1"/>
-        <semanticElements xmi:type="agendomat:Person" href="test.xmi#//@events.1/@persons.1"/>
         <ownedStyle xmi:type="diagram:Ellipse" uid="_60xVIWAEEfGUe9jZQFsDDA" labelSize="11" labelPosition="node" color="204,242,166">
           <description xmi:type="style:EllipseNodeDescription" href="platform:/resource/Agendomat/agendomat.design/description/agendomat.odesign#//@ownedViewpoints[name='AgendomatViewpoint']/@ownedRepresentations[name='EventDiagram']/@defaultLayer/@containerMappings[name='EventContainer']/@subNodeMappings[name='PersonNode']/@style"/>
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/resource/Agendomat/agendomat.design/description/agendomat.odesign#//@ownedViewpoints[name='AgendomatViewpoint']/@ownedRepresentations[name='EventDiagram']/@defaultLayer/@containerMappings[name='EventContainer']/@subNodeMappings[name='PersonNode']"/>
+        <target xmi:type="agendomat_1.0:Person" href="test.xmi#//@events.1/@persons.1"/>
+        <semanticElements xmi:type="agendomat_1.0:Person" href="test.xmi#//@events.1/@persons.1"/>
       </ownedDiagramElements>
       <ownedDiagramElements xmi:type="diagram:DNode" uid="_60x8MWAEEfGUe9jZQFsDDA" name="Asistent 1&#xA;[TechSupport]" width="3" height="3" resizeKind="NSEW">
-        <target xmi:type="agendomat:Person" href="test.xmi#//@events.1/@persons.2"/>
-        <semanticElements xmi:type="agendomat:Person" href="test.xmi#//@events.1/@persons.2"/>
         <ownedStyle xmi:type="diagram:Ellipse" uid="_60yjQGAEEfGUe9jZQFsDDA" labelSize="11" labelPosition="node" color="204,242,166">
           <description xmi:type="style:EllipseNodeDescription" href="platform:/resource/Agendomat/agendomat.design/description/agendomat.odesign#//@ownedViewpoints[name='AgendomatViewpoint']/@ownedRepresentations[name='EventDiagram']/@defaultLayer/@containerMappings[name='EventContainer']/@subNodeMappings[name='PersonNode']/@style"/>
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/resource/Agendomat/agendomat.design/description/agendomat.odesign#//@ownedViewpoints[name='AgendomatViewpoint']/@ownedRepresentations[name='EventDiagram']/@defaultLayer/@containerMappings[name='EventContainer']/@subNodeMappings[name='PersonNode']"/>
+        <target xmi:type="agendomat_1.0:Person" href="test.xmi#//@events.1/@persons.2"/>
+        <semanticElements xmi:type="agendomat_1.0:Person" href="test.xmi#//@events.1/@persons.2"/>
       </ownedDiagramElements>
       <ownedDiagramElements xmi:type="diagram:DNode" uid="_60zKUGAEEfGUe9jZQFsDDA" name="Koordinator&#xA;[Animator]" width="3" height="3" resizeKind="NSEW">
-        <target xmi:type="agendomat:Person" href="test.xmi#//@events.1/@persons.3"/>
-        <semanticElements xmi:type="agendomat:Person" href="test.xmi#//@events.1/@persons.3"/>
         <ownedStyle xmi:type="diagram:Ellipse" uid="_60zKUWAEEfGUe9jZQFsDDA" labelSize="11" labelPosition="node" color="204,242,166">
           <description xmi:type="style:EllipseNodeDescription" href="platform:/resource/Agendomat/agendomat.design/description/agendomat.odesign#//@ownedViewpoints[name='AgendomatViewpoint']/@ownedRepresentations[name='EventDiagram']/@defaultLayer/@containerMappings[name='EventContainer']/@subNodeMappings[name='PersonNode']/@style"/>
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/resource/Agendomat/agendomat.design/description/agendomat.odesign#//@ownedViewpoints[name='AgendomatViewpoint']/@ownedRepresentations[name='EventDiagram']/@defaultLayer/@containerMappings[name='EventContainer']/@subNodeMappings[name='PersonNode']"/>
+        <target xmi:type="agendomat_1.0:Person" href="test.xmi#//@events.1/@persons.3"/>
+        <semanticElements xmi:type="agendomat_1.0:Person" href="test.xmi#//@events.1/@persons.3"/>
       </ownedDiagramElements>
+      <target xmi:type="agendomat_1.0:Event" href="test.xmi#//@events.1"/>
+      <semanticElements xmi:type="agendomat_1.0:Event" href="test.xmi#//@events.1"/>
     </ownedDiagramElements>
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_60zxYGAEEfGUe9jZQFsDDA" sourceNode="_60fBQGAEEfGUe9jZQFsDDA" targetNode="_60lu8GAEEfGUe9jZQFsDDA">
-      <target xmi:type="agendomat:Session" href="test.xmi#//@events.0/@programItems.0"/>
       <ownedStyle xmi:type="diagram:EdgeStyle" uid="_600YcGAEEfGUe9jZQFsDDA" strokeColor="39,76,114">
         <description xmi:type="style:EdgeStyleDescription" href="platform:/resource/Agendomat/agendomat.design/description/agendomat.odesign#//@ownedViewpoints[name='AgendomatViewpoint']/@ownedRepresentations[name='EventDiagram']/@defaultLayer/@edgeMappings[name='SessionToLocation']/@style"/>
       </ownedStyle>
       <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/resource/Agendomat/agendomat.design/description/agendomat.odesign#//@ownedViewpoints[name='AgendomatViewpoint']/@ownedRepresentations[name='EventDiagram']/@defaultLayer/@edgeMappings[name='SessionToLocation']"/>
+      <target xmi:type="agendomat_1.0:Session" href="test.xmi#//@events.0/@programItems.0"/>
     </ownedDiagramElements>
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_600YcmAEEfGUe9jZQFsDDA" sourceNode="_60gPYWAEEfGUe9jZQFsDDA" targetNode="_60mWAGAEEfGUe9jZQFsDDA">
-      <target xmi:type="agendomat:Session" href="test.xmi#//@events.0/@programItems.2"/>
       <ownedStyle xmi:type="diagram:EdgeStyle" uid="_600Yc2AEEfGUe9jZQFsDDA" strokeColor="39,76,114">
         <description xmi:type="style:EdgeStyleDescription" href="platform:/resource/Agendomat/agendomat.design/description/agendomat.odesign#//@ownedViewpoints[name='AgendomatViewpoint']/@ownedRepresentations[name='EventDiagram']/@defaultLayer/@edgeMappings[name='SessionToLocation']/@style"/>
       </ownedStyle>
       <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/resource/Agendomat/agendomat.design/description/agendomat.odesign#//@ownedViewpoints[name='AgendomatViewpoint']/@ownedRepresentations[name='EventDiagram']/@defaultLayer/@edgeMappings[name='SessionToLocation']"/>
+      <target xmi:type="agendomat_1.0:Session" href="test.xmi#//@events.0/@programItems.2"/>
     </ownedDiagramElements>
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_600_gWAEEfGUe9jZQFsDDA" sourceNode="_60g2cmAEEfGUe9jZQFsDDA" targetNode="_60mWA2AEEfGUe9jZQFsDDA">
-      <target xmi:type="agendomat:Session" href="test.xmi#//@events.0/@programItems.4"/>
       <ownedStyle xmi:type="diagram:EdgeStyle" uid="_600_gmAEEfGUe9jZQFsDDA" strokeColor="39,76,114">
         <description xmi:type="style:EdgeStyleDescription" href="platform:/resource/Agendomat/agendomat.design/description/agendomat.odesign#//@ownedViewpoints[name='AgendomatViewpoint']/@ownedRepresentations[name='EventDiagram']/@defaultLayer/@edgeMappings[name='SessionToLocation']/@style"/>
       </ownedStyle>
       <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/resource/Agendomat/agendomat.design/description/agendomat.odesign#//@ownedViewpoints[name='AgendomatViewpoint']/@ownedRepresentations[name='EventDiagram']/@defaultLayer/@edgeMappings[name='SessionToLocation']"/>
+      <target xmi:type="agendomat_1.0:Session" href="test.xmi#//@events.0/@programItems.4"/>
     </ownedDiagramElements>
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_600_hGAEEfGUe9jZQFsDDA" sourceNode="_60rOgGAEEfGUe9jZQFsDDA" targetNode="_60uR0WAEEfGUe9jZQFsDDA">
-      <target xmi:type="agendomat:Session" href="test.xmi#//@events.1/@programItems.0"/>
       <ownedStyle xmi:type="diagram:EdgeStyle" uid="_600_hWAEEfGUe9jZQFsDDA" strokeColor="39,76,114">
         <description xmi:type="style:EdgeStyleDescription" href="platform:/resource/Agendomat/agendomat.design/description/agendomat.odesign#//@ownedViewpoints[name='AgendomatViewpoint']/@ownedRepresentations[name='EventDiagram']/@defaultLayer/@edgeMappings[name='SessionToLocation']/@style"/>
       </ownedStyle>
       <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/resource/Agendomat/agendomat.design/description/agendomat.odesign#//@ownedViewpoints[name='AgendomatViewpoint']/@ownedRepresentations[name='EventDiagram']/@defaultLayer/@edgeMappings[name='SessionToLocation']"/>
+      <target xmi:type="agendomat_1.0:Session" href="test.xmi#//@events.1/@programItems.0"/>
     </ownedDiagramElements>
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_601mkGAEEfGUe9jZQFsDDA" sourceNode="_60r1kWAEEfGUe9jZQFsDDA" targetNode="_60u44WAEEfGUe9jZQFsDDA">
-      <target xmi:type="agendomat:Session" href="test.xmi#//@events.1/@programItems.2"/>
       <ownedStyle xmi:type="diagram:EdgeStyle" uid="_601mkWAEEfGUe9jZQFsDDA" strokeColor="39,76,114">
         <description xmi:type="style:EdgeStyleDescription" href="platform:/resource/Agendomat/agendomat.design/description/agendomat.odesign#//@ownedViewpoints[name='AgendomatViewpoint']/@ownedRepresentations[name='EventDiagram']/@defaultLayer/@edgeMappings[name='SessionToLocation']/@style"/>
       </ownedStyle>
       <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/resource/Agendomat/agendomat.design/description/agendomat.odesign#//@ownedViewpoints[name='AgendomatViewpoint']/@ownedRepresentations[name='EventDiagram']/@defaultLayer/@edgeMappings[name='SessionToLocation']"/>
+      <target xmi:type="agendomat_1.0:Session" href="test.xmi#//@events.1/@programItems.2"/>
     </ownedDiagramElements>
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_602NoGAEEfGUe9jZQFsDDA" sourceNode="_60kg0GAEEfGUe9jZQFsDDA" targetNode="_60mWBmAEEfGUe9jZQFsDDA">
-      <target xmi:type="agendomat:Break" href="test.xmi#//@events.0/@programItems.1"/>
       <ownedStyle xmi:type="diagram:EdgeStyle" uid="_602NoWAEEfGUe9jZQFsDDA" strokeColor="224,133,3">
         <description xmi:type="style:EdgeStyleDescription" href="platform:/resource/Agendomat/agendomat.design/description/agendomat.odesign#//@ownedViewpoints[name='AgendomatViewpoint']/@ownedRepresentations[name='EventDiagram']/@defaultLayer/@edgeMappings[name='BreakToLocation']/@style"/>
       </ownedStyle>
       <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/resource/Agendomat/agendomat.design/description/agendomat.odesign#//@ownedViewpoints[name='AgendomatViewpoint']/@ownedRepresentations[name='EventDiagram']/@defaultLayer/@edgeMappings[name='BreakToLocation']"/>
+      <target xmi:type="agendomat_1.0:Break" href="test.xmi#//@events.0/@programItems.1"/>
     </ownedDiagramElements>
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_6020sWAEEfGUe9jZQFsDDA" sourceNode="_60kg02AEEfGUe9jZQFsDDA" targetNode="_60m9EmAEEfGUe9jZQFsDDA">
-      <target xmi:type="agendomat:Break" href="test.xmi#//@events.0/@programItems.3"/>
       <ownedStyle xmi:type="diagram:EdgeStyle" uid="_6020smAEEfGUe9jZQFsDDA" strokeColor="224,133,3">
         <description xmi:type="style:EdgeStyleDescription" href="platform:/resource/Agendomat/agendomat.design/description/agendomat.odesign#//@ownedViewpoints[name='AgendomatViewpoint']/@ownedRepresentations[name='EventDiagram']/@defaultLayer/@edgeMappings[name='BreakToLocation']/@style"/>
       </ownedStyle>
       <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/resource/Agendomat/agendomat.design/description/agendomat.odesign#//@ownedViewpoints[name='AgendomatViewpoint']/@ownedRepresentations[name='EventDiagram']/@defaultLayer/@edgeMappings[name='BreakToLocation']"/>
+      <target xmi:type="agendomat_1.0:Break" href="test.xmi#//@events.0/@programItems.3"/>
     </ownedDiagramElements>
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_6020tGAEEfGUe9jZQFsDDA" sourceNode="_60lH4mAEEfGUe9jZQFsDDA" targetNode="_60mWBmAEEfGUe9jZQFsDDA">
-      <target xmi:type="agendomat:Break" href="test.xmi#//@events.0/@programItems.5"/>
       <ownedStyle xmi:type="diagram:EdgeStyle" uid="_603bwGAEEfGUe9jZQFsDDA" strokeColor="224,133,3">
         <description xmi:type="style:EdgeStyleDescription" href="platform:/resource/Agendomat/agendomat.design/description/agendomat.odesign#//@ownedViewpoints[name='AgendomatViewpoint']/@ownedRepresentations[name='EventDiagram']/@defaultLayer/@edgeMappings[name='BreakToLocation']/@style"/>
       </ownedStyle>
       <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/resource/Agendomat/agendomat.design/description/agendomat.odesign#//@ownedViewpoints[name='AgendomatViewpoint']/@ownedRepresentations[name='EventDiagram']/@defaultLayer/@edgeMappings[name='BreakToLocation']"/>
+      <target xmi:type="agendomat_1.0:Break" href="test.xmi#//@events.0/@programItems.5"/>
     </ownedDiagramElements>
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_604C0GAEEfGUe9jZQFsDDA" sourceNode="_60tqwWAEEfGUe9jZQFsDDA" targetNode="_60vf8GAEEfGUe9jZQFsDDA">
-      <target xmi:type="agendomat:Break" href="test.xmi#//@events.1/@programItems.1"/>
       <ownedStyle xmi:type="diagram:EdgeStyle" uid="_604C0WAEEfGUe9jZQFsDDA" strokeColor="224,133,3">
         <description xmi:type="style:EdgeStyleDescription" href="platform:/resource/Agendomat/agendomat.design/description/agendomat.odesign#//@ownedViewpoints[name='AgendomatViewpoint']/@ownedRepresentations[name='EventDiagram']/@defaultLayer/@edgeMappings[name='BreakToLocation']/@style"/>
       </ownedStyle>
       <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/resource/Agendomat/agendomat.design/description/agendomat.odesign#//@ownedViewpoints[name='AgendomatViewpoint']/@ownedRepresentations[name='EventDiagram']/@defaultLayer/@edgeMappings[name='BreakToLocation']"/>
+      <target xmi:type="agendomat_1.0:Break" href="test.xmi#//@events.1/@programItems.1"/>
     </ownedDiagramElements>
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_6054AGAEEfGUe9jZQFsDDA" sourceNode="_60hdgmAEEfGUe9jZQFsDDA" targetNode="_60nkIGAEEfGUe9jZQFsDDA">
-      <target xmi:type="agendomat:Talk" href="test.xmi#//@events.0/@programItems.0/@talks.0"/>
       <ownedStyle xmi:type="diagram:EdgeStyle" uid="_606fEGAEEfGUe9jZQFsDDA" strokeColor="0,0,0">
         <description xmi:type="style:EdgeStyleDescription" href="platform:/resource/Agendomat/agendomat.design/description/agendomat.odesign#//@ownedViewpoints[name='AgendomatViewpoint']/@ownedRepresentations[name='EventDiagram']/@defaultLayer/@edgeMappings[name='TalkToPresenter']/@style"/>
       </ownedStyle>
       <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/resource/Agendomat/agendomat.design/description/agendomat.odesign#//@ownedViewpoints[name='AgendomatViewpoint']/@ownedRepresentations[name='EventDiagram']/@defaultLayer/@edgeMappings[name='TalkToPresenter']"/>
+      <target xmi:type="agendomat_1.0:Talk" href="test.xmi#//@events.0/@programItems.0/@talks.0"/>
     </ownedDiagramElements>
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_607GIGAEEfGUe9jZQFsDDA" sourceNode="_60iroGAEEfGUe9jZQFsDDA" targetNode="_60oLMGAEEfGUe9jZQFsDDA">
-      <target xmi:type="agendomat:Talk" href="test.xmi#//@events.0/@programItems.0/@talks.1"/>
       <ownedStyle xmi:type="diagram:EdgeStyle" uid="_607GIWAEEfGUe9jZQFsDDA" strokeColor="0,0,0">
         <description xmi:type="style:EdgeStyleDescription" href="platform:/resource/Agendomat/agendomat.design/description/agendomat.odesign#//@ownedViewpoints[name='AgendomatViewpoint']/@ownedRepresentations[name='EventDiagram']/@defaultLayer/@edgeMappings[name='TalkToPresenter']/@style"/>
       </ownedStyle>
       <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/resource/Agendomat/agendomat.design/description/agendomat.odesign#//@ownedViewpoints[name='AgendomatViewpoint']/@ownedRepresentations[name='EventDiagram']/@defaultLayer/@edgeMappings[name='TalkToPresenter']"/>
+      <target xmi:type="agendomat_1.0:Talk" href="test.xmi#//@events.0/@programItems.0/@talks.1"/>
     </ownedDiagramElements>
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_607GI2AEEfGUe9jZQFsDDA" sourceNode="_60iro2AEEfGUe9jZQFsDDA" targetNode="_60oLM2AEEfGUe9jZQFsDDA">
-      <target xmi:type="agendomat:Talk" href="test.xmi#//@events.0/@programItems.2/@talks.0"/>
       <ownedStyle xmi:type="diagram:EdgeStyle" uid="_607GJGAEEfGUe9jZQFsDDA" strokeColor="0,0,0">
         <description xmi:type="style:EdgeStyleDescription" href="platform:/resource/Agendomat/agendomat.design/description/agendomat.odesign#//@ownedViewpoints[name='AgendomatViewpoint']/@ownedRepresentations[name='EventDiagram']/@defaultLayer/@edgeMappings[name='TalkToPresenter']/@style"/>
       </ownedStyle>
       <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/resource/Agendomat/agendomat.design/description/agendomat.odesign#//@ownedViewpoints[name='AgendomatViewpoint']/@ownedRepresentations[name='EventDiagram']/@defaultLayer/@edgeMappings[name='TalkToPresenter']"/>
+      <target xmi:type="agendomat_1.0:Talk" href="test.xmi#//@events.0/@programItems.2/@talks.0"/>
     </ownedDiagramElements>
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_607GJmAEEfGUe9jZQFsDDA" sourceNode="_60jSsmAEEfGUe9jZQFsDDA" targetNode="_60nkIGAEEfGUe9jZQFsDDA">
-      <target xmi:type="agendomat:Talk" href="test.xmi#//@events.0/@programItems.2/@talks.1"/>
       <ownedStyle xmi:type="diagram:EdgeStyle" uid="_607GJ2AEEfGUe9jZQFsDDA" strokeColor="0,0,0">
         <description xmi:type="style:EdgeStyleDescription" href="platform:/resource/Agendomat/agendomat.design/description/agendomat.odesign#//@ownedViewpoints[name='AgendomatViewpoint']/@ownedRepresentations[name='EventDiagram']/@defaultLayer/@edgeMappings[name='TalkToPresenter']/@style"/>
       </ownedStyle>
       <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/resource/Agendomat/agendomat.design/description/agendomat.odesign#//@ownedViewpoints[name='AgendomatViewpoint']/@ownedRepresentations[name='EventDiagram']/@defaultLayer/@edgeMappings[name='TalkToPresenter']"/>
+      <target xmi:type="agendomat_1.0:Talk" href="test.xmi#//@events.0/@programItems.2/@talks.1"/>
     </ownedDiagramElements>
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_607tMGAEEfGUe9jZQFsDDA" sourceNode="_60jSsmAEEfGUe9jZQFsDDA" targetNode="_60oLMGAEEfGUe9jZQFsDDA">
-      <target xmi:type="agendomat:Talk" href="test.xmi#//@events.0/@programItems.2/@talks.1"/>
       <ownedStyle xmi:type="diagram:EdgeStyle" uid="_607tMWAEEfGUe9jZQFsDDA" strokeColor="0,0,0">
         <description xmi:type="style:EdgeStyleDescription" href="platform:/resource/Agendomat/agendomat.design/description/agendomat.odesign#//@ownedViewpoints[name='AgendomatViewpoint']/@ownedRepresentations[name='EventDiagram']/@defaultLayer/@edgeMappings[name='TalkToPresenter']/@style"/>
       </ownedStyle>
       <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/resource/Agendomat/agendomat.design/description/agendomat.odesign#//@ownedViewpoints[name='AgendomatViewpoint']/@ownedRepresentations[name='EventDiagram']/@defaultLayer/@edgeMappings[name='TalkToPresenter']"/>
+      <target xmi:type="agendomat_1.0:Talk" href="test.xmi#//@events.0/@programItems.2/@talks.1"/>
     </ownedDiagramElements>
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_607tM2AEEfGUe9jZQFsDDA" sourceNode="_60jStWAEEfGUe9jZQFsDDA" targetNode="_60oLMGAEEfGUe9jZQFsDDA">
-      <target xmi:type="agendomat:Talk" href="test.xmi#//@events.0/@programItems.4/@talks.0"/>
       <ownedStyle xmi:type="diagram:EdgeStyle" uid="_607tNGAEEfGUe9jZQFsDDA" strokeColor="0,0,0">
         <description xmi:type="style:EdgeStyleDescription" href="platform:/resource/Agendomat/agendomat.design/description/agendomat.odesign#//@ownedViewpoints[name='AgendomatViewpoint']/@ownedRepresentations[name='EventDiagram']/@defaultLayer/@edgeMappings[name='TalkToPresenter']/@style"/>
       </ownedStyle>
       <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/resource/Agendomat/agendomat.design/description/agendomat.odesign#//@ownedViewpoints[name='AgendomatViewpoint']/@ownedRepresentations[name='EventDiagram']/@defaultLayer/@edgeMappings[name='TalkToPresenter']"/>
+      <target xmi:type="agendomat_1.0:Talk" href="test.xmi#//@events.0/@programItems.4/@talks.0"/>
     </ownedDiagramElements>
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_607tNmAEEfGUe9jZQFsDDA" sourceNode="_60j5wWAEEfGUe9jZQFsDDA" targetNode="_60oLM2AEEfGUe9jZQFsDDA">
-      <target xmi:type="agendomat:Talk" href="test.xmi#//@events.0/@programItems.4/@talks.1"/>
       <ownedStyle xmi:type="diagram:EdgeStyle" uid="_607tN2AEEfGUe9jZQFsDDA" strokeColor="0,0,0">
         <description xmi:type="style:EdgeStyleDescription" href="platform:/resource/Agendomat/agendomat.design/description/agendomat.odesign#//@ownedViewpoints[name='AgendomatViewpoint']/@ownedRepresentations[name='EventDiagram']/@defaultLayer/@edgeMappings[name='TalkToPresenter']/@style"/>
       </ownedStyle>
       <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/resource/Agendomat/agendomat.design/description/agendomat.odesign#//@ownedViewpoints[name='AgendomatViewpoint']/@ownedRepresentations[name='EventDiagram']/@defaultLayer/@edgeMappings[name='TalkToPresenter']"/>
+      <target xmi:type="agendomat_1.0:Talk" href="test.xmi#//@events.0/@programItems.4/@talks.1"/>
     </ownedDiagramElements>
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_608UQGAEEfGUe9jZQFsDDA" sourceNode="_60r1lGAEEfGUe9jZQFsDDA" targetNode="_60wHAWAEEfGUe9jZQFsDDA">
-      <target xmi:type="agendomat:Talk" href="test.xmi#//@events.1/@programItems.0/@talks.0"/>
       <ownedStyle xmi:type="diagram:EdgeStyle" uid="_608UQWAEEfGUe9jZQFsDDA" strokeColor="0,0,0">
         <description xmi:type="style:EdgeStyleDescription" href="platform:/resource/Agendomat/agendomat.design/description/agendomat.odesign#//@ownedViewpoints[name='AgendomatViewpoint']/@ownedRepresentations[name='EventDiagram']/@defaultLayer/@edgeMappings[name='TalkToPresenter']/@style"/>
       </ownedStyle>
       <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/resource/Agendomat/agendomat.design/description/agendomat.odesign#//@ownedViewpoints[name='AgendomatViewpoint']/@ownedRepresentations[name='EventDiagram']/@defaultLayer/@edgeMappings[name='TalkToPresenter']"/>
+      <target xmi:type="agendomat_1.0:Talk" href="test.xmi#//@events.1/@programItems.0/@talks.0"/>
     </ownedDiagramElements>
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_608UQ2AEEfGUe9jZQFsDDA" sourceNode="_60tDsWAEEfGUe9jZQFsDDA" targetNode="_60xVIGAEEfGUe9jZQFsDDA">
-      <target xmi:type="agendomat:Talk" href="test.xmi#//@events.1/@programItems.2/@talks.0"/>
       <ownedStyle xmi:type="diagram:EdgeStyle" uid="_608URGAEEfGUe9jZQFsDDA" strokeColor="0,0,0">
         <description xmi:type="style:EdgeStyleDescription" href="platform:/resource/Agendomat/agendomat.design/description/agendomat.odesign#//@ownedViewpoints[name='AgendomatViewpoint']/@ownedRepresentations[name='EventDiagram']/@defaultLayer/@edgeMappings[name='TalkToPresenter']/@style"/>
       </ownedStyle>
       <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/resource/Agendomat/agendomat.design/description/agendomat.odesign#//@ownedViewpoints[name='AgendomatViewpoint']/@ownedRepresentations[name='EventDiagram']/@defaultLayer/@edgeMappings[name='TalkToPresenter']"/>
+      <target xmi:type="agendomat_1.0:Talk" href="test.xmi#//@events.1/@programItems.2/@talks.0"/>
     </ownedDiagramElements>
     <description xmi:type="description_1:DiagramDescription" href="platform:/resource/Agendomat/agendomat.design/description/agendomat.odesign#//@ownedViewpoints[name='AgendomatViewpoint']/@ownedRepresentations[name='EventDiagram']"/>
     <filterVariableHistory xmi:type="diagram:FilterVariableHistory" uid="_60S0AGAEEfGUe9jZQFsDDA"/>
     <activatedLayers xmi:type="description_1:Layer" href="platform:/resource/Agendomat/agendomat.design/description/agendomat.odesign#//@ownedViewpoints[name='AgendomatViewpoint']/@ownedRepresentations[name='EventDiagram']/@defaultLayer"/>
-    <target xmi:type="agendomat:Agenda" href="test.xmi#/"/>
+    <target xmi:type="agendomat_1.0:Agenda" href="test.xmi#/"/>
   </diagram:DSemanticDiagram>
 </xmi:XMI>

@@ -62,7 +62,7 @@ public class AgendomatTables extends AbstractTables
 	/**
 	 *	Constants used by auto-generated code.
 	 */
-	public static final /*@NonInvalid*/ NsURIPackageId PACKid_http_c_s_s_agendomat_s_1_0 = IdManager.getNsURIPackageId("http://agendomat/1.0", null, AgendomatPackage.eINSTANCE);
+	public static final /*@NonInvalid*/ NsURIPackageId PACKid_http_c_s_s_agendomat_s_1_0 = IdManager.getNsURIPackageId("http://agendomat/1.0", "agendomat", AgendomatPackage.eINSTANCE);
 	public static final /*@NonInvalid*/ ClassId CLSSid_Agenda = AgendomatTables.PACKid_http_c_s_s_agendomat_s_1_0.getClassId("Agenda", 0);
 	public static final /*@NonInvalid*/ ClassId CLSSid_Break = AgendomatTables.PACKid_http_c_s_s_agendomat_s_1_0.getClassId("Break", 0);
 	public static final /*@NonInvalid*/ ClassId CLSSid_Event = AgendomatTables.PACKid_http_c_s_s_agendomat_s_1_0.getClassId("Event", 0);

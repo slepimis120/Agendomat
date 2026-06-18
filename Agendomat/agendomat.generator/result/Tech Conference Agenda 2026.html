@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+  <meta charset="UTF-8"/>
+  <title>Tech Conference Agenda 2026</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Segoe UI', Arial, sans-serif; background: #f0f2f5; color: #222; }
+    .header { background: #1a237e; color: white; padding: 32px 40px; }
+    .header h1 { font-size: 2em; margin-bottom: 6px; }
+    .header p { opacity: 0.85; font-size: 1em; }
+    .container { max-width: 1100px; margin: 32px auto; padding: 0 20px; }
+    .event-card { background: white; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.10); margin-bottom: 40px; overflow: hidden; }
+    .event-header { background: #283593; color: white; padding: 20px 28px; }
+    .event-header h2 { font-size: 1.4em; }
+    .event-header .meta { font-size: 0.9em; opacity: 0.85; margin-top: 4px; }
+    .event-body { padding: 24px 28px; }
+    .desc { color: #555; margin-bottom: 18px; font-style: italic; }
+    .section-title { font-size: 1em; font-weight: bold; color: #1a237e; margin: 18px 0 8px 0; text-transform: uppercase; letter-spacing: 1px; }
+    table { width: 100%; border-collapse: collapse; margin-bottom: 10px; }
+    th { background: #1a237e; color: white; padding: 10px 12px; text-align: left; font-size: 0.92em; }
+    td { padding: 9px 12px; border-bottom: 1px solid #e8eaf6; vertical-align: top; font-size: 0.93em; }
+    tr:last-child td { border-bottom: none; }
+    .row-session { background: #e3f2fd; }
+    .row-session:hover { background: #bbdefb; }
+    .row-break { background: #fff3e0; }
+    .row-break:hover { background: #ffe0b2; }
+    .badge { display: inline-block; padding: 2px 8px; border-radius: 12px; font-size: 0.82em; font-weight: bold; }
+    .badge-session { background: #1565c0; color: white; }
+    .badge-break { background: #e65100; color: white; }
+    .talk-list { list-style: none; padding: 0; }
+    .talk-list li { padding: 3px 0; border-bottom: 1px solid #e0e0e0; font-size: 0.9em; }
+    .talk-list li:last-child { border-bottom: none; }
+    .talk-time { color: #888; font-size: 0.85em; }
+    .presenter-tag { display: inline-block; background: #e8eaf6; color: #283593; border-radius: 4px; padding: 1px 7px; margin: 1px; font-size: 0.82em; }
+    .persons-section { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 6px; }
+    .person-card { background: #f5f5f5; border: 1px solid #e0e0e0; border-radius: 8px; padding: 8px 14px; font-size: 0.88em; min-width: 160px; }
+    .person-card .name { font-weight: bold; color: #1a237e; }
+    .person-card .role { color: #888; font-size: 0.82em; }
+    .person-card .org { color: #555; font-size: 0.82em; }
+    .equipment-list { font-size: 0.85em; color: #555; }
+    .equipment-tag { display: inline-block; background: #f3e5f5; color: #6a1b9a; border-radius: 4px; padding: 1px 7px; margin: 1px; font-size: 0.82em; }
+    .location-tag { font-size: 0.88em; color: #333; }
+    .location-room { color: #1565c0; }
+    .location-break { color: #e65100; }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <h1>Tech Conference Agenda 2026</h1>
+  </div>
+  <div class="container">
+    <div class="event-card">
+      <div class="event-header">
+        <h2>Konferencija 2026</h2>
+        <div class="meta">2026-05-14 — 2026-05-16</div>
+        <div class="meta">Godišnja tehnička konferencija sa radionicama i predavanjima.</div>
+      </div>
+      <div class="event-body">
+
+        <div class="section-title">Program</div>
+        <table>
+          <tr>
+            <th>Vreme</th>
+            <th>Tip</th>
+            <th>Naziv</th>
+            <th>Lokacija</th>
+            <th>Detalji</th>
+          </tr>
+          <tr class="row-session">
+            <td>09:00 — 10:30</td>
+            <td><span class="badge badge-session">Sesija</span></td>
+            <td><strong>Uvodno predavanje</strong></td>
+            <td><span class="location-tag location-room">Amfiteatar A</span></td>
+            <td>
+              <ul class="talk-list">
+                <li>
+                  <span class="talk-time">09:00-09:45</span>
+                  <strong>Uvod u domensko modelovanje</strong>
+                  <span class="presenter-tag">Marko Milojević</span>
+                </li>
+                <li>
+                  <span class="talk-time">09:45-10:30</span>
+                  <strong>Primena DSL-ova u industriji</strong>
+                  <span class="presenter-tag">Jelena Jelić</span>
+                </li>
+                <li>
+                  <span class="talk-time">09:00-09:45</span>
+                  <strong>New Talk</strong>
+                </li>
+              </ul>
+              <div style="margin-top:4px;font-size:0.83em;color:#555;">
+                TechSupport: <span class="presenter-tag">Tehničar 1</span>
+              </div>
+              <div style="margin-top:4px;">
+                <span class="equipment-tag">Projektor (AV)</span><span class="equipment-tag">Laptop (Computing)</span><span class="equipment-tag">Mikrofon (Audio)</span>
+              </div>
+            </td>
+          </tr>
+          <tr class="row-break">
+            <td>10:30 — 11:00</td>
+            <td><span class="badge badge-break">Pauza</span></td>
+            <td><strong>Coffee Break</strong></td>
+            <td><span class="location-tag location-break">Hol 1</span></td>
+            <td>
+              Animatori: <span class="presenter-tag">Animator 1</span>
+            </td>
+          </tr>
+          <tr class="row-session">
+            <td>11:00 — 12:30</td>
+            <td><span class="badge badge-session">Sesija</span></td>
+            <td><strong>Napredne tehnike modelovanja</strong></td>
+            <td><span class="location-tag location-room">Sala B</span></td>
+            <td>
+              <ul class="talk-list">
+                <li>
+                  <span class="talk-time">11:00-11:45</span>
+                  <strong>OCL i ograničenja modela</strong>
+                  <span class="presenter-tag">Ana Petrović</span>
+                </li>
+                <li>
+                  <span class="talk-time">11:45-12:30</span>
+                  <strong>Xtext gramatike u praksi</strong>
+                  <span class="presenter-tag">Marko Milojević</span><span class="presenter-tag">Jelena Jelić</span>
+                </li>
+              </ul>
+              <div style="margin-top:4px;font-size:0.83em;color:#555;">
+                TechSupport: <span class="presenter-tag">Tehničar 2</span>
+              </div>
+              <div style="margin-top:4px;">
+                <span class="equipment-tag">Laptop (Computing)</span><span class="equipment-tag">Kliktač (Presentation)</span>
+              </div>
+            </td>
+          </tr>
+          <tr class="row-break">
+            <td>12:30 — 13:30</td>
+            <td><span class="badge badge-break">Pauza</span></td>
+            <td><strong>Pauza za ručak</strong></td>
+            <td><span class="location-tag location-break">Terasa</span></td>
+            <td>
+              Animatori: <span class="presenter-tag">Animator 1</span>
+            </td>
+          </tr>
+          <tr class="row-session">
+            <td>13:30 — 15:00</td>
+            <td><span class="badge badge-session">Sesija</span></td>
+            <td><strong>Session: Radionica: Sirius dijagrami
+            13:30 - 15:01</strong></td>
+            <td><span class="location-tag location-room">Sala C</span></td>
+            <td>
+              <ul class="talk-list">
+                <li>
+                  <span class="talk-time">13:30-14:15</span>
+                  <strong>Kreiranje grafičke sintakse</strong>
+                  <span class="presenter-tag">Jelena Jelić</span>
+                </li>
+                <li>
+                  <span class="talk-time">14:15-15:00</span>
+                  <strong>Napredni Sirius koncepti</strong>
+                  <span class="presenter-tag">Ana Petrović</span>
+                </li>
+                <li>
+                  <span class="talk-time">09:00-09:45</span>
+                  <strong>New Talk</strong>
+                </li>
+              </ul>
+              <div style="margin-top:4px;font-size:0.83em;color:#555;">
+                TechSupport: <span class="presenter-tag">Tehničar 1</span>
+              </div>
+              <div style="margin-top:4px;">
+                <span class="equipment-tag">Projektor (AV)</span><span class="equipment-tag">Mikrofon (Audio)</span><span class="equipment-tag">Zvučnici (Audio)</span>
+              </div>
+            </td>
+          </tr>
+          <tr class="row-break">
+            <td>15:00 — 15:15</td>
+            <td><span class="badge badge-break">Pauza</span></td>
+            <td><strong>Break: Završna pauza
+            15:00 - 15:16</strong></td>
+            <td><span class="location-tag location-break">Hol 1</span></td>
+            <td>
+              Animatori: <span class="presenter-tag">Animator 1</span>
+            </td>
+          </tr>
+        </table>
+
+        <div class="section-title">Učesnici</div>
+        <div class="persons-section">
+          <div class="person-card">
+            <div class="name">Marko Milojević</div>
+            <div class="role">Presenter </div>
+            <div class="org">FTN</div>
+            <div class="org">marko@example.com</div>
+          </div>
+          <div class="person-card">
+            <div class="name">Jelena Jelić</div>
+            <div class="role">Presenter </div>
+            <div class="org">UNS</div>
+            <div class="org">jelena@example.com</div>
+          </div>
+          <div class="person-card">
+            <div class="name">Ana Petrović</div>
+            <div class="role">Presenter </div>
+            <div class="org">ETF</div>
+            <div class="org">ana@example.com</div>
+          </div>
+          <div class="person-card">
+            <div class="name">Tehničar 1</div>
+            <div class="role">TechSupport </div>
+            <div class="org">AV Tim</div>
+            <div class="org">tech1@example.com</div>
+          </div>
+          <div class="person-card">
+            <div class="name">Tehničar 2</div>
+            <div class="role">TechSupport </div>
+            <div class="org">AV Tim</div>
+            <div class="org">tech2@example.com</div>
+          </div>
+          <div class="person-card">
+            <div class="name">Animator 1</div>
+            <div class="role">Animator </div>
+            <div class="org">Organizacija</div>
+            <div class="org">anim1@example.com</div>
+          </div>
+        </div>
+
+        <div class="section-title">Lokacije</div>
+        <div class="persons-section">
+          <div class="person-card">
+            <div class="name">Amfiteatar A</div>
+            <div class="role">Room</div>
+          </div>
+          <div class="person-card">
+            <div class="name">Sala B</div>
+            <div class="role">Room</div>
+          </div>
+          <div class="person-card">
+            <div class="name">Sala C</div>
+            <div class="role">Room</div>
+          </div>
+          <div class="person-card">
+            <div class="name">Hol 1</div>
+            <div class="role">BreakArea</div>
+          </div>
+          <div class="person-card">
+            <div class="name">Terasa</div>
+            <div class="role">BreakArea</div>
+          </div>
+          <div class="person-card">
+            <div class="name">New Location</div>
+            <div class="role">Room</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+    <div class="event-card">
+      <div class="event-header">
+        <h2>Workshop 2026</h2>
+        <div class="meta">2026-05-17 — 2026-05-17</div>
+        <div class="meta">Jednodnevni praktični workshop za studente.</div>
+      </div>
+      <div class="event-body">
+
+        <div class="section-title">Program</div>
+        <table>
+          <tr>
+            <th>Vreme</th>
+            <th>Tip</th>
+            <th>Naziv</th>
+            <th>Lokacija</th>
+            <th>Detalji</th>
+          </tr>
+          <tr class="row-session">
+            <td>09:00 — 10:30</td>
+            <td><span class="badge badge-session">Sesija</span></td>
+            <td><strong>EMF osnove</strong></td>
+            <td><span class="location-tag location-room">Lab 1</span></td>
+            <td>
+              <ul class="talk-list">
+                <li>
+                  <span class="talk-time">09:00-10:30</span>
+                  <strong>Ecore metamodelovanje</strong>
+                  <span class="presenter-tag">Prof. Vještica</span>
+                </li>
+              </ul>
+              <div style="margin-top:4px;font-size:0.83em;color:#555;">
+                TechSupport: <span class="presenter-tag">Asistent 1</span>
+              </div>
+              <div style="margin-top:4px;">
+                <span class="equipment-tag">Projektor (AV)</span>
+              </div>
+            </td>
+          </tr>
+          <tr class="row-break">
+            <td>10:30 — 10:45</td>
+            <td><span class="badge badge-break">Pauza</span></td>
+            <td><strong>Kratka pauza</strong></td>
+            <td><span class="location-tag location-break">Hodnik</span></td>
+            <td>
+              Animatori: <span class="presenter-tag">Koordinator</span>
+            </td>
+          </tr>
+          <tr class="row-session">
+            <td>10:45 — 12:15</td>
+            <td><span class="badge badge-session">Sesija</span></td>
+            <td><strong>Xtext i Sirius</strong></td>
+            <td><span class="location-tag location-room">Lab 2</span></td>
+            <td>
+              <ul class="talk-list">
+                <li>
+                  <span class="talk-time">10:45-12:15</span>
+                  <strong>DSL razvoj korak po korak</strong>
+                  <span class="presenter-tag">Prof. Čeliković</span>
+                </li>
+              </ul>
+              <div style="margin-top:4px;font-size:0.83em;color:#555;">
+                TechSupport: <span class="presenter-tag">Asistent 1</span>
+              </div>
+              <div style="margin-top:4px;">
+                <span class="equipment-tag">Laptop (Computing)</span><span class="equipment-tag">Projektor (AV)</span>
+              </div>
+            </td>
+          </tr>
+        </table>
+
+        <div class="section-title">Učesnici</div>
+        <div class="persons-section">
+          <div class="person-card">
+            <div class="name">Prof. Vještica</div>
+            <div class="role">Presenter </div>
+            <div class="org">FTN</div>
+            <div class="org">vjestica@ftn.rs</div>
+          </div>
+          <div class="person-card">
+            <div class="name">Prof. Čeliković</div>
+            <div class="role">Presenter </div>
+            <div class="org">FTN</div>
+            <div class="org">celikovic@ftn.rs</div>
+          </div>
+          <div class="person-card">
+            <div class="name">Asistent 1</div>
+            <div class="role">TechSupport </div>
+            <div class="org">FTN</div>
+            <div class="org">asistent1@ftn.rs</div>
+          </div>
+          <div class="person-card">
+            <div class="name">Koordinator</div>
+            <div class="role">Animator </div>
+            <div class="org">FTN</div>
+            <div class="org">koord@ftn.rs</div>
+          </div>
+        </div>
+
+        <div class="section-title">Lokacije</div>
+        <div class="persons-section">
+          <div class="person-card">
+            <div class="name">Lab 1</div>
+            <div class="role">Room</div>
+          </div>
+          <div class="person-card">
+            <div class="name">Lab 2</div>
+            <div class="role">Room</div>
+          </div>
+          <div class="person-card">
+            <div class="name">Hodnik</div>
+            <div class="role">BreakArea</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</body>
+</html>

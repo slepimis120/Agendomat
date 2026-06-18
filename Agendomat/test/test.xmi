@@ -19,7 +19,6 @@
     <persons personName="Animator 1" email="anim1@example.com" organization="Organizacija">
       <roles>Animator</roles>
     </persons>
-    <persons personName="New Person"/>
     <programItems xsi:type="agendomat:Session" startTime="09:00" endTime="10:30" location="//@events.0/@locations.0" sessionName="Uvodno predavanje" techSupport="//@events.0/@persons.3">
       <talks talkName="Uvod u domensko modelovanje" talkStartTime="09:00" talkEndTime="09:45" presenters="//@events.0/@persons.0"/>
       <talks talkName="Primena DSL-ova u industriji" talkStartTime="09:45" talkEndTime="10:30" presenters="//@events.0/@persons.1"/>
