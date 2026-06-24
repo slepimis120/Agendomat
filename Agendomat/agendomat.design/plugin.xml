@@ -7,4 +7,10 @@
 	       name="agendomat">
     </component>
   </extension>
+  <extension point="org.eclipse.sirius.externalJavaAction">
+   <javaActions
+         id="agendomat.design.TestAction"
+         actionClass="agendomat.design.TestAction">
+   </javaActions>
+</extension>
 </plugin>

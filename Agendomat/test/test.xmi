@@ -4,7 +4,7 @@
     <persons personName="Marko Milojević" email="marko@example.com" organization="FTN">
       <roles>Presenter</roles>
     </persons>
-    <persons personName="Jelena Jelić" email="jelena@example.com" organization="UNS">
+    <persons personName="Ana Rađenović" email="jelena@example.com" organization="UNS">
       <roles>Presenter</roles>
     </persons>
     <persons personName="Ana Petrović" email="ana@example.com" organization="ETF">
@@ -35,7 +35,7 @@
       <equipment equipmentName="Kliktač" equipmentType="Presentation"/>
     </programItems>
     <programItems xsi:type="agendomat:Break" startTime="12:30" endTime="13:30" location="//@events.0/@locations.4" breakName="Pauza za ručak" animators="//@events.0/@persons.5"/>
-    <programItems xsi:type="agendomat:Session" startTime="13:30" endTime="15:00" location="//@events.0/@locations.2" sessionName="Session: Radionica: Sirius dijagrami&#xD;&#xA;13:30 - 15:01" techSupport="//@events.0/@persons.3">
+    <programItems xsi:type="agendomat:Session" startTime="13:30" endTime="15:00" location="//@events.0/@locations.2" sessionName="Sirius dijagrami&#xD;&#xA;" techSupport="//@events.0/@persons.3">
       <talks talkName="Kreiranje grafičke sintakse" talkStartTime="13:30" talkEndTime="14:15" presenters="//@events.0/@persons.1"/>
       <talks talkName="Napredni Sirius koncepti" talkStartTime="14:15" talkEndTime="15:00" presenters="//@events.0/@persons.2"/>
       <talks talkName="New Talk" talkStartTime="09:00" talkEndTime="09:45"/>
@@ -44,6 +44,11 @@
       <equipment equipmentName="Zvučnici" equipmentType="Audio"/>
     </programItems>
     <programItems xsi:type="agendomat:Break" startTime="15:00" endTime="15:15" location="//@events.0/@locations.3" breakName="Break: Završna pauza&#xD;&#xA;15:00 - 15:16" animators="//@events.0/@persons.5"/>
+    <programItems xsi:type="agendomat:Session" startTime="09:00" endTime="10:00" location="//@events.0/@locations.5" sessionName="New Session">
+      <talks talkName="New Talk" talkStartTime="09:00" talkEndTime="09:45" presenters="//@events.0/@persons.0"/>
+      <talks talkName="New Talk" talkStartTime="09:00" talkEndTime="09:45" presenters="//@events.0/@persons.0"/>
+    </programItems>
+    <programItems xsi:type="agendomat:Break" startTime="10:00" endTime="10:30" location="//@events.0/@locations.4" breakName="New Break"/>
     <locations locationName="Amfiteatar A"/>
     <locations locationName="Sala B"/>
     <locations locationName="Sala C"/>

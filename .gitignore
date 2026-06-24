@@ -5,7 +5,7 @@ bin/
 *.jar
 *.zip
 .classpath
-.project
 .settings/
 xtend-gen/
 bin/
+runtime-EclipseApplication/

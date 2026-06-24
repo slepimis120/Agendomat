@@ -70,7 +70,7 @@
     </eAnnotations>
     <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
       <details key="endTimeAfterStartTime" value="&#xA;    &#x9;&#x9;talkEndTime > talkStartTime"/>
-      <details key="presentersMustBePresenter" value="&#xA;    &#x9;&#x9;presenters->forAll(p | p.roles->includes(Role::Presenter))"/>
+      <details key="presentersMustBePresenter" value="presenters->forAll(p | p.roles->exists(r | r = Role::Presenter))"/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="talkName" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -88,7 +88,7 @@
     <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
       <details key="breakLocationMustBeBreakArea" value="&#xA;    &#x9;&#x9;location.locationType = LocationType::BreakArea"/>
       <details key="endTimeAfterStartTime" value="&#xA;    &#x9;&#x9;endTime > startTime"/>
-      <details key="animatorsMustHaveRole" value="&#xA;    &#x9;&#x9;animators->forAll(p | p.roles->includes(Role::Animator))"/>
+      <details key="animatorsMustHaveRole" value="animators->forAll(p | p.roles->exists(r | r = Role::Animator))"/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="breakName" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>

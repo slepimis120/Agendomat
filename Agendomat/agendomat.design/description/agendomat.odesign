@@ -106,15 +106,38 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:NodeCreationDescription" name="Create Person" label="Person" precondition="aql:container.eClass().name = 'Event'" nodeMappings="//@ownedViewpoints[name='AgendomatViewpoint']/@ownedRepresentations[name='EventDiagram']/@defaultLayer/@containerMappings[name='EventContainer']/@subNodeMappings[name='PersonNode']">
-            <variable name="container"/>
-            <viewVariable name="containerView"/>
-            <initialOperation>
-              <firstModelOperations xsi:type="tool_1:CreateInstance" typeName="agendomat.Person" referenceName="persons">
-                <subModelOperations xsi:type="tool_1:SetValue" featureName="personName" valueExpression="aql:'New Person'"/>
-              </firstModelOperations>
-            </initialOperation>
-          </ownedTools>
+			<ownedTools xsi:type="tool:NodeCreationDescription" name="Create Presenter" label="Presenter" precondition="aql:container.eClass().name = 'Event'" nodeMappings="//@ownedViewpoints[name='AgendomatViewpoint']/@ownedRepresentations[name='EventDiagram']/@defaultLayer/@containerMappings[name='EventContainer']/@subNodeMappings[name='PersonNode']">
+			  <variable name="container"/>
+			  <viewVariable name="containerView"/>
+			  <initialOperation>
+			    <firstModelOperations xsi:type="tool_1:CreateInstance" typeName="agendomat.Person" referenceName="persons">
+			      <subModelOperations xsi:type="tool_1:SetValue" featureName="personName" valueExpression="aql:'New Presenter'"/>
+			      <subModelOperations xsi:type="tool_1:SetValue" featureName="roles" valueExpression="aql:Sequence{agendomat::Role::Presenter}"/>
+			    </firstModelOperations>
+			  </initialOperation>
+			</ownedTools>
+			
+			<ownedTools xsi:type="tool:NodeCreationDescription" name="Create TechSupport" label="TechSupport" precondition="aql:container.eClass().name = 'Event'" nodeMappings="//@ownedViewpoints[name='AgendomatViewpoint']/@ownedRepresentations[name='EventDiagram']/@defaultLayer/@containerMappings[name='EventContainer']/@subNodeMappings[name='PersonNode']">
+			  <variable name="container"/>
+			  <viewVariable name="containerView"/>
+			  <initialOperation>
+			    <firstModelOperations xsi:type="tool_1:CreateInstance" typeName="agendomat.Person" referenceName="persons">
+			      <subModelOperations xsi:type="tool_1:SetValue" featureName="personName" valueExpression="aql:'New TechSupport'"/>
+			      <subModelOperations xsi:type="tool_1:SetValue" featureName="roles" valueExpression="aql:Sequence{agendomat::Role::TechSupport}"/>
+			    </firstModelOperations>
+			  </initialOperation>
+			</ownedTools>
+			
+			<ownedTools xsi:type="tool:NodeCreationDescription" name="Create Animator" label="Animator" precondition="aql:container.eClass().name = 'Event'" nodeMappings="//@ownedViewpoints[name='AgendomatViewpoint']/@ownedRepresentations[name='EventDiagram']/@defaultLayer/@containerMappings[name='EventContainer']/@subNodeMappings[name='PersonNode']">
+			  <variable name="container"/>
+			  <viewVariable name="containerView"/>
+			  <initialOperation>
+			    <firstModelOperations xsi:type="tool_1:CreateInstance" typeName="agendomat.Person" referenceName="persons">
+			      <subModelOperations xsi:type="tool_1:SetValue" featureName="personName" valueExpression="aql:'New Animator'"/>
+			      <subModelOperations xsi:type="tool_1:SetValue" featureName="roles" valueExpression="aql:Sequence{agendomat::Role::Animator}"/>
+			    </firstModelOperations>
+			  </initialOperation>
+			</ownedTools>
           <ownedTools xsi:type="tool:NodeCreationDescription" name="Create Location" label="Location" precondition="aql:container.eClass().name = 'Event'" nodeMappings="//@ownedViewpoints[name='AgendomatViewpoint']/@ownedRepresentations[name='EventDiagram']/@defaultLayer/@containerMappings[name='EventContainer']/@subNodeMappings[name='LocationNode']">
             <variable name="container"/>
             <viewVariable name="containerView"/>
@@ -172,6 +195,38 @@
               <firstModelOperations xsi:type="tool_1:SetValue" featureName="talkName" valueExpression="aql:arg0"/>
             </initialOperation>
           </ownedTools>
+          <ownedTools xsi:type="tool:EdgeCreationDescription" name="Connect Talk to Presenter" label="Talk → Presenter"
+  edgeMappings="//@ownedViewpoints[name='AgendomatViewpoint']/@ownedRepresentations[name='EventDiagram']/@defaultLayer/@edgeMappings[name='TalkToPresenter']">
+  <sourceVariable name="source"/>
+  <targetVariable name="target"/>
+  <sourceViewVariable name="sourceView"/>
+  <targetViewVariable name="targetView"/>
+  <initialOperation>
+    <firstModelOperations xsi:type="tool_1:SetValue" featureName="presenters" valueExpression="aql:target"/>
+  </initialOperation>
+</ownedTools>
+
+<ownedTools xsi:type="tool:EdgeCreationDescription" name="Connect Session to Location" label="Session → Location"
+  edgeMappings="//@ownedViewpoints[name='AgendomatViewpoint']/@ownedRepresentations[name='EventDiagram']/@defaultLayer/@edgeMappings[name='SessionToLocation']">
+  <sourceVariable name="source"/>
+  <targetVariable name="target"/>
+  <sourceViewVariable name="sourceView"/>
+  <targetViewVariable name="targetView"/>
+  <initialOperation>
+    <firstModelOperations xsi:type="tool_1:SetValue" featureName="location" valueExpression="aql:target"/>
+  </initialOperation>
+</ownedTools>
+
+<ownedTools xsi:type="tool:EdgeCreationDescription" name="Connect Break to Location" label="Break → Location"
+  edgeMappings="//@ownedViewpoints[name='AgendomatViewpoint']/@ownedRepresentations[name='EventDiagram']/@defaultLayer/@edgeMappings[name='BreakToLocation']">
+  <sourceVariable name="source"/>
+  <targetVariable name="target"/>
+  <sourceViewVariable name="sourceView"/>
+  <targetViewVariable name="targetView"/>
+  <initialOperation>
+    <firstModelOperations xsi:type="tool_1:SetValue" featureName="location" valueExpression="aql:target"/>
+  </initialOperation>
+</ownedTools>
           <ownedTools xsi:type="tool:DeleteElementDescription" name="Delete Element">
             <element name="element"/>
             <elementView name="elementView"/>
@@ -180,9 +235,10 @@
               <firstModelOperations xsi:type="tool_1:RemoveElement"/>
             </initialOperation>
           </ownedTools>
-		  <ownedTools xsi:type="tool_1:ExternalJavaAction" name="Generate HTML" label="Generate HTML" id="agendomat.generator.GenerateAction">
-		    <parameters name="agenda" value="aql:self"/>
-		  </ownedTools>
+			<ownedTools xsi:type="tool_1:ExternalJavaAction" name="Generate HTML" label="Generate HTML" 
+			  id="agendomat.generator.GenerateAction">
+			  <parameters name="agenda" value="aql:self"/>
+			</ownedTools>
         </toolSections>
       </defaultLayer>
     </ownedRepresentations>

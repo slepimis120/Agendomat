@@ -3,18 +3,9 @@ package agendomat.generator
 import agendomat.Agenda
 import agendomat.Session
 import agendomat.Break
-import org.eclipse.emf.ecore.resource.Resource
-import org.eclipse.xtext.generator.IFileSystemAccess2
-import org.eclipse.xtext.generator.IGeneratorContext
-import org.eclipse.xtext.generator.AbstractGenerator
 
-class AgendaGenerator extends AbstractGenerator {
-    override void doGenerate(Resource resource, IFileSystemAccess2 fsa, IGeneratorContext context) {
-        for (e : resource.allContents.toIterable.filter(Agenda)) {
-            fsa.generateFile(e.agendaName + ".html", generateHtml(e))
-        }
-    }
-
+class AgendaGenerator {
+	
     def generateHtml(Agenda agenda) '''
 <!DOCTYPE html>
 <html lang="sr">
